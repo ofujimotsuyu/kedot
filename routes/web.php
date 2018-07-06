@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// make:authのコマンドで自動で作られた
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
