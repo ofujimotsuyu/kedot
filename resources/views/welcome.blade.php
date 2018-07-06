@@ -15,7 +15,9 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body class = 'toppage'>
-        @include('layouts.app')
+        @if(Auth::check())
+            @include('layouts.app')
+        @endif
         @yield('cover')
 
         <div class="container">
