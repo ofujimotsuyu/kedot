@@ -16,7 +16,9 @@
     <body>
 
         @include('error_messages')
-        @include('commons.navbar')
+        @if(Auth::check())
+            @include('commons.navbar')
+        @endif
 
         @yield('cover')
 
