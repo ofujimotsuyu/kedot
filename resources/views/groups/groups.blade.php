@@ -4,7 +4,7 @@
 @if(Auth::check())
     <h1>welcome to kedot</h1>
     
+    <a href="{{ route('groups.create') }}">Create</a>
     <a href="{{ route('logout.get') }}">Logout</a>
-    
 @endif
 @endsection

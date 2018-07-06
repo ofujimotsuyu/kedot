@@ -15,6 +15,8 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body>
+        <!--あとで'commons.'をつける-->
+        @include('error_messages')
         @yield('cover')
 
         <div class="container">
