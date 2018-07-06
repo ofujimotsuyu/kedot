@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-@if(Auth::check())
-    <h1>welcome to kedot</h1>
-    
-    <a href="{{ route('groups.create') }}">Create</a>
-    <a href="{{ route('logout.get') }}">Logout</a>
-@endif
+<?php
+$groups = App\Group::all();
+?>
+@foreach($groups as $group)
+    <img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar"/>
+@endforeach    
 @endsection
