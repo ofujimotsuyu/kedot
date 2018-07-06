@@ -233,8 +233,8 @@ header{
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
-            <li class = "nav"><h1 class="logo">kedot</h1></li>
-            <li class = "nav jitsu"><img src ="#" alt="新規目標達成"></li>
+            <li class = "nav"><h1 class="logo"><a href="groups">kedot</a></h1></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.create') }}"><img src ="#" alt="新規目標作成"></a></li>
             <li class = "nav jitsu"><img src ="#" alt="検索"></li>
         </ul>
     </div>
@@ -249,7 +249,7 @@ header{
             <li><a href="#">気になる目標</a></li>
             <li><a href="#">自分の達成度</a></li>
             <li><a href="#">設定</a></li>
-            <li><a href="#">ログアウト</a></li>
+            <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
         </ul>
     </nav>
 </header>
