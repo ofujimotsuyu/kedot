@@ -15,7 +15,7 @@
     </head>
     <body>
 
-        @include('error_messages')
+        @include('commons.error_messages')
         @if(Auth::check())
             @include('commons.navbar')
         @endif
