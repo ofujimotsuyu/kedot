@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body class = 'toppage'>
+        @include('layouts.app')
         @yield('cover')
 
         <div class="container">
@@ -48,4 +49,3 @@
         </div>
     </body>
 </html>
-
