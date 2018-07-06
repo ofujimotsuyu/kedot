@@ -11,8 +11,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/ofuji.js"></script>
-
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
     <body>
@@ -21,10 +19,11 @@
         @yield('cover')
 
         <div class="container">
-          
-            @yield('content')
+            <div class="row">
+                <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+                @yield('content')
+                </div>
+            </div>
         </div>
-
-       
     </body>
 </html>
