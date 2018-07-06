@@ -18,4 +18,25 @@
    
   /* 背景画像が読み込まれる前に表示される背景のカラー */
   background-color: white;
+  
+  height: 100%;
+
+}
+
+.top-button{
+  position: fixed;
+  bottom: 50px;
+}
+
+.login h3{
+  /*h3という箱の横幅を指定*/
+  width: 50%;
+  /*h3の中の文字を右ぞろえにする*/
+  text-align: right;
+  /*h3という箱を右にずらす*/
+  float: right;
+  /*文字の色*/
+  color: white;
+  /*文字サイズ*/
+  font-size: 15px;
 }
