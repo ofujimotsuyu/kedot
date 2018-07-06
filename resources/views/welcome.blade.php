@@ -1,95 +1,51 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>kedot</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
+    <body class = 'toppage'>
+        @yield('cover')
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+                    <!-- 現状groups.groupsにredirectしているけど一応残しておく -->
+                    @if(Auth::check())
+                        <h1>welcome to kedot</h1>
+                        <a href="{{ route('logout.get') }}">Logout</a>
+                        
+                    <!--未ログイン、未サインアップのユーザーには以下を表示-->
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                        <div class='login'>
+                            <h3>
+                                目標。
+                                それは時に高く、困難な壁となる。一人で悩み、挫折することも多いだろう。
+                                しかし、仲間がいればどうだろうか。集まることで人は強くなる。
+                                Keep Doing Together
+                            </h3>
+                    
+                            <div class = 'top-button'>
+                                <!--routeのregister,loginは　web.php内の'Auth:routes'に含まれる-->
+                                <a href="{{ route('register') }}", class="btn btn-default" >SignUp</a><br> 
+                                <a href="{{ route('login')  }}", class="btn btn-default">LogIn</a>
+                            </div>
+                        </div>
+                    @endif
+               
                 </div>
             </div>
         </div>
     </body>
 </html>
+
