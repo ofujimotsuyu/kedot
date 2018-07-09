@@ -18,6 +18,8 @@
         @include('commons.error_messages')
         @if(Auth::check())
             @include('commons.navbar')
+        @else
+            @include('commons.login_navbar')
         @endif
 
         @yield('cover')

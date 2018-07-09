@@ -22,8 +22,13 @@ Auth::routes();
 Route::get('logout','Auth\LoginController@logout')->name('logout.get');
 
 //グループ作成ページに飛ぶ
-Route::group(['middleware' => ['auth']], function () { 
-    Route::get('groups','GroupController@index');
+Route::group(['middleware' => ['auth']], function () {
+    //groupsにアクセスしたときController@indexにとぶ
+    Route::get('groups','GroupController@index')->name('groups.index');
     Route::get('create','GroupController@create')->name('groups.create');
+    //createページから送た
     Route::post('create','GroupController@store')->name('groups.store');
+    
+    Route::resource('users','UserController');
 });
+
