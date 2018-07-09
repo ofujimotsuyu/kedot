@@ -26,7 +26,6 @@ Route::group(['middleware' => ['auth']], function () {
     //groupsにアクセスしたときController@indexにとぶ
     Route::get('groups','GroupController@index')->name('groups.index');
     Route::get('create','GroupController@create')->name('groups.create');
-    //createページから送た
     Route::post('create','GroupController@store')->name('groups.store');
     
     Route::resource('users','UserController');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Group;
+use App\Activity;
 
 class UserController extends Controller
 {
@@ -13,15 +14,15 @@ class UserController extends Controller
         $user = User::find($id);
         // User.phpのsankagroups function()を使ってその人の参加してるグループの情報を持ってくる
         $sankagroups = $user->sankagroups()->get();
-         
+      
+      
+      //show.blade.phpの$userと$groupsに、$userと$sankagroupsをそれぞれ送る
           $data = [
             'user' => $user,
             'groups' => $sankagroups,
         ];
 
-        // $data += $this->counts($user);
-
-        return view('users.show', $data);
+        return view('users.show', $data );
     }
 
 }
