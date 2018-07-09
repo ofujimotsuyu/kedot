@@ -34,4 +34,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('join', 'JoinController@store')->name('group.join');
         Route::delete('quit', 'JoinController@destroy')->name('group.quit');
     });
+    Route::resource('users','UserController');
 });
