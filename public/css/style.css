@@ -56,26 +56,11 @@
 .each_group p{
   width: 105px;
 }
-/*.each_group{*/
-/*  position: relative;*/
-/*  width: 105px;*/
-/*}*/
 
-/*.each_group p{*/
-/*  position: absolute;*/
-/*  color: white;*/
-/*  top: 50%;*/
-/*  left: 50%;*/
-/*  background-color: red;*/
-/*}*/
+.show{
+  text-align: center;
+}
 
-/*.each_group img{*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  bottom: 0;*/
-/*  left: 0;*/
-/*  right: 0;*/
-/*  height: 105px;*/
-/*  margin: 100px;*/
-/*  text-align: center;*/
-/*}*/
+.show img{
+  height: 200px;
+}

@@ -233,8 +233,8 @@ header{
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
-            <li class = "nav"><h1 class="logo"><a href="{{route('groups.index')}}">kedot</a></h1></li>
-            <li class = "nav jitsu"><a href="{{ route('groups.create') }}"><img src ="#" alt="新規目標作成"></a></li>
+            <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}">kedot</a></h1></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><img src ="#" alt="新規目標作成"></a></li>
             <li class = "nav jitsu"><img src ="#" alt="検索"></li>
         </ul>
     </div>
