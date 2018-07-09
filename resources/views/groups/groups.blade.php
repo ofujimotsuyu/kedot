@@ -1,10 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<?php
-$groups = App\Group::all();
-?>
-@foreach($groups as $group)
-    <img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar"/>
-@endforeach    
+    <?php
+    $groups = App\Group::all();
+    ?>
+    <div class = "groups">
+        @foreach($groups as $group)
+        <div class = "each_group">
+            <a href="#"><img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar"/></a>
+            <p>{{ $group->goal }}</p>
+        </div>
+        @endforeach    
+    </div>
 @endsection
