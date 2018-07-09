@@ -10,7 +10,7 @@ use App\Group;
 class GroupController extends Controller
 {
     public function index(){
-        return view('groups.groups');
+         return view('groups.groups');
     }
 
     public function create(){
@@ -35,7 +35,6 @@ class GroupController extends Controller
             'unit' => 'required|max:191',
             'group_filename' => 'required',
         ]);
-        
         //画像のファイル名をいい感じにする
         $filename = $request->group_filename->store('public/group');
         

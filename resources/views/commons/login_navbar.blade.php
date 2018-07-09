@@ -233,23 +233,12 @@ header{
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
-            <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}">kedot</a></h1></li>
-            <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><img src ="#" alt="新規目標作成"></a></li>
-            <li class = "nav jitsu"><img src ="#" alt="検索"></li>
+            <li class = "nav"><h1 class="logo"><a href="groups">kedot</a></h1></li>
+            
+            <li class = "nav jitsu"><a href='/'>戻る</a></li>
+            <li class = "nav jitsu"><a href='{{ route('login') }}'>Login</a></li>
+            <li class = "nav jitsu"><a href='{{ route('register') }}'>SignUp</a></li>
         </ul>
     </div>
-    <label class="menu-btn" for="checked">
-        <img src ="images/logo.png" alt="logo">
-    </label>
-    <label class="close-menu" for="checked"></label>
-    <nav class="drawer-menu">
-        <ul>
-            <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>
-            <li><a href="#">所属グループ一覧</a></li>
-            <li><a href="#">気になる目標</a></li>
-            <li><a href="#">自分の達成度</a></li>
-            <li><a href="#">設定</a></li>
-            <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
-        </ul>
-    </nav>
+    
 </header>
