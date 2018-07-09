@@ -2,7 +2,7 @@
 
 @section('content')
 
-  {!! Form::open(['route' => 'groups.store', 'files' => true]) !!}
+  {!! Form::open(['route' => ['groups.store', $user->id], 'files' => true]) !!}
       <div class="form-group">
           {!! Form::label('goal', 'ゴール', ['class' => 'control-label']) !!}
           {!! Form::textarea('goal', old('goal'), ['class' => 'form-control', 'rows' => '1']) !!}

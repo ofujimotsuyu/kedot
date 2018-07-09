@@ -14,13 +14,19 @@ class GroupController extends Controller
     }
 
     public function create(){
-        return view('groups.create');
+        $user = \Auth::user();
+        
+        return view('groups.create', [
+            'user' => $user,
+            ]);
     }
     
     
     //グループ作成ページで入力した情報をテーブルに保存する
     
     public function store(Request $request){
+        $user = \Auth::user();
+        $id = $user->id;
         $this->validate($request, [
             'goal' => 'required|max:191',
             'to_do' => 'required|max:191',
@@ -42,8 +48,17 @@ class GroupController extends Controller
         $group->group_filename = basename($filename);
         $group->save();
 
-        return redirect('groups');
+        return view('groups.groups' , [
+            'id' => $id,
+        ]);
     }
 
+    public function show($id){
+        $group = Group::find($id);
+        
+        return view('groups.show', [
+            'group' => $group,
+        ]);
+    }
     
 }
