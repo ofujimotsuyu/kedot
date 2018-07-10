@@ -201,6 +201,7 @@ ul {
     z-index: 3;
 }
 .logo{
+    padding-top:6px;
     padding-left:35px;
     margin: 0;
     position: absolute;
@@ -214,6 +215,8 @@ header{
 
 .jitsu{
     float: right;
+    padding-top: 15px;
+    padding-left: 27px
 }
 
 .head{
@@ -224,7 +227,12 @@ header{
 
 .ahaha{
     /*display: inline-block;*/
-    text-align: center
+    text-align: center;
+}
+
+.nav a{
+    color: black;
+    text-decoration: none;
 }
     
     </style>
@@ -234,18 +242,17 @@ header{
     <div class="ahaha">
         <ul class = "head">
             <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}">kedot</a></h1></li>
-            <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><img src ="#" alt="新規目標作成"></a></li>
-            <li class = "nav jitsu"><img src ="#" alt="検索"></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
         </ul>
     </div>
     <label class="menu-btn" for="checked">
-        <img src ="images/logo.png" alt="logo">
+        <span class="glyphicon glyphicon-align-justify" style="font-size:20px"></span>
     </label>
     <label class="close-menu" for="checked"></label>
     <nav class="drawer-menu">
         <ul>
             <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>
-            <li><a href="#">所属グループ一覧</a></li>
             <li><a href="#">気になる目標</a></li>
             <li><a href="#">自分の達成度</a></li>
             <li><a href="#">設定</a></li>

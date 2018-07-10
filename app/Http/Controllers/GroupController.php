@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 use App\User;
 use App\Group;
+use App\Activity;
+
+
+
 
 class GroupController extends Controller
 {
@@ -54,10 +59,55 @@ class GroupController extends Controller
 
     public function show($id){
         $group = Group::find($id);
-        
+       
         return view('groups.show', [
             'group' => $group,
+           
         ]);
+        
     }
     
+    //formに入力して、それをテーブルに保存
+    public function store_activity(Request $request, $id){
+        $group = Group::find($id);
+        $activity = new Activity;
+        
+        
+        $activity->user_id = \Auth::user()->id;
+        $activity->group_id = $group->id;
+        $activity->record = $request->score;
+        $activity->save();
+        
+        return view('groups.show', ['group' => $group]);
+        
+    public function search(Request $request){
+        $goal = $request->search;
+        
+        $query = Group::query();
+
+        if(!empty($goal)){
+            $query->where('goal','like','%'.$goal.'%')->orWhere('to_do','like','%'.$goal.'%');
+        }
+        
+        $groups = $query->paginate(10);
+        
+        return view('groups.search')->with('groups',$groups)->with('goal',$goal);
+    }
+    
+    public function update(Request $request, $id) {
+        $group = Group::find($id);
+        $group->goal = $request->goal;
+        $group->to_do = $request->to_do;
+        $group->term = $request->term;
+        $group->amount = $request->amount;
+        $group->unit = $request->unit;
+        $group->save();
+        return redirect('/');
+    }
+    
+    public function edit($id) {
+        $group = Group::find($id);
+        
+        return view('groups.edit', ['group'=>$group]);
+    }
 }

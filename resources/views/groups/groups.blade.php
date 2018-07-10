@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <?php
-    $groups = App\Group::all();
-    ?>
+    <?php $groups = App\Group::all(); ?>
     <div class = "groups">
         @foreach($groups as $group)
         <div class = "each_group">
