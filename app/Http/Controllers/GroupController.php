@@ -79,6 +79,7 @@ class GroupController extends Controller
         $activity->save();
         
         return view('groups.show', ['group' => $group]);
+    }
         
     public function search(Request $request){
         $goal = $request->search;
