@@ -13,9 +13,23 @@
         </ul>
     </div>
     
+    <!--参加しているグループをforeachで呼び出す-->
     @foreach($groups as $group)
-        {{ $group->goal }}
-        {{ $group->term }}<br>
-    @endforeach　
+        <h2>{{ $group->goal }}</h2>
+        {{ $group->to_do }}
+        {{ $group->term }}
+        {{ $group->amount }}
+        {{ $group->unit }}
+        <br>
+        <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
+        <?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
+           
+            <!--各グループにおいて、一つ一つのrecordカラムのvalueを取り出して表示する-->
+            @foreach($records as $record)
+                {{ $record->record }}        
+            @endforeach
+        <br>
+        
+    @endforeach
     
 @endsection
