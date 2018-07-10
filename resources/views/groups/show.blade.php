@@ -10,5 +10,6 @@
     </h3>
     
     @include('buttons.join_button', ['group' => $group])
+    <a href="{{ route('group.edit', $group->id) }}">編集</a>
 </div>
 @endsection

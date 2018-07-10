@@ -34,6 +34,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'groups/{id}'], function () {
         Route::post('join', 'JoinController@store')->name('group.join');
         Route::delete('quit', 'JoinController@destroy')->name('group.quit');
+        Route::put('update', 'GroupController@update')->name('group.update');
+        Route::get('edit', 'GroupController@edit')->name('group.edit');
     });
     Route::resource('users','UserController');
 });
