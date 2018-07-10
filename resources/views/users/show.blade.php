@@ -1,8 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-    <p><img src="{{ asset('storage/avatar/' . $user->avatar_filename) }}" alt="avatar" /></p>
-    
+    <p><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
     <h1>{{ $user->name }}</h1>
     
     <div>
