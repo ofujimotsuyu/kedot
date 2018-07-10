@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 use App\User;
 use App\Group;
 use App\Activity;
+
+
+
 
 class GroupController extends Controller
 {
@@ -55,16 +59,17 @@ class GroupController extends Controller
 
     public function show($id){
         $group = Group::find($id);
-        
+       
         return view('groups.show', [
             'group' => $group,
+           
         ]);
+        
     }
     
     //formに入力して、それをテーブルに保存
     public function store_activity(Request $request, $id){
         $group = Group::find($id);
-        
         $activity = new Activity;
         
         
@@ -73,10 +78,7 @@ class GroupController extends Controller
         $activity->record = $request->score;
         $activity->save();
         
-        return view('groups.show', ['group'=>$group]);
-        
-        
-        
+        return view('groups.show', ['group' => $group]);
         
     }
 }
