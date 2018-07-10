@@ -68,3 +68,8 @@
 .search_result img{
   width: 200px;
 }
+
+.result{
+  display: inline-block;
+  text-align: center;
+}

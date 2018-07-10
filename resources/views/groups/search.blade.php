@@ -14,8 +14,10 @@
     <!--検索結果を表示-->
     <div class='search_result'>
     @foreach($groups as $group)
-        {{$group->goal}}<br>
-        <a href= "{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar" /></a><br>
+        <div class = 'result'>
+            <a href= "{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar" /></a><br>
+            {{$group->goal}}
+        </div>
     @endforeach
     </div>
     
