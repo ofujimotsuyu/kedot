@@ -1,6 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
+    <p><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
     <div class="user_name"> 
     <h1>{{ $user->name }}</h1>
     </div>
