@@ -14,6 +14,28 @@
 
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
+    @if(Auth::check())
+    <body>
+        @include('commons.navbar')
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+                    <?php
+                    $groups = App\Group::all();
+                    ?>
+                    <div class = "groups">
+                        @foreach($groups as $group)
+                        <div class = "each_group">
+                            <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar"/></a>
+                            <p>{{ $group->goal }}</p>
+                        </div>
+                        @endforeach    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    @else
     <body class = 'toppage'>
         @yield('cover')
 
@@ -21,12 +43,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
                     <!-- 現状groups.groupsにredirectしているけど一応残しておく -->
-                    @if(Auth::check())
-                        <h1>welcome to kedot</h1>
-                        <a href="{{ route('logout.get') }}">Logout</a>
-                        
                     <!--未ログイン、未サインアップのユーザーには以下を表示-->
-                    @else
                         <div class='login'>
                             <h3>
                                 目標。
@@ -41,11 +58,10 @@
                                 <a href="{{ route('login')  }}", class="btn btn-default">LogIn</a>
                             </div>
                         </div>
-                    @endif
-               
                 </div>
             </div>
         </div>
     </body>
+    @endif
 </html>
 
