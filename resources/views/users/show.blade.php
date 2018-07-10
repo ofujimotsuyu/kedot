@@ -1,9 +1,10 @@
 @extends("layouts.app")
 
 @section("content")
-    <p><img src="{{ asset('storage/avatar/' . $user->avatar_filename) }}" alt="avatar" /></p>
-    
+    <p><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
+    <div class="user_name"> 
     <h1>{{ $user->name }}</h1>
+    </div>
     
     <div>
         <ul class="nav nav-tabs nav-justified">
@@ -15,11 +16,9 @@
     
     <!--参加しているグループをforeachで呼び出す-->
     @foreach($groups as $group)
-        <h2>{{ $group->goal }}</h2>
-        {{ $group->to_do }}
-        {{ $group->term }}
-        {{ $group->amount }}
-        {{ $group->unit }}
+        <h2><a href="{{ route('groups.show', [ 'id' => $group->id ]) }}">{{ $group->goal }}</a></h2>
+        {{ "頑張ること : " . $group->to_do }}
+        {{ $group->term . "日間で" . $group->amount . $group->unit }}
         <br>
         <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
         <?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        

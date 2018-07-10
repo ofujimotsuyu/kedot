@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title>kedot</title>
 
@@ -11,18 +11,19 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/media.css') }}">
+
     </head>
+
     @if(Auth::check())
     <body>
         @include('commons.navbar')
+
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
-                    <?php
-                    $groups = App\Group::all();
-                    ?>
+                    <?php $groups = App\Group::all(); ?>
                     <div class = "groups">
                         @foreach($groups as $group)
                         <div class = "each_group">

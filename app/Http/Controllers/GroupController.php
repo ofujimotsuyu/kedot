@@ -80,5 +80,34 @@ class GroupController extends Controller
         
         return view('groups.show', ['group' => $group]);
         
+    public function search(Request $request){
+        $goal = $request->search;
+        
+        $query = Group::query();
+
+        if(!empty($goal)){
+            $query->where('goal','like','%'.$goal.'%')->orWhere('to_do','like','%'.$goal.'%');
+        }
+        
+        $groups = $query->paginate(10);
+        
+        return view('groups.search')->with('groups',$groups)->with('goal',$goal);
+    }
+    
+    public function update(Request $request, $id) {
+        $group = Group::find($id);
+        $group->goal = $request->goal;
+        $group->to_do = $request->to_do;
+        $group->term = $request->term;
+        $group->amount = $request->amount;
+        $group->unit = $request->unit;
+        $group->save();
+        return redirect('/');
+    }
+    
+    public function edit($id) {
+        $group = Group::find($id);
+        
+        return view('groups.edit', ['group'=>$group]);
     }
 }
