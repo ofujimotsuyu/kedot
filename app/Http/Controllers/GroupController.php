@@ -60,4 +60,18 @@ class GroupController extends Controller
         ]);
     }
     
+    public function search(Request $request){
+        $goal = $request->search;
+        
+        $query = Group::query();
+
+        if(!empty($goal)){
+            $query->where('goal','like','%'.$goal.'%')->orWhere('to_do','like','%'.$goal.'%');
+        }
+        
+        $groups = $query->paginate(10);
+        
+        return view('groups.search')->with('groups',$groups)->with('goal',$goal);
+    }
+    
 }

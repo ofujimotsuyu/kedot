@@ -14,15 +14,15 @@
 
         <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
     </head>
+
     @if(Auth::check())
     <body>
         @include('commons.navbar')
+
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
-                    <?php
-                    $groups = App\Group::all();
-                    ?>
+                    <?php $groups = App\Group::all(); ?>
                     <div class = "groups">
                         @foreach($groups as $group)
                         <div class = "each_group">
