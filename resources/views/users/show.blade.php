@@ -1,9 +1,9 @@
 @extends("layouts.app")
 
 @section("content")
-    <p><img src="{{ asset('storage/avatar/' . $user->avatar_filename) }}" alt="avatar" /></p>
-    
+    <div class="user_name"> 
     <h1>{{ $user->name }}</h1>
+    </div>
     
     <div>
         <ul class="nav nav-tabs nav-justified">
