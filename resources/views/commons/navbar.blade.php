@@ -235,7 +235,7 @@ header{
         <ul class = "head">
             <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}">kedot</a></h1></li>
             <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><img src ="#" alt="新規目標作成"></a></li>
-            <li class = "nav jitsu"><img src ="#" alt="検索"></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.search') }}"><img src ="#" alt="検索"></a></li>
         </ul>
     </div>
     <label class="menu-btn" for="checked">
