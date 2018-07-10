@@ -12,6 +12,7 @@
 
           {!! Form::label('term', '期間', ['class' => 'control-label']) !!}
           {!! Form::textarea('term', old('term'), ['class' => 'form-control', 'rows' => '1']) !!}
+          <span class="input-group-addon">日間</span>
 
           {!! Form::label('amount', '目標数値', ['class' => 'control-label']) !!}
           {!! Form::textarea('amount', old('amount'), ['class' => 'form-control', 'rows' => '1']) !!}
