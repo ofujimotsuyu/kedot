@@ -35,6 +35,7 @@ class GroupController extends Controller
         $this->validate($request, [
             'goal' => 'required|max:191',
             'to_do' => 'required|max:191',
+            'category' => 'required|max:191',
             'term' => 'required|integer',
             'amount' => 'required|integer',
             'unit' => 'required|max:191',
@@ -49,6 +50,7 @@ class GroupController extends Controller
         $group->term = $request->term;
         $group->amount = $request->amount;
         $group->unit = $request->unit;
+        $group->category = $request->category;
         $group->group_filename = basename($filename);
         $group->save();
 
