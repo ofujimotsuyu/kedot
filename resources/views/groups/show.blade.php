@@ -31,7 +31,7 @@
         <?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
 
         <?php $members=0 ?>
-        <div lass="box">
+        <div class="box">
             @foreach($users as $user)
                 <?php 
                 $members= $members+1;

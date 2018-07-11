@@ -240,7 +240,7 @@ header{
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
-            <li class = "nav"><h1 class="logo"><a href="/">kedot</a></h1></li>
+            <li class = "nav"><h1 class="logo"><a href="/"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
             
             <li class = "nav jitsu"><a href='/'>戻る</a></li>
             <li class = "nav jitsu"><a href='{{ route('login') }}'>Login</a></li>

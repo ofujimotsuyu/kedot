@@ -108,7 +108,7 @@ input[type= 'submit'] {
 }
 
 .sankashiteru img{
-  width: 100px;
+  width: 80px;
   height: auto;
 }
 
@@ -175,4 +175,17 @@ input[type= 'submit'] {
     margin: 0;
     height: 27.6px;
     font-size: 15.6px;
+}
+
+.box{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  
+}
+
+.box .sankashiteru{
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
 }
