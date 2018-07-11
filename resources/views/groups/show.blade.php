@@ -18,7 +18,7 @@
         {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
             <div class="form-group">
                 {!! Form::label('score', '達成値入力', ['class' => 'control-label']) !!}
-                {!! Form::textarea('score', null, ['class' => 'form-control small-form', 'rows' => '1','placeholder'=>'本日の達成値を入力してください']) !!}
+                {!! Form::textarea('score', null, ['class' => 'form-control', 'rows' => '1','placeholder'=>'本日の達成値を入力してください']) !!}
     
                 {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
             </div>
