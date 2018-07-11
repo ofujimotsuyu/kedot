@@ -1,5 +1,21 @@
 @charset 'utf-8';
 
+p{
+  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
+}
+
+h1{
+  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
+}
+
+h2{
+  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
+}
+
+h3{
+  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
+}
+
   .toppage {
     /* 画像ファイルの指定 */
     background-image: url(../images/top2.jpg);
