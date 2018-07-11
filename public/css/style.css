@@ -103,6 +103,37 @@ input[type= 'submit'] {
   width:50%;
 }
 
+.sankashiteru{
+  display: inline-block;
+}
+
+.sankashiteru img{
+  width: 100px;
+  height: auto;
+}
+
+.sankashiteru h3{
+  margin: 0;
+}
+
+.tasseiform{
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.tasseiform .form-group{
+  display: inline-block;
+  text-align: center;
+}
+
+
+
+.sankashiteru{
+  text-align: center;
+  display: block;
+}
+
 
 .input_button{
   background-color:crimson;
