@@ -9,7 +9,7 @@
         color : black;
         text-decoration: none;
         }
-        a:hover {
+        h2 a:hover {
         color: #fff;
         background-color: #00BCD4;
         text-decoration: none;
