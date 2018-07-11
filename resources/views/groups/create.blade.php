@@ -16,6 +16,11 @@
           <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>ゴール</p></th>
           <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8'>{!! Form::text('goal', old('goal'), ['class' => 'form-control full-form', 'rows' => '1','placeholder' => '例）パーフェクトボディを手に入れる']) !!}</td>
         </tr>
+
+        <tr>
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>カテゴリー</p></th>
+          <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::select('category', [''=>'選択してください','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], ['class' => 'form-control quarter-form', 'rows' => '1']) !!}</td>
+        </tr>
   
         <tr>
           <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>具体的にやること</p></th>
