@@ -9,10 +9,9 @@
         {{ $group->term . "日間で" . $group->amount . $group->unit }}
     </h3>
   
-      <!--参加しているユーザーのページにのみフォームを表示したい-->  
-    
-      <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
-     
+    <!--特定のuser_idとgroup_idを持つrecordの有無で、フォームを表示するかしないか分ける-->
+    <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
+         
     @if(count($records) > 0)
     <div class = "tasseiform">
         <!--formつくってるよ-->
@@ -99,7 +98,7 @@
     
     </table>
 
-          
+
     @include('buttons.join_button', ['group' => $group])
 
     <a href="{{ route('group.edit', $group->id) }}">編集</a>

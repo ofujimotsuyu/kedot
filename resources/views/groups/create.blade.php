@@ -2,29 +2,49 @@
 
 @section('content')
 
-  {!! Form::open(['route' => ['groups.store', $user->id], 'files' => true]) !!}
-      <div class="form-group">
-          {!! Form::label('goal', 'ゴール', ['class' => 'control-label']) !!}
-          {!! Form::textarea('goal', old('goal'), ['class' => 'form-control', 'rows' => '1']) !!}
+<div class="createpage">
+  <h1>グループを作成しよう！</h1>
+</div>
 
-          {!! Form::label('to_do', '具体的にやること', ['class' => 'control-label']) !!}
-          {!! Form::textarea('to_do', old('to_do'), ['class' => 'form-control half-form', 'rows' => '1']) !!}
+<div class="form-group">
+  <table class="table table-bordered">
+    {!! Form::open(['route' => ['groups.store', $user->id], 'files' => true]) !!}
+    <!--第三引数の中に'placeholder' => '○○○○'　を入れることでバックグラウンドにdescription-->
+    <!--classにform-inlineをいれることで、２つのフォームを横並びにしている-->
+    <!--767px以下でform-inlineが効かなくなるのを直す！-->
+        <tr>
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>ゴール</p></th>
+          <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8'>{!! Form::text('goal', old('goal'), ['class' => 'form-control full-form', 'rows' => '1','placeholder' => '例）パーフェクトボディを手に入れる']) !!}</td>
+        </tr>
 
-          {!! Form::label('term', '期間', ['class' => 'control-label']) !!}
-          {!! Form::textarea('term', old('term'), ['class' => 'form-control half-form', 'rows' => '1']) !!}
-          <span class="input-group-addon half-form">日間</span>
+        <tr>
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>カテゴリー</p></th>
+          <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::select('category', [''=>'選択してください','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], ['class' => 'form-control quarter-form', 'rows' => '1']) !!}</td>
+        </tr>
+  
+        <tr>
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>具体的にやること</p></th>
+          <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8'>{!! Form::text('to_do', old('to_do'), ['class' => 'form-control half-form', 'rows' => '1','placeholder' => '例）腹筋']) !!}</td>
+        </tr>
 
-          {!! Form::label('amount', '目標数値', ['class' => 'control-label']) !!}
-          {!! Form::textarea('amount', old('amount'), ['class' => 'form-control half-form', 'rows' => '1']) !!}
+        <tr>
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>期間</p></th>
+          <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('term', old('term'), ['class' => 'form-control quarter-form', 'rows' => '1','placeholder' => '例）20']) !!}日間（半角数字）</td>
+        </tr>
 
-          {!! Form::label('unit', '単位', ['class' => 'control-label']) !!}
-          {!! Form::textarea('unit', old('unit'), ['class' => 'form-control half-form', 'rows' => '1']) !!}
-
-          {!! Form::label('group_filename', 'グループ画像', ['class' => 'control-label']) !!}
-          {!! Form::file('group_filename', old('group_filename')) !!}
-
-          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
-      </div>
+        <tr>
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4 each'><p>目標数値・単位</p></th>
+          <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form', 'rows' => '1','placeholder' => '例）500']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form', 'rows' => '1','placeholder' => '回']) !!}（半角数字）</td>
+        </tr>
+        
+        <tr>
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>イメージ画像</p></th>
+          <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8'>{!! Form::file('group_filename', old('group_filename')) !!}</td>
+        </tr>
+        
+  </table>
+  {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
   {!! Form::close() !!}
+</div>
 
 @endsection
