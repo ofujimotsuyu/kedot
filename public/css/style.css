@@ -90,3 +90,25 @@ input[type= 'submit'] {
 .form-group .half-form{
   width:50%;
 }
+
+.input_button{
+  background-color:crimson;
+  width: 100px !important;　
+  
+}
+
+/*.form-inline{*/
+/*  width: 300px;*/
+/*}*/
+
+.bobobo{
+  color: white;
+}
+
+.gigigi{
+  width:100% !important;
+
+}
+
+
+
