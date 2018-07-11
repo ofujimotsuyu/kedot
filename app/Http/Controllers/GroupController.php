@@ -78,7 +78,7 @@ class GroupController extends Controller
         $activity->record = $request->score;
         $activity->save();
         
-        return view('groups.show', ['group' => $group]);
+        return redirect()->back();
     }
         
     public function search(Request $request){

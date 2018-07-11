@@ -1,20 +1,5 @@
 @charset 'utf-8';
 
-p{
-  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
-}
-
-h1{
-  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
-}
-
-h2{
-  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
-}
-
-h3{
-  font-family: 'Avenir', 'Corbel', 'Osaka', monospace;
-}
 
   .toppage {
     /* 画像ファイルの指定 */
@@ -105,4 +90,35 @@ input[type= 'submit'] {
 
 .form-group .half-form{
   width:50%;
+}
+
+.sankashiteru{
+  display: inline-block;
+}
+
+.sankashiteru img{
+  width: 100px;
+  height: auto;
+}
+
+.sankashiteru h3{
+  margin: 0;
+}
+
+.tasseiform{
+  width: 50%;
+  text-align: center;
+  margin: auto;
+}
+
+.tasseiform .form-group{
+  display: inline-block;
+  text-align: center;
+}
+
+
+
+.sankashiteru{
+  text-align: center;
+  display: block;
 }

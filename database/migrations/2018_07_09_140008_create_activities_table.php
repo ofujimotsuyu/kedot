@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('group_id');
-            $table->integer('record');
+            $table->integer('record')->nullable();
             $table->timestamps();
         });
     }
