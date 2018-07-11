@@ -100,6 +100,29 @@ input[type= 'submit'] {
   width:50%;
 }
 
+
+.input_button{
+  background-color:crimson;
+  width: 100px !important;　
+  
+}
+
+/*.form-inline{*/
+/*  width: 300px;*/
+/*}*/
+
+.bobobo{
+  color: white;
+}
+
+.gigigi{
+  width:100% !important;
+
+}
+
+
+
+
 .form-group .quarter-form{
   width:18%;
 }
@@ -119,3 +142,4 @@ input[type= 'submit'] {
     height: 27.6px;
     font-size: 15.6px;
 }
+
