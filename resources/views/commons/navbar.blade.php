@@ -201,8 +201,8 @@ ul {
     z-index: 3;
 }
 .logo{
-    padding-top:6px;
-    padding-left:35px;
+    padding-top:5px;
+    padding-left:20px;
     margin: 0;
     position: absolute;
     
@@ -210,7 +210,10 @@ ul {
 
 
 header{
-    height: 100px;
+    height: 60px;
+    margin-bottom: 30px;
+    border-bottom-color: black;
+    border-bottom: solid thin;
 }
 
 .jitsu{
@@ -241,7 +244,7 @@ header{
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
-            <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}">kedot</a></h1></li>
+            <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
             <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
             <li class = "nav jitsu"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
         </ul>
