@@ -86,7 +86,7 @@ input[type = 'text'] {
 input[type= 'submit'] {
   width:10%;
 }
-
+ /* フォームの幅を調節 */
 .form-group .half-form{
   width:50%;
 }
