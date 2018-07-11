@@ -9,28 +9,24 @@
         {{ $group->term . "日間で" . $group->amount . $group->unit }}
     </h3>
   
-      <!--参加しているユーザーのページにのみフォームを表示したい-->  
-    
-      <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
-     
+    <!--特定のuser_idとgroup_idを持つrecordの有無で、フォームを表示するかしないか分ける-->
+    <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
+         
     @if(count($records) > 0)
-    
-    <!--formつくってるよ-->
-      {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
-          <div class="form-group">
-              
-              {!! Form::label('score', '数値', ['class' => 'control-label']) !!}
-              {!! Form::textarea('score', null, ['class' => 'form-control', 'rows' => '1']) !!}
-    
-              {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
-          </div>
-      {!! Form::close() !!}
-   
+        {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
+            <div class="form-group">
+                {!! Form::label('score', '数値', ['class' => 'control-label']) !!}
+                {!! Form::textarea('score', null, ['class' => 'form-control', 'rows' => '1']) !!}
+                
+                {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+            </div>
+        {!! Form::close() !!}
     @endif
   
-        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
+    <!--user_groupテーブルにアクセス、該当のグループページのidをgroup_idカラムの値に持つレコードをすべて取り出す-->
+    <?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
 
-         
+         <!--user_id, group_idを指定してすべてのレコードを取り出す作業を、上で定義した$userの一つずつに対して繰り返す-->
     @foreach($users as $user)
         <?php 
         $id = $user->user_id;
@@ -44,11 +40,10 @@
         @foreach($records3 as $record)
             {{ $record->record }}
         @endforeach
-        
         <br>
+        
     @endforeach
 
-          
     @include('buttons.join_button', ['group' => $group])
 
     <a href="{{ route('group.edit', $group->id) }}">編集</a>
