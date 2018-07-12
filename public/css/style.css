@@ -47,20 +47,39 @@ body {
   font-size: 15px;
 }
 
-.groups img{
-  width: 105px;
+
+
+.groups img:hover{
+  width: 150px;
+  filter:brightness(100%);
 }
+
+.groups img{
+  width: 150px;
+  filter:brightness(70%);
+}
+
 
 .groups{
   text-align: center;
 }
 
 .each_group{
+  /*画像を横並びにする*/
   display: inline-block;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin-top: 5px;
 }
 
 .each_group p{
-  width: 105px;
+  color: white;
+  width: 150px;
+  top: 50%;
+  
+  position: absolute;
+  font-weight: bold;
 }
 
 .show{
