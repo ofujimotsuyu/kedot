@@ -58,10 +58,39 @@
                 <br>
             @endforeach
         </div>
+        <?php
+        
+        function day_diff($group) {
+         
+            // 日付をUNIXタイムスタンプに変換
+            $timestamp1 = strtotime("$group->created_at");
+            
+            $timestamp2 =  strtotime("now");
+    
+            // 何秒離れているかを計算
+            $seconddiff = abs($timestamp2 - $timestamp1);
+         
+            // 日数に変換
+            $daydiff = $seconddiff / (60 * 60 * 24);
+         
+            // 戻り値
+            return $daydiff;
+        }
+         
+        // 日付を関数に渡す
+        $day = day_diff($group);
+         
+        $nokori = $group->term - $day;
+        echo '残り',ceil( $nokori ) , '日';
+        ?>
+        
+        
+
     
     <table width="95%" align="center" border="1" rules="none" bordercolor="#000099" cellspacing="0">
     <caption>達成度</caption>
     
+    <!--グラフを作る-->
     <?php
     $maxlen = 0;
     $max = 0;
@@ -105,6 +134,7 @@
 
     <a href="{{ route('group.edit', $group->id) }}">編集</a>
 </div>
+
 
 @endsection
 
