@@ -62,7 +62,9 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $nums = rand(1, 10);
+        // 1から10までをランダムで取得
+        $nums = rand(1, 11);
+        // 画像を変数に格納
         $buta = 'images/buta.png';
         $kirin = 'images/kirin.png';
         $kuma = 'images/kuma.png';
@@ -73,7 +75,9 @@ class RegisterController extends Controller
         $usagi = 'images/usagi.png';
         $ushi = 'images/ushi.png';
         $zou = 'images/zou.png';
+        $bird = 'images/bird.png';
 
+        // Switch文で$numsの値によってavatar_filenameに格納される画像を変更
         switch($nums){
             case 1:
                 return User::create([
@@ -143,6 +147,13 @@ class RegisterController extends Controller
                     'name' => $data['name'],
                     'password' => bcrypt($data['password']),
                     'avatar_filename' => $zou,
+                ]);
+                break;
+            case 11:
+                return User::create([
+                    'name' => $data['name'],
+                    'password' => bcrypt($data['password']),
+                    'avatar_filename' => $bird,
                 ]);
                 break;
         }
