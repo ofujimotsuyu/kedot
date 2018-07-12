@@ -136,7 +136,7 @@ input[type= 'submit'] {
 
 
 .input_button{
-  background-color:crimson;
+  background-color:green;
   width: 100px !important;　
   
 }
@@ -150,7 +150,7 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:100% !important;
+  width:50% !important;
 
 }
 
@@ -188,4 +188,8 @@ input[type= 'submit'] {
 .box .sankashiteru{
   -webkit-flex-grow: 1;
   flex-grow: 1;
+}
+
+.search select{
+  height:32px;
 }
