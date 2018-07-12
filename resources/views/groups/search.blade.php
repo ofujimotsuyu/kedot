@@ -19,7 +19,7 @@
     <div class='search_result'>
     @foreach($groups as $group)
         <div class = 'result'>
-            <a href= "{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar" /></a><br>
+            <a href= "{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar" /></a><br>
             {{$group->goal}}
         </div>
     @endforeach

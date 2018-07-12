@@ -36,11 +36,7 @@
           <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4 each'><p>目標数値・単位</p></th>
           <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form', 'rows' => '1','placeholder' => '例）500']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form', 'rows' => '1','placeholder' => '回']) !!}（半角数字）</td>
         </tr>
-        
-        <tr>
-          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'><p>イメージ画像</p></th>
-          <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8'>{!! Form::file('group_filename', old('group_filename')) !!}</td>
-        </tr>
+
         
   </table>
   {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}

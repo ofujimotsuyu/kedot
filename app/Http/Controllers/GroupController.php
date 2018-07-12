@@ -39,10 +39,15 @@ class GroupController extends Controller
             'term' => 'required|integer',
             'amount' => 'required|integer',
             'unit' => 'required|max:191',
-            'group_filename' => 'required',
         ]);
         //画像のファイル名をいい感じにする
-        $filename = $request->group_filename->store('public/group');
+        $daietto = 'images/daietto.jpg';
+        $training = 'images/training.jpg';
+        $study = 'images/study.jpg';
+        $life = 'images/life.jpg';
+        $health = 'images/health.jpg';
+        $hobby = 'images/hobby.jpg';
+        $sonota = 'images/yunokis.jpg';
         
         $group = new Group;
         $group->goal = $request->goal;
@@ -51,7 +56,41 @@ class GroupController extends Controller
         $group->amount = $request->amount;
         $group->unit = $request->unit;
         $group->category = $request->category;
-        $group->group_filename = basename($filename);
+        
+        switch($group->category){
+            case 'ダイエット':
+                $group->group_filename = $daietto;
+                break;
+            
+            case 'トレーニング':
+                $group->group_filename = $training;
+                break;
+                
+            case '学習':
+                $group->group_filename = $study;
+                break;
+                
+            case '生活':
+                $group->group_filename = $life;
+                break;
+                
+            case '健康・美容':
+                $group->group_filename = $health;
+                break;
+                
+            case '趣味':
+                $group->group_filename = $hobby;
+                break;
+                
+            case 'その他':
+                $group->group_filename = $sonota;
+                break;
+                
+            default:
+                $group->group_filename = $sonota;
+                break;
+        }
+        
         $group->save();
 
         return view('groups.groups' , [

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class = "show">
-    <img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar"/><br>
+    <img src="{{url($group->group_filename)}}" alt="avatar"/><br>
     <h2>{{ "目標 : " . $group->goal }}<br></h2>
     <h3>
         {{ "頑張ること : " . $group->to_do }}<br>
