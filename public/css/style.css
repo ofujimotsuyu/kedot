@@ -97,20 +97,39 @@ body {
   font-size: large;
 }
 
-.groups img{
-  width: 105px;
+
+
+.groups img:hover{
+  width: 150px;
+  filter:brightness(100%);
 }
+
+.groups img{
+  width: 150px;
+  filter:brightness(70%);
+}
+
 
 .groups{
   text-align: center;
 }
 
 .each_group{
+  /*画像を横並びにする*/
   display: inline-block;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin-top: 5px;
 }
 
 .each_group p{
-  width: 105px;
+  color: white;
+  width: 150px;
+  top: 50%;
+  
+  position: absolute;
+  font-weight: bold;
 }
 
 .show{
@@ -186,9 +205,9 @@ input[type= 'submit'] {
 
 
 .input_button{
-  background-color:green;
-  width: 100px !important;　
-  
+  background-color:#5cb85c;
+  width: 10% !important;　
+
 }
 
 /*.form-inline{*/
@@ -200,12 +219,8 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:50% !important;
-
+  width:40% !important;
 }
-
-
-
 
 .form-group .quarter-form{
   width:18%;
@@ -221,9 +236,9 @@ input[type= 'submit'] {
 }
 
 .form-group p {
-    padding: 3.5px;
+    padding: 7px;
     margin: 0;
-    height: 27.6px;
+    height: 34px;
     font-size: 15.6px;
 }
 
@@ -269,3 +284,32 @@ input[type= 'submit'] {
   transform: rotateY(360deg);
   color: skyblue;
 }
+.pon{
+  border: solid;
+  border-color: gray;
+  border-radius:5px;
+  margin-top:10px;
+  
+}
+
+.ton{
+  border: solid;
+  border-color: gray;
+  border-radius:5px;
+  margin-bottom:2px;
+  font-size: 12px;
+}
+  
+.category-search{
+  width: 25% !important;
+}
+
+.first-form{
+  float:left;
+}
+
+.create th{
+  font-size: 15px !important;
+  padding-top: 16.5px !important;
+}
+
