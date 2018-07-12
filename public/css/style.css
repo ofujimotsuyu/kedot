@@ -137,8 +137,7 @@ input[type= 'submit'] {
 
 .input_button{
   background-color:green;
-  width: 100px !important;　
-  
+  width: 10% !important;　
 }
 
 /*.form-inline{*/
@@ -150,12 +149,8 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:50% !important;
-
+  width:40% !important;
 }
-
-
-
 
 .form-group .quarter-form{
   width:18%;
@@ -171,9 +166,9 @@ input[type= 'submit'] {
 }
 
 .form-group p {
-    padding: 3.5px;
+    padding: 7px;
     margin: 0;
-    height: 27.6px;
+    height: 34px;
     font-size: 15.6px;
 }
 
@@ -210,3 +205,16 @@ input[type= 'submit'] {
   font-size: 12px;
 }
   
+.category-search{
+  width: 25% !important;
+}
+
+.first-form{
+  float:left;
+}
+
+.create th{
+  font-size: 15px !important;
+  padding-top: 16.5px !important;
+}
+

@@ -30,7 +30,7 @@
     }
     
     .createpage h1{
-    font-size:30px;
+    font-size:25px;
     }
     
     .form-group .half-form{
@@ -38,22 +38,50 @@
     }
     
     .form-group .quarter-form{
-    width:50% ;
+    width:32% ;
     }
     
     .form-group .small-form{
-    width:15%;
+    width:20%;
     }
     
     .form-control{
     margin-right: 5px ;
-    font-size: 12px ;
+    font-size: 8px ;
     }
     
     .form-group p {
     margin: 0;
     font-size: 10px;
     width:100%;
+    height: 34px;
+    padding: 12px !important;
     }
     
+    select{
+      font-size: 10px;
+    }
+
+    .first-form{
+      float:left;
+    }
+    
+    .input_button{
+    width: 12% !important;
+    }
+
+    .gigigi{
+      width:48% !important;
+    }
+
+    .category-search{
+      width: 36% !important;
+    }
+
+    .create th{
+      font-size: 10px !important;
+      padding-top: 16.5px !important;
+    }
+
+
 }    
