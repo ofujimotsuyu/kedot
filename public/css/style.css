@@ -193,3 +193,20 @@ input[type= 'submit'] {
 .search select{
   height:32px;
 }
+
+.pon{
+  border: solid;
+  border-color: gray;
+  border-radius:5px;
+  margin-top:10px;
+  
+}
+
+.ton{
+  border: solid;
+  border-color: gray;
+  border-radius:5px;
+  margin-bottom:2px;
+  font-size: 12px;
+}
+  
