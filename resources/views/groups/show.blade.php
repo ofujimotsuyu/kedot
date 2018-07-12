@@ -4,7 +4,9 @@
 <div class = "show">
     <img src="{{ asset('storage/group/' . $group->group_filename) }}" alt="avatar"/><br>
     <h2>{{ "目標 : " . $group->goal }}<br></h2>
+    
     <h3>
+        {{"カテゴリー　: " . $group->category}}<br>
         {{ "頑張ること : " . $group->to_do }}<br>
         {{ $group->term . "日間で" . $group->amount . $group->unit }}
     </h3>
