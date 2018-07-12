@@ -144,6 +144,16 @@ class GroupController extends Controller
     }
     
     public function update(Request $request, $id) {
+        
+        //画像のファイル名をいい感じにする
+        $daietto = 'images/daietto.jpg';
+        $training = 'images/training.jpg';
+        $study = 'images/study.jpg';
+        $life = 'images/life.jpg';
+        $health = 'images/health.jpg';
+        $hobby = 'images/hobby.jpg';
+        $sonota = 'images/yunokis.jpg';
+        
         $group = Group::find($id);
         $group->goal = $request->goal;
         $group->category = $request->category;
@@ -151,8 +161,45 @@ class GroupController extends Controller
         $group->term = $request->term;
         $group->amount = $request->amount;
         $group->unit = $request->unit;
+        
+         switch($group->category){
+            case 'ダイエット':
+                $group->group_filename = $daietto;
+                break;
+            
+            case 'トレーニング':
+                $group->group_filename = $training;
+                break;
+                
+            case '学習':
+                $group->group_filename = $study;
+                break;
+                
+            case '生活':
+                $group->group_filename = $life;
+                break;
+                
+            case '健康・美容':
+                $group->group_filename = $health;
+                break;
+                
+            case '趣味':
+                $group->group_filename = $hobby;
+                break;
+                
+            case 'その他':
+                $group->group_filename = $sonota;
+                break;
+                
+            default:
+                $group->group_filename = $sonota;
+                break;
+        }
+        
         $group->save();
         return redirect('/');
+        
+
     }
     
     public function edit($id) {
