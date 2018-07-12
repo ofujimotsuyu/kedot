@@ -7,8 +7,8 @@
     <div class="form-group search">
         <form class='form-inline'method="get" action="./search" >
             <!--name=でcontrollerに送る名前を決定-->
-            <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8' type="text" name="search" >
-            {!! Form::select('category', [''=>'選択してください','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], ['class' => 'form-control searchcategory', 'rows' => '1']) !!}
+            <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="text" name="search" placeholder = "キーワードからグループを検索" >
+            {!! Form::select('category', [''=>'カテゴリー検索','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], '選択してください', ['class' => 'form-control first-form category-search', 'rows' => '1']) !!}
             <button  class='form-control input_button' type="submit">
                 <span class="glyphicon glyphicon-search bobobo"></span>
             </button>       

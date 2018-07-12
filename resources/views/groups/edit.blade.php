@@ -1,32 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="form-group">
+  <table class="table table-bordered">
   {!! Form::model($group, ['route' => ['group.update', $group->id], 'method' => 'put']) !!}
-      <div class="form-group">
-          {!! Form::label('goal', 'ゴール') !!}
-          {!! Form::textarea('goal', old('goal'), ['class' => 'form-control', 'rows' => '1']) !!}
-          
-          {!! Form::label('category','カテゴリー') !!}
-          <br>
-          {!! Form::select('category', [''=>'選択してください','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], ['class' => 'form-control quarter-form', 'rows' => '1']) !!}
+    <!--第三引数の中に'placeholder' => '○○○○'　を入れることでバックグラウンドにdescription-->
+    <!--classにform-inlineをいれることで、２つのフォームを横並びにしている-->
+    <!--767px以下でform-inlineが効かなくなるのを直す！-->
+        <tr class="create">
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'>ゴール</th>
+          <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8'>{!! Form::text('goal', old('goal'), ['class' => 'form-control full-form', 'rows' => '1','placeholder' => '例）パーフェクトボディを手に入れる']) !!}</td>
+        </tr>
 
-          <br>
-          
-          {!! Form::label('to_do', '具体的にやること', ['class' => 'control-label']) !!}
-          {!! Form::textarea('to_do', old('to_do'), ['class' => 'form-control', 'rows' => '1']) !!}
+        <tr class="create">
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'>カテゴリー</th>
+          <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::select('category', [''=>'選択してください','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], $group->category, ['class' => 'form-control half-form', 'rows' => '1']) !!}</td>
+        </tr>
+  
+        <tr class="create">
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'>具体的にやること</th>
+          <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8'>{!! Form::text('to_do', old('to_do'), ['class' => 'form-control half-form', 'rows' => '1','placeholder' => '例）腹筋']) !!}</td>
+        </tr>
 
-          {!! Form::label('term', '期間', ['class' => 'control-label']) !!}
-          {!! Form::textarea('term', old('term'), ['class' => 'form-control', 'rows' => '1']) !!}
+        <tr class="create">
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'>期間</th>
+          <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('term', old('term'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）20']) !!}<p>日間（半角数字）</p></td>
+        </tr>
 
-          {!! Form::label('amount', '目標数値', ['class' => 'control-label']) !!}
-          {!! Form::textarea('amount', old('amount'), ['class' => 'form-control', 'rows' => '1']) !!}
-
-          {!! Form::label('unit', '単位', ['class' => 'control-label']) !!}
-          {!! Form::textarea('unit', old('unit'), ['class' => 'form-control', 'rows' => '1']) !!}
-
-          {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
-      </div>
+        <tr class="create">
+          <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4 each'>目標数値・単位</th>
+          <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）500']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form first-form', 'rows' => '1','placeholder' => '回']) !!}<p>（半角数字）</p></td>
+        </tr>
+        
+  </table>
+  {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
   {!! Form::close() !!}
 
 @endsection

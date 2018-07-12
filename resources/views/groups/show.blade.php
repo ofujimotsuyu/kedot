@@ -42,7 +42,7 @@
                 $name = App\User::find($id); ?>
                 
                 <div class = "sankashiteru col-xs-4">
-                    <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
+                    <a href="{{route('users.show',['id' => $name->id]) }}"><img src="{{ url($name->avatar_filename)}}" alt="avatar" /></a>
                     <p>{{ $name->name }}</p>
                 </div>
                 
@@ -99,11 +99,14 @@
     ?>
     
     </table>
-
-
+    
     @include('buttons.join_button', ['group' => $group])
-
+    
+    <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
+    @if(count($records) > 0)
     <a href="{{ route('group.edit', $group->id) }}">編集</a>
+    @endif
+
 </div>
 
 @endsection
