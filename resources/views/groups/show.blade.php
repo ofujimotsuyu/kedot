@@ -22,7 +22,7 @@
                 {!! Form::label('score', '達成値入力', ['class' => 'control-label']) !!}
                 {!! Form::textarea('score', null, ['class' => 'form-control', 'rows' => '1','placeholder'=>'本日の達成値を入力してください']) !!}
     
-                {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
             </div>
         {!! Form::close() !!}
     </div>
