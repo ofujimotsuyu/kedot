@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    protected $fillable = ['goal', 'to_do', 'term', 'amount', 'unit', 'group_filename'];
+    protected $fillable = ['goal', 'to_do', 'term', 'amount', 'unit', 'group_filename','category'];
 
     public function sankausers()
     {
