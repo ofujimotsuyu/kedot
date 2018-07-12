@@ -1,43 +1,22 @@
 @extends("layouts.app")
-<!--グループ名マウスオーバーで色変わる-->
-<head>
-    <style>
-        h2 a{
-        display: inline-block;
-        padding: 0.1em 0.3em;
-        transition: all .3s;
-        color : black;
-        text-decoration: none;
-        }
-        h2 a:hover {
-        color: #fff;
-        background-color: #00BCD4;
-        text-decoration: none;
-        }
 
-        
-        
-    </style>
-</head>
 @section("content")
-<!--きりんとかのプロフィール画像を画面の中央に表示-->
-    <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
+    <p><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
     <div class="user_name"> 
     <h1>{{ $user->name }}</h1>
     </div>
     
     <div>
         <ul class="nav nav-tabs nav-justified">
-            <li class = "{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px">参加グループ</span></a></li>
-            <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-star" style="font-size:20px">お気に入り</span></a></li>
-            <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-ok" style="font-size:20px">達成リスト</span></a></li>
+            <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">参加グループ</a></li>
+            <li><a href="#">お気に入り</a></li>
+            <li><a href="#">達成リスト</a></li>
         </ul>
     </div>
     
     <!--参加しているグループをforeachで呼び出す-->
     @foreach($groups as $group)
-    
-        <h2><a href="{{ route('groups.show', [ 'id' => $group->id ]) }}" style="text-decoration: none;">{{ $group->goal }}</a></h2>
+        <h2><a href="{{ route('groups.show', [ 'id' => $group->id ]) }}">{{ $group->goal }}</a></h2>
         {{ "頑張ること : " . $group->to_do }}
         {{ $group->term . "日間で" . $group->amount . $group->unit }}
         <br>
