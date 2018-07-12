@@ -42,7 +42,7 @@
                 $name = App\User::find($id); ?>
                 
                 <div class = "sankashiteru col-xs-4">
-                    <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
+                    <a href="{{route('users.show',['id' => $name->id]) }}"><img src="{{ url($name->avatar_filename)}}" alt="avatar" /></a>
                     <p>{{ $name->name }}</p>
                 </div>
                 

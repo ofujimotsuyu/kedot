@@ -31,7 +31,8 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::get('search','GroupController@search')->name('groups.search');
     Route::get('groupshow/{id}','GroupController@show')->name('groups.show');
-
+    Route::get('users','GroupController@show')->name('users.show');
+    
     Route::group(['prefix' => 'groups/{id}'], function () {
         Route::post('join', 'JoinController@store')->name('group.join');
         Route::delete('quit', 'JoinController@destroy')->name('group.quit');
@@ -39,4 +40,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('edit', 'GroupController@edit')->name('group.edit');
     });
     Route::resource('users','UserController');
+   
 });
