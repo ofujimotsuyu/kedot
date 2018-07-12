@@ -38,27 +38,45 @@
     </body>
     @else
     <body class = 'toppage'>
-        @yield('cover')
-
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
-                    <!-- 現状groups.groupsにredirectしているけど一応残しておく -->
-                    <!--未ログイン、未サインアップのユーザーには以下を表示-->
-                        <div class='login'>
-                            <h3>
-                                目標。
-                                それは時に高く、困難な壁となる。一人で悩み、挫折することも多いだろう。
-                                しかし、仲間がいればどうだろうか。集まることで人は強くなる。
-                                Keep Doing Together
-                            </h3>
-                    
-                            <div class = 'top-button'>
-                                <!--routeのregister,loginは　web.php内の'Auth:routes'に含まれる-->
-                                <a href="{{ route('register') }}", class="btn btn-default" >SignUp</a><br> 
-                                <a href="{{ route('login')  }}", class="btn btn-default">LogIn</a>
+        <div class = "block-one">
+            <img src="{{ secure_asset("images/kedot.png") }}">
+        </div>
+        
+        <script>
+          $(".block-one").fadeIn(1800);
+          $(document).ready(function(){
+            setTimeout(function() {
+              $(".block-two").css("display","block");
+              $(".block-one").fadeOut(500);
+            }, 4000);
+          });
+        </script>
+        
+        <div class = "block-two">
+            @yield('cover')
+    
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+                        <!-- 現状groups.groupsにredirectしているけど一応残しておく -->
+                        <!--未ログイン、未サインアップのユーザーには以下を表示-->
+                            <div class='login'>
+                                <h3>
+                                    目標。<br>
+                                    それは時に高く、困難な壁となる。<br>
+                                    一人で悩み、挫折することも多いだろう。<br>
+                                    しかし、仲間がいればどうだろうか。<br>
+                                    集まることで人は強くなる。<br>
+                                    <p>Keep Doing Together</p>
+                                </h3>
+                        
+                                <div class = 'top-button col-xs-6'>
+                                    <!--routeのregister,loginは　web.php内の'Auth:routes'に含まれる-->
+                                    <a href="{{ route('register') }}", class="wankos" >Sign Up</a>
+                                    <a href="{{ route('login')  }}", class="wankos">Log In</a>
+                                </div>
                             </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

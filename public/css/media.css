@@ -4,7 +4,7 @@
 @media (max-width: 991px){
     .toppage {
       /* 画像ファイルの指定 */
-      background-image: url(../images/top1.jpg);
+      background-image: url(../images/top2.jpg);
        
       /* 画像を常に天地左右の中央に配置 */
       background-position: center center;
@@ -24,9 +24,8 @@
       height: 100%;
     }
     
-    .top-button{
-    position: fixed;
-    bottom: 50px;
+    .login{
+      margin-top: 150px;
     }
     
     .createpage h1{

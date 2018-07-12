@@ -4,6 +4,37 @@ body {
     font-family: Yu Gothic;
 }
 
+.block-one img{
+  margin-top: 25%;
+}
+
+.block-one {
+  text-align: center;
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: white;
+      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+
+    .block-two {
+      display: none;
+      width: 100%;
+      height: 100%;
+      background-attachment: fixed;
+      background-position: center center;
+      background-repeat: no-repeat;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+
 
 .toppage {
   /* 画像ファイルの指定 */
@@ -29,22 +60,41 @@ body {
 }
 
 .top-button{
-  position: fixed;
-  bottom: 50px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
   }
-
+  
+.login{
+  z-index: 2;
+  position: absolute;
+  top: 100%;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  margin-top: 20%;
+}
 
 .login h3{
+  display: block;
   /*h3という箱の横幅を指定*/
-  width: 50%;
+  width: 100%;
   /*h3の中の文字を右ぞろえにする*/
-  text-align: right;
-  /*h3という箱を右にずらす*/
-  float: right;
+  text-align: center;
   /*文字の色*/
   color: white;
   /*文字サイズ*/
-  font-size: 15px;
+  font-size: 16px;
+  /*行間開ける*/
+  line-height: 200%;
+  
+  text-shadow: 1px 1px 3px black;
+}
+
+.login h3 p{
+  line-height: 250%;
+  font-size: large;
 }
 
 
@@ -209,6 +259,31 @@ input[type= 'submit'] {
   height:32px;
 }
 
+.wankos{
+  font-size: 15px;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  width: 100px;
+  height: 50%;
+  line-height: 300%;
+  /*border-radius: 50%;*/
+  border: solid 1px white;
+  text-shadow:2px 2px 2px black;
+  text-align: center;
+  overflow: hidden;
+  transition: .6s;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 1px 1px 3px black;
+}
+
+.wankos:hover{
+  -webkit-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+  color: skyblue;
+}
 .pon{
   border: solid;
   border-color: gray;
