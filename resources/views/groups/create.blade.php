@@ -43,7 +43,7 @@
         </tr>
         
   </table>
-  {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+  {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
   {!! Form::close() !!}
 </div>
 

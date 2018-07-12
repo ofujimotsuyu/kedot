@@ -25,7 +25,7 @@
           {!! Form::label('unit', '単位', ['class' => 'control-label']) !!}
           {!! Form::textarea('unit', old('unit'), ['class' => 'form-control', 'rows' => '1']) !!}
 
-          {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+          {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
       </div>
   {!! Form::close() !!}
 

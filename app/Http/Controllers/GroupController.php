@@ -89,10 +89,12 @@ class GroupController extends Controller
         
         $query = Group::query();
 
+        // フリーワード検索の時の作業
         if(!empty($goal)){
             $query->where('goal','like','%'.$goal.'%')->orWhere('to_do','like','%'.$goal.'%');
         }
         
+        // カテゴリー検索のときの作業        
         if(!empty($category)){
             $query->where('category','like','%'.$category.'%');
         }
