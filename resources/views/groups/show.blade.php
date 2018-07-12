@@ -30,11 +30,38 @@
     @endif
   
   <!--中間テーブルからグループに参加してるメンバーを取り出している-->
-        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?> 
         
-        
-        
-        
+        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
+
+        <?php $members=0 ?>
+        <div class="box">
+            @foreach($users as $user)
+                <?php 
+                $members= $members+1;
+                
+                $id = $user->user_id;
+                $name = App\User::find($id); ?>
+                
+                <div class = "sankashiteru col-xs-4">
+                    <a href="{{ route('users.show',['id'=>$name->id])}}">
+                    <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
+                    </a>
+                    <p>{{ $name->name }}</p>
+                </div>
+                
+                <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
+                
+                <?php $tassei=0 ?>
+                @foreach($records3 as $record)
+                <?php
+                    $tassei=$tassei + $record->record;
+                ?>
+                @endforeach
+                
+                <br>
+            @endforeach
+        </div>
+    
     <table width="95%" align="center" border="1" rules="none" bordercolor="#000099" cellspacing="0">
     <caption>達成度</caption>
     
