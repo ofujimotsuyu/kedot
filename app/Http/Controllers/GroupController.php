@@ -16,7 +16,6 @@ class GroupController extends Controller
 {
     public function index(){
          return view('groups.groups');
-         return view('users.show');
     }
 
     public function create(){
@@ -40,10 +39,15 @@ class GroupController extends Controller
             'term' => 'required|integer',
             'amount' => 'required|integer',
             'unit' => 'required|max:191',
-            'group_filename' => 'required',
         ]);
         //画像のファイル名をいい感じにする
-        $filename = $request->group_filename->store('public/group');
+        $daietto = 'images/daietto.jpg';
+        $training = 'images/training.jpg';
+        $study = 'images/study.jpg';
+        $life = 'images/life.jpg';
+        $health = 'images/health.jpg';
+        $hobby = 'images/hobby.jpg';
+        $sonota = 'images/yunokis.jpg';
         
         $group = new Group;
         $group->goal = $request->goal;
@@ -52,7 +56,41 @@ class GroupController extends Controller
         $group->amount = $request->amount;
         $group->unit = $request->unit;
         $group->category = $request->category;
-        $group->group_filename = basename($filename);
+        
+        switch($group->category){
+            case 'ダイエット':
+                $group->group_filename = $daietto;
+                break;
+            
+            case 'トレーニング':
+                $group->group_filename = $training;
+                break;
+                
+            case '学習':
+                $group->group_filename = $study;
+                break;
+                
+            case '生活':
+                $group->group_filename = $life;
+                break;
+                
+            case '健康・美容':
+                $group->group_filename = $health;
+                break;
+                
+            case '趣味':
+                $group->group_filename = $hobby;
+                break;
+                
+            case 'その他':
+                $group->group_filename = $sonota;
+                break;
+                
+            default:
+                $group->group_filename = $sonota;
+                break;
+        }
+        
         $group->save();
 
         return view('groups.groups' , [
@@ -86,27 +124,82 @@ class GroupController extends Controller
         
     public function search(Request $request){
         $goal = $request->search;
+        $category = $request->category;
         
         $query = Group::query();
 
+        // フリーワード検索の時の作業
         if(!empty($goal)){
             $query->where('goal','like','%'.$goal.'%')->orWhere('to_do','like','%'.$goal.'%');
         }
         
+        // カテゴリー検索のときの作業        
+        if(!empty($category)){
+            $query->where('category','like','%'.$category.'%');
+        }
+        
         $groups = $query->paginate(10);
         
-        return view('groups.search')->with('groups',$groups)->with('goal',$goal);
+        return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category);
     }
     
     public function update(Request $request, $id) {
+        
+        //画像のファイル名をいい感じにする
+        $daietto = 'images/daietto.jpg';
+        $training = 'images/training.jpg';
+        $study = 'images/study.jpg';
+        $life = 'images/life.jpg';
+        $health = 'images/health.jpg';
+        $hobby = 'images/hobby.jpg';
+        $sonota = 'images/yunokis.jpg';
+        
         $group = Group::find($id);
         $group->goal = $request->goal;
+        $group->category = $request->category;
         $group->to_do = $request->to_do;
         $group->term = $request->term;
         $group->amount = $request->amount;
         $group->unit = $request->unit;
+        
+         switch($group->category){
+            case 'ダイエット':
+                $group->group_filename = $daietto;
+                break;
+            
+            case 'トレーニング':
+                $group->group_filename = $training;
+                break;
+                
+            case '学習':
+                $group->group_filename = $study;
+                break;
+                
+            case '生活':
+                $group->group_filename = $life;
+                break;
+                
+            case '健康・美容':
+                $group->group_filename = $health;
+                break;
+                
+            case '趣味':
+                $group->group_filename = $hobby;
+                break;
+                
+            case 'その他':
+                $group->group_filename = $sonota;
+                break;
+                
+            default:
+                $group->group_filename = $sonota;
+                break;
+        }
+        
         $group->save();
         return redirect('/');
+        
+
     }
     
     public function edit($id) {
