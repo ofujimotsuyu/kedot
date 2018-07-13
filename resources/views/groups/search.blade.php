@@ -22,12 +22,14 @@
     <!--フリーワードとカテゴリー両方で検索してれば、を表示-->
     @if($goal&&$category), @endif{{ $category }}
     」の検索結果</h2>
-    @foreach($groups as $group)
-        <div class = 'result'>
-            <a href= "{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar" /></a><br>
-            {{$group->goal}}
+    <div class = "results">
+        @foreach($groups as $group)
+        <div class = "result">
+            <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/></a>
+            <p>{{ $group->goal }}</p>
         </div>
-    @endforeach
+        @endforeach    
+    </div>
     </div>
     
     <!--paginateで同じデータを持ったまま、ページを移動-->

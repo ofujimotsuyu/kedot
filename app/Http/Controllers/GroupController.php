@@ -138,7 +138,7 @@ class GroupController extends Controller
             $query->where('category','like','%'.$category.'%');
         }
         
-        $groups = $query->paginate(10);
+        $groups = $query->paginate(12);
         
         return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category);
     }

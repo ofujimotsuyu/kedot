@@ -98,7 +98,7 @@ body {
 }
 
 
-
+/*グループ一覧*/
 .groups img:hover{
   width: 150px;
   filter:brightness(100%);
@@ -132,22 +132,40 @@ body {
   font-weight: bold;
 }
 
-.show{
+
+/*検索ページの画像たち*/
+.results img:hover{
+  width: 150px;
+  filter:brightness(100%);
+}
+
+.results img{
+  width: 150px;
+  filter:brightness(70%);
+}
+
+
+.results{
   text-align: center;
-}
-
-.show img{
-  height: 200px;
-}
-
-.search_result img{
-  width: 200px;
 }
 
 .result{
   display: inline-block;
-  text-align: center;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  margin-top: 5px;
 }
+
+.result p{
+  color: white;
+  width: 150px;
+  top: 50%;
+  position: absolute;
+  font-weight: bold;
+}
+
+
 
 .user_name h1{
   text-align: center;
@@ -219,11 +237,11 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:40% !important;
+  width:62% !important;
 }
 
 .form-group .quarter-form{
-  width:18%;
+  width:25%;
 }
 
 .form-group .small-form{
