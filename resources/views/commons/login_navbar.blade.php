@@ -1,5 +1,6 @@
 <header>
-    <style>
+
+<style>
     /* common */
 body {
     margin: 0;
@@ -13,52 +14,6 @@ ul {
 	list-style: none;
 }
 
-
-/* drawer menu */
-/* 右から出てくるやつ*/
-.drawer-menu {
-    box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100%;
-    padding: 120px 0;
-    background: #222;
-    -webkit-transition-property: all;
-    transition-property: all;
-    -webkit-transition-duration: .5s;
-    transition-duration: .5s;
-    -webkit-transition-delay: 0s;
-    transition-delay: 0s;
-    -webkit-transform-origin: right center;
-    -ms-transform-origin: right center;
-    transform-origin: right center;
-    -webkit-transform: perspective(500px) rotateY(-90deg);
-    transform: perspective(500px) rotateY(-90deg);
-    opacity: 0;
-}
-
-.drawer-menu li {
-    text-align: center;
-}
-
-/*右から出てくるやつの中身*/
-.drawer-menu li a {
-    display: block;
-    height: 50px;
-    line-height: 50px;
-    font-size: 14px;
-    color: #fff;
-    -webkit-transition: all .8s;
-    transition: all .8s;
-}
-
-/*マウス乗せたとき*/
-.drawer-menu li a:hover {
-    color: #1a1e24;
-    background: #fff;
-}
 
 /* checkbox */
 .check {
@@ -200,52 +155,73 @@ ul {
     opacity: 1;
     z-index: 3;
 }
-.logo{
-    padding-left:35px;
-    margin: 0;
-    position: absolute;
-    
-}
 
 
-header{
-    height: 100px;
-}
 
-.jitsu{
-    float: right;
-    padding-top:13px;
-    padding-left:27px;
-}
+
 
 .head{
     text-align: center;
     margin-right: 100px;
     margin-top: 25px;
-}
-
-.ahaha{
-    /*display: inline-block;*/
-    text-align: center
+    text-align: center;
 }
 
 .nav a{
     color:black;
     text-decoration:none;
 }
-    
-    </style>
-    
-    
+
+header{
+    height: 60px;
+    width:100%;
+}
+
+.navleft{
+    height: 60px;
+    float:left;
+}
+
+.logo{
+    padding-left:10px;
+    margin: 0;
+    position: absolute;
+}
+
+.navright{
+    height: 60px;
+    width: 200px;
+    margin-left:93%;
+}
+
+@media(max-width: 991px){
+    .navright{
+    margin-left:70%;
+    }
+}
+
+.jitsu{
+    float:left;
+    padding-top:13px;
+    padding-left:10px;
+    width:55px;
+    margin:0;
+}
+
+</style>
+
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
-            <li class = "nav"><h1 class="logo"><a href="/"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
-            
-            <li class = "nav jitsu"><a href='/'>戻る</a></li>
-            <li class = "nav jitsu"><a href='{{ route('login') }}'>Login</a></li>
-            <li class = "nav jitsu"><a href='{{ route('register') }}'>SignUp</a></li>
+            <div class="navleft">
+                <li class = "nav"><h1 class="logo"><a href="/"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>            
+            </div>
+            <div class="navright">
+                <li class = "nav jitsu"><a href='{{ route('register') }}'>SignUp</a></li>
+                <li class = "nav jitsu"><a href='{{ route('login') }}'>Login</a></li>
+                <li class = "nav jitsu"><a href='/'>戻る</a></li>
+            </div>
         </ul>
     </div>
-    
+
 </header>
