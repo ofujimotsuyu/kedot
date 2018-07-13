@@ -220,4 +220,13 @@ class GroupController extends Controller
         
         return view('groups.edit', ['group'=>$group]);
     }
+    
+    public function destroy($id)
+    {
+    $group = Group::find($id);
+    $group->delete();
+
+    return redirect('/');
+    }
+    
 }
