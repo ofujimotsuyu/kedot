@@ -29,6 +29,7 @@
                 </div>
             {!! Form::close() !!}
         </div>
+        @endif
     <!--グループを作成したユーザーのみ編集できる-->
     @if($group->user_id==Auth::User()->id)
         <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
@@ -37,6 +38,7 @@
             {!! Form::submit('削除', ['class' => 'btn btn-danger center-block']) !!}
         {!! Form::close() !!}
     @endif
+    @include('buttons.join_button', ['group' => $group])
 </div>
 <div class = "show">
   
@@ -129,6 +131,7 @@
     </div>
     
      <?php $members=0 ?>
+        <div style="text-align:center"><h1 class="sankasya">メンバー</h1><br></div>
         <div class="box">
             @foreach($users as $user)
                 <?php 
@@ -138,7 +141,6 @@
                 $name = App\User::find($id); ?>
                 
                 <div class = "sankashiteru col-xs-4">
-                    <h1 class="sankasya">メンバー</h1><br>
                     <a href="{{ route('users.show',['id'=>$name->id])}}">
                     <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
                     </a>
@@ -161,7 +163,7 @@
 
   
 
-        @include('buttons.join_button', ['group' => $group])
+        
     
 
 </div>
