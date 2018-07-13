@@ -18,17 +18,20 @@
 
     <!--検索結果を表示-->
     <div class='search_result'>
-    <h2>「{{$goal}}
+    <h2>
+    @if($goal||$category)「@endif
+    {{$goal}}
     <!--フリーワードとカテゴリー両方で検索してれば、を表示-->
-    @if($goal&&$category), @endif{{ $category }}
-    」の検索結果</h2>
-    <div class = "results">
+    @if($goal&&$category), @endif
+    {{ $category }}
+    @if($goal||$category)」の検索結果@endif
+    </h2>
+    <div class = "groups">
         @foreach($groups as $group)
-        <div class = "result">
+        <div class = "each_group">
             <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
         </div>
         @endforeach    
-    </div>
     </div>
     
     <!--paginateで同じデータを持ったまま、ページを移動-->
