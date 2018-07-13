@@ -14,17 +14,15 @@
         background-color: #00BCD4;
         text-decoration: none;
         }
-
-        
-        
     </style>
 </head>
 
 @section("content")
-<!--きりんとかのプロフィール画像を画面の中央に表示-->
+    <!--きりんとかのプロフィール画像を画面の中央に表示-->
+    <div>
     <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
     <div class="user_name"> 
-    <h1>{{ $user->name }}</h1>
+        <h1>{{ $user->name }}</h1>
     </div>
     
     <div>
@@ -38,74 +36,75 @@
     <!--参加しているグループをforeachで呼び出す-->
     @foreach($groups as $group)
         <div class='pon'>
-        <h2><a href="{{ route('groups.show', [ 'id' => $group->id ]) }}" style="text-decoration: none;">{{ $group->goal }}</a></h2>
-        {{ "頑張ること : " . $group->to_do }}
-        {{ $group->term . "日間で" . $group->amount . $group->unit }}
-        <br>
-    
-        <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
-        <!--<?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        -->
-           
+            <div class ='vo'>
+            <a href="{{ route('groups.show', [ 'id' => $group->id ]) }}" style="text-decoration:none;">
+            <div class='du'>
+                <span class='xxx'><h2>{{ $group->goal }}</h2></span>
+                {{ "頑張ること : " . $group->to_do }}
+                {{ $group->term . "日間で" . $group->amount . $group->unit }}
+                <br>
+            </div>
+            </a>
+            </div>
+            <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
+            <!--<?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        -->
+               
             <!--各グループにおいて、一つ一つのrecordカラムのvalueを取り出して表示する-->
-        <!--    @foreach($records as $record)-->
-        <!--        {{ $record->record }}       -->
-        <!--    @endforeach-->
-        
-        
-   <?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
-    
-    <table class='ton' width="95%" align="center" border="1" rules="none" bordercolor="#000099" cellspacing="0">
-    
-    <?php
-    $maxlen = 0;
-    $max = 0;
-        $data[0] = array("目標値", $group->amount);
-            $user = \Auth::user();
-            $id = $user->id;
-            $name = App\User::find($id); 
+            <!--    @foreach($records as $record)-->
+            <!--        {{ $record->record }}       -->
+            <!--    @endforeach-->
             
-            $records3 = \DB::table('activities')->where('user_id', $user->id)->where('group_id', $group->id)->get();
+        　　<?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
             
-            $tassei=0;
-            foreach($records3 as $record) {
-                $tassei = $tassei + $record->record;
-            }
+            <table class='ton' width="95%" align="center" border="1" rules="none" bordercolor="#000099" cellspacing="0">
             
-            $data[1] = array($name->name, $tassei);
-            
-            if(!empty($name)){
-                for($i = 0 ; $i < count($data) ; $i++){
-                    if(strlen($data[$i][0]) > $maxlen){        
-                        $maxlen = strlen($data[$i][0]);
-                    }
-                    if($data[$i][1] > $max) {           
-                        $max = $data[$i][1];
-                    }
+                <?php
+                
+                $id = $user->id;
+                $name = App\User::find($id); 
+                
+                $tassei=0;
+                $records3 = \DB::table('activities')->where('user_id', $user->id)->where('group_id', $group->id)->get();
+                foreach($records3 as $record) {
+                    $tassei = $tassei + $record->record;
                 }
                 
-                print("<tr>");
-                printf("<td  width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[0][0]);
-                printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[0][1] / $max * 100);
-                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[0][1]);
-                print("</tr>\n");
+                $data[0] = array("目標値", $group->amount);
+                $data[1] = array($name->name, $tassei);
                 
-                print("<tr>");
-                printf("<td  width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[1][0]);
-                printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[1][1] / $max * 100);
-                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[1][1]);
-                print("</tr>\n");
-                
+                $maxlen = 0;
+                $max = 0;
+                if(!empty($name)){
+                    for($i = 0 ; $i < count($data) ; $i++){
+                        if(strlen($data[$i][0]) > $maxlen){        
+                            $maxlen = strlen($data[$i][0]);
+                        }
+                        if($data[$i][1] > $max) {           
+                            $max = $data[$i][1];
+                        }
+                    }
+                    print("<tr>");
+                    printf("<td  width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[0][0]);
+                    printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[0][1] / $max * 100);
+                    printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[0][1]);
+                    print("</tr>\n");
+                    
+                    print("<tr>");
+                    printf("<td width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[1][0]);
+                    printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[1][1] / $max * 100);
+                    printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[1][1]);
+                    print("</tr>\n");
                 }  
+                        
+                ?>
         
+            </table>
             
-            
-    ?>
-    
-    </table>
         </div>
-        @endforeach
+    @endforeach
         
-        
-        
+    <div align="center">
+        <br>{!! $groups->render() !!}
+    </div>    
     
 @endsection
