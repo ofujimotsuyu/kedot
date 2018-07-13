@@ -36,6 +36,10 @@
     font-size:25px;
     }
     
+    .search_result h2{
+      font-size:15px;
+    }
+    
     .form-group .half-form{
     width:100%;
     }
