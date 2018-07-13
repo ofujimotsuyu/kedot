@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="form-group">
+<div class="form-group nomform">
   <table class="table table-bordered">
   {!! Form::model($group, ['route' => ['group.update', $group->id], 'method' => 'put']) !!}
     <!--第三引数の中に'placeholder' => '○○○○'　を入れることでバックグラウンドにdescription-->

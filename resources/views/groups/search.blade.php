@@ -4,7 +4,7 @@
 
     <!--検索フォーム-->
     <!--actionでルートを指定-->
-    <div class="form-group search">
+    <div class="form-group search nomform">
         <form class='form-inline'method="get" action="./search" >
             <!--name=でcontrollerに送る名前を決定-->
             <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="text" name="search" placeholder = "キーワードからグループを検索" >
