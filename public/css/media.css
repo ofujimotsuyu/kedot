@@ -85,6 +85,22 @@
       font-size: 10px !important;
       padding-top: 16.5px !important;
     }
+    .nokori{
+      font-size: 100px;    
+      margin-top: 50px;
+      margin-bottom: 50px;
+}
+.nokoritop{
+      font-size: 40px;
+      width: 100px;
+      margin-top: 50PX;
+      margin-bottom: 10px;
+}
 
-
+.tyonmage{
+  margin-top: 0;
+}
+.sankasya{
+    margin-top: 0;
 }    
+}
