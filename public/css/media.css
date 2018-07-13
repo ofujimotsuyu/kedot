@@ -86,5 +86,22 @@
       padding-top: 16.5px !important;
     }
 
+    /*検索ページの画像たち*/
+    .groups img{
+      width: 100%;
+      }
+    
+    
+    .each_group{
+      width: 31%;
+      margin-left: 3px;
+      
+    }
 
+    .each_group p{
+      width: 100%;
+      font-size: 10px;
+  }
+
+  
 }    

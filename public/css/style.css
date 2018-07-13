@@ -97,9 +97,8 @@ body {
   font-size: large;
 }
 
+
 /*検索ページの画像たち*/
-
-
 .groups img{
   width: 150px;
   filter:brightness(70%);
@@ -108,16 +107,12 @@ body {
 
 .each_group{
   display: inline-block;
-  width: 150px;
-  height: 150px;
   position: relative;
   margin-top: 5px;
 }
 
 .each_group:hover{
   display: inline-block;
-  width: 150px;
-  height: 150px;
   position: relative;
   margin-top: 5px;
   filter:brightness(150%);
