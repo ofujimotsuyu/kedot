@@ -161,11 +161,16 @@
             @endforeach
         </div>
   
-    @include('buttons.join_button', ['group' => $group])
+
+        @include('buttons.join_button', ['group' => $group])
     
-    <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
-    @if(count($records) > 0)
-    <a href="{{ route('group.edit', $group->id) }}">編集</a>
+    <!--グループを作成したユーザーのみ編集できる-->
+    @if($group->user_id==Auth::User()->id)
+        <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
+        <a href="{{ route('group.edit', $group->id) }}">編集</a>
+        {!! Form::open(['route' => ['group.delete', $group->id], 'method' => 'delete']) !!}
+            {!! Form::submit('削除', ['class' => 'btn btn-danger center-block']) !!}
+        {!! Form::close() !!}
     @endif
 
 </div>
