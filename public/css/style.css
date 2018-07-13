@@ -98,56 +98,36 @@ body {
 }
 
 
-
-.groups img:hover{
-  width: 150px;
-  filter:brightness(100%);
-}
-
+/*検索ページの画像たち*/
 .groups img{
   width: 150px;
   filter:brightness(70%);
 }
 
 
-.groups{
-  text-align: center;
-}
-
 .each_group{
-  /*画像を横並びにする*/
   display: inline-block;
-  width: 150px;
-  height: 150px;
   position: relative;
   margin-top: 5px;
+}
+
+.each_group:hover{
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+  filter:brightness(150%);
 }
 
 .each_group p{
   color: white;
   width: 150px;
   top: 50%;
-  
   position: absolute;
   font-weight: bold;
-}
-
-.show{
+  margin-bottom: 0px;
   text-align: center;
 }
 
-.show img{
-  height: 200px;
-}
-
-.search_result img{
-  width: 200px;
-}
-
-.result{
-  display: inline-block;
-  text-align: center;
-}
 
 .user_name h1{
   text-align: center;
@@ -219,11 +199,11 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:40% !important;
+  width:62% !important;
 }
 
 .form-group .quarter-form{
-  width:18%;
+  width:25%;
 }
 
 .form-group .small-form{

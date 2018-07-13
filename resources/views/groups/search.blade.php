@@ -5,6 +5,8 @@
     <!--検索フォーム-->
     <!--actionでルートを指定-->
     <div class="form-group search nomform">
+        <h2 class="search_result">グループを検索しよう！</h2><br>
+
         <form class='form-inline'method="get" action="./search" >
             <!--name=でcontrollerに送る名前を決定-->
             <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="text" name="search" placeholder = "キーワードからグループを検索" >
@@ -18,18 +20,26 @@
 
     <!--検索結果を表示-->
     <div class='search_result'>
-    <h2>「{{$goal}}
+    <h2>
+    @if($goal||$category)「@endif
+    {{$goal}}
     <!--フリーワードとカテゴリー両方で検索してれば、を表示-->
-    @if($goal&&$category), @endif{{ $category }}
-    」の検索結果</h2>
-    @foreach($groups as $group)
-        <div class = 'result'>
-            <a href= "{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar" /></a><br>
-            {{$group->goal}}
+    @if($goal&&$category), @endif
+    {{ $category }}
+    @if($goal||$category)」の検索結果@endif
+    </h2>
+    <tr class="result">
+    <div class = "groups">
+        @foreach($groups as $group)
+        <div class = "each_group">
+            <td><a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
         </div>
-    @endforeach
-    <!--paginateで同じデータを持ったまま、ページを移動-->
+
+        @endforeach
+
     </div>
+    </tr>
+    
     
     <div align="center">
     <br>{!! $groups->appends(['goal'=>$goal])->render() !!}
