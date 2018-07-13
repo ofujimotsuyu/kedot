@@ -15,6 +15,18 @@
                 {{ "頑張ること : " . $group->to_do }}<br>
                 {{ $group->term . "日間で" . $group->amount . $group->unit }}
             </h3>
+            @include('buttons.join_button', ['group' => $group])
+            @if($group->user_id==Auth::User()->id)
+            <div class="col-xs-offset-2 col-xs-4">
+                <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
+                <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="background-color:green; color:white">編集</p></a>
+            </div>
+            <div class="col-xs-4">
+                {!! Form::open(['route' => ['group.delete', $group->id], 'method' => 'delete']) !!}
+                    {!! Form::submit('削除', ['class' => 'btn btn-danger center-block']) !!}
+                {!! Form::close() !!}
+            </div>
+            @endif
         </div>
         <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
              
@@ -23,22 +35,14 @@
             <!--formつくってるよ-->
             {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
                 <div class="form-group">
-                    {!! Form::textarea('score', null, ['class' => 'form-control', 'rows' => '1','placeholder'=>'本日の達成値を入力してください']) !!}
+                    {!! Form::text('score', null, ['class' => 'form-control form-xs', 'rows' => '1','placeholder'=>'本日の達成値を入力']) !!}
         
-                    {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
+                    {!! Form::submit('Post', ['class' => 'btn btn-success btn-block btn-xs']) !!}
                 </div>
             {!! Form::close() !!}
         </div>
         @endif
     <!--グループを作成したユーザーのみ編集できる-->
-    @if($group->user_id==Auth::User()->id)
-        <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
-        <a href="{{ route('group.edit', $group->id) }}">編集</a>
-        {!! Form::open(['route' => ['group.delete', $group->id], 'method' => 'delete']) !!}
-            {!! Form::submit('削除', ['class' => 'btn btn-danger center-block']) !!}
-        {!! Form::close() !!}
-    @endif
-    @include('buttons.join_button', ['group' => $group])
 </div>
 <div class = "show">
   
@@ -113,13 +117,15 @@
                             $max = $data[$i][1];
                         }
                     }
+                
                     for($i = 0 ; $i < count($data) ; $i++) {    
                         print("<tr>");
-                        printf("<td width=\"%d\" align=\"right\">%s</td>", $maxlen * 15, $data[$i][0]);
+                        printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
                         printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
                         printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
                         print("</tr>\n");
                     }
+    
                 }
             ?>
                     

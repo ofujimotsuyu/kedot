@@ -27,14 +27,14 @@
         @yield('cover')
 
        
-                @yield('content')
+        @yield('content')
                 
     
     </body>
     
     
     <footer>
-          <address>Ofujimotsuyu(C)2018 </address>
+          <address>©Ofujimotsuyu2018</address>
     </footer>
     
 </html>

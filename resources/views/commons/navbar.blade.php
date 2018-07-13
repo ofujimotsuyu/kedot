@@ -227,6 +227,16 @@ header{
     margin-top: 25px;
 }
 
+@media (max-width: 991px){
+    .head{
+        margin-right: 70px;
+    }
+    
+    .menu-btn{
+        right: 20px;
+    }
+}
+
 .ahaha{
     /*display: inline-block;*/
     text-align: center;

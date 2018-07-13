@@ -29,7 +29,7 @@
     }
     
     .login{
-      margin-top: 150px;
+      margin-top: 100px;
     }
     
     .createpage h1{
@@ -93,19 +93,22 @@
       font-size: 100px;    
       margin-top: 50px;
       margin-bottom: 50px;
-}
-.nokoritop{
-      font-size: 40px;
-      width: 100px;
-      margin-top: 50PX;
-      margin-bottom: 10px;
-}
-.tyonmage{
-  margin-top: 0;
-}
-.sankasya{
-    margin-top: 0;
-  }
+    }
+    .nokoritop{
+          font-size: 40px;
+          width: 100px;
+          margin-top: 50PX;
+          margin-bottom: 10px;
+    }
+    .tyonmage{
+      margin-top: 0;
+    }
+    .sankasya{
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 25px;
+        width: 110px;
+    }
   /*検索ページの画像たち*/
     .groups img{
       width: 100%;
@@ -121,7 +124,54 @@
     .each_group p{
       width: 100%;
       font-size: 10px;
-  }
+    }
+    
+    .ramumoji h2{
+      font-size: 30px;
+      letter-spacing: 5px;
+    }
+    
+    .ramumoji h3{
+      font-size: 15px;
+    }
+    
+    .nokoritop{
+      margin-top: 15px;
+      font-size: 25px;
+      width: 60px;
+    }
+    
+    .nokori{
+      font-size: 40px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
 
+    .tyonmage h1{
+      font-size: 25px;
+      width: 80px;
+      display: inline-block;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .tyonmage{
+      padding-bottom: 15px;
+    }
+    
+    hr{
+      height: 10px;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    
+    td{
+      color: white;
+      font-size: 14px;
+    }
+    
+    .bab{
+      width: 100px;
+    }
 }    
-}
+
