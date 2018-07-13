@@ -35,67 +35,70 @@
     <!--参加しているグループをforeachで呼び出す-->
     @foreach($groups as $group)
         <div class='pon'>
-        <h2><a href="{{ route('groups.show', [ 'id' => $group->id ]) }}" style="text-decoration: none;">{{ $group->goal }}</a></h2>
-        {{ "頑張ること : " . $group->to_do }}
-        {{ $group->term . "日間で" . $group->amount . $group->unit }}
-        <br>
-    
-        <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
-        <!--<?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        -->
-           
-        <!--各グループにおいて、一つ一つのrecordカラムのvalueを取り出して表示する-->
-        <!--    @foreach($records as $record)-->
-        <!--        {{ $record->record }}       -->
-        <!--    @endforeach-->
-        
-        
-　　<?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
-    
-    <table class='ton' width="95%" align="center" border="1" rules="none" bordercolor="#000099" cellspacing="0">
-    
-    <?php
-    
-    $id = $user->id;
-    $name = App\User::find($id); 
-    
-    $tassei=0;
-    $records3 = \DB::table('activities')->where('user_id', $user->id)->where('group_id', $group->id)->get();
-    foreach($records3 as $record) {
-        $tassei = $tassei + $record->record;
-    }
-    
-    $data[0] = array("目標値", $group->amount);
-    $data[1] = array($name->name, $tassei);
-    
-    $maxlen = 0;
-    $max = 0;
-    if(!empty($name)){
-        for($i = 0 ; $i < count($data) ; $i++){
-            if(strlen($data[$i][0]) > $maxlen){        
-                $maxlen = strlen($data[$i][0]);
-            }
-            if($data[$i][1] > $max) {           
-                $max = $data[$i][1];
-            }
-        }
-        print("<tr>");
-        printf("<td  width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[0][0]);
-        printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[0][1] / $max * 100);
-        printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[0][1]);
-        print("</tr>\n");
-        
-        print("<tr>");
-        printf("<td width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[1][0]);
-        printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[1][1] / $max * 100);
-        printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[1][1]);
-        print("</tr>\n");
-    }  
+            <a class='vo' href="{{ route('groups.show', [ 'id' => $group->id ]) }}" style="text-decoration:none;">
+            <div class='du'>
+                <span class='xxx'><h2>{{ $group->goal }}</h2></span>
+                {{ "頑張ること : " . $group->to_do }}
+                {{ $group->term . "日間で" . $group->amount . $group->unit }}
+                <br>
+            </div>
+            </a>
+            <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
+            <!--<?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        -->
+               
+            <!--各グループにおいて、一つ一つのrecordカラムのvalueを取り出して表示する-->
+            <!--    @foreach($records as $record)-->
+            <!--        {{ $record->record }}       -->
+            <!--    @endforeach-->
             
-    ?>
-    
-    </table>
+        　　<?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
+            
+            <table class='ton' width="95%" align="center" border="1" rules="none" bordercolor="#000099" cellspacing="0">
+            
+                <?php
+                
+                $id = $user->id;
+                $name = App\User::find($id); 
+                
+                $tassei=0;
+                $records3 = \DB::table('activities')->where('user_id', $user->id)->where('group_id', $group->id)->get();
+                foreach($records3 as $record) {
+                    $tassei = $tassei + $record->record;
+                }
+                
+                $data[0] = array("目標値", $group->amount);
+                $data[1] = array($name->name, $tassei);
+                
+                $maxlen = 0;
+                $max = 0;
+                if(!empty($name)){
+                    for($i = 0 ; $i < count($data) ; $i++){
+                        if(strlen($data[$i][0]) > $maxlen){        
+                            $maxlen = strlen($data[$i][0]);
+                        }
+                        if($data[$i][1] > $max) {           
+                            $max = $data[$i][1];
+                        }
+                    }
+                    print("<tr>");
+                    printf("<td  width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[0][0]);
+                    printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[0][1] / $max * 100);
+                    printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[0][1]);
+                    print("</tr>\n");
+                    
+                    print("<tr>");
+                    printf("<td width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[1][0]);
+                    printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[1][1] / $max * 100);
+                    printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[1][1]);
+                    print("</tr>\n");
+                }  
+                        
+                ?>
+        
+            </table>
+            
         </div>
-        @endforeach
+    @endforeach
         
         
         

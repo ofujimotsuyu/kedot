@@ -285,21 +285,15 @@ input[type= 'submit'] {
   color: skyblue;
 }
 .pon{
-  border: solid;
-  border-color: gray;
-  border-radius:5px;
-  margin-top:10px;
-  
+  margin-top:40px;
 }
 
 .ton{
-  border: solid;
-  border-color: gray;
-  border-radius:5px;
+  border-color:black;
   margin-bottom:2px;
   font-size: 12px;
 }
-  
+
 .category-search{
   width: 25% !important;
 }
@@ -313,3 +307,23 @@ input[type= 'submit'] {
   padding-top: 16.5px !important;
 }
 
+.du{
+  border-bottom: solid;
+  border-bottom-width: 1px;
+}
+
+a .vo : link {
+  color: black; 
+}
+
+a .vo : visited {
+  color: black; 
+}
+
+a .vo : hover {
+  color: gray; 
+}
+
+a .vo : active {
+  color: black; 
+}
