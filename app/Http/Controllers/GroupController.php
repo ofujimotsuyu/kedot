@@ -36,8 +36,8 @@ class GroupController extends Controller
             'goal' => 'required|max:191',
             'to_do' => 'required|max:191',
             'category' => 'required|max:191',
-            'term' => 'required|integer',
-            'amount' => 'required|integer',
+            'term' => 'required|integer|min:1',
+            'amount' => 'required|integer|min:1',
             'unit' => 'required|max:191',
         ]);
         //画像のファイル名をいい感じにする
@@ -144,6 +144,16 @@ class GroupController extends Controller
     }
     
     public function update(Request $request, $id) {
+        
+        $this->validate($request, [
+            'goal' => 'required|max:191',
+            'to_do' => 'required|max:191',
+            'category' => 'required|max:191',
+            'term' => 'required|integer|min:1',
+            'amount' => 'required|integer|min:1',
+            'unit' => 'required|max:191',
+        ]);
+
         
         //画像のファイル名をいい感じにする
         $daietto = 'images/daietto.jpg';
