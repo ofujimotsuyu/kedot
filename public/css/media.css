@@ -126,9 +126,14 @@
       font-size: 10px;
     }
     
+    .ramumoji{
+      width: 100%;
+    }
+    
     .ramumoji h2{
       font-size: 30px;
       letter-spacing: 5px;
+      margin-top: 10px;
     }
     
     .ramumoji h3{
@@ -157,6 +162,13 @@
     
     .tyonmage{
       padding-bottom: 15px;
+    }
+    
+    .ramuimg img{
+      width: 170px;
+      float: unset;
+      margin-right: 0;
+      margin-top: 30px;
     }
     
     hr{

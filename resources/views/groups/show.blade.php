@@ -3,11 +3,11 @@
 @section('content')
 <div class="ramunoue">
     <div class="ramu">
-        <div class="ramuimg">    
+        <div class="ramuimg col-sm-4 col-sm-offset-1">    
             <img src="{{url($group->group_filename)}}" alt="avatar"/><br>
         </div>
         
-        <div class="ramumoji">
+        <div class="ramumoji col-sm-7">
             <h2>{{ $group->goal }}<br></h2>
             
             <h3>
@@ -15,33 +15,41 @@
                 {{ "頑張ること : " . $group->to_do }}<br>
                 {{ $group->term . "日間で" . $group->amount . $group->unit }}
             </h3>
-            @include('buttons.join_button', ['group' => $group])
             @if($group->user_id==Auth::User()->id)
-            <div class="col-xs-offset-2 col-xs-4">
+            <div class="henshuB col-xs-4">
                 <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
-                <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="background-color:green; color:white">編集</p></a>
+                <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-4" style="float:center">
+                @include('buttons.join_button', ['group' => $group])
+            </div>
+            @else
+            <div class="col-xs-12" style="float:center">
+                @include('buttons.join_button', ['group' => $group])
+            </div>
+            @endif
+            @if($group->user_id==Auth::User()->id)
+            <div class="sakujoB col-xs-4">
                 {!! Form::open(['route' => ['group.delete', $group->id], 'method' => 'delete']) !!}
-                    {!! Form::submit('削除', ['class' => 'btn btn-danger center-block']) !!}
+                    {!! Form::submit('削除', ['class' => 'btn center-block']) !!}
+                {!! Form::close() !!}
+            </div>
+            @endif
+            <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
+                 
+            @if(count($records) > 0)
+            <div class = "tasseiform">
+                <!--formつくってるよ-->
+                {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
+                    <div class="form-group">
+                        {!! Form::text('score', null, ['class' => 'col-xs-6 form-control form-xs', 'rows' => '1','placeholder'=>'本日の達成値を入力']) !!}
+            
+                        {!! Form::submit('Post', ['class' => 'col-xs-6 btn btn-success btn-block btn-xs']) !!}
+                    </div>
                 {!! Form::close() !!}
             </div>
             @endif
         </div>
-        <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
-             
-        @if(count($records) > 0)
-        <div class = "tasseiform">
-            <!--formつくってるよ-->
-            {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
-                <div class="form-group">
-                    {!! Form::text('score', null, ['class' => 'form-control form-xs', 'rows' => '1','placeholder'=>'本日の達成値を入力']) !!}
-        
-                    {!! Form::submit('Post', ['class' => 'btn btn-success btn-block btn-xs']) !!}
-                </div>
-            {!! Form::close() !!}
-        </div>
-        @endif
     <!--グループを作成したユーザーのみ編集できる-->
 </div>
 <div class = "show">
@@ -127,9 +135,9 @@
                     }
     
                 }
-            ?>
-                    
+                ?>
                 </div>
+                    
             
             
         </div>
