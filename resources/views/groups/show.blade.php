@@ -82,6 +82,7 @@
          
         // 日付を関数に渡す
         $day = day_diff($group);
+        
          
         $nokori = $group->term - $day;
         echo '残り',ceil( $nokori ) , '日';
