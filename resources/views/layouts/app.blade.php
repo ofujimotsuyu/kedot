@@ -35,17 +35,9 @@
         </div>
     </body>
     
-    <div class="footer">
-        <div id="button">
-        </div>
-            <div id="container">
-                <div id="cont">
-                    <div class="footer_center">
-                          <h3>御富士も梅雨</h3>
-                          <h5>尾崎・柚木原・舟見・森井・土橋・實</h5>
-                    </div>
-                </div>
-            </div>
-    </div>
+    
+    <footer>
+          <address>Ofujimotsuyu(C)2018 </address>
+    </footer>
     
 </html>
