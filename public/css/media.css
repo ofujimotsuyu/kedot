@@ -48,9 +48,9 @@
     width:20%;
     }
     
-    .form-control{
+    .nomform .form-control{
     margin-right: 5px ;
-    font-size: 8px ;
+    font-size: 10px ;
     }
     
     .form-group p {
@@ -62,7 +62,7 @@
     }
     
     select{
-      font-size: 10px;
+      font-size: 14px;
     }
 
     .first-form{

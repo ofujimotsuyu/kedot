@@ -6,7 +6,7 @@
   <h1>グループを作成しよう！</h1>
 </div>
 
-<div class="form-group">
+<div class="form-group nomform">
   <table class="table table-bordered">
     {!! Form::open(['route' => ['groups.store', $user->id], 'files' => true]) !!}
     <!--第三引数の中に'placeholder' => '○○○○'　を入れることでバックグラウンドにdescription-->
