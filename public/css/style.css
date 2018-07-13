@@ -98,41 +98,33 @@ body {
 }
 
 
-
-.groups img:hover{
-  width: 150px;
-  filter:brightness(100%);
-}
-
+/*検索ページの画像たち*/
 .groups img{
   width: 150px;
   filter:brightness(70%);
 }
 
 
-.groups{
-  text-align: center;
-}
-
 .each_group{
-  /*画像を横並びにする*/
   display: inline-block;
-  width: 150px;
-  height: 150px;
   position: relative;
   margin-top: 5px;
+}
+
+.each_group:hover{
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+  filter:brightness(150%);
 }
 
 .each_group p{
   color: white;
   width: 150px;
   top: 50%;
-  
   position: absolute;
   font-weight: bold;
-}
-
-.show{
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -219,11 +211,11 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:40% !important;
+  width:62% !important;
 }
 
 .form-group .quarter-form{
-  width:18%;
+  width:25%;
 }
 
 .form-group .small-form{
@@ -232,7 +224,7 @@ input[type= 'submit'] {
 
 .form-control{
   margin-right: 5px ;
-  font-size: 12px ;
+  font-size: 14px ;
 }
 
 .form-group p {
@@ -285,21 +277,15 @@ input[type= 'submit'] {
   color: skyblue;
 }
 .pon{
-  border: solid;
-  border-color: gray;
-  border-radius:5px;
-  margin-top:10px;
-  
+  margin-top:40px;
 }
 
 .ton{
-  border: solid;
-  border-color: gray;
-  border-radius:5px;
+  border-color:black;
   margin-bottom:2px;
   font-size: 12px;
 }
-  
+
 .category-search{
   width: 25% !important;
 }
@@ -425,4 +411,40 @@ td{
 
 hr{
   margin-bottom: 50px;
+}
+
+footer{
+    margin : 100px ;
+    font-size: 80%; /*フォントサイズの指定*/
+    width: 100%;    /*横幅の指定*/
+    text-align: center; /*文字の中央寄せ*/
+    padding-top: 50px;  /*文字上部の余白指定*/
+    padding-bottom: 50px;   /*文字下部の余白指定*/
+    background-color: #5cb85c;  /*背景色の指定*/
+}
+footer address{
+    color: #fff;    /*文字色の指定*/
+    letter-spacing: 5px;    /*文字と文字の間隔をあける*/
+    font-style: normal; /*文字の斜体を取り消す*/
+}
+
+.du{
+  border-bottom: solid;
+  border-bottom-width: 1px;
+}
+
+.vo a:link{
+  color: black; 
+}
+
+.vo a:visited{
+  color: black; 
+}
+
+.vo a:hover{
+  color: gray; 
+}
+
+.vo a:active{
+  color: black; 
 }

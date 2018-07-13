@@ -31,4 +31,10 @@
                 
     
     </body>
+    
+    
+    <footer>
+          <address>Ofujimotsuyu(C)2018 </address>
+    </footer>
+    
 </html>

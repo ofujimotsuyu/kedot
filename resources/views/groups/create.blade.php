@@ -6,7 +6,7 @@
   <h1>グループを作成しよう！</h1>
 </div>
 
-<div class="form-group">
+<div class="form-group nomform">
   <table class="table table-bordered">
     {!! Form::open(['route' => ['groups.store', $user->id], 'files' => true]) !!}
     <!--第三引数の中に'placeholder' => '○○○○'　を入れることでバックグラウンドにdescription-->
@@ -35,10 +35,9 @@
           <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4 each'>目標数値・単位</th>
           <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）500']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form first-form', 'rows' => '1','placeholder' => '回']) !!}<p>（半角数字）</p></td>
         </tr>
-
         
   </table>
-  {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
+  {!! Form::submit('完了', ['class' => 'btn btn-success btn-block']) !!}
   {!! Form::close() !!}
 </div>
 
