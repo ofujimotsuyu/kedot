@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="form-group">
+
+<div class="createpage">
+  <h1>グループ内容編集ペーージ</h1>
+</div>
+
+<div class="form-group nomform">
   <table class="table table-bordered">
   {!! Form::model($group, ['route' => ['group.update', $group->id], 'method' => 'put']) !!}
     <!--第三引数の中に'placeholder' => '○○○○'　を入れることでバックグラウンドにdescription-->
@@ -33,7 +38,7 @@
         </tr>
         
   </table>
-  {!! Form::submit('Post', ['class' => 'btn btn-success btn-block']) !!}
+  {!! Form::submit('完了', ['class' => 'btn btn-success btn-block']) !!}
   {!! Form::close() !!}
 
 @endsection

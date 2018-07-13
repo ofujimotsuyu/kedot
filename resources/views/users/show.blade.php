@@ -19,6 +19,7 @@
 
 @section("content")
     <!--きりんとかのプロフィール画像を画面の中央に表示-->
+    <div>
     <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
     <div class="user_name"> 
         <h1>{{ $user->name }}</h1>
@@ -102,7 +103,8 @@
         </div>
     @endforeach
         
-        
-        
+    <div align="center">
+        <br>{!! $groups->render() !!}
+    </div>    
     
 @endsection
