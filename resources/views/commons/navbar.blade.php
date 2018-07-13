@@ -211,7 +211,6 @@ ul {
 
 header{
     height: 60px;
-    margin-bottom: 30px;
     border-bottom-color: black;
     border-bottom: solid thin;
 }
