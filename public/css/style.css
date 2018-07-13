@@ -312,18 +312,18 @@ input[type= 'submit'] {
   border-bottom-width: 1px;
 }
 
-a .vo : link {
+.vo a:link{
   color: black; 
 }
 
-a .vo : visited {
+.vo a:visited{
   color: black; 
 }
 
-a .vo : hover {
+.vo a:hover{
   color: gray; 
 }
 
-a .vo : active {
+.vo a:active{
   color: black; 
 }
