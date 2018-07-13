@@ -56,6 +56,7 @@ class GroupController extends Controller
         $group->amount = $request->amount;
         $group->unit = $request->unit;
         $group->category = $request->category;
+        $group->user_id = $user->id;
         
         switch($group->category){
             case 'ダイエット':
@@ -92,7 +93,9 @@ class GroupController extends Controller
         }
         
         $group->save();
-
+        
+        $user->sankagroups()->attach($group->id);
+            
         return view('groups.groups' , [
             'id' => $id,
         ]);

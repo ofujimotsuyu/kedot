@@ -26,8 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    
-    public function sankagroups()
+
+        public function sankagroups()
     {
         return $this->belongsToMany(Group::class, 'user_group', 'user_id', 'group_id')->withTimestamps();
     }
@@ -64,4 +64,11 @@ class User extends Authenticatable
     public function is_joining($groupId){
         return $this->sankagroups()->where('group_id', $groupId)->exists();
     }
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class);
+    }
 }
+
+    
