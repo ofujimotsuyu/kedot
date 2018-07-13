@@ -24,6 +24,10 @@
       height: 100%;
     }
     
+    .block-one img{
+      margin-top: 250px;
+    }
+    
     .login{
       margin-top: 150px;
     }

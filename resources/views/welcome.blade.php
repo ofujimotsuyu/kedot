@@ -43,11 +43,11 @@
         </div>
         
         <script>
-          $(".block-one").fadeIn(1800);
+          $(".block-one").fadeIn(500);
           $(document).ready(function(){
             setTimeout(function() {
               $(".block-two").css("display","block");
-              $(".block-one").fadeOut(500);
+              $(".block-one").fadeOut(300);
             }, 4000);
           });
         </script>
