@@ -13,7 +13,7 @@ class UserController extends Controller
     public function show($id){
         $user = User::find($id);
         // User.phpのsankagroups function()を使ってその人の参加してるグループの情報を持ってくる
-        $sankagroups = $user->sankagroups()->get();
+        $sankagroups = $user->sankagroups()->paginate(5);
       
       
       //show.blade.phpの$userと$groupsに、$userと$sankagroupsをそれぞれ送る

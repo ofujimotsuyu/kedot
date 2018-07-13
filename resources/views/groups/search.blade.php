@@ -28,9 +28,11 @@
             {{$group->goal}}
         </div>
     @endforeach
+    <!--paginateで同じデータを持ったまま、ページを移動-->
     </div>
     
-    <!--paginateで同じデータを持ったまま、ページを移動-->
-    {!! $groups->appends(['goal'=>$goal])->render() !!}
+    <div align="center">
+    <br>{!! $groups->appends(['goal'=>$goal])->render() !!}
+    </div>
 
 @endsection
