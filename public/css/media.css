@@ -238,6 +238,12 @@
     .confirm td{
       padding: 0;
     }
+
+  .confirm-btn p{
+    height: 34px;
+    padding: 7px 0;
+    font-size: 13px;
+  }
     
 }    
 

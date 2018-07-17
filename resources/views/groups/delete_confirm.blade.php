@@ -62,8 +62,11 @@
                   </tr>
                   
             </table>
-            {!! Form::submit('削除', ['class' => 'btn center-block btn-danger']) !!}
+            <div class="center-block confirm-btn" align="center">
+            {!! Form::submit('削除', ['class' => 'btn btn-danger']) !!}
             {!! Form::close() !!}
+            <a href="{{ route('groups.show', ['id'=>$group->id]) }}"><p class="btn btn-default">キャンセル</p></a>
+            </div>
         </div>
     </div>
 </div>

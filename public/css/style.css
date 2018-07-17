@@ -563,3 +563,12 @@ footer address{
 .favoB h3{
   display: inline-block;
 }
+
+.confirm-btn .btn{
+  width: 100px;
+}
+
+.confirm-btn p{
+  height: 34px;
+  padding: 5.5px 0;
+}
