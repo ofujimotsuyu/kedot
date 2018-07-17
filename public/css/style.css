@@ -176,6 +176,7 @@ input[type= 'submit'] {
   width:80%;
 }
 
+
 .tasseiform input[type= 'submit'] {
   width:100%;
   background-color: green;
@@ -183,6 +184,15 @@ input[type= 'submit'] {
 
 .tasseiform input[type= 'text'] {
   width:100%;
+}
+
+.favoB input[type='submit']{
+  width: 50px;
+  font-size: 35px;
+  margin-bottom: 10px;
+  background: transparent;
+  color: orange;
+  border: none;
 }
 
  /* フォームの幅を調節 */
@@ -530,4 +540,13 @@ footer address{
 
 .ramunoue {
   margin-top: 80px;
+}
+
+
+.favoB h2{
+  display: inline-block;
+}
+
+.favoB h3{
+  display: inline-block;
 }
