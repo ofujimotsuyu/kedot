@@ -29,6 +29,8 @@
                     @if($goal&&$category), @endif
                     {{ $category }}
                     @if($goal||$category)」の検索結果@endif
+                    <!--何件が該当か表示-->
+                    @if($goal||$category)（{{ count($groups)}}件）@endif
                 </h2>
                 <tr class="result">
                     <div class = "groups">

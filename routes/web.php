@@ -33,11 +33,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('groupshow/{id}','GroupController@show')->name('groups.show');
 
     Route::group(['prefix' => 'groups/{id}'], function () {
-    Route::delete('delete','GroupController@destroy')->name('group.delete');
+        Route::delete('delete','GroupController@destroy')->name('group.delete');
         Route::post('join', 'JoinController@store')->name('group.join');
         Route::delete('quit', 'JoinController@destroy')->name('group.quit');
         Route::put('update', 'GroupController@update')->name('group.update');
         Route::get('edit', 'GroupController@edit')->name('group.edit');
+        Route::get('delete_confirm','GroupController@delete_confirm')->name('delete_confirm');
     });
     Route::resource('users','UserController');
 });

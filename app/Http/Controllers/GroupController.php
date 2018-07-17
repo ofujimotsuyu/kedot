@@ -229,4 +229,10 @@ class GroupController extends Controller
     return redirect('/');
     }
     
+    public function delete_confirm($id){
+        $group = Group::find($id);
+        
+        return view('groups.delete_confirm',['group'=>$group]);
+    }
+    
 }

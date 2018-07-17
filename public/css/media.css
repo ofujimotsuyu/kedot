@@ -207,5 +207,23 @@
       margin-left:5px;
       margin-right:5px;
     }
+    
+    .confirm th{
+      font-size: 10px !important;
+      padding-top: 12px !important;
+      height: 38px !important;
+    }
+    
+    .confirm p{
+      color: black;
+      font-size: 12px;
+      margin: 0;
+      padding-top: 2px;
+    }    
+    
+    .confirm td{
+      padding: 0;
+    }
+    
 }    
 
