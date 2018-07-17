@@ -249,6 +249,7 @@ ul {
     background-color: white;
     position: fixed;
     width: 100%;
+    top: 0px;
 }
 
 .jitsu{
