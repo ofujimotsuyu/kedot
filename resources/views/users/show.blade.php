@@ -106,6 +106,7 @@
                 </div>
             @endforeach
                 
+            
             <div align="center">
                 <br>{!! $groups->render() !!}
             </div>    

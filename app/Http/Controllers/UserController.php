@@ -24,7 +24,20 @@ class UserController extends Controller
 
         return view('users.show', $data );
     }
-    
+
+     public function favoritings($id)
+    {
+        $user = User::find($id);
+        $favoritings = $user->favorites()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'uses' => $favoritings,
+        ];
+
+
+        return view('users.favorites', $data);
+    }
     
     public function index(Request $request){
         $user = $request->search;
