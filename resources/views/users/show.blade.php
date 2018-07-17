@@ -9,10 +9,13 @@
         color : black;
         text-decoration: none;
         }
-        a:hover {
+        h2 a:hover {
         color: #fff;
         background-color: #00BCD4;
         text-decoration: none;
+        }
+        .nav a{
+            font-size: 20px; 
         }
     </style>
 </head>
@@ -30,9 +33,9 @@
             
             <div>
                 <ul class="nav nav-tabs nav-justified">
-                    <li class = "{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px">参加グループ</span></a></li>
-                    <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-star" style="font-size:20px">お気に入り</span></a></li>
-                    <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-ok" style="font-size:20px">達成リスト</span></a></li>
+                    <li class = "{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px"></span> 参加グループ</a></li>
+                    <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> お気に入り</a></li>
+                    <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-ok" style="font-size:20px"></span> 達成リスト</a></li>
                 </ul>
             </div>
             
@@ -106,6 +109,7 @@
                 </div>
             @endforeach
                 
+            
             <div align="center">
                 <br>{!! $groups->render() !!}
             </div>    

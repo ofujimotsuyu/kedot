@@ -95,10 +95,9 @@ class GroupController extends Controller
         $group->save();
         
         $user->sankagroups()->attach($group->id);
-            
-        return view('groups.show', [
-            'group' => $group,
-        ]);
+      
+       //更新してcreateが増えないようにする
+       return redirect('/');
     }
 
     public function show($id){
@@ -227,6 +226,12 @@ class GroupController extends Controller
     $group->delete();
 
     return redirect('/');
+    }
+    
+    public function delete_confirm($id){
+        $group = Group::find($id);
+        
+        return view('groups.delete_confirm',['group'=>$group]);
     }
     
 }
