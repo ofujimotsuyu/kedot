@@ -3,7 +3,7 @@
 @section('content')
  <div class="container">
     <div class="row">
-        <div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+        <div>
             <?php $groups = App\Group::paginate(18); ?>
             <div class = "groups">
                 @foreach($groups as $group)

@@ -100,7 +100,7 @@ body {
 
 /*検索ページの画像たち*/
 .groups img{
-  width: 150px;
+  width: 191px;
   filter:brightness(70%);
 }
 
@@ -120,7 +120,7 @@ body {
 
 .each_group p{
   color: white;
-  width: 150px;
+  width: 191px;
   top: 50%;
   position: absolute;
   font-weight: bold;
@@ -133,7 +133,7 @@ body {
 }
 
 .search_result img{
-  width: 200px;
+  width: 191px;
 }
 
 .result{
