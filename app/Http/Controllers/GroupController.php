@@ -96,9 +96,8 @@ class GroupController extends Controller
         
         $user->sankagroups()->attach($group->id);
             
-        return view('groups.groups' , [
-            'id' => $id,
-        ]);
+       //更新してcreateが増えないようにする
+       return redirect('/');
     }
 
     public function show($id){
