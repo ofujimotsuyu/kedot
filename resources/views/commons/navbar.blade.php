@@ -1,4 +1,4 @@
-<header class='poi'>
+<div class='header'>
     <style>
     /* common */
 body {
@@ -13,7 +13,9 @@ ul {
 	list-style: none;
 }
 
-
+.row{
+    margin-top: 80px;
+}
 /* drawer menu */
 /* 右から出てくるやつ*/
 .drawer-menu {
@@ -69,8 +71,8 @@ ul {
 .menu-btn {
     position: fixed;
     display: block;
-    top: 40px;
-    right: 40px;
+    top: 30px;
+    right: 20px;
     display: block;
     width: 40px;
     height: 40px;
@@ -78,6 +80,27 @@ ul {
     text-align: center;
     cursor: pointer;
     z-index: 3;
+}
+
+.jitsu1 {
+    position: fixed;
+    display:block;
+    top: 30px;
+    right: 60px;
+    width: 40px;
+    height: 40px;
+    z-index: 2000;
+    
+}
+
+.jitsu2 {
+    position: fixed;
+    display:block;
+    top: 30px;
+    right: 100px;
+    width: 40px;
+    height: 40px;
+    z-index: 2000;
 }
 
 .bar {
@@ -200,55 +223,64 @@ ul {
     opacity: 1;
     z-index: 3;
 }
-
 .logo{
-    position: absolute;
-    padding-top:5px;
+    top: 10px;
+    /*padding-top:5px;*/
     padding-left:20px;
     margin: 0;
+    position: fixed;
+    z-index: 2000;
     
 }
 
+.header:after{
+  content: ""; 
+  display: block; 
+  height: 0; 
+  font-size:0;
+}
 
-header{
-    height: 60px;
-    margin-bottom: 30px;
+.header{
+    height: 65px;
     border-bottom-color: black;
     border-bottom: solid thin;
+    z-index: 2000;
+    background-color: white;
+    position: fixed;
+    width: 100%;
 }
 
-.jitsu1{
-    position: fixed;
-    display: block;
-    top: 40px;
-    right: 90px;
-    display: block;
-    width: 40px;
-    height: 40px;
-    font-size: 10px;
-    text-align: center;
-    cursor: pointer;
-    z-index: 3;
-}
-
-.jitsu2{
-    position: fixed;
-    display: block;
-    top: 40px;
-    right: 140px;
-    display: block;
-    width: 40px;
-    height: 40px;
-    font-size: 10px;
-    text-align: center;
-    cursor: pointer;
-    z-index: 3;
+.jitsu{
+    float: right;
+    padding-top: 15px;
+    padding-left: 27px
 }
 
 .head{
     text-align: center;
     margin-right: 100px;
     margin-top: 25px;
+}
+
+.fu {
+    position: fixed;
+    z-index: 2000;
+}
+
+@media(min-width: 1237px){
+     .menu-btn{
+        right: 20px !important;
+    }
+}
+
+@media (max-width: 991px){
+    .head{
+        margin-right: 70px;
+    }
+    
+    .menu-btn{
+        right: 20px;
+    }
 }
 
 .ahaha{
@@ -259,6 +291,11 @@ header{
 .nav a{
     color: black;
     text-decoration: none;
+}
+
+.fu {
+    position: fixed;
+    z-index: 2000;
 }
     
     </style>
@@ -285,4 +322,4 @@ header{
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
         </ul>
     </nav>
-</header>
+</div>
