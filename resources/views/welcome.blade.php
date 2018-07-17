@@ -19,8 +19,8 @@
     @if(Auth::check())
     <body>
         @include('commons.navbar')
+        <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
 
-       <?php $groups = App\Group::paginate(18); ?>
         <div class = "groups">
             @foreach($groups as $group)
             <div class = "each_group">
