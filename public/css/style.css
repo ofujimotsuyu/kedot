@@ -128,6 +128,25 @@ body {
   text-align: center;
 }
 
+.each_user{
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.each_user p{
+  width: 150px;
+  /*position: absolute;*/
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.ichiran img{
+  width: 100px;
+  margin-top: 20px;
+}
+
 .ramu img{
   height: 200px;
 }
@@ -500,4 +519,8 @@ footer address{
 .sakujoB .btn:hover{
  background-color: white;
  color: pink;
+}
+
+.user_result{
+  display: inline-block;
 }
