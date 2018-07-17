@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+        <div>
             <!--検索フォーム-->
             <!--actionでルートを指定-->
             <div class="form-group search nomform">
@@ -22,29 +22,26 @@
         
             <!--検索結果を表示-->
             <div class='search_result'>
-            <h2>
-            @if($goal||$category)「@endif
-            {{$goal}}
-            <!--フリーワードとカテゴリー両方で検索してれば、を表示-->
-            @if($goal&&$category), @endif
-            {{ $category }}
-            @if($goal||$category)」の検索結果@endif
-            </h2>
-            <tr class="result">
-            <div class = "groups">
-                @foreach($groups as $group)
-                <div class = "each_group">
-                    <td><a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
+                <h2>
+                    @if($goal||$category)「@endif
+                    {{$goal}}
+                    <!--フリーワードとカテゴリー両方で検索してれば、を表示-->
+                    @if($goal&&$category), @endif
+                    {{ $category }}
+                    @if($goal||$category)」の検索結果@endif
+                </h2>
+                <tr class="result">
+                    <div class = "groups">
+                        @foreach($groups as $group)
+                        <div class = "each_group">
+                            <td><a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
+                        </div>
+                        @endforeach
+                    </div>
+                </tr>
+                <div align="center">
+                <br>{!! $groups->appends(['goal'=>$goal])->render() !!}
                 </div>
-        
-                @endforeach
-        
-            </div>
-            </tr>
-            
-            
-            <div align="center">
-            <br>{!! $groups->appends(['goal'=>$goal])->render() !!}
             </div>
         </div>
     </div>

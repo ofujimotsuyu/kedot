@@ -95,10 +95,9 @@ class GroupController extends Controller
         $group->save();
         
         $user->sankagroups()->attach($group->id);
-            
-        return view('groups.groups' , [
-            'id' => $id,
-        ]);
+      
+       //更新してcreateが増えないようにする
+       return redirect('/');
     }
 
     public function show($id){
@@ -141,7 +140,7 @@ class GroupController extends Controller
             $query->where('category','like','%'.$category.'%');
         }
    
-        $groups = $query->paginate(18);
+        $groups = $query->orderBy('created_at','DESC')->paginate(18);
 
         return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category);
     }
