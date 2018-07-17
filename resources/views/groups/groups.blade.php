@@ -3,8 +3,8 @@
 @section('content')
  <div class="container">
     <div class="row">
-        <div>
-            <?php $groups = App\Group::paginate(18); ?>
+        <div class="">
+            <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
             <div class = "groups">
                 @foreach($groups as $group)
                 <div class = "each_group">

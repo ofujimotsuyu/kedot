@@ -290,6 +290,7 @@ input[type= 'submit'] {
   transform: rotateY(360deg);
   color: skyblue;
 }
+
 .pon{
   margin-top:40px;
 }
@@ -469,6 +470,7 @@ footer address{
 
 .vo a:active{
   color: black; 
+
 }
 
 .taikai .btn{
@@ -500,4 +502,5 @@ footer address{
 .sakujoB .btn:hover{
  background-color: white;
  color: pink;
+
 }
