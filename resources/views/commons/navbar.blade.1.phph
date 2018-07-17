@@ -1,4 +1,4 @@
-<header class='poi'>
+<header>
     <style>
     /* common */
 body {
@@ -200,12 +200,11 @@ ul {
     opacity: 1;
     z-index: 3;
 }
-
 .logo{
-    position: absolute;
     padding-top:5px;
     padding-left:20px;
     margin: 0;
+    position: absolute;
     
 }
 
@@ -217,32 +216,10 @@ header{
     border-bottom: solid thin;
 }
 
-.jitsu1{
-    position: fixed;
-    display: block;
-    top: 40px;
-    right: 90px;
-    display: block;
-    width: 40px;
-    height: 40px;
-    font-size: 10px;
-    text-align: center;
-    cursor: pointer;
-    z-index: 3;
-}
-
-.jitsu2{
-    position: fixed;
-    display: block;
-    top: 40px;
-    right: 140px;
-    display: block;
-    width: 40px;
-    height: 40px;
-    font-size: 10px;
-    text-align: center;
-    cursor: pointer;
-    z-index: 3;
+.jitsu{
+    float: right;
+    padding-top: 15px;
+    padding-left: 27px
 }
 
 .head{
@@ -268,8 +245,8 @@ header{
     <div class="ahaha">
         <ul class = "head">
             <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
-            <li class = "nav jitsu1"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
-            <li class = "nav jitsu2"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
         </ul>
     </div>
     <label class="menu-btn" for="checked">
