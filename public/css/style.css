@@ -100,7 +100,7 @@ body {
 
 /*検索ページの画像たち*/
 .groups img{
-  width: 150px;
+  width: 191px;
   filter:brightness(70%);
 }
 
@@ -120,7 +120,7 @@ body {
 
 .each_group p{
   color: white;
-  width: 150px;
+  width: 191px;
   top: 50%;
   position: absolute;
   font-weight: bold;
@@ -152,7 +152,7 @@ body {
 }
 
 .search_result img{
-  width: 200px;
+  width: 191px;
 }
 
 .result{
@@ -244,7 +244,7 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:62% !important;
+  width:30% !important;
 }
 
 .form-group .quarter-form{
@@ -265,6 +265,7 @@ input[type= 'submit'] {
     margin: 0;
     height: 34px;
     font-size: 15.6px;
+    color:black;
 }
 
 .box{
@@ -309,6 +310,7 @@ input[type= 'submit'] {
   transform: rotateY(360deg);
   color: skyblue;
 }
+
 .pon{
   margin-top:40px;
 }
@@ -488,6 +490,7 @@ footer address{
 
 .vo a:active{
   color: black; 
+
 }
 
 .taikai .btn{
@@ -523,4 +526,8 @@ footer address{
 
 .user_result{
   display: inline-block;
+}
+
+.ramunoue {
+  margin-top: 80px;
 }
