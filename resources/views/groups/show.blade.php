@@ -34,9 +34,7 @@
             @endif
             @if($group->user_id==Auth::User()->id)
             <div class="sakujoB col-xs-4">
-                {!! Form::open(['route' => ['group.delete', $group->id], 'method' => 'delete']) !!}
-                    {!! Form::submit('削除', ['class' => 'btn center-block']) !!}
-                {!! Form::close() !!}
+                <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
             </div>
             @endif
             <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        

@@ -42,8 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('quit', 'JoinController@destroy')->name('group.quit');
         Route::put('update', 'GroupController@update')->name('group.update');
         Route::get('edit', 'GroupController@edit')->name('group.edit');
-        
-        
+        Route::get('delete_confirm','GroupController@delete_confirm')->name('delete_confirm');
     });
     Route::resource('users','UserController');
 });
