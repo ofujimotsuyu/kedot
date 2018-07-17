@@ -225,7 +225,7 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:62% !important;
+  width:30% !important;
 }
 
 .form-group .quarter-form{
@@ -246,6 +246,7 @@ input[type= 'submit'] {
     margin: 0;
     height: 34px;
     font-size: 15.6px;
+    color:black;
 }
 
 .box{
