@@ -319,7 +319,7 @@ ul {
     <label class="close-menu" for="checked"></label>
     <nav class="drawer-menu">
         <ul>
-            <li><a href="{{ route('users.index', ['id'=>Auth::user()->id]) }}">My page</a></li>
+            <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>
             <li><a href="#">気になる目標</a></li>
             <li><a href="#">自分の達成度</a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
