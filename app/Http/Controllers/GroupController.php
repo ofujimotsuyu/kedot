@@ -56,6 +56,7 @@ class GroupController extends Controller
         $group->amount = $request->amount;
         $group->unit = $request->unit;
         $group->category = $request->category;
+        $group->user_id = $user->id;
         
         switch($group->category){
             case 'ダイエット':
@@ -92,7 +93,9 @@ class GroupController extends Controller
         }
         
         $group->save();
-
+        
+        $user->sankagroups()->attach($group->id);
+            
         return view('groups.groups' , [
             'id' => $id,
         ]);
@@ -137,9 +140,9 @@ class GroupController extends Controller
         if(!empty($category)){
             $query->where('category','like','%'.$category.'%');
         }
-        
+   
         $groups = $query->paginate(18);
-        
+
         return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category);
     }
     
@@ -217,4 +220,13 @@ class GroupController extends Controller
         
         return view('groups.edit', ['group'=>$group]);
     }
+    
+    public function destroy($id)
+    {
+    $group = Group::find($id);
+    $group->delete();
+
+    return redirect('/');
+    }
+    
 }

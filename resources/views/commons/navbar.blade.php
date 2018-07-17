@@ -240,6 +240,7 @@ ul {
   font-size:0;
 }
 
+
 .header{
     height: 65px;
     border-bottom-color: black;
@@ -262,6 +263,7 @@ ul {
     margin-top: 25px;
 }
 
+
 .fu {
     position: fixed;
     z-index: 2000;
@@ -272,6 +274,7 @@ ul {
         right: 20px !important;
     }
 }
+
 
 @media (max-width: 991px){
     .head{

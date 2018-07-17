@@ -20,25 +20,21 @@
     <body>
         @include('commons.navbar')
 
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
-                    <?php $groups = App\Group::paginate(18); ?>
-                    <div class = "groups pagination">
-                        @foreach($groups as $group)
-                        <div class = "each_group">
-                            <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/></a>
-                            <p>{{ $group->goal }}</p>
-                        </div>
-                        @endforeach    
-                    </div>
-                    <div align="center">
-                        <br>{!! $groups->render() !!}
-                    </div>
-                </div>
+       <?php $groups = App\Group::paginate(18); ?>
+        <div class = "groups">
+            @foreach($groups as $group)
+            <div class = "each_group">
+                <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
             </div>
+            @endforeach
+        </div>
+        <div align="center">
+            <br>{!! $groups->render() !!}
         </div>
     </body>
+    <footer>
+          <address>©Ofujimotsuyu2018</address>
+    </footer>
     @else
     <body class = 'toppage'>
         <div class = "block-one">
@@ -71,6 +67,8 @@
                                     しかし、仲間がいればどうだろうか。<br>
                                     集まることで人は強くなる。<br>
                                     <p>Keep Doing Together</p>
+                                    <p>三日坊主を防ぐアプリ</p>
+                                    <img style="width:100px" src="{{ secure_asset("images/kedot.png") }}">
                                 </h3>
                         
                                 <div class = 'top-button col-xs-6'>
