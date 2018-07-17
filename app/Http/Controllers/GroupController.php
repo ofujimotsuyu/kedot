@@ -96,8 +96,8 @@ class GroupController extends Controller
         
         $user->sankagroups()->attach($group->id);
             
-        return view('groups.groups' , [
-            'id' => $id,
+        return view('groups.show', [
+            'group' => $group,
         ]);
     }
 
