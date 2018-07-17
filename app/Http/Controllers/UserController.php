@@ -25,4 +25,34 @@ class UserController extends Controller
         return view('users.show', $data );
     }
 
+     public function favoritings($id)
+    {
+        $user = User::find($id);
+        $favoritings = $user->favorites()->paginate(10);
+
+        $data = [
+            'user' => $user,
+            'uses' => $favoritings,
+        ];
+
+
+        return view('users.favorites', $data);
+    }
+    
+    public function index(Request $request){
+        $user = $request->search;
+        
+        $query = User::query();
+
+        // フリーワード検索の時の作業
+        if(!empty($user)){
+            $query->where('name','like','%'.$user.'%');
+        }
+        
+   
+        $users = $query->paginate(18);
+
+        return view('users.users')->with('users',$users)->with('user',$user);
+    }
+
 }

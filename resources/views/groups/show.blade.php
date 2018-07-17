@@ -8,13 +8,17 @@
         </div>
         
         <div class="ramumoji col-sm-7">
-            <h2>{{ $group->goal }}<br></h2>
-            
-            <h3>
-                {{"カテゴリー　: " . $group->category}}<br>
-                {{ "頑張ること : " . $group->to_do }}<br>
-                {{ $group->term . "日間で" . $group->amount . $group->unit }}
-            </h3>
+            <div class="favoB">
+                <h2>{{ $group->goal }}</h2>
+                <h3>@include('buttons.favorite_button', ['group' => $group])</h3>
+            </div>
+            <div>
+                <h3>
+                    {{"カテゴリー　: " . $group->category}}<br>
+                    {{ "頑張ること : " . $group->to_do }}<br>
+                    {{ $group->term . "日間で" . $group->amount . $group->unit }}
+                </h3>
+            </div>
             @if($group->user_id==Auth::User()->id)
             <div class="henshuB col-xs-4">
                 <!--グループに参加しているユーザーにのみ編集フォームを表示する-->

@@ -125,7 +125,7 @@
   /*検索ページの画像たち*/
     .groups img{
       width: 100% !important;
-      }
+    }
     
     
     .each_group{
@@ -137,6 +137,20 @@
     .each_group p{
       width: 100%;
       font-size: 10px;
+    }
+    
+    .ichiran img{
+      width: 100%;
+    }
+    
+    .each_user{
+      width: 31%;
+      margin-left: 3px;
+    }
+    
+    .each_user p{
+      width: 100%;
+      font-size: 13px;
     }
     
     .ramumoji{
