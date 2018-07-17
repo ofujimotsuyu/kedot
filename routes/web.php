@@ -26,14 +26,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::get('groups','GroupController@index')->name('groups.index');
         Route::get('create','GroupController@create')->name('groups.create');
-        Route::post('create','GroupController@store')->name('groups.store');
+        Route::post('groups','GroupController@store')->name('groups.store');
         Route::post('show','GroupController@store_activity')->name('groups.store_activity');
     });
     Route::get('search','GroupController@search')->name('groups.search');
     Route::get('groupshow/{id}','GroupController@show')->name('groups.show');
 
     Route::group(['prefix' => 'groups/{id}'], function () {
-    Route::delete('delete','GroupController@destroy')->name('group.delete');
+        Route::delete('delete','GroupController@destroy')->name('group.delete');
         Route::post('join', 'JoinController@store')->name('group.join');
         Route::delete('quit', 'JoinController@destroy')->name('group.quit');
         Route::put('update', 'GroupController@update')->name('group.update');

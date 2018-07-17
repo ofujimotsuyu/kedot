@@ -100,7 +100,7 @@ body {
 
 /*検索ページの画像たち*/
 .groups img{
-  width: 150px;
+  width: 191px;
   filter:brightness(70%);
 }
 
@@ -120,7 +120,7 @@ body {
 
 .each_group p{
   color: white;
-  width: 150px;
+  width: 191px;
   top: 50%;
   position: absolute;
   font-weight: bold;
@@ -128,12 +128,31 @@ body {
   text-align: center;
 }
 
+.each_user{
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.each_user p{
+  width: 150px;
+  /*position: absolute;*/
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.ichiran img{
+  width: 100px;
+  margin-top: 20px;
+}
+
 .ramu img{
   height: 200px;
 }
 
 .search_result img{
-  width: 200px;
+  width: 191px;
 }
 
 .result{
@@ -225,7 +244,7 @@ input[type= 'submit'] {
 }
 
 .gigigi{
-  width:62% !important;
+  width:30% !important;
 }
 
 .form-group .quarter-form{
@@ -246,6 +265,7 @@ input[type= 'submit'] {
     margin: 0;
     height: 34px;
     font-size: 15.6px;
+    color:black;
 }
 
 .box{
@@ -290,6 +310,7 @@ input[type= 'submit'] {
   transform: rotateY(360deg);
   color: skyblue;
 }
+
 .pon{
   margin-top:40px;
 }
@@ -469,6 +490,7 @@ footer address{
 
 .vo a:active{
   color: black; 
+
 }
 
 .taikai .btn{
@@ -500,4 +522,12 @@ footer address{
 .sakujoB .btn:hover{
  background-color: white;
  color: pink;
+}
+
+.user_result{
+  display: inline-block;
+}
+
+.ramunoue {
+  margin-top: 80px;
 }

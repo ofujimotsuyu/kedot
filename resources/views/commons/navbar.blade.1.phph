@@ -1,4 +1,4 @@
-<div class='header'>
+<header>
     <style>
     /* common */
 body {
@@ -13,9 +13,7 @@ ul {
 	list-style: none;
 }
 
-.row{
-    margin-top: 80px;
-}
+
 /* drawer menu */
 /* 右から出てくるやつ*/
 .drawer-menu {
@@ -71,8 +69,8 @@ ul {
 .menu-btn {
     position: fixed;
     display: block;
-    top: 30px;
-    right: 20px;
+    top: 40px;
+    right: 40px;
     display: block;
     width: 40px;
     height: 40px;
@@ -80,27 +78,6 @@ ul {
     text-align: center;
     cursor: pointer;
     z-index: 3;
-}
-
-.jitsu1 {
-    position: fixed;
-    display:block;
-    top: 30px;
-    right: 60px;
-    width: 40px;
-    height: 40px;
-    z-index: 2000;
-    
-}
-
-.jitsu2 {
-    position: fixed;
-    display:block;
-    top: 30px;
-    right: 100px;
-    width: 40px;
-    height: 40px;
-    z-index: 2000;
 }
 
 .bar {
@@ -224,32 +201,19 @@ ul {
     z-index: 3;
 }
 .logo{
-    top: 10px;
-    /*padding-top:5px;*/
+    padding-top:5px;
     padding-left:20px;
     margin: 0;
-    position: fixed;
-    z-index: 2000;
+    position: absolute;
     
 }
 
-.header:after{
-  content: ""; 
-  display: block; 
-  height: 0; 
-  font-size:0;
-}
 
-
-.header{
-    height: 65px;
+header{
+    height: 60px;
+    margin-bottom: 30px;
     border-bottom-color: black;
     border-bottom: solid thin;
-    z-index: 2000;
-    background-color: white;
-    position: fixed;
-    width: 100%;
-    top: 0px;
 }
 
 .jitsu{
@@ -264,29 +228,6 @@ ul {
     margin-top: 25px;
 }
 
-
-.fu {
-    position: fixed;
-    z-index: 2000;
-}
-
-@media(min-width: 1237px){
-     .menu-btn{
-        right: 20px !important;
-    }
-}
-
-
-@media (max-width: 991px){
-    .head{
-        margin-right: 70px;
-    }
-    
-    .menu-btn{
-        right: 20px;
-    }
-}
-
 .ahaha{
     /*display: inline-block;*/
     text-align: center;
@@ -296,11 +237,6 @@ ul {
     color: black;
     text-decoration: none;
 }
-
-.fu {
-    position: fixed;
-    z-index: 2000;
-}
     
     </style>
     
@@ -309,8 +245,8 @@ ul {
     <div class="ahaha">
         <ul class = "head">
             <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
-            <li class = "nav jitsu1"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
-            <li class = "nav jitsu2"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
+            <li class = "nav jitsu"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
         </ul>
     </div>
     <label class="menu-btn" for="checked">
@@ -322,9 +258,8 @@ ul {
             <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>
             <li><a href="#">気になる目標</a></li>
             <li><a href="#">自分の達成度</a></li>
-            <li><a href="{{ route('users.index') }}">USERS</a></li>
             <li><a href="#">設定</a></li>
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
         </ul>
     </nav>
-</div>
+</header>
