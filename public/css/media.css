@@ -101,7 +101,7 @@
     text-align: center;
     cursor: pointer;
     z-index: 3;
-
+    }
     .nokori{
       font-size: 100px;    
       margin-top: 50px;
@@ -124,7 +124,7 @@
     }
   /*検索ページの画像たち*/
     .groups img{
-      width: 100%;
+      width: 100% !important;
       }
     
     
