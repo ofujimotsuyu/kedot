@@ -39,7 +39,7 @@
             @endif
             
             
-            <?php $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get() ?>        
+            <?php $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get() ?>        
             @if(count($records) > 0)
             <div class = "tasseiform">
                 <!--formつくってるよ-->
@@ -63,7 +63,7 @@
   
   <!--中間テーブルからグループに参加してるメンバーを取り出している-->
         
-        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get() ?>  
+        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get() ?>  
 
       
         <?php
