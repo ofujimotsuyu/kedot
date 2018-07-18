@@ -322,7 +322,9 @@ input[type= 'submit'] {
 }
 
 .pon{
-  margin-top:40px;
+  background-color: #5cb85c;
+  padding: 20px;
+  color: white;
 }
 
 .ton{
@@ -487,19 +489,19 @@ footer address{
 }
 
 .vo a:link{
-  color: black; 
+  color: white; 
 }
 
 .vo a:visited{
-  color: black; 
+  color: white; 
 }
 
 .vo a:hover{
-  color: gray; 
+  color: yellow; 
 }
 
 .vo a:active{
-  color: black; 
+  color: white; 
 
 }
 
@@ -532,6 +534,11 @@ footer address{
 .sakujoB .btn:hover{
  background-color: white;
  color: pink;
+}
+
+
+.panel {
+  margin-top: 20px;
 }
 
 .user_result{
@@ -571,4 +578,31 @@ footer address{
 .confirm-btn p{
   height: 34px;
   padding: 5.5px 0;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+  background-color: #5cb85c;
+  color: white;
+}
+
+.nav-pills.nav-justified>li.aaa>a{
+  background-color: orange;
+  color: white;
+}
+
+.nav-pills.nav-justified>li.bbb>a{
+  background-color: skyblue;
+  color: white;
+}
+
+.nav-pills>li>a{
+  border-radius: 0;
+}
+
+.aho{
+  width: 700px !important;
+  display: inline-block;
+}
+
+.baka{
+  text-align:center;
 }
