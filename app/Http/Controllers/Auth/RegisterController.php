@@ -149,13 +149,7 @@ class RegisterController extends Controller
                     'avatar_filename' => $zou,
                 ]);
                 break;
-            case 11:
-                return User::create([
-                    'name' => $data['name'],
-                    'password' => bcrypt($data['password']),
-                    'avatar_filename' => $bird,
-                ]);
-                break;
+            
         }
 
         return User::create([
