@@ -102,9 +102,11 @@ class GroupController extends Controller
 
     public function show($id){
         $group = Group::find($id);
-       
+        $status = DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->value('status');
+        
         return view('groups.show', [
             'group' => $group,
+            'status' => $status,
            
         ]);
         
