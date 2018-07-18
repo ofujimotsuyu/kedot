@@ -322,11 +322,14 @@ input[type= 'submit'] {
 }
 
 .pon{
-  background-color: #5cb85c;
   padding: 20px;
   color: white;
   margin: 0 30px;
   padding: auto 30px;
+}
+
+.popopopo{
+  background-color: #5cb85c;
 }
 
 .ton{
@@ -592,7 +595,7 @@ a:hover{*/
   color: white;
 }
 .nav-pills.nav-justified>li.ccc>a{
-  background-color: orange !important;
+  background-color: #5cb85c !important;
   color: white;
 }
 
@@ -606,7 +609,7 @@ a:hover{*/
 }
 
 .aho{
-  width: 700px !important;
+  width: 50% !important;
   display: inline-block;
 }
 
@@ -617,9 +620,13 @@ a:hover{*/
   background-color: orange;
   margin-left: 30px;
   margin-right: 30px;
-  
 }
 .favorian{
   margin-right: 300px;
   margin-left: 300px;
+  margin-bottom: 30px;
+}
+
+.nav-pills>li+li{
+  margin: 0;
 }
