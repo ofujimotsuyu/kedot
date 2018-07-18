@@ -128,6 +128,25 @@ body {
   text-align: center;
 }
 
+.each_user{
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.each_user p{
+  width: 150px;
+  /*position: absolute;*/
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.ichiran img{
+  width: 100px;
+  margin-top: 20px;
+}
+
 .ramu img{
   height: 200px;
 }
@@ -157,6 +176,7 @@ input[type= 'submit'] {
   width:80%;
 }
 
+
 .tasseiform input[type= 'submit'] {
   width:100%;
   background-color: green;
@@ -164,6 +184,15 @@ input[type= 'submit'] {
 
 .tasseiform input[type= 'text'] {
   width:100%;
+}
+
+.favoB input[type='submit']{
+  width: 50px;
+  font-size: 35px;
+  margin-bottom: 10px;
+  background: transparent;
+  color: orange;
+  border: none;
 }
 
  /* フォームの幅を調節 */
@@ -293,7 +322,9 @@ input[type= 'submit'] {
 }
 
 .pon{
-  margin-top:40px;
+  background-color: #5cb85c;
+  padding: 20px;
+  color: white;
 }
 
 .ton{
@@ -458,19 +489,19 @@ footer address{
 }
 
 .vo a:link{
-  color: black; 
+  color: white; 
 }
 
 .vo a:visited{
-  color: black; 
+  color: white; 
 }
 
 .vo a:hover{
-  color: gray; 
+  color: yellow; 
 }
 
 .vo a:active{
-  color: black; 
+  color: white; 
 
 }
 
@@ -503,10 +534,75 @@ footer address{
 .sakujoB .btn:hover{
  background-color: white;
  color: pink;
+}
 
+
+.panel {
+  margin-top: 20px;
+}
+
+.user_result{
+  display: inline-block;
 }
 
 .ramunoue {
   margin-top: 80px;
-  
+}
+
+.confirm p{
+  color: black;
+  font-size: 15px;
+  margin: 0;
+  padding-top: 2px;
+}    
+
+.confirm th{
+  font-size: 15px;
+  padding-top: 10px !important;
+  height: 38px !important;
+}
+
+
+.favoB h2{
+  display: inline-block;
+}
+
+.favoB h3{
+  display: inline-block;
+}
+
+.confirm-btn .btn{
+  width: 100px;
+}
+
+.confirm-btn p{
+  height: 34px;
+  padding: 5.5px 0;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+  background-color: #5cb85c;
+  color: white;
+}
+
+.nav-pills.nav-justified>li.aaa>a{
+  background-color: orange;
+  color: white;
+}
+
+.nav-pills.nav-justified>li.bbb>a{
+  background-color: skyblue;
+  color: white;
+}
+
+.nav-pills>li>a{
+  border-radius: 0;
+}
+
+.aho{
+  width: 700px !important;
+  display: inline-block;
+}
+
+.baka{
+  text-align:center;
 }

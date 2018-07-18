@@ -28,6 +28,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('create','GroupController@create')->name('groups.create');
         Route::post('groups','GroupController@store')->name('groups.store');
         Route::post('show','GroupController@store_activity')->name('groups.store_activity');
+        
+        Route::post('favorite', 'GroupFavoriteController@store')->name('group.favorite');
+        Route::delete('unfavorite', 'GroupFavoriteController@destroy')->name('group.unfavorite');
+        Route::get('favoritings', 'UserController@favoritings')->name('user.favoritings');
     });
     Route::get('search','GroupController@search')->name('groups.search');
 
@@ -41,6 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('requests/{request_id}', 'JoinController@admit')->name('join.admit');
         Route::get('request/{request_id}', 'JoinController@cancel')->name('join.cancel');
         Route::get('requests', 'JoinController@index')->name('join.index');
+        Route::get('delete_confirm','GroupController@delete_confirm')->name('delete_confirm');
     });
     Route::resource('users','UserController');
 });

@@ -9,18 +9,21 @@
         color : black;
         text-decoration: none;
         }
-        a:hover {
+        h2 a:hover {
         color: #fff;
         background-color: #00BCD4;
         text-decoration: none;
+        }
+        .nav a{
+            font-size: 20px; 
         }
     </style>
 </head>
 
 @section("content")
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+<div class="" style="margin-top:100px">
+    <div class="">
+        <div class="">
             <!--きりんとかのプロフィール画像を画面の中央に表示-->
             <div>
             <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
@@ -28,11 +31,11 @@
                 <h1>{{ $user->name }}</h1>
             </div>
             
-            <div>
-                <ul class="nav nav-tabs nav-justified">
-                    <li class = "{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px">参加グループ</span></a></li>
-                    <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-star" style="font-size:20px">お気に入り</span></a></li>
-                    <li class = "mypage tab"><a href="#"><span class="glyphicon glyphicon-ok" style="font-size:20px">達成リスト</span></a></li>
+            <div class = "baka">
+                <ul class="aho nav nav-pills nav-justified">
+                    <li class = "{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px"></span> 参加グループ</a></li>
+                    <li class = "aaa mypage tab"><a href="#"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> お気に入り</a></li>
+                    <li class = "bbb mypage tab"><a href="#"><span class="glyphicon glyphicon-ok" style="font-size:20px"></span> 達成リスト</a></li>
                 </ul>
             </div>
             
@@ -59,7 +62,7 @@
                     
                 　　<?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
                     
-                    <table class='ton' width="95%" align="center" border="1" rules="none" bordercolor="#000099" cellspacing="0">
+                    <table class='ton' width="100%" align="center" rules="none" cellspacing="0">
                     
                         <?php
                         
@@ -87,14 +90,14 @@
                                 }
                             }
                             print("<tr>");
-                            printf("<td  width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[0][0]);
-                            printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[0][1] / $max * 100);
+                            printf("<td  width=\"%d\" color=\"white\" align=\"right\">%s</td>", $maxlen * 10, $data[0][0]);
+                            printf("<td><hr size=\"10\" color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[0][1] / $max * 100);
                             printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[0][1]);
                             print("</tr>\n");
                             
                             print("<tr>");
                             printf("<td width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[1][0]);
-                            printf("<td><hr size=\"10\" color=\"#cc6633\" align=\"left\" width=\"%d%%\"></td>", $data[1][1] / $max * 100);
+                            printf("<td><hr size=\"10\" color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[1][1] / $max * 100);
                             printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[1][1]);
                             print("</tr>\n");
                         }  
@@ -106,6 +109,7 @@
                 </div>
             @endforeach
                 
+            
             <div align="center">
                 <br>{!! $groups->render() !!}
             </div>    

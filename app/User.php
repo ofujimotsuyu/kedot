@@ -71,7 +71,38 @@ class User extends Authenticatable
     {
         return $this->hasMany(Group::class);
     }
-    
-}
 
+    public function favorites()
+    {
+        return $this->belongsToMany(Group::class, 'user_favorite', 'user_id', 'favorite_id')->withTimestamps();
+    }
     
+    public function favorite($groupId)
+    {   
+        $exist = $this->is_favoriting($groupId);
+
+         if ($exist) {
+            return false;
+        } else {
+            $this->favorites()->attach($groupId);
+            return true;
+        }
+    }
+    public function unfavorite($groupId)
+    {
+        $exist = $this->is_favoriting($groupId);
+       
+    
+        if ($exist) {
+            $this->favorites()->detach($groupId);
+            return true;
+        } else {
+            return false;
+        }
+    
+    }
+
+    public function is_favoriting($groupId) {
+        return $this->favorites()->where('favorite_id', $groupId)->exists();
+    }
+}
