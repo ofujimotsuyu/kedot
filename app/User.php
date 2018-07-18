@@ -64,7 +64,15 @@ class User extends Authenticatable
     }
     
     public function is_joining($groupId){
-        return $this->sankagroups()->where('group_id', $groupId)->exists();
+        return $this->sankagroups()->where('group_id', $groupId)->where('status', '2')->exists();
+    }
+    
+    public function is_shinseing1($groupId){
+        return $this->sankagroups()->where('group_id', $groupId)->where('status', '1')->exists();
+    }
+    
+    public function is_shinseing2($groupId){
+        return $this->sankagroups()->where('group_id', $groupId)->where('status', '0')->exists();
     }
 
     public function groups()
@@ -105,4 +113,5 @@ class User extends Authenticatable
     public function is_favoriting($groupId) {
         return $this->favorites()->where('favorite_id', $groupId)->exists();
     }
+   
 }
