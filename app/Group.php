@@ -10,7 +10,7 @@ class Group extends Model
 
     public function sankausers()
     {
-        return $this->belongsToMany(User::class, 'user_group', 'group_id', 'user_id')->withTimestamps();
+        return $this->belongsToMany(User::class, 'user_group', 'group_id', 'user_id')->where('status','1')->withTimestamps();
     }
     
     public function user()
