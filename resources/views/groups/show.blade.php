@@ -38,8 +38,7 @@
                 </div>
             @endif
 
-            <?php $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get() ?>        
-            @if(count($records) > 0)
+            @if(Auth::User()->is_joining($group->id))
             <div class = "tasseiform">
                 <!--formつくってるよ-->
                 {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
