@@ -56,8 +56,9 @@ class JoinController extends Controller
        return redirect()->back();
     }
     
-    public function request($id){
-        $group = Group::find($id);
+    public function request($id)
+    {
+       $group = Group::find($id);
        \DB::table('user_group')->where('group_id', $group->id)->where('user_id', \Auth::user()->id)->update(['status'=>'1']);
        return redirect()->back();
         
