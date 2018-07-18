@@ -244,6 +244,20 @@
     padding: 7px 0;
     font-size: 13px;
   }
+  
+  .aho{
+    width: 100% !important;
+  }
     
+  .favorian{
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  
+  .favos{
+    background-color: orange;
+    margin: 0;
+    padding-bottom: 0px;
+  }
 }    
 
