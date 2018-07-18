@@ -259,5 +259,39 @@
     margin: 0;
     padding-bottom: 0px;
   }
+  
+  .each_request th{
+    width:65%;
+  }
+  
+  .each_request img{
+    margin-bottom: 5px;
+    margin-left:10px;
+    width: 50px;  
+  }
+  
+  .each_request p{
+    font-size: 15px;
+    width: 58px;
+  }
+
+  .requestback p{
+    font-size: 15px;
+  }
+  
+  .requestlist {
+    width:100%;
+    margin-top:20px;
+  }
+
+  .minami p{
+    font-size:15px;  
+    margin-left:10px;
+  }
+
+  .requests h2{
+    font-size: 20px;
+  }
+
 }    
 
