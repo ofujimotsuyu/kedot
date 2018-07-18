@@ -606,3 +606,30 @@ footer address{
 .baka{
   text-align:center;
 }
+
+.requestlist {
+  width:50%;
+  margin-top:20px;
+}
+
+.each_request th{
+  width:70%;
+}
+
+.each_request img{
+  width: 80px;
+  margin-bottom:10px;
+}
+
+.each_request p{
+  font-size: 18px;
+  width: 85px;
+}
+
+.eachrequest{
+}
+
+.minami p{
+  font-size:18px;  
+  margin-left:10px;
+}
