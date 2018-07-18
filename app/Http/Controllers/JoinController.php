@@ -42,7 +42,7 @@ class JoinController extends Controller
         return view('groups.requests', $data);
     }
     
-    public function cancel($id)
+    public function cancel($id, $request_id)
     {
         $group = Group::find($id);
         $admitwaiting = \DB::table('user_group')->where('id', $request_id)->update(['status'=>'2']);

@@ -39,8 +39,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('update', 'GroupController@update')->name('group.update');
         Route::get('edit', 'GroupController@edit')->name('group.edit');
         Route::get('requests/{request_id}', 'JoinController@admit')->name('join.admit');
+        Route::get('request/{request_id}', 'JoinController@cancel')->name('join.cancel');
         Route::get('requests', 'JoinController@index')->name('join.index');
-        Route::put('cancel', 'JoinController@cancel')->name('join.cancel');
     });
     Route::resource('users','UserController');
 });
