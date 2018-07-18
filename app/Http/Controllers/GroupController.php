@@ -95,6 +95,7 @@ class GroupController extends Controller
         $group->save();
         
         $user->sankagroups()->attach($group->id);
+
         \DB::table('user_group')->where('group_id', $group->id)->where('user_id', $user->id)->update(['status'=>'2']);
         
         

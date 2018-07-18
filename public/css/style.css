@@ -178,12 +178,12 @@ input[type= 'submit'] {
 
 
 .tasseiform input[type= 'submit'] {
-  width:100%;
+  width: 60px;
   background-color: green;
 }
 
 .tasseiform input[type= 'text'] {
-  width:100%;
+  width: 190px;
 }
 
 .favoB input[type='submit']{
@@ -616,11 +616,37 @@ a:hover{*/
 .baka{
   text-align:center;
 }
+
+.requestlist {
+  width:50%;
+  margin-top:20px;
+}
+
+.each_request th{
+  width:70%;
+}
+
+.each_request img{
+  width: 80px;
+  margin-bottom:10px;
+}
+
+.each_request p{
+  font-size: 18px;
+  width: 85px;
+}
+
+.minami p{
+  font-size:18px;  
+  margin-left:10px;
+}
+
 .favos{
   background-color: orange;
   margin-left: 30px;
   margin-right: 30px;
 }
+
 .favorian{
   margin-right: 300px;
   margin-left: 300px;
@@ -629,4 +655,16 @@ a:hover{*/
 
 .nav-pills>li+li{
   margin: 0;
+}
+
+.requestback p{
+  font-size: 18px;
+}
+
+.requestback{
+  margin-top: 10px;
+}
+
+.shinnseiB {
+  text-align: center;
 }
