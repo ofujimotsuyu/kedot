@@ -25,6 +25,7 @@
             </tr>
             @endforeach
         </table>
+        <br>{!! $requests->render() !!}
         <div class="requestback">
             <a href="{{ route('users.show', [ 'id' => Auth::User()->id ]) }}"><p class='btn btn-primary'>マイページに戻る</p></a>
         </div>
