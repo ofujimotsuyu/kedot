@@ -33,7 +33,7 @@
             </div>
             
             @else
-            <div class="col-xs-12" style="float:center">
+            <div class="col-xs-4" style="float:center">
                 @include('buttons.join_button', ['group' => $group])
             </div>
             @endif
