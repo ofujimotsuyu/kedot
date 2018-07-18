@@ -323,7 +323,7 @@ ul {
             <li><a href="{{ route('user.favoritings' ,  ['id'=>Auth::user()->id]) }}">気になる目標</a></li>
             <li><a href="#">自分の達成度</a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
-            <li><a href="#">設定</a></li>
+            <li><a href="{{ route('user.requests', ['id' => Auth::User()->id]) }}">申請確認</a></li>
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
         </ul>
     </nav>

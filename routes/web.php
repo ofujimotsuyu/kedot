@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('favorite', 'GroupFavoriteController@store')->name('group.favorite');
         Route::delete('unfavorite', 'GroupFavoriteController@destroy')->name('group.unfavorite');
         Route::get('favoritings', 'UserController@favoritings')->name('user.favoritings');
+        Route::get('requests','UserController@requests')->name('user.requests');
     });
     Route::get('search','GroupController@search')->name('groups.search');
 

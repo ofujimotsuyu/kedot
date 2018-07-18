@@ -55,4 +55,15 @@ class UserController extends Controller
         return view('users.users')->with('users',$users)->with('user',$user);
     }
 
+    public function requests($id){
+        $user = User::find($id);
+        $requests = \DB::table('user_group')->where('user_id', $id)->orderby('created_at','DESC')->get();
+        
+        $data = [
+            'user' => $user,
+            'requests' => $requests,
+        ];
+        
+        return view('users.requests', $data);
+    }
 }

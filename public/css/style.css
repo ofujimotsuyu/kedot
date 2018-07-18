@@ -348,7 +348,7 @@ input[type= 'submit'] {
 
 .create th{
   font-size: 15px !important;
-  padding-top: 16.5px !important;
+  padding-top: 15px !important;
 }
 
 .ramu{
@@ -634,6 +634,7 @@ a:hover{*/
 .each_request p{
   font-size: 18px;
   width: 85px;
+  color: black;
 }
 
 .minami p{
@@ -667,4 +668,27 @@ a:hover{*/
 
 .shinnseiB {
   text-align: center;
+}
+
+.myrequests {
+  width:50%;
+  margin-top:20px;
+}
+
+.myrequest th{
+  font-size: 15px !important;
+  padding-top: 13px !important;
+}
+
+.myrequest p{
+  font-size: 15px !important;
+  width:100%;
+  margin:0;
+  text-align:center;
+  padding: 5px !important;
+}
+
+.myrequest a{
+  color: black;
+  text-decoration: none;
 }
