@@ -1,25 +1,61 @@
-@extends('layouts.app')
+@extends("layouts.app")
+<!--グループ名マウスオーバーで色変わる-->
+<head>
+    <style>
+        h2 a{
+        display: inline-block;
+        padding: 0.1em 0.3em;
+        transition: all .3s;
+        color : black;
+        text-decoration: none;
+        }
+        h2 a:hover {
+        color: #fff;
+        background-color: #00BCD4;
+        text-decoration: none;
+        }
+        .nav a{
+            font-size: 20px; 
+        }
+    </style>
+</head>
 
-@section('content')
-    <div class="row">
-        <aside class="col-xs-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{ $user->name }}</h3>
+@section("content")
+<div class="" style="margin-top:100px">
+    <div class="">
+        <div class="">
+            <!--きりんとかのプロフィール画像を画面の中央に表示-->
+            <div>
+            <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
+            <div class="user_name"> 
+                <h1>{{ $user->name }}</h1>
+            </div>
+            
+            <div class = "baka">
+                <ul class="aho nav nav-pills nav-justified">
+                    <li class = "ccc {{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px"></span> 参加グループ</a></li>
+                    <li class = "aaa {{ Request::is('users/*/favoritings') ? 'active' : '' }}"><a href="{{route('user.favoritings' ,['id' => $user->id]) }}"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> お気に入り</a></li>
+                    <li class = "bbb mypage tab"><a href="#"><span class="glyphicon glyphicon-ok" style="font-size:20px"></span> 達成リスト</a></li>
+                </ul>
+            </div>
+  
+            <div class="favos">
+                <div class="favorian">
+                <div class="groups">
+            @foreach($favorites as $favorite)
+                    <div class = "each_group">
+                        <a href="{{ route('groups.show', ['id' => $favorite->id]) }}"><img src="{{url($favorite->group_filename)}}" alt="avatar"/><p>{{ $favorite->goal }}</p></a>
+                    </div>
+            @endforeach
                 </div>
-                <div class="panel-body">
-                    <img class="media-object img-rounded img-responsive" src="{{ Gravatar::src($user->email, 500) }}" alt="">
                 </div>
             </div>
-            @include('user_favorite.favorite_button', ['user' => $user])
-        </aside>
-        <div class="col-xs-8">
-            <ul class="nav nav-tabs nav-justified">
-                <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">TimeLine <span class="badge">{{ $count_microposts }}</span></a></li>
-                <li role="presentation" class="{{ Request::is('users/*/favoritings') ? 'active' : '' }}"><a href="{{ route('users.favoritings', ['id' => $user->id]) }}">Favorites <span class="badge">{{ $count_favoritings }}</span></a></li>
-            </ul>
-             @include('users.users', ['users' => $users])
+
+                
             
+          
+            </div>
         </div>
     </div>
+</div>
 @endsection
