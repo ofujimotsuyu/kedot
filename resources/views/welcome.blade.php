@@ -52,7 +52,7 @@
             setTimeout(function() {
               $(".block-two").css("display","block");
               $(".block-one").fadeOut(300);
-            }, 1000);
+            }, 4000);
           });
         </script>
         
