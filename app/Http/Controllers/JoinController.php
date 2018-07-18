@@ -32,7 +32,7 @@ class JoinController extends Controller
     public function index($id)
     {
         $group =Group::find($id);
-        $admitwaitings = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get();
+        $admitwaitings = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->paginate(10);
 
         $data = [
             'group' => $group,

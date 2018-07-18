@@ -57,7 +57,7 @@ class UserController extends Controller
 
     public function requests($id){
         $user = User::find($id);
-        $requests = \DB::table('user_group')->where('user_id', $id)->orderby('created_at','DESC')->get();
+        $requests = \DB::table('user_group')->where('user_id', $id)->orderby('created_at','DESC')->paginate(10);
         
         $data = [
             'user' => $user,

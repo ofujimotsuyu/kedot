@@ -19,6 +19,7 @@
             
             @endforeach
             </table>
+            <br> {!! $admitwaitings->render() !!}
             <div class="requestback">
                 <a href="{{ route('groups.show', [ 'id' => $group->id ]) }}"><p class='btn btn-primary'>グループ詳細ページに戻る</p></a>
             </div>
