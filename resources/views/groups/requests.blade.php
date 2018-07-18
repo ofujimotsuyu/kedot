@@ -12,6 +12,7 @@
         あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
         あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
         あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+        <a href="{{ route('groups.show', [ 'id' => $group->id ]) }}"><p class='button button-primary'>戻る</p></a>
 </h1>
     </div>
     <div>
@@ -23,6 +24,7 @@
     
     {{ $name }}
     <div>
+        
         <a href="{{ route('join.admit', ['id' => $group->id ,'request_id' => $admitwaiting->id ] ) }}"><p class='button button-primary'>許可</p></a>
         <a href="{{ route('join.cancel',['id' => $group->id ,'request_id' => $admitwaiting->id ])}}"><p class='button button-primary'>拒否</p></a>
     </div>
