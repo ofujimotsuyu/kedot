@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\DB;
 
 class User extends Authenticatable
 {
@@ -32,7 +33,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Group::class, 'user_group', 'user_id', 'group_id')->withTimestamps();
     }
     
-    public function join($groupId)
+    
+    public function joinrequest($groupId)
     {
         // confirm if already favorite
         $exist = $this->is_joining($groupId);

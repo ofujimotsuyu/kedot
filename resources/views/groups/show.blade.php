@@ -27,6 +27,9 @@
             <div class="col-xs-4" style="float:center">
                 @include('buttons.join_button', ['group' => $group])
             </div>
+            <div>
+                <a href="{{ route('join.index', $group->id) }}">申請一覧</a>
+            </div>
             @else
             <div class="col-xs-12" style="float:center">
                 @include('buttons.join_button', ['group' => $group])
@@ -37,8 +40,8 @@
                 <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
             </div>
             @endif
-            <?php $records = \DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        
-                 
+            
+            <?php $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get() ?>        
             @if(count($records) > 0)
             <div class = "tasseiform">
                 <!--formつくってるよ-->
@@ -60,7 +63,7 @@
   
   <!--中間テーブルからグループに参加してるメンバーを取り出している-->
         
-        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
+        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get() ?>  
 
       
         <?php
