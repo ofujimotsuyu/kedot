@@ -117,16 +117,21 @@ class GroupController extends Controller
     
     //formに入力して、それをテーブルに保存
     public function store_activity(Request $request, $id){
-        $group = Group::find($id);
-        $activity = new Activity;
-        
-        
-        $activity->user_id = \Auth::user()->id;
-        $activity->group_id = $group->id;
-        $activity->record = $request->score;
-        $activity->save();
-        
-        return redirect()->back();
+        if(\Auth::User()->is_joining($id)){
+            $this->validate($request, [
+                'record' => 'required|integer|min:1',
+            ]);
+
+            $group = Group::find($id);
+            $activity = new Activity;
+            $activity->user_id = \Auth::user()->id;
+            $activity->group_id = $group->id;
+            $activity->record = $request->score;
+            $activity->save();
+            return redirect()->back();
+        }else{
+            return redirect('/');
+        }
     }
         
     public function search(Request $request){
@@ -220,23 +225,31 @@ class GroupController extends Controller
     }
     
     public function edit($id) {
-        $group = Group::find($id);
-        
-        return view('groups.edit', ['group'=>$group]);
+        if(\Auth::User()->is_joining($id)){
+            $group = Group::find($id);
+            return view('groups.edit', ['group'=>$group]);
+        }else{
+            return redirect('/');
+        }
     }
     
     public function destroy($id)
     {
-    $group = Group::find($id);
-    $group->delete();
-
-    return redirect('/');
+        if(\Auth::User()->is_joining($id)){
+            $group = Group::find($id);
+            $group->delete();
+        return redirect('/');
+        }else{
+            return redirect('/');
+        }
     }
     
     public function delete_confirm($id){
-        $group = Group::find($id);
-        
-        return view('groups.delete_confirm',['group'=>$group]);
-    }
-    
+        if(\Auth::User()->is_joining($id)){
+            $group = Group::find($id);
+            return view('groups.delete_confirm',['group'=>$group]);
+        }else{
+            return redirect('/');
+        }
+    }    
 }
