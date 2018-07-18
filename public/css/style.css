@@ -325,6 +325,8 @@ input[type= 'submit'] {
   background-color: #5cb85c;
   padding: 20px;
   color: white;
+  margin: 0 30px;
+  padding: auto 30px;
 }
 
 .ton{
@@ -579,13 +581,18 @@ footer address{
   height: 34px;
   padding: 5.5px 0;
 }
-.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
-  background-color: #5cb85c;
-  color: white;
-}
+/*.nav-pills>li.ccc>a, .nav-pills>li.ccc>a:focus, .nav-pills>li.ccc
+a:hover{*/
+/*  background-color: #5cb85c!important;*/
+/*  color: white;*/
+/*}*/
 
 .nav-pills.nav-justified>li.aaa>a{
   background-color: orange;
+  color: white;
+}
+.nav-pills.nav-justified>li.ccc>a{
+  background-color: orange !important;
   color: white;
 }
 
@@ -605,4 +612,14 @@ footer address{
 
 .baka{
   text-align:center;
+}
+.favos{
+  background-color: orange;
+  margin-left: 30px;
+  margin-right: 30px;
+  
+}
+.favorian{
+  margin-right: 300px;
+  margin-left: 300px;
 }

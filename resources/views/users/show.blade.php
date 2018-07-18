@@ -34,7 +34,7 @@
             <div class = "baka">
                 <ul class="aho nav nav-pills nav-justified">
                     <li class = "{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px"></span> 参加グループ</a></li>
-                    <li class = "aaa mypage tab"><a href="#"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> お気に入り</a></li>
+                    <li class = "aaa mypage tab"><a href="{{ route('user.favoritings' ,  ['id' => $user->id]) }}"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> お気に入り</a></li>
                     <li class = "bbb mypage tab"><a href="#"><span class="glyphicon glyphicon-ok" style="font-size:20px"></span> 達成リスト</a></li>
                 </ul>
             </div>
@@ -90,13 +90,13 @@
                                 }
                             }
                             print("<tr>");
-                            printf("<td  width=\"%d\" color=\"white\" align=\"right\">%s</td>", $maxlen * 10, $data[0][0]);
+                            printf("<td  width=\"%d\" color=\"white\" align=\"left\">%s</td>", $maxlen * 10, $data[0][0]);
                             printf("<td><hr size=\"10\" color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[0][1] / $max * 100);
                             printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[0][1]);
                             print("</tr>\n");
                             
                             print("<tr>");
-                            printf("<td width=\"%d\" align=\"right\">%s</td>", $maxlen * 10, $data[1][0]);
+                            printf("<td width=\"%d\" align=\"left\">%s</td>", $maxlen * 10, $data[1][0]);
                             printf("<td><hr size=\"10\" color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[1][1] / $max * 100);
                             printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[1][1]);
                             print("</tr>\n");
