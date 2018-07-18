@@ -18,12 +18,16 @@
                     {{ "頑張ること : " . $group->to_do }}<br>
                     {{ $group->term . "日間で" . $group->amount . $group->unit }}
                 </h3>
-            </div>
-            @if($group->user_id==Auth::User()->id)
-            <div class="henshuB col-xs-4">
+                <div class="henshuB col-xs-4">
                 <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
                 <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                </div>
+                <div class="sakujoB col-xs-4">
+                <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                </div>
             </div>
+            @if($group->user_id==Auth::User()->id)
+            
             <div class="col-xs-4" style="float:center">
                 @include('buttons.join_button', ['group' => $group])
             </div>
@@ -35,11 +39,7 @@
                 @include('buttons.join_button', ['group' => $group])
             </div>
             @endif
-            @if($group->user_id==Auth::User()->id)
-            <div class="sakujoB col-xs-4">
-                <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
-            </div>
-            @endif
+            
             
             <?php $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get() ?>        
             @if(count($records) > 0)
