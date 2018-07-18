@@ -178,12 +178,12 @@ input[type= 'submit'] {
 
 
 .tasseiform input[type= 'submit'] {
-  width:100%;
+  width: 60px;
   background-color: green;
 }
 
 .tasseiform input[type= 'text'] {
-  width:100%;
+  width: 190px;
 }
 
 .favoB input[type='submit']{
@@ -663,4 +663,8 @@ a:hover{*/
 
 .requestback{
   margin-top: 10px;
+}
+
+.shinnseiB {
+  text-align: center;
 }
