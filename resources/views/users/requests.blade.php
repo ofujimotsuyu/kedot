@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="container requests">
   <div class="row" align="center">
         <h2>{{ $user->name }}のグループ申請状況</h2>
         <table class="table table-bordered myrequests">
@@ -25,6 +25,9 @@
             </tr>
             @endforeach
         </table>
+        <div class="requestback">
+            <a href="{{ route('users.show', [ 'id' => Auth::User()->id ]) }}"><p class='btn btn-primary'>マイページに戻る</p></a>
+        </div>
   </div>
 </div>
 

@@ -300,5 +300,27 @@
   .tasseiform input[type= 'submit'] {
   width: 55px;
   }
+  
+  .myrequests {
+    width:95%;
+    margin-top:20px;
+  }
+  
+  .myrequest th{
+    font-size: 13px !important;
+  }
+  
+  .myrequest p{
+    font-size: 13px !important;
+    width:100%;
+    margin:0;
+    text-align:center;
+    padding: 5px !important;
+  }
+  
+  .myrequest a{
+    color: black;
+    text-decoration: none;
+  }
 }    
 
