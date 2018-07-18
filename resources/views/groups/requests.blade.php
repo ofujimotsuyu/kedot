@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container requests">
     <div class="row" align="center">
         <h2>{{ $group->goal }} 参加申請リスト</h2>
         <div align="center">
@@ -19,6 +19,9 @@
             
             @endforeach
             </table>
+            <div class="requestback">
+                <a href="{{ route('groups.show', [ 'id' => $group->id ]) }}"><p class='btn btn-primary'>グループ詳細ページに戻る</p></a>
+            </div>
         </div>
     </div>
 </div>

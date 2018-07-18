@@ -657,6 +657,14 @@ a:hover{*/
   margin: 0;
 }
 
+.requestback p{
+  font-size: 18px;
+}
+
+.requestback{
+  margin-top: 10px;
+}
+
 .shinnseiB {
   text-align: center;
 }
