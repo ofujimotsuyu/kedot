@@ -259,5 +259,13 @@
     margin: 0;
     padding-bottom: 0px;
   }
+  
+  .tasseiform input[type= 'text'] {
+  width: 95px;
+  }
+  
+  .tasseiform input[type= 'submit'] {
+  width: 55px;
+  }
 }    
 

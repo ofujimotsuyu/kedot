@@ -178,12 +178,12 @@ input[type= 'submit'] {
 
 
 .tasseiform input[type= 'submit'] {
-  width:100%;
+  width: 60px;
   background-color: green;
 }
 
 .tasseiform input[type= 'text'] {
-  width:100%;
+  width: 190px;
 }
 
 .favoB input[type='submit']{
@@ -655,4 +655,8 @@ a:hover{*/
 
 .nav-pills>li+li{
   margin: 0;
+}
+
+.shinnseiB {
+  text-align: center;
 }
