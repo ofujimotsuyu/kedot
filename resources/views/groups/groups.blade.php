@@ -19,4 +19,16 @@
         </div>
     </div>
 </div>
+<div class="box">
+	<a class="Abutton" href="#popup1">How to use kedot</a>
+</div>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<div class="content">
+    		<a class="close" href="#">CLOSE</a>
+			@include('commons.explanation')
+		</div>
+	</div>
+</div>
 @endsection

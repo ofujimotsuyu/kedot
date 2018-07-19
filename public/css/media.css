@@ -323,6 +323,24 @@
     text-decoration: none;
   }
   
+  .popup .close {
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    transition: all 200ms;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    color: green;
+    opacity: 2;
+    z-index: 1000;
+    background-color: white;
+    padding: 5px 10px;
+  }
+  
+  .popup{
+    margin-top: 100px;
+  }
   .groupbtn .btn{
     border: solid 1px black !important;
     background: transparent;

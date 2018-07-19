@@ -699,6 +699,132 @@ a:hover{*/
   text-decoration: none;
 }
 
+
+.shadow {
+　position: absolute;
+　left: -9999em; 
+}
+
+
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #06D85F;
+  margin: 80px 0;
+}
+
+.box {
+  width: 40%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.Abutton {
+  font-size: 1em;
+  padding: 0 10px;
+  color: #fff;
+  background-color: #5cb85c;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.Abutton:hover {
+  background: #06D85F;
+  color: white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 75%;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  bottom: 1%;
+  right: 0%;
+  transition: all 200ms;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: green;
+  opacity: 2;
+  z-index: 1000;
+  background-color: white;
+  padding: 10px 30px;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  z-index: 1;
+  max-width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 80%;
+  }
+  .popup{
+    width: 80%;
+  }
+}
+
+.carousel-control{
+  opacity: .0;
+}
+
+.carousel-indicators .active{
+  border: 1px solid black;
+}
+
+.carousel-indicators li{
+  background-color: #5cb85c;
+  border: 1px solid white;
+}
+
+.carousel-indicators{
+  bottom: 0px;
+  z-index: 100000;
+}
+
+.pc { display: block !important; }
+.sp { display: none !important; }
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+@media only screen and (max-width: 750px) {
+.pc { display: none !important; }
+.sp { display: block !important; }
+}
+=======
 .groupbtn .btn{
   border: solid 1px black !important;
   background: transparent;
