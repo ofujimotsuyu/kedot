@@ -13,6 +13,7 @@
                 <form class='form-inline'method="get" action="./search" >
                     <!--name=でcontrollerに送る名前を決定-->
                     <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="text" name="search" placeholder = "キーワードからグループを検索" >
+                    <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="integer" name="groupid" placeholder = "グループidからグループを検索" >
                     {!! Form::select('category', [''=>'カテゴリー検索','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], '選択してください', ['class' => 'form-control first-form category-search', 'rows' => '1']) !!}
                     <button  class='form-control input_button' type="submit">
                         <span class="glyphicon glyphicon-search bobobo"></span>
@@ -24,12 +25,14 @@
             <!--検索結果を表示-->
             <div class='search_result'>
                 <h2>
-                    @if($goal||$category)「@endif
+                    @if($goal||$category||$groupid)「@endif
                     {{$goal}}
                     <!--フリーワードとカテゴリー両方で検索してれば、を表示-->
                     @if($goal&&$category), @endif
                     {{ $category }}
-                    @if($goal||$category)」の検索結果@endif
+                    @if($category&&$groupid), @endif
+                    @if($groupid)グループid @endif{{ $groupid }}
+                    @if($goal||$category||$groupid)」の検索結果@endif
                     <!--何件が該当か表示-->
                     @if($goal||$category)
                         @if($groups->total()>0)
@@ -50,7 +53,7 @@
                     </div>
                 </tr>
                 <div align="center">
-                <br>{!! $groups->appends(['goal'=>$goal])->appends(['category'=>$category])->appends(['groups'=>$groups])->render() !!}
+                <br>{!! $groups->appends(['goal'=>$goal])->appends(['category'=>$category])->appends(['groups'=>$groups])->appends(['groupid'=>$groupid])->render() !!}
                 </div>
             </div>
         </div>

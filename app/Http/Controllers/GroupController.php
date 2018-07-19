@@ -136,6 +136,7 @@ class GroupController extends Controller
     public function search(Request $request){
         $goal = $request->search;
         $category = $request->category;
+        $groupid = $request->groupid;         
         
         $query = Group::query();
 
@@ -148,10 +149,14 @@ class GroupController extends Controller
         if(!empty($category)){
             $query->where('category','like','%'.$category.'%');
         }
-   
+        
+        if(!empty($groupid)){
+            $query->where('id',$groupid);
+        }
+
         $groups = $query->orderBy('created_at','DESC')->paginate(18);
 
-        return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category);
+        return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category)->with('groupid',$groupid);
     }
     
     public function update(Request $request, $id) {
