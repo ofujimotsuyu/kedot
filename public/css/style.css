@@ -706,7 +706,8 @@ a:hover{*/
 }
 
 .box {
-  width: 40%;
+  float: right;
+  width: 20%;
   margin: 0 auto;
   background: rgba(255,255,255,0.2);
   padding: 5px;
@@ -718,7 +719,7 @@ a:hover{*/
 
 .Abutton {
   font-size: 1em;
-  padding: 0 10px;
+  padding: 10px;
   color: #fff;
   background-color: #5cb85c;
   border: 2px solid #06D85F;
@@ -741,7 +742,7 @@ a:hover{*/
   background: rgba(0, 0, 0, 0.7);
   transition: opacity 500ms;
   visibility: hidden;
-  opacity: 0;
+  opacity:0;
 }
 .overlay:target {
   visibility: visible;
@@ -792,7 +793,7 @@ a:hover{*/
 }
 
 .carousel-control{
-  opacity: .0;
+  opacity: .5;
 }
 
 .carousel-indicators .active{
@@ -1003,7 +1004,6 @@ a:hover{*/
     content: '';
     width: 0px;
     height: 0px;
-    z-index: 1;
 }
 
 .groupitiran:after {
@@ -1021,4 +1021,18 @@ a:hover{*/
 .ome{
   color: orange;
   text-align: center;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+  z-index: 0;
+}
+
+.carousel-control.right{
+  background-image: none;
+  color: green;
+}
+
+.carousel-control.left{
+  background-image: none;
+  color: green;
 }
