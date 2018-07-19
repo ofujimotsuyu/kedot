@@ -50,21 +50,6 @@ class User extends Authenticatable
         }
     }
     
-    public function joinrequest2($groupId)
-    {
-        // confirm if already favorite
-        $exist = $this->is_joining($groupId);
-    
-        if ($exist) {
-            return false;
-        } else {
-            // follow if not following
-            $this->sankagroups()->attach($groupId);
-            DB::table('user_group')->where('group_id', $groupId)->where('user_id', Auth::user()->id)->update(['status'=>'1']);
-            return true;
-        }
-    }
-    
     public function quit($groupId){
         // confirming if already following
         $exist = $this->is_joining($groupId);
