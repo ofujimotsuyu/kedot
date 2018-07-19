@@ -30,7 +30,14 @@
                     {{ $category }}
                     @if($goal||$category)」の検索結果@endif
                     <!--何件が該当か表示-->
-                    @if($goal||$category)（{{ count($groups)}}件）@endif
+                    @if($goal||$category)
+                        @if($groups->total()>0)
+                            {{ $groups->firstItem() }}～{{ $groups->lastItem() }}件
+                            （{{$groups->total()}}件中）
+                        @else
+                            0件
+                        @endif
+                    @endif
                 </h2>
                 <tr class="result">
                     <div class = "groups">
@@ -42,7 +49,7 @@
                     </div>
                 </tr>
                 <div align="center">
-                <br>{!! $groups->appends(['goal'=>$goal])->render() !!}
+                <br>{!! $groups->appends(['goal'=>$goal])->appends(['category'=>$category])->appends(['groups'=>$groups])->render() !!}
                 </div>
             </div>
         </div>
