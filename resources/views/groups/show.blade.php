@@ -18,6 +18,7 @@
                         {{ "頑張ること : " . $group->to_do }}<br>
                         {{ $group->term . "日間で" . $group->amount . $group->unit }}
                     </h3>
+
                     <!--参加ユーザーにのみ見せる-->
                     @if(Auth::User()->is_joining($group->id))
                     @elseif(Auth::check())
@@ -99,7 +100,7 @@
     
     <div class = "show">
       
-        <!--特定のuser_idとgroup_idを持つrecordの有無で、フォームを表示するかしないか分ける-->
+      <!--特定のuser_idとgroup_idを持つrecordの有無で、フォームを表示するかしないか分ける-->
       
       <!--中間テーブルからグループに参加してるメンバーを取り出している-->
             
@@ -135,59 +136,28 @@
                 <h1 class="nokoritop">残り</h1>
                 <h1 class="nokori">{{  ceil( $nokori ) . '日' }}</h1>
             </div>
-        <div class="tyonmage">
-            <table width="80%" align="center" rules="none" cellspacing="0">
-            <h1>達成度</h1>
-            
-            <div class= "chonmagege">
-                <!--グラフを作る-->
-                <?php
-                $maxlen = 0;
-                $max = 0;
-                    $data[0] = array("目標値", $group->amount);
-                    foreach ($users as $key => $user) {
-                        $id = $user->user_id;
-                        $name = App\User::find($id); 
-                        
-                        $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
-                        
-                        $tassei=0;
-                        foreach($records3 as $record) {
-                            $tassei = $tassei + $record->record;
-                        }
-                        
-                        $data[$key+1] = array($name->name, $tassei);
-                    }
-                    ?>
-                    <div class = "gurafu">
-                    <?php
-                    if(!empty($name)){
-                        for($i = 0 ; $i < count($data) ; $i++) {
-                            if(strlen($data[$i][0]) > $maxlen) {        
-                                $maxlen = strlen($data[$i][0]);
-                            }
-                            if($data[$i][1] > $max) {           
-                                $max = $data[$i][1];
-                            }
-                        }
-                    
-                        for($i = 0 ; $i < count($data) ; $i++) {    
-                            print("<tr>");
-                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
-                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                            print("</tr>\n");
-                        }
-        
-                    }
-                    ?>
-                    </div>
-                        
-                
-                
+            @if (floor($nokori)<=-1)
+            <div class="timeuptop">
+                <h1 class="timeup">終了！お疲れさまでした！</h1>
+            @else
+            <div class="nokoritoptop">
+                <h1 class="nokoritop">残り</h1>
+                <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
             </div>
-            </table>
+            @endif
+        
+        @if (floor($nokori)<=-1)
+        <div class="timeuptop">
+            <h1 class="timeup">終了！お疲れさまでした！</h1>
+        @else
+        <div class="nokoritoptop">
+            <h1 class="nokoritop">残り</h1>
+            <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
         </div>
+        @endif
+    <div class="tyonmage">
+        <table width="80%" align="center" rules="none" cellspacing="0">
+        <h1>達成度</h1>
         
          <?php $members=0 ?>
             <div style="text-align:center"><h1 class="sankasya">メンバー</h1><br></div>
@@ -217,21 +187,22 @@
                     
                     <br>
                 @endforeach
-            </div>
-        
-    @if(Auth::User()->is_joining($group->id))
-    <div class="downest">
-        <div align="center" class="btnwrapper">
-            <div class="groupbtn">
-                <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
-                <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
-            </div>
-            <div class="minamidesu">
-                @include('buttons.join_button', ['group' => $group])
-            </div>
-        </div>
-    </div>
-    @endif
+            
+    <!--残り日数が終わったら-->
+    @if(floor($nokori)<=-1)
+    @elseif(Auth::User()->is_joining($group->id))
+      <div class="downest">
+          <div align="center" class="btnwrapper">
+              <div class="groupbtn">
+                  <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                  <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+              </div>
+              <div class="minamidesu">
+                  @include('buttons.join_button', ['group' => $group])
+              </div>
+          </div>
+      </div>
+     @endif
     
     </div>
 

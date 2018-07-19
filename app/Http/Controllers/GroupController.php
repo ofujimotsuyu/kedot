@@ -93,13 +93,13 @@ class GroupController extends Controller
         }
         
         $group->save();
-        
         $user->sankagroups()->attach($group->id);
 
         \DB::table('user_group')->where('group_id', $group->id)->where('user_id', $user->id)->update(['status'=>'2']);
         
        //更新してcreateが増えないようにする
-       return redirect('/');
+    //   return redirect('/');
+       return view('groups.show', ['group' => $group]);
     }
 
     public function show($id){
@@ -216,9 +216,9 @@ class GroupController extends Controller
                 $group->group_filename = $sonota;
                 break;
         }
-        
+
         $group->save();
-        return redirect('/');
+        return view('groups.show', ['group'=>$group]);
     }
     
     public function edit($id) {
