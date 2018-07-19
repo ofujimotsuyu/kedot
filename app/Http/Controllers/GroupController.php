@@ -119,7 +119,7 @@ class GroupController extends Controller
     public function store_activity(Request $request, $id){
         if(\Auth::User()->is_joining($id)){
             $this->validate($request, [
-                'record' => 'required|integer|min:1',
+                'score' => 'required|integer|min:1',
             ]);
 
             $group = Group::find($id);

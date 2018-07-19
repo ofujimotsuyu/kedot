@@ -23,7 +23,6 @@
                 <?php
         
                 function day_diff($group) {
-                 
                     // 日付をUNIXタイムスタンプに変換
                     $timestamp1 = strtotime("$group->created_at");
                     
@@ -41,8 +40,6 @@
                  
                 // 日付を関数に渡す
                 $day = day_diff($group);
-                
-                 
                 $nokori = $group->term - $day;
                 ?>
                 <!--参加ユーザーにのみ見せる-->
@@ -61,6 +58,7 @@
                     </div>
                 @endif
             </div>
+            
             @if(floor($nokori)<=-1)
             @elseif($group->user_id==Auth::User()->id)
                 <div class="col-xs-4" style="float:center">
@@ -73,7 +71,6 @@
             @endif
             
             <?php
-                
                 $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get();       
                 $id = \Auth::user()->id;
                 $name = App\User::find($id);
@@ -83,10 +80,9 @@
                 foreach($records3 as $record) {
                 $tassei = $tassei + $record->record;
                 }
-                $nokori=$group->amount - $tassei;
+                $nokorichi=$group->amount - $tassei;
                 
                 $unit=\DB::table('groups')->where('id', $group->id)->value('unit');
-                
             ?>
             
             @if(floor($nokori)<=-1)
@@ -105,11 +101,11 @@
                     {!! Form::close() !!}
                 </div>
                 <div class='fg'>
-                    達成まで{{ $nokori.$unit }}
+                    達成まで{{ $nokorichi.$unit }}
                 </div>
             </div>
-            
             @endif
+            
         </div>
 </div>
 <div class = "show">
@@ -133,13 +129,13 @@
         @endif
     <div class="tyonmage">
         <table width="80%" align="center" rules="none" cellspacing="0">
-        <h1>達成度</h1>
+            <h1>達成度</h1>
         
-        <div class= "chonmagege">
-            <!--グラフを作る-->
-            <?php
-            $maxlen = 0;
-            $max = 0;
+            <div class= "chonmagege">
+                <!--グラフを作る-->
+                <?php
+                $maxlen = 0;
+                $max = 0;
                 $data[0] = array("目標値", $group->amount);
                 foreach ($users as $key => $user) {
                     $id = $user->user_id;
@@ -156,37 +152,39 @@
                 }
                 ?>
                 <div class = "gurafu">
-                <?php
-                if(!empty($name)){
-                    for($i = 0 ; $i < count($data) ; $i++) {
-                        if(strlen($data[$i][0]) > $maxlen) {        
-                            $maxlen = strlen($data[$i][0]);
+                    <?php
+                    if(!empty($name)){
+                        for($i = 0 ; $i < count($data) ; $i++) {
+                            if(strlen($data[$i][0]) > $maxlen) {        
+                                $maxlen = strlen($data[$i][0]);
+                            }
+                            if($data[$i][1] > $max) {           
+                                $max = $data[$i][1];
+                            }
                         }
-                        if($data[$i][1] > $max) {           
-                            $max = $data[$i][1];
-                        }
-                    }
-                
-                    for($i = 0 ; $i < count($data) ; $i++) {    
-                        print("<tr>");
-                        printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                        printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
-                        printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                        print("</tr>\n");
-                    }
-    
-                }
-                ?>
-                </div>
                     
-            
-            
-        </div>
+                        for($i = 0 ; $i < count($data) ; $i++) {    
+                            print("<tr>");
+                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
+                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
+                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
+                            print("</tr>\n");
+                        }
+        
+                    }
+                    ?>
+                </div>
+                        
+                
+                
+            </div>
         </table>
     </div>
     
      <?php $members=0 ?>
-        <div style="text-align:center"><h1 class="sankasya">メンバー</h1><br></div>
+        <div style="text-align:center">
+            <h1 class="sankasya">メンバー</h1><br>
+        </div>
         <div class="box">
             @foreach($users as $user)
                 <?php 
@@ -197,7 +195,7 @@
                 
                 <div class = "sankashiteru col-xs-4">
                     <a href="{{ route('users.show',['id'=>$name->id])}}">
-                    <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
+                        <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
                     </a>
                     <p>{{ $name->name }}</p>
                 </div>
