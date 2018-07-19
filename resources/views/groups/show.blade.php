@@ -18,8 +18,41 @@
                     {{ "頑張ること : " . $group->to_do }}<br>
                     {{ $group->term . "日間で" . $group->amount . $group->unit }}
                 </h3>
+                
+                
+                <?php
+        
+                function day_diff($group) {
+                 
+                    // 日付をUNIXタイムスタンプに変換
+                    $timestamp1 = strtotime("$group->created_at");
+                    
+                    $timestamp2 =  strtotime("now");
+            
+                    // 何秒離れているかを計算
+                    $seconddiff = abs($timestamp2 - $timestamp1);
+                 
+                    // 日数に変換
+                    $daydiff = $seconddiff / (60 * 60 * 24);
+                 
+                    // 戻り値
+                    return $daydiff;
+                }
+                 
+                // 日付を関数に渡す
+                $day = day_diff($group);
+                
+                 
+                $nokori = $group->term - $day;
+                ?>
                 <!--参加ユーザーにのみ見せる-->
-                @if(Auth::User()->is_joining($group->id))
+                @if(floor($nokori)<=-1)
+                <div class="yunoki">
+                    <div class="sakujoC henshuB">
+                            <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                    </div>
+                </div>
+                @elseif(Auth::User()->is_joining($group->id))
                     <div class="henshuB col-xs-4">
                         <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
                     </div>
@@ -28,7 +61,8 @@
                     </div>
                 @endif
             </div>
-            @if($group->user_id==Auth::User()->id)
+            @if(floor($nokori)<=-1)
+            @elseif($group->user_id==Auth::User()->id)
                 <div class="col-xs-4" style="float:center">
                     @include('buttons.join_button', ['group' => $group])
                 </div>
@@ -37,8 +71,9 @@
                     @include('buttons.join_button', ['group' => $group])
                 </div>
             @endif
-
-            @if(Auth::User()->is_joining($group->id))
+            
+            @if(floor($nokori)<=-1)
+            @elseif(Auth::User()->is_joining($group->id))
             <div class = "tasseiform">
                 <!--formつくってるよ-->
                 {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
@@ -63,35 +98,16 @@
         <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get() ?>  
 
       
-        <?php
         
-        function day_diff($group) {
-         
-            // 日付をUNIXタイムスタンプに変換
-            $timestamp1 = strtotime("$group->created_at");
-            
-            $timestamp2 =  strtotime("now");
-    
-            // 何秒離れているかを計算
-            $seconddiff = abs($timestamp2 - $timestamp1);
-         
-            // 日数に変換
-            $daydiff = $seconddiff / (60 * 60 * 24);
-         
-            // 戻り値
-            return $daydiff;
-        }
-         
-        // 日付を関数に渡す
-        $day = day_diff($group);
-        
-         
-        $nokori = $group->term - $day;
-        ?>
+        @if (floor($nokori)<=-1)
+        <div class="timeuptop">
+            <h1 class="timeup">終了！お疲れさまでした！</h1>
+        @else
         <div class="nokoritoptop">
             <h1 class="nokoritop">残り</h1>
-            <h1 class="nokori">{{  ceil( $nokori ) . '日' }}</h1>
+            <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
         </div>
+        @endif
     <div class="tyonmage">
         <table width="80%" align="center" rules="none" cellspacing="0">
         <h1>達成度</h1>

@@ -692,3 +692,18 @@ a:hover{*/
   color: black;
   text-decoration: none;
 }
+
+.timeup {
+  text-align: center;
+  font-weight: bold;
+  color: orange;
+}
+
+.sakujoC {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.yunoki {
+  text-align: center;
+}
