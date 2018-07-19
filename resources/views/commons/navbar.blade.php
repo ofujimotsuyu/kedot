@@ -319,7 +319,7 @@ ul {
     <label class="close-menu" for="checked"></label>
     <nav class="drawer-menu">
         <ul>
-            <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>
+            <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>z
             <li><a href="{{ route('groups.create' ,  ['id'=>Auth::user()->id]) }}">グループ作成</a></li>
              <li><a href="{{ route('groups.search' ,  ['id'=>Auth::user()->id]) }}">検索</a></li>
             <li><a href="{{ route('user.favoritings' ,  ['id'=>Auth::user()->id]) }}">気になる目標</a></li>

@@ -4,6 +4,7 @@
  <div class="container">
     <div class="row">
         <div class="">
+            <p class="groupitiran">グループ一覧</p>
             <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
             <div class = "groups">
                 @foreach($groups as $group)
