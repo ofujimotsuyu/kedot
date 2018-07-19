@@ -7,7 +7,6 @@
             <div class="ramuimg col-sm-4 col-sm-offset-1">    
                 <img src="{{url($group->group_filename)}}" alt="avatar"/><br>
             </div>
-            
             <div class="ramumoji col-sm-7">
                 <div class="favoB">
                     <h2>{{ $group->goal }}</h2>
@@ -28,7 +27,6 @@
                     @endif
 
                 @if(Auth::User()->is_joining($group->id))
-    
                 <div class = "tasseiform">
                     <!--formつくってるよ-->
                     {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
@@ -98,7 +96,7 @@
         @endif
     @endif
     
-    <div class = "show">
+<div class = "show">
       
       <!--特定のuser_idとgroup_idを持つrecordの有無で、フォームを表示するかしないか分ける-->
       
@@ -132,10 +130,6 @@
              
             $nokori = $group->term - $day;
             ?>
-            <div class="nokoritoptop">
-                <h1 class="nokoritop">残り</h1>
-                <h1 class="nokori">{{  ceil( $nokori ) . '日' }}</h1>
-            </div>
             @if (floor($nokori)<=-1)
             <div class="timeuptop">
                 <h1 class="timeup">終了！お疲れさまでした！</h1>
@@ -145,48 +139,85 @@
                 <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
             </div>
             @endif
-        
-        @if (floor($nokori)<=-1)
-        <div class="timeuptop">
-            <h1 class="timeup">終了！お疲れさまでした！</h1>
-        @else
-        <div class="nokoritoptop">
-            <h1 class="nokoritop">残り</h1>
-            <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
-        </div>
-        @endif
-    <div class="tyonmage">
+
+<div class="tyonmage">
         <table width="80%" align="center" rules="none" cellspacing="0">
-        <h1>達成度</h1>
+            <h1>達成度</h1>
+            <div class= "chonmagege">
+                <!--グラフを作る-->
+                <?php
+                $maxlen = 0;
+                $max = 0;
+                    $data[0] = array("目標値", $group->amount);
+                    foreach ($users as $key => $user) {
+                        $id = $user->user_id;
+                        $name = App\User::find($id); 
+                        
+                        $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
+                        
+                        $tassei=0;
+                        foreach($records3 as $record) {
+                            $tassei = $tassei + $record->record;
+                        }
+                        
+                        $data[$key+1] = array($name->name, $tassei);
+                    }
+                    ?>
+                <div class = "gurafu">
+                    <?php
+                    if(!empty($name)){
+                        for($i = 0 ; $i < count($data) ; $i++) {
+                            if(strlen($data[$i][0]) > $maxlen) {        
+                                $maxlen = strlen($data[$i][0]);
+                            }
+                            if($data[$i][1] > $max) {           
+                                $max = $data[$i][1];
+                            }
+                        }
+                    
+                        for($i = 0 ; $i < count($data) ; $i++) {    
+                            print("<tr>");
+                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
+                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
+                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
+                            print("</tr>\n");
+                        }
         
-         <?php $members=0 ?>
+                    }
+                    ?>
+                </div>
+            </div>
+        </table>
+    </div>
+    
+     <?php $members=0 ?>
             <div style="text-align:center"><h1 class="sankasya">メンバー</h1><br></div>
             <div class="box">
                 @foreach($users as $user)
                     <?php 
                     $members= $members+1;
-                    
-                    $id = $user->user_id;
-                    $name = App\User::find($id); ?>
-                    
-                    <div class = "sankashiteru col-xs-4">
-                        <a href="{{ route('users.show',['id'=>$name->id])}}">
+                
+                $id = $user->user_id;
+                $name = App\User::find($id); ?>
+                
+                <div class = "sankashiteru col-xs-4">
+                    <a href="{{ route('users.show',['id'=>$name->id])}}">
                         <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
-                        </a>
-                        <p>{{ $name->name }}</p>
-                    </div>
-                    
-                    <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
-                    
-                    <?php $tassei=0 ?>
-                    @foreach($records3 as $record)
-                    <?php
-                        $tassei=$tassei + $record->record;
-                    ?>
-                    @endforeach
-                    
-                    <br>
+                    </a>
+                    <p>{{ $name->name }}</p>
+                </div>
+                
+                <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
+                
+                <?php $tassei=0 ?>
+                @foreach($records3 as $record)
+                <?php
+                    $tassei=$tassei + $record->record;
+                ?>
                 @endforeach
+                <br>
+                @endforeach
+            </div>
             
     <!--残り日数が終わったら-->
     @if(floor($nokori)<=-1)
@@ -204,7 +235,7 @@
       </div>
      @endif
     
-    </div>
+</div>
 
 
 @endsection
