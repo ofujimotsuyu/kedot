@@ -6,7 +6,7 @@
   <div class="row" align="center">
         <h2>{{ $user->name }}のグループ申請状況</h2>
         <h4>
-            {{$requests->count()}}件
+            {{$requests->firstItem()}}～{{ $requests->lastItem() }}件
             @if($requests->total()>0)（{{ $requests->total() }}件中）@endif
         </h4>
         <table class="table table-bordered myrequests">

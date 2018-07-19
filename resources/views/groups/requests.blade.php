@@ -5,7 +5,7 @@
     <div class="row" align="center">
         <h2>{{ $group->goal }} 参加申請リスト</h2>
         <h4>
-            {{$admitwaitings->count()}}件
+            {{$admitwaitings->firstItem()}}～{{ $admitwaitings->lastItem() }}件
             @if($admitwaitings->total()>0)（{{ $admitwaitings->total() }}件中）@endif
         </h4>
         <div align="center">
