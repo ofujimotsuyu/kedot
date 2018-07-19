@@ -72,20 +72,43 @@
                 </div>
             @endif
             
+            <?php
+                
+                $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get();       
+                $id = \Auth::user()->id;
+                $name = App\User::find($id);
+                $records3 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
+                
+                $tassei=0;
+                foreach($records3 as $record) {
+                $tassei = $tassei + $record->record;
+                }
+                $nokori=$group->amount - $tassei;
+                
+                $unit=\DB::table('groups')->where('id', $group->id)->value('unit');
+                
+            ?>
+            
             @if(floor($nokori)<=-1)
             @elseif(Auth::User()->is_joining($group->id))
-            <div class = "tasseiform">
-                <!--formつくってるよ-->
-                {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
-                <form class="form-inline">
-                    <div class="form-group">
-                        {!! Form::text('score', null, ['class' => 'col-xs-6 form-control form-xs', 'rows' => '1','placeholder'=>'本日の達成値を入力']) !!}
-            
-                        {!! Form::submit('Post', ['class' => 'col-xs-6 btn btn-success btn-block btn-md']) !!}
-                    </div>
-                </form>
-                {!! Form::close() !!}
+            <div class='pau'>    
+                <div class = "tasseiform">
+                    <!--formつくってるよ-->
+                    {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
+                    <form class="form-inline">
+                        <div class="form-group">
+                            {!! Form::text('score', null, ['class' => 'col-xs-6 form-control form-xs', 'rows' => '1','placeholder'=>'本日の達成値を入力']) !!}
+                
+                            {!! Form::submit('Post', ['class' => 'col-xs-6 btn btn-success btn-block btn-md']) !!}
+                        </div>
+                    </form>
+                    {!! Form::close() !!}
+                </div>
+                <div class='fg'>
+                    残り{{ $nokori.$unit }}
+                </div>
             </div>
+            
             @endif
         </div>
 </div>
