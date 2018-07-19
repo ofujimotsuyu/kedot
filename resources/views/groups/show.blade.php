@@ -20,23 +20,12 @@
                 </h3>
                 <!--参加ユーザーにのみ見せる-->
                 @if(Auth::User()->is_joining($group->id))
-                    <div class="henshuB col-xs-4">
-                        <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
-                    </div>
-                    <div class="sakujoB col-xs-4">
-                        <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                @elseif(Auth::check())
+                    <div class="minamidayo">
+                        @include('buttons.join_button', ['group' => $group])
                     </div>
                 @endif
             </div>
-            @if($group->user_id==Auth::User()->id)
-                <div class="col-xs-4" style="float:center">
-                    @include('buttons.join_button', ['group' => $group])
-                </div>
-            @else
-                <div class="col-xs-4" style="float:center">
-                    @include('buttons.join_button', ['group' => $group])
-                </div>
-            @endif
 
             @if(Auth::User()->is_joining($group->id))
             <div class = "tasseiform">
@@ -53,14 +42,26 @@
             </div>
             @endif
         </div>
+    </div>
 </div>
+
+<!--参加ユーザーにのみ見せるdiv-->
+@if(Auth::User()->is_joining($group->id))
+    <?php $admitwaitings = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get(); ?>
+    @if(count($admitwaitings)>0)
+    <div>
+        <a href="{{ route('join.index', $group->id) }}"><p class="alert alert-success" role="alert">申請一覧</p></a>
+    </div>
+    @endif
+@endif
+
 <div class = "show">
   
     <!--特定のuser_idとgroup_idを持つrecordの有無で、フォームを表示するかしないか分ける-->
   
   <!--中間テーブルからグループに参加してるメンバーを取り出している-->
         
-        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get() ?>  
+        <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get(); ?>  
 
       
         <?php
@@ -175,13 +176,20 @@
                 <br>
             @endforeach
         </div>
-    <!--参加ユーザーにのみ見せる-->
-    @if(Auth::User()->is_joining($group->id))
-        <div class="shinnseiB">
-            <a href="{{ route('join.index', $group->id) }}">申請一覧</a>
-        </div>
-    @endif
     
+@if(Auth::User()->is_joining($group->id))
+<div class="downest">
+    <div align="center" class="btnwrapper">
+        <div class="groupbtn">
+            <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+            <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+        </div>
+        <div class="minamidesu">
+            @include('buttons.join_button', ['group' => $group])
+        </div>
+    </div>
+</div>
+@endif
 
 </div>
 
