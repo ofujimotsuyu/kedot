@@ -97,7 +97,6 @@ class GroupController extends Controller
 
         \DB::table('user_group')->where('group_id', $group->id)->where('user_id', $user->id)->update(['status'=>'2']);
         
-        
        //更新してcreateが増えないようにする
     //   return redirect('/');
        return view('groups.show', ['group' => $group]);
@@ -220,8 +219,6 @@ class GroupController extends Controller
 
         $group->save();
         return view('groups.show', ['group'=>$group]);
-        
-
     }
     
     public function edit($id) {

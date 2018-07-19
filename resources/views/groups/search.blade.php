@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+    @include('commons.error_messages')
         <div>
             <!--検索フォーム-->
             <!--actionでルートを指定-->
