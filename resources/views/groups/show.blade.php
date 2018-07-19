@@ -126,9 +126,23 @@
              
             // 日付を関数に渡す
             $day = day_diff($group);
-            
-             
             $nokori = $group->term - $day;
+            ?>
+            
+            <?php
+                $maxlen = 0;
+                $max = 0;
+                $data[0] = array("目標値", $group->amount);
+                foreach ($users as $key => $user) {
+                   
+                    $records4 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
+                    $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
+                    
+                    $tassei2=0;
+                    foreach($records4 as $record) {
+                        $tassei2 = $tassei2 + $record->record;
+                    }
+                }
             ?>
             @if (floor($nokori)<=-1)
             <div class="timeuptop">
@@ -139,6 +153,13 @@
                 <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
             </div>
             @endif
+            
+            @if($tassei2>$goalnumber)
+            <div class='ome'>
+                <h1 class='omecommnet'>目標を達成しました！おめ</h1>
+            </div>
+            @endif
+
 
 <div class="tyonmage">
         <table width="80%" align="center" rules="none" cellspacing="0">
