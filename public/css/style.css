@@ -705,14 +705,6 @@ a:hover{*/
 　left: -9999em; 
 }
 
-
-h1 {
-  text-align: center;
-  font-family: Tahoma, Arial, sans-serif;
-  color: #06D85F;
-  margin: 80px 0;
-}
-
 .box {
   width: 40%;
   margin: 0 auto;
@@ -824,7 +816,7 @@ h1 {
 .pc { display: none !important; }
 .sp { display: block !important; }
 }
-=======
+
 .groupbtn .btn{
   border: solid 1px black !important;
   background: transparent;
