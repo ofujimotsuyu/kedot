@@ -58,7 +58,7 @@
           
                   <tr class="confirm">
                     <th class=''>目標数値・単位</th>
-                    <td class=''><p>{{ $group->goal." ".$group->unit }}</p></td>
+                    <td class=''><p>{{ $group->amount." ".$group->unit }}</p></td>
                   </tr>
                   
             </table>
