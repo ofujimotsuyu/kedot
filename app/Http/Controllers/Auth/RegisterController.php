@@ -75,7 +75,7 @@ class RegisterController extends Controller
         $usagi = 'images/usagi.png';
         $ushi = 'images/ushi.png';
         $zou = 'images/zou.png';
-        $bird = 'images/bird.jpg';
+        $yunokis = 'images/content3.jpg';
 
         // Switch文で$numsの値によってavatar_filenameに格納される画像を変更
         switch($nums){
@@ -147,6 +147,13 @@ class RegisterController extends Controller
                     'name' => $data['name'],
                     'password' => bcrypt($data['password']),
                     'avatar_filename' => $zou,
+                ]);
+                break;
+            case 11:
+                return User::create([
+                    'name' => $data['name'],
+                    'password' => bcrypt($data['password']),
+                    'avatar_filename' => $yunokis,
                 ]);
                 break;
             
