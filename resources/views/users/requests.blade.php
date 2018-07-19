@@ -5,6 +5,7 @@
 <div class="container requests">
   <div class="row" align="center">
         <h2>{{ $user->name }}のグループ申請状況</h2>
+        <h4>{{count($requests)}}件</h4>
         <table class="table table-bordered myrequests">
             @foreach($requests as $request)
             <?php $goal = DB::table('groups')->where('id',$request->group_id)->value('goal');

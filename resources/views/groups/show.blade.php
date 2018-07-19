@@ -18,29 +18,27 @@
                     {{ "頑張ること : " . $group->to_do }}<br>
                     {{ $group->term . "日間で" . $group->amount . $group->unit }}
                 </h3>
-                <div class="henshuB col-xs-4">
-                <!--グループに参加しているユーザーにのみ編集フォームを表示する-->
-                <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
-                </div>
-                <div class="sakujoB col-xs-4">
-                <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
-                </div>
+                <!--参加ユーザーにのみ見せる-->
+                @if(Auth::User()->is_joining($group->id))
+                    <div class="henshuB col-xs-4">
+                        <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                    </div>
+                    <div class="sakujoB col-xs-4">
+                        <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                    </div>
+                @endif
             </div>
             @if($group->user_id==Auth::User()->id)
-            
-            <div class="col-xs-4" style="float:center">
-                @include('buttons.join_button', ['group' => $group])
-            </div>
-            
+                <div class="col-xs-4" style="float:center">
+                    @include('buttons.join_button', ['group' => $group])
+                </div>
             @else
-            <div class="col-xs-4" style="float:center">
-                @include('buttons.join_button', ['group' => $group])
-            </div>
+                <div class="col-xs-4" style="float:center">
+                    @include('buttons.join_button', ['group' => $group])
+                </div>
             @endif
-            
-            
-            <?php $records = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get() ?>        
-            @if(count($records) > 0)
+
+            @if(Auth::User()->is_joining($group->id))
             <div class = "tasseiform">
                 <!--formつくってるよ-->
                 {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
@@ -55,7 +53,6 @@
             </div>
             @endif
         </div>
-    <!--グループを作成したユーザーのみ編集できる-->
 </div>
 <div class = "show">
   
@@ -178,8 +175,8 @@
                 <br>
             @endforeach
         </div>
-     @if($group->user_id==Auth::User()->id)
-        <hr>
+    <!--参加ユーザーにのみ見せる-->
+    @if(Auth::User()->is_joining($group->id))
         <div class="shinnseiB">
             <a href="{{ route('join.index', $group->id) }}">申請一覧</a>
         </div>

@@ -4,6 +4,7 @@
 <div class="container requests">
     <div class="row" align="center">
         <h2>{{ $group->goal }} 参加申請リスト</h2>
+        <h4>{{count($admitwaitings)}}件</h4>
         <div align="center">
             <table class="requestlist">
             @foreach($admitwaitings as $admitwaiting)
