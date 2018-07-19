@@ -133,12 +133,12 @@
                 $maxlen = 0;
                 $max = 0;
                 $data[0] = array("目標値", $group->amount);
+                $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
+                $tassei2=0;
                 foreach ($users as $key => $user) {
                    
                     $records4 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
-                    $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
                     
-                    $tassei2=0;
                     foreach($records4 as $record) {
                         $tassei2 = $tassei2 + $record->record;
                     }
@@ -154,7 +154,7 @@
             </div>
             @endif
             
-            @if($tassei2>$goalnumber)
+            @if($tassei2 > $goalnumber)
             <div class='ome'>
                 <h1 class='omecommnet'>目標を達成しました！おめ</h1>
             </div>
