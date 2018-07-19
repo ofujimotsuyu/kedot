@@ -44,14 +44,13 @@
                 @foreach($groups as $group)
                     <div class='pon'>
                         <div class ='vo'>
-                        <a href="{{ route('groups.show', [ 'id' => $group->id ]) }}" style="text-decoration:none;">
+                        <a href="{{ route('groups.show', [ 'id' => $group->id ]) }}" style="text-decoration:none;" class="square_btn">
                         <div class='du'>
-                            <span class='xxx'><h2>{{ $group->goal }}</h2></span>
-                            {{ "頑張ること : " . $group->to_do }}
-                            {{ $group->term . "日間で" . $group->amount . $group->unit }}
+                            <span class='xxx'><h2>{{ ">>" . $group->goal }}</h2></span></a><br>
+                            <h4>{{ "頑張ること : " . $group->to_do }}
+                            {{ $group->term . "日間で" . $group->amount . $group->unit }}</h4>
                             <br>
                         </div>
-                        </a>
                         </div>
                         <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
                         <!--<?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        -->
