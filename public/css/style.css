@@ -341,7 +341,7 @@ input[type= 'submit'] {
 }
 
 .category-search{
-  width: 25% !important;
+  width: 13% !important;
 }
 
 .first-form{
@@ -1035,4 +1035,12 @@ a:hover{*/
 .carousel-control.left{
   background-image: none;
   color: green;
+}
+
+.idform{
+  width:10% !important;
+}
+
+.search_result{
+  margin-top: 20px;
 }
