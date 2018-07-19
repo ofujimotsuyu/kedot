@@ -150,7 +150,7 @@ class GroupController extends Controller
             $query->where('category','like','%'.$category.'%');
         }
    
-        $groups = $query->orderBy('created_at','DESC')->paginate(18);
+        $groups = $query->orderBy('created_at','DESC')->paginate(2);
 
         return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category);
     }
