@@ -16,7 +16,6 @@
     </head>
     
     <body>
-        @include('commons.error_messages')
 
         @if(Auth::check())
             @include('commons.navbar')

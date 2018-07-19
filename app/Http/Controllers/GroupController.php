@@ -98,7 +98,6 @@ class GroupController extends Controller
 
         \DB::table('user_group')->where('group_id', $group->id)->where('user_id', $user->id)->update(['status'=>'2']);
         
-        
        //更新してcreateが増えないようにする
        return redirect('/');
     }
@@ -119,7 +118,7 @@ class GroupController extends Controller
     public function store_activity(Request $request, $id){
         if(\Auth::User()->is_joining($id)){
             $this->validate($request, [
-                'record' => 'required|integer|min:1',
+                'score' => 'required|integer|min:1',
             ]);
 
             $group = Group::find($id);
@@ -220,8 +219,6 @@ class GroupController extends Controller
         
         $group->save();
         return redirect('/');
-        
-
     }
     
     public function edit($id) {
