@@ -174,6 +174,7 @@ input[type= 'submit'] {
 
 .ramumoji input[type= 'submit'] {
   width:80%;
+  font-size: 15px;
 }
 
 
@@ -183,7 +184,7 @@ input[type= 'submit'] {
 }
 
 .tasseiform input[type= 'text'] {
-  width: 190px;
+  width: 125px;
 }
 
 .favoB input[type='submit']{
@@ -220,9 +221,10 @@ input[type= 'submit'] {
 }
 
 .tasseiform{
-  width: 50%;
+  width: 100%;
   text-align: center;
   margin: auto;
+  height: 100px;
 }
 
 .tasseiform .form-group{
@@ -374,14 +376,14 @@ input[type= 'submit'] {
   position: relative;
   text-align:center;
   display: inline-block;
-   padding: 8px 19px;
-    margin-top: 30px;
-    color: #2c2c2f;
-    border-top: solid 2px white;
-    border-bottom: solid 2px white;
-    width: 550px;
-    min-width: 320px;
-    margin-bottom: 30px;
+  padding: 8px 19px;
+  margin-top: 30px;
+  color: #2c2c2f;
+  border-top: solid 2px white;
+  border-bottom: solid 2px white;
+  width: 550px;
+  min-width: 320px;
+  margin-bottom: 30px;
 }
 .ramumoji h2{
 font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -489,8 +491,12 @@ footer address{
 }
 
 .du{
-  border-bottom: solid;
-  border-bottom-width: 1px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.du h4{
+  margin-top: 15px;
 }
 
 .vo a:link{
@@ -510,36 +516,36 @@ footer address{
 
 }
 
-.taikai .btn{
-  border: solid 1px white;
-  background: transparent;
-  color: white;
-}
+/*.taikai .btn{*/
+/*  border: solid 1px white;*/
+/*  background: transparent;*/
+/*  color: white;*/
+/*}*/
 
-.taikai .btn:hover{
- background-color: white;
- color: green;
-}
+/*.taikai .btn:hover{*/
+/* background-color: white;*/
+/* color: green;*/
+/*}*/
 
-.henshuB .btn:hover{
- background-color: white;
- color: green;
-}
+/*.henshuB .btn:hover{*/
+/* background-color: white;*/
+/* color: green;*/
+/*}*/
 
-.henshuB .btn{
- color: white;
-}
+/*.henshuB .btn{*/
+/* color: white;*/
+/*}*/
 
-.sakujoB .btn{
-  border: solid 1px pink;
-  background: transparent;
-  color: pink;
-}
+/*.sakujoB .btn{*/
+/*  border: solid 1px pink;*/
+/*  background: transparent;*/
+/*  color: pink;*/
+/*}*/
 
-.sakujoB .btn:hover{
- background-color: white;
- color: pink;
-}
+/*.sakujoB .btn:hover{*/
+/* background-color: white;*/
+/* color: pink;*/
+/*}*/
 
 
 .panel {
@@ -693,6 +699,7 @@ a:hover{*/
   text-decoration: none;
 }
 
+
 .shadow {
 　position: absolute;
 　left: -9999em; 
@@ -816,4 +823,205 @@ h1 {
 @media only screen and (max-width: 750px) {
 .pc { display: none !important; }
 .sp { display: block !important; }
+}
+=======
+.groupbtn .btn{
+  border: solid 1px black !important;
+  background: transparent;
+  width: 33% !important;
+  color: black;
+  float: left;
+  margin-right: 0.5%;
+}
+
+.groupbtn .btn:hover{
+ background-color: #5cb85c;
+ color: white;
+}
+
+.groupbtn{
+  width: 100%;
+}
+
+.minamidesu{
+  width: 33%;
+  float: left;
+}
+
+.minamidesu .btn{
+  border: solid 1px black !important;
+  background: transparent;
+  width: 100% !important;
+  color: black;
+  float: left;
+}
+
+.minamidesu .btn:hover{
+ background-color: #5cb85c;
+ color: white;
+}
+
+.minamidayo{
+  width: 100%;
+  float: left;
+}
+
+.minamidayo .btn{
+  border: solid 1px white !important;
+  background: transparent;
+  width: 100% !important;
+  color: white;
+  float: left;
+}
+
+.minamidayo .btn:hover{
+ background-color: white;
+ color: green;
+}
+
+.downest{
+  background-color:	white;
+  background-size: 100%;
+  height: 100%;
+  min-height: 55px;
+  width:100%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.tasseinum{
+  float: left;
+  font-size: 16px;
+}
+
+.aori{
+  float: left;
+  font-size: 20px;
+  margin-top: 7px;
+  margin-right: 10px;
+  color:white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.tasseiform .form-group{
+  height: 40px;
+  margin: 0;  
+}
+
+.yourstatus h4{
+  font-size: 20px;
+  width:40%;
+  margin: 0;
+  float:left;
+  padding-top:25px;
+  color:white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.yourtotal h4{
+  font-size:50px;
+  width: 30%;
+  margin: 0;
+  float:left;
+  font-weight: bold;
+}
+
+.yoursamount h4{
+  font-size: 20px;
+  width: 20%;
+  margin: 0;
+  float:left;
+  padding-top:25px;
+  text-align:left;
+  color:white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.yours{
+  width:100%;
+  display: inline-block;
+  height:55px;
+  margin-left:10%;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+.timeup {
+  text-align: center;
+  font-weight: bold;
+  color: orange;
+}
+
+.sakujoC {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.yunoki {
+  text-align: center;
+}
+
+.square_btn{
+   position: relative;
+   display: inline-block;
+   font-weight: bold;
+   padding: 0.25em 0;
+   text-decoration: none;
+   color: #006400;   
+}
+
+.square_btn:before{
+   position: absolute;
+   content: '';
+   width: 100%;
+   height: 6px;
+   top:100%;
+   left: 0;
+   border-radius: 3px;
+   background:#006400;
+   transition: .2s;
+}
+
+.square_btn:hover:before {
+    top: -webkit-calc(100% - 3px);
+    top: calc(100% - 3px);
+}
+
+
+.groupitiran {
+    display: inline-block;
+    position: relative;
+    height: 60px;/*高さ*/
+    line-height: 60px;/*高さ*/
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 40px 0 18px;/*文字の左右の余白*/
+    font-size: 18px;/*文字サイズ*/
+    background: #5cb85c;/*背景色*/
+    color: #FFF;/*文字色*/
+    box-sizing: border-box;
+}
+
+.groupitiran:after {
+    position: absolute;
+    content: '';
+    width: 0px;
+    height: 0px;
+    z-index: 1;
+}
+
+.groupitiran:after {
+    top: 0;
+    right: 0;
+    border-width: 30px 15px 30px 0px;
+    border-color: transparent #fff transparent transparent;
+    border-style: solid;
+}
+
+.fg{
+  color: white;
 }

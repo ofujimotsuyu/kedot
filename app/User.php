@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\DB;
+use App\Auth;
 
 class User extends Authenticatable
 {
@@ -44,6 +45,7 @@ class User extends Authenticatable
         } else {
             // follow if not following
             $this->sankagroups()->attach($groupId);
+            \DB::table('user_group')->where('group_id', $groupId)->where('user_id', \Auth::user()->id)->update(['status'=>'1']);
             return true;
         }
     }

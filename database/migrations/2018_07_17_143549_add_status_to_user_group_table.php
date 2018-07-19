@@ -14,7 +14,7 @@ class AddStatusToUserGroupTable extends Migration
     public function up()
     {
         Schema::table('user_group', function (Blueprint $table) {
-            $table->integer('status')->default('0');
+            $table->integer('status')->default('1');
         });
     }
 
