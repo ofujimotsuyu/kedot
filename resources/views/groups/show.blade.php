@@ -105,7 +105,7 @@
                     {!! Form::close() !!}
                 </div>
                 <div class='fg'>
-                    残り{{ $nokori.$unit }}
+                    達成まで{{ $nokori.$unit }}
                 </div>
             </div>
             
