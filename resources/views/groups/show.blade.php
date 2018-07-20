@@ -158,6 +158,7 @@
             // 日付を関数に渡す
             $day = day_diff($group);
             $nokori = $group->term - $day;
+            $nokori2 = floor($nokori);
             ?>
             
             <?php
@@ -175,14 +176,22 @@
                     }
                 }
             ?>
-            @if (floor($nokori)<=-1)
-            <div class="timeuptop">
+            @if (($nokori2)<=-1)
+                <div class="timeuptop">
                 <h1 class="timeup">終了！お疲れさまでした！</h1>
+                </div>
+            
+            @elseif($day==0)
+                <?php $nokori3 = $nokori2 - 1; ?>
+                <div class="nokoritoptop">
+                    <h1 class="nokoritop">残り</h1>
+                    <h1 class="nokori2">{{  $nokori3 . '日' }}</h1>
+                </div>
             @else
-            <div class="nokoritoptop">
-                <h1 class="nokoritop">残り</h1>
-                <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
-            </div>
+                <div class="nokoritoptop">
+                    <h1 class="nokoritop">残り</h1>
+                    <h1 class="nokori2">{{  $nokori2 . '日' }}</h1>
+                </div>
             @endif
             
             @if($tassei2 > $goalnumber)
@@ -272,7 +281,22 @@
             </div>
             
     <!--残り日数が終わったら-->
+    
+    <?php
+    $members =\DB::table('user_group')->where('group_id', $group->id)->get();
+    $numofmembers = count($members);
+    ?>
+    
     @if(floor($nokori)<=-1)
+    @elseif($numofmembers<=1)
+        <div class="downest">
+          <div align="center" class="btnwrapper">
+              <div class="groupbtn">
+                  <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                  <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+              </div>
+          </div>
+        </div>
     @elseif(Auth::User()->is_joining($group->id))
       <div class="downest">
           <div align="center" class="btnwrapper">

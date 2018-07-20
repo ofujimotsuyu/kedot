@@ -164,9 +164,9 @@ body {
   text-align: center;
 }
 
-input[type = 'text'] {
-  width: 85%;
-}
+/*input[type = 'text'] {*/
+/*  width: 85%;*/
+/*}*/
 
 input[type= 'submit'] {
   width:10%;
@@ -231,6 +231,7 @@ input[type= 'submit'] {
   display: inline-block;
   text-align: center;
   margin-top: 10px;
+  margin-left: 40px !important;
 }
 
 
@@ -815,9 +816,49 @@ a:hover{*/
   z-index: 100000;
 }
 
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
 .pc { display: block !important; }
 .sp { display: none !important; }
-/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+
+.tasseinum{
+  width: 60%;
+}
+
+.tassei:after{
+  content: "."; 
+  display: block; 
+  height: 0; 
+  font-size:0;	
+  clear: both; 
+  visibility:hidden;
+}
+
+.nyuryokubutton{
+  float: left;
+}
+
+.yours{
+  margin-top: 30px !important;
+  margin-left: 5% !important;
+  clear: both;
+}
+
+.ramumoji{
+  height: 320px;
+}
+
+.yourtotal{
+  margin-top: 20px;
+}
+
+.yoursamount{
+  margin-top: 20px;
+}
+
+.tasseiform{
+  margin: 0 auto; 
+}
+
 @media only screen and (max-width: 750px) {
 .pc { display: none !important; }
 .sp { display: block !important; }
@@ -918,6 +959,7 @@ a:hover{*/
   padding-top:25px;
   color:white;
   text-shadow: 3px 3px 3px black;
+  margin-right: 15px;
 }
 
 .yourtotal h4{
@@ -937,6 +979,7 @@ a:hover{*/
   text-align:left;
   color:white;
   text-shadow: 3px 3px 3px black;
+  margin-left: 15px;
 }
 
 .yours{
@@ -1080,4 +1123,70 @@ a:hover{*/
 .tasseisuu h1{
   font-size:100px;
   color: white;
+}
+
+@media (min-width:990px){
+.ramumoji{
+  height: 350px !important;
+}
+}
+
+.henkouhidari{
+  width:40%;
+  margin: 0;
+  padding: 0;
+  float: left
+}
+
+.henkoumannaka{
+  width:15%;
+  padding: 0;
+  float: left;
+  font-size: 50px;
+  margin-top: 20px;
+  color: #5cb85c;
+}
+
+.henkoumigi{
+  width: 45%;
+  height: 93px;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.tasseihenkou{
+  width:100%;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  height: 100px;
+  border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+}
+
+input.form-control.tasseikaeru{
+  width:55%;
+  margin-left: 10px;
+  font-size: 20px;
+  height: 50px;
+}
+
+.tasseihenkou input[type= 'submit'] {
+  width:30%;
+  height: 50px;
+  font-size: 20px;
+}
+
+
+.henkouhidari h2{
+  font-size:50px;
+  color: black;
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.henkoumigi h4{
+  margin-right:10px;
 }

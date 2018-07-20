@@ -253,5 +253,15 @@ class GroupController extends Controller
         }else{
             return redirect('/');
         }
-    }    
+    }  
+    
+    public function update_activity(Request $request, $id){
+            $this->validate($request, [
+                'record' => 'required|integer|min:0',
+            ]);
+            $activity = Activity::find($id);
+            $activity->record = $request->record;
+            $activity->save();
+            return redirect()->back();
+    }
 }
