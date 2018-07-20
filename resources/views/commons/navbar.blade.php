@@ -326,7 +326,6 @@ ul {
             <li><a href="#">自分の達成度</a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
             <li><a href="{{ route('user.requests', ['id' => Auth::User()->id]) }}">申請確認</a></li>
-            <li><a href="#">ヘルプ的な説明ページに戻れる</a></li>
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
         </ul>
     </nav>
