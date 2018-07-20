@@ -164,9 +164,9 @@ body {
   text-align: center;
 }
 
-input[type = 'text'] {
-  width: 85%;
-}
+/*input[type = 'text'] {*/
+/*  width: 85%;*/
+/*}*/
 
 input[type= 'submit'] {
   width:10%;
