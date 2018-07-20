@@ -285,6 +285,13 @@
     ?>
     
     @if(floor($nokori)<=-1)
+        <div class="downest">
+          <div align="center" class="btnwrapper">
+              <div class="groupbtn">
+                  <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+              </div>
+          </div>
+        </div>
     @elseif($numofmembers<=1)
         <div class="downest">
           <div align="center" class="btnwrapper">
