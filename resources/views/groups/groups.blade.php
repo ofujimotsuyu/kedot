@@ -5,7 +5,7 @@
     <div class="row">
         <div class="">
             <p class="groupitiran">グループ一覧</p>
-            <div class="box">
+            <div class="papabox">
             	<a class="Abutton" href="#popup1">How to use kedot</a>
             </div>
             <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>

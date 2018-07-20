@@ -9,64 +9,64 @@
             </div>
             <div class="ramumoji col-sm-7">
                 <div class="favoB">
-                    <h2>{{ $group->goal }}</h2>
+                    <h2 class = "ozawa col-xs-11">{{ $group->goal }}</h2>
                     <h3>@include('buttons.favorite_button', ['group' => $group])</h3>
                 </div>
-                    <h3>
-                        {{"カテゴリー　: " . $group->category}}<br>
-                        {{ "頑張ること : " . $group->to_do }}<br>
-                        {{ $group->term . "日間で" . $group->amount . $group->unit }}
-                    </h3>
+                <h3>
+                    {{"カテゴリー　: " . $group->category}}<br>
+                    {{ "頑張ること : " . $group->to_do }}<br>
+                    {{ $group->term . "日間で" . $group->amount . $group->unit }}
+                </h3>
 
-                    <!--参加ユーザーにのみ見せる-->
-                    @if(Auth::User()->is_joining($group->id))
-                    @elseif(Auth::check())
-                        <div class="minamidayo">
-                            @include('buttons.join_button', ['group' => $group])
-                        </div>
-                    @endif
+                <!--参加ユーザーにのみ見せる-->
+                @if(Auth::User()->is_joining($group->id))
+                @elseif(Auth::check())
+                    <div class="minamidayo">
+                        @include('buttons.join_button', ['group' => $group])
+                    </div>
+                @endif
 
                 @if(Auth::User()->is_joining($group->id))
-
                 <!--今日の達成度を入力してる場合-->
-                <?php
-                $today = date('Y-m-d');
-                $maxid = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->max('id');
-                $activity = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->get();
-                $kaitayo = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('created_at');
-                $kaitadate= date('Y-m-d', strtotime($kaitayo));
-                $kaitarecord = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('record');
-                ?>
-                @if($today==$kaitadate)
-                <div class="tasseihenkou">
-                    <div class="henkouhidari">
-                        <h4>YOUの今日やった数</h4>
-                        <h2>{{ $kaitarecord }}</h2>
-                    </div>
-                    <div class="henkoumannaka">
-                        <span class="glyphicon glyphicon-arrow-right"></span>
-                    </div>
-                    <div class="henkoumigi form-inline">
-                        <h4>YOUの今日のトータル</h4>
-                    {!! Form::open(['route' => ['update_activity', $maxid], 'method' => 'put']) !!}
-                            {!! Form::number('record', null, ['class' => 'form-control tasseikaeru first-form', 'placeholder'=>'半角数字', 'min'=>'0']) !!}
-                        {!! Form::submit('変更', ['class' => 'btn btn-success btn-block henkoubtn']) !!}
-                    {!! Form::close() !!}
-                    </div>
-                </div>
-
-                <!--今日の達成度を入力していない場合-->
-                @elseif(Auth::User()->is_joining($group->id))
-                <div class = "tasseiform">
-                    <!--formつくってるよ-->
-                    {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
-                        <div class="form-group  form-inline tasseiwrapper">
-                            <h4 class="aori">今日はどれぐらいやったの？</h4>
-                            {!! Form::number('score', null, ['class' => 'form-control tasseinum', 'rows' => '1','placeholder'=>'半角数字のみ', 'min'=>'0']) !!}
-                            {!! Form::submit('入力', ['class' => 'btn btn-success btn-block btn-md']) !!}
+                    <?php
+                    $today = date('Y-m-d');
+                    $maxid = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->max('id');
+                    $activity = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->get();
+                    $kaitayo = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('created_at');
+                    $kaitadate= date('Y-m-d', strtotime($kaitayo));
+                    $kaitarecord = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('record');
+                    ?>
+                    @if($today==$kaitadate)
+                    <div class="tasseihenkou">
+                        <div class="henkouhidari">
+                            <h4>YOUの今日やった数</h4>
+                            <h2>{{ $kaitarecord }}</h2>
                         </div>
-                    {!! Form::close() !!}
-                @endif
+                        <div class="henkoumannaka">
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </div>
+                        <div class="henkoumigi form-inline">
+                            <h4>YOUの今日のトータル</h4>
+                        {!! Form::open(['route' => ['update_activity', $maxid], 'method' => 'put']) !!}
+                                {!! Form::number('record', null, ['class' => 'form-control tasseikaeru first-form', 'placeholder'=>'半角数字', 'min'=>'0']) !!}
+                            {!! Form::submit('変更', ['class' => 'btn btn-success btn-block henkoubtn']) !!}
+                        {!! Form::close() !!}
+                        </div>
+                    </div>
+    
+                    <!--今日の達成度を入力していない場合-->
+                    @elseif(Auth::User()->is_joining($group->id))
+                    <div class = "tasseiform">
+                        <!--formつくってるよ-->
+                        {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
+                            <div class="form-group  form-inline tasseiwrapper">
+                                <h4 class="aori">今日はどれぐらいやったの？</h4>
+                                {!! Form::number('score', null, ['class' => 'form-control tasseinum', 'rows' => '1','placeholder'=>'半角数字のみ', 'min'=>'0']) !!}
+                                {!! Form::submit('入力', ['class' => 'btn btn-success btn-block btn-md']) !!}
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+                    @endif
                     <div class='yours' align="center">
                         <div class="yourstatus">
                             <h4>現在のあなたの状況</h4>
@@ -104,12 +104,9 @@
                             </h4>
                         </div>
                         <div class="yoursamount">
-                            <h4>
-                                {{'/'. $group->amount }}
-                            </h4>
+                            <h4>{{'/'. $group->amount }}</h4>
                         </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>

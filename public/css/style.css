@@ -188,9 +188,8 @@ input[type= 'submit'] {
 }
 
 .favoB input[type='submit']{
-  width: 50px;
-  font-size: 35px;
-  margin-bottom: 10px;
+  width: auto;
+  font-size: 30px;
   background: transparent;
   color: orange;
   border: none;
@@ -578,6 +577,7 @@ footer address{
 
 .favoB h2{
   display: inline-block;
+  margin-top: 10px;
 }
 
 .favoB h3{
@@ -707,7 +707,8 @@ a:hover{*/
 　left: -9999em; 
 }
 
-.box {
+.papabox {
+  display: flex;
   float: right;
   width: 20%;
   margin: 0 auto;
@@ -790,7 +791,7 @@ a:hover{*/
 }
 
 @media screen and (max-width: 700px){
-  .box{
+  .papabox{
     width: 80%;
   }
   .popup{
@@ -838,13 +839,12 @@ a:hover{*/
 }
 
 .yours{
-  margin-top: 30px !important;
   margin-left: 5% !important;
   clear: both;
 }
 
 .ramumoji{
-  height: 320px;
+  height: 100%;
 }
 
 .yourtotal{
@@ -954,7 +954,6 @@ a:hover{*/
 .yourstatus h4{
   font-size: 20px;
   width:40%;
-  margin: 0;
   float:left;
   padding-top:25px;
   color:white;
@@ -975,7 +974,7 @@ a:hover{*/
   width: 20%;
   margin: 0;
   float:left;
-  padding-top:25px;
+  padding-top:19px;
   text-align:left;
   color:white;
   text-shadow: 3px 3px 3px black;
@@ -1102,7 +1101,7 @@ a:hover{*/
 
 @media (min-width:990px){
 .ramumoji{
-  height: 350px !important;
+  height: 100% !important;
 }
 }
 
@@ -1166,3 +1165,6 @@ input.form-control.tasseikaeru{
   margin-right:10px;
 }
 
+.ozawa{
+  width: 85%;
+}
