@@ -69,7 +69,9 @@
                     @endif
                     <div class='yours' align="center">
                         <div class="yourstatus">
-                            <h4>現在のあなたの状況</h4>
+                            <h4>
+                                現在のあなたの状況
+                            </h4>
                         </div>
                         <div class="yourtotal">
                             <h4>
@@ -77,9 +79,9 @@
                                 $joinuser = Auth::User();
                                 $joinid = $joinuser->id;
                                 $joinname = $joinuser->name; 
+                                
                                 $tassei=0;
                                 $records3 = \DB::table('activities')->where('user_id', $joinid)->where('group_id', $group->id)->get();
-                                
                                 foreach($records3 as $record) {
                                     $tassei = $tassei + $record->record;
                                 }
@@ -129,7 +131,10 @@
       <!--中間テーブルからグループに参加してるメンバーを取り出している-->
             
             <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get(); ?>  
+    
+          
             <?php
+            
             function day_diff($group) {
              
                 // 日付をUNIXタイムスタンプに変換
@@ -150,40 +155,46 @@
             // 日付を関数に渡す
             $day = day_diff($group);
             $nokori = $group->term - $day;
+            $nokori2 = floor($nokori);
             ?>
             
             <?php
-            $maxlen = 0;
-            $max = 0;
-            $data[0] = array("目標値", $group->amount);
-            $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
-            $tassei2=0;
-            
-            foreach ($users as $key => $user) {
-               
-                $records4 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
-                
-                foreach($records4 as $record) {
-                    $tassei2 = $tassei2 + $record->record;
+                $maxlen = 0;
+                $max = 0;
+                $data[0] = array("目標値", $group->amount);
+                $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
+                $tassei2=0;
+                foreach ($users as $key => $user) {
+                   
+                    $records4 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
+                    
+                    foreach($records4 as $record) {
+                        $tassei2 = $tassei2 + $record->record;
+                    }
                 }
-            }
             ?>
-            
-            @if (floor($nokori)<=-1)
+            @if (($nokori2)<=-1)
                 <div class="timeuptop">
-                    <h1 class="timeup">終了！お疲れさまでした！</h1>
+                <h1 class="timeup">終了！お疲れさまでした！</h1>
+                </div>
+            
+            @elseif($day==0)
+                <?php $nokori3 = $nokori2 - 1; ?>
+                <div class="nokoritoptop">
+                    <h1 class="nokoritop">残り</h1>
+                    <h1 class="nokori2">{{  $nokori3 . '日' }}</h1>
                 </div>
             @else
                 <div class="nokoritoptop">
                     <h1 class="nokoritop">残り</h1>
-                    <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
+                    <h1 class="nokori2">{{  $nokori2 . '日' }}</h1>
                 </div>
             @endif
             
-            @if($tassei2 >=$goalnumber)
-                <div class='ome'>
-                    <h1 class='omecommnet'>目標を達成しました！おめ</h1>
-                </div>
+            @if($tassei2 > $goalnumber)
+            <div class='ome'>
+                <h1 class='omecommnet'>目標を達成しました！おめ</h1>
+            </div>
             @endif
 
 
@@ -195,22 +206,21 @@
                 <?php
                 $maxlen = 0;
                 $max = 0;
-                $data[0] = array("目標値", $group->amount);
-                
-                foreach ($users as $key => $user) {
-                    $id = $user->user_id;
-                    $name = App\User::find($id); 
-                    $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
-                    $tassei=0;
-                    
-                    foreach($records3 as $record) {
-                        $tassei = $tassei + $record->record;
+                    $data[0] = array("目標値", $group->amount);
+                    foreach ($users as $key => $user) {
+                        $id = $user->user_id;
+                        $name = App\User::find($id); 
+                        
+                        $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
+                        
+                        $tassei=0;
+                        foreach($records3 as $record) {
+                            $tassei = $tassei + $record->record;
+                        }
+                        
+                        $data[$key+1] = array($name->name, $tassei);
                     }
-
-                    $data[$key+1] = array($name->name, $tassei);
-                }
-                ?>
-                
+                    ?>
                 <div class = "gurafu">
                     <?php
                     if(!empty($name)){
@@ -224,20 +234,13 @@
                         }
                     
                         for($i = 0 ; $i < count($data) ; $i++) {    
-                            if($tassei > $group->amount){
-                                print("<tr>");
-                                printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", 100);
-                                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                                print("</tr>\n");    
-                            }else{
-                                print("<tr>");
-                                printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
-                                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                                print("</tr>\n");
-                            }
+                            print("<tr>");
+                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
+                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
+                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
+                            print("</tr>\n");
                         }
+        
                     }
                     ?>
                 </div>
@@ -251,32 +254,48 @@
                 @foreach($users as $user)
                     <?php 
                     $members= $members+1;
-                    $id = $user->user_id;
-                    $name = App\User::find($id); 
-                    ?>
-                    
-                    <div class = "sankashiteru col-xs-4">
-                        <a href="{{ route('users.show',['id'=>$name->id])}}">
-                            <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
-                        </a>
-                        <p>{{ $name->name }}</p>
-                    </div>
                 
-                    <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
-                    <?php $tassei=0 ?>
+                $id = $user->user_id;
+                $name = App\User::find($id); ?>
+                
+                <div class = "sankashiteru col-xs-4">
+                    <a href="{{ route('users.show',['id'=>$name->id])}}">
+                        <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
+                    </a>
+                    <p>{{ $name->name }}</p>
+                </div>
+                
+                <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
+                
+                <?php $tassei=0 ?>
                 @foreach($records3 as $record)
-                    <?php
-                        $tassei=$tassei + $record->record;
-                    ?>
+                <?php
+                    $tassei=$tassei + $record->record;
+                ?>
                 @endforeach
-                    <br>
+                <br>
                 @endforeach
             </div>
             
     <!--残り日数が終わったら-->
+    
+    <?php
+    $members =\DB::table('user_group')->where('group_id', $group->id)->get();
+    $numofmembers = count($members);
+    ?>
+    
     @if(floor($nokori)<=-1)
-    @elseif(Auth::User()->is_joining($group->id))
+    @elseif($numofmembers<=1)
         <div class="downest">
+          <div align="center" class="btnwrapper">
+              <div class="groupbtn">
+                  <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                  <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+              </div>
+          </div>
+        </div>
+    @elseif(Auth::User()->is_joining($group->id))
+      <div class="downest">
           <div align="center" class="btnwrapper">
               <div class="groupbtn">
                   <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
@@ -286,9 +305,11 @@
                   @include('buttons.join_button', ['group' => $group])
               </div>
           </div>
-        </div>
+      </div>
      @endif
+    
 </div>
+
 
 @endsection
 
