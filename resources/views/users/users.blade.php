@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
             <div class="apbank">
-                <h2 class="user_result">Search USER!</h2><br>
+                <h2 class="user_result">ユーザーを検索しよう！</h2><br>
         
                 <form class='form-inline'method="get" action="./users" >
                     <!--name=でcontrollerに送る名前を決定-->
@@ -20,6 +20,16 @@
             @if($user)「@endif
             {{$user}}
             @if($user)」の検索結果@endif
+            <!--何件が該当か表示-->
+            @if($user)
+                @if($users->total()>0)
+                    {{ $users->firstItem() }}～{{ $users->lastItem() }}件
+                    （{{$users->total()}}件中）
+                @else
+                    0件
+                @endif
+            @endif
+
             </h2>
             <div class = "ichiran">
                 @foreach($users as $user)
@@ -29,7 +39,7 @@
                 @endforeach
             </div>
             <div align="center">
-                <br>{!! $users->render() !!}
+                <br>{!! $users->appends(['user'=>$user])->render() !!}
             </div>
         </div>
     </div>

@@ -1193,3 +1193,8 @@ input.form-control.tasseikaeru{
 .ozawa{
   width: 85%;
 }
+
+.myrequest a:hover{
+  color: blue;
+  font-weight: bold;
+}
