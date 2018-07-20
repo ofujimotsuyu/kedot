@@ -158,8 +158,8 @@
     }
     
     .ramumoji h2{
-      font-size: 30px;
-      letter-spacing: 5px;
+      font-size: 27px;
+      letter-spacing: 1px;
       margin-top: 10px;
     }
     
@@ -418,14 +418,14 @@
     padding-right: 5%;
   }
   
-  .box{
+  .papabox{
     width: 130px;
   }
   
   .carousel-control{
     opacity: 1;
   }
-}    
+   
 
 .henkouhidari{
     width:40%;
@@ -493,3 +493,23 @@
     margin-left: 5px;  
     
   }
+  
+  .favoB input[type='submit']{
+    top: -10px;
+  }
+  
+  .favoB{
+    height: 50px;
+  }
+  
+  .yourstatus h4{
+    margin-right: 0;
+    padding-top: 0;
+  }
+  
+  .yoursamount h4{
+    margin-left: 0;
+    padding-top: 0;
+    margin: 0;
+  }
+} 
