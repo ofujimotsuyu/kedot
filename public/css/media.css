@@ -418,3 +418,69 @@
   }
 }    
 
+.henkouhidari{
+    width:40%;
+    margin: 0;
+    padding: 0;
+    float: left
+  }
+  
+  .henkoumannaka{
+    width:12%;
+    padding: 0;
+    float: left;
+    font-size: 40px;
+    margin-top: 30px;
+    color: #5cb85c;
+  }
+  
+  .henkoumigi{
+    width: 48%;
+    height: 93px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    padding-left: 10px;
+  }
+  
+  .tasseihenkou{
+    width:100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 95px;
+    border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+  }
+  
+  input.form-control.tasseikaeru{
+    width:55%;
+    font-size: 14px;
+    height: 50px;
+    margin: 0;
+  }
+  
+  .tasseihenkou input[type= 'submit'] {
+    width:37%;
+    height: 50px;
+    font-size: 14px;
+  }
+  
+  
+  .henkouhidari h2{
+    font-size:50px;
+    color: black;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    text-shadow: none;
+  }
+  
+  .henkoumigi h4{
+    font-size: 13px;
+    margin-right:10px;
+  }
+  .henkouhidari h4{
+    font-size: 13px;
+    margin-left: 5px;  
+    
+  }
