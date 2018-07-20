@@ -284,29 +284,42 @@
     $numofmembers = count($members);
     ?>
     
-    @if(floor($nokori)<=-1)
-    @elseif($numofmembers<=1)
-        <div class="downest">
-          <div align="center" class="btnwrapper">
-              <div class="groupbtn">
-                  <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
-                  <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+    @if(Auth::User()->is_joining($group->id))
+        @if(floor($nokori)<=-1)
+            div class="downest">
+              <div align="center" class="btnwrapper col-xs-12">
+                  <div class="groupbtn">
+                      <a class="sakujobtn" href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                  </div>
+              </div>
+            </div>
+        @elseif($numofmembers<=1)
+            <div class="downest">
+                <div align="center" class="btnwrapper">
+                    <div class="groupbtn col-xs-6">
+                        <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                    </div>
+                    <div class="groupbtn col-xs-6">
+                      <a class = "sakujobtn" href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                    </div>
+                </div>
+            </div>
+        @else
+          <div class="downest">
+              <div align="center" class="btnwrapper">
+                  <div class="groupbtn col-xs-4">
+                      <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                    </div>
+                    <div class="groupbtn col-xs-4">
+                      <a class = "sakujobtn" href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                  </div>
+                  <div class="minamidesu col-xs-4">
+                      @include('buttons.join_button', ['group' => $group])
+                  </div>
               </div>
           </div>
-        </div>
-    @elseif(Auth::User()->is_joining($group->id))
-      <div class="downest">
-          <div align="center" class="btnwrapper">
-              <div class="groupbtn">
-                  <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
-                  <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
-              </div>
-              <div class="minamidesu">
-                  @include('buttons.join_button', ['group' => $group])
-              </div>
-          </div>
-      </div>
-     @endif
+         @endif
+    @endif
     
 </div>
 
