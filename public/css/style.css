@@ -1056,3 +1056,28 @@ a:hover{*/
 .search_result{
   margin-top: 20px;
 }
+
+.tasseisuu{
+  background-color:	skyblue;
+  background-size: 100%;
+  min-height: 55px;
+  width:100%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-bottom: 20px;
+}
+
+.tasseigroups{
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color:	skyblue;
+}
+
+.tasseisuu h1{
+  font-size:100px;
+  color: white;
+}

@@ -66,4 +66,18 @@ class UserController extends Controller
         
         return view('users.requests', $data);
     }
+
+    public function tasseis($id)
+    {
+        $user = User::find($id);
+        $sankagroups = $user->sankagroups()->get();
+      
+        $data = [
+            'user' => $user,
+            'groups' => $sankagroups,
+        ];
+
+        return view('users.tassei', $data);
+    }
+
 }

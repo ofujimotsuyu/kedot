@@ -27,21 +27,51 @@
                     @endif
 
                 @if(Auth::User()->is_joining($group->id))
+
+                <!--今日の達成度を入力してる場合-->
+                <?php
+                $today = date('Y-m-d');
+                $maxid = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->max('id');
+                $activity = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->get();
+                $kaitayo = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('created_at');
+                $kaitadate= date('Y-m-d', strtotime($kaitayo));
+                $kaitarecord = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('record');
+                ?>
+                @if($today==$kaitadate)
+                <div class="tasseihenkou">
+                    <div class="henkouhidari">
+                        <h4>YOUの今日やった数</h4>
+                        <h2>{{ $kaitarecord }}</h2>
+                    </div>
+                    <div class="henkoumannaka">
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </div>
+                    <div class="henkoumigi form-inline">
+                        <h4>YOUの今日のトータル</h4>
+                    {!! Form::open(['route' => ['update_activity', $maxid], 'method' => 'put']) !!}
+                            {!! Form::number('record', null, ['class' => 'form-control tasseikaeru first-form', 'placeholder'=>'半角数字', 'min'=>'0']) !!}
+                        {!! Form::submit('変更', ['class' => 'btn btn-success btn-block henkoubtn']) !!}
+                    {!! Form::close() !!}
+                    </div>
+                </div>
+
+                <!--今日の達成度を入力していない場合-->
+                @elseif(Auth::User()->is_joining($group->id))
                 <div class = "tasseiform">
                     <!--formつくってるよ-->
                     {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
                         <div class="form-group  form-inline tasseiwrapper">
-                            
-                                <h4 class="aori">今日はどれぐらいやったの？</h4>
-                           
+                            <h4 class="aori">今日はどれぐらいやったの？</h4>
                             {!! Form::number('score', null, ['class' => 'form-control tasseinum', 'rows' => '1','placeholder'=>'半角数字のみ', 'min'=>'0']) !!}
-                            {!! Form::submit('入力', ['class' => 'btn btn-success btn-block btn-md nyuryokubutton']) !!}
+                            {!! Form::submit('入力', ['class' => 'btn btn-success btn-block btn-md']) !!}
                         </div>
                     {!! Form::close() !!}
-                    
+                @endif
                     <div class='yours' align="center">
                         <div class="yourstatus">
-                            <h4>現在のあなたの状況</h4>
+                            <h4>
+                                現在のあなたの状況
+                            </h4>
                         </div>
                         <div class="yourtotal">
                             <h4>
@@ -49,9 +79,9 @@
                                 $joinuser = Auth::User();
                                 $joinid = $joinuser->id;
                                 $joinname = $joinuser->name; 
+                                
                                 $tassei=0;
                                 $records3 = \DB::table('activities')->where('user_id', $joinid)->where('group_id', $group->id)->get();
-                                
                                 foreach($records3 as $record) {
                                     $tassei = $tassei + $record->record;
                                 }
@@ -104,7 +134,10 @@
       <!--中間テーブルからグループに参加してるメンバーを取り出している-->
             
             <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get(); ?>  
+    
+          
             <?php
+            
             function day_diff($group) {
              
                 // 日付をUNIXタイムスタンプに変換
@@ -128,37 +161,34 @@
             ?>
             
             <?php
-            $maxlen = 0;
-            $max = 0;
-            $data[0] = array("目標値", $group->amount);
-            $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
-            $tassei2=0;
-            
-            foreach ($users as $key => $user) {
-               
-                $records4 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
-                
-                foreach($records4 as $record) {
-                    $tassei2 = $tassei2 + $record->record;
+                $maxlen = 0;
+                $max = 0;
+                $data[0] = array("目標値", $group->amount);
+                $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
+                $tassei2=0;
+                foreach ($users as $key => $user) {
+                   
+                    $records4 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
+                    
+                    foreach($records4 as $record) {
+                        $tassei2 = $tassei2 + $record->record;
+                    }
                 }
-            }
             ?>
-            
             @if (floor($nokori)<=-1)
-                <div class="timeuptop">
-                    <h1 class="timeup">終了！お疲れさまでした！</h1>
-                </div>
+            <div class="timeuptop">
+                <h1 class="timeup">終了！お疲れさまでした！</h1>
             @else
-                <div class="nokoritoptop">
-                    <h1 class="nokoritop">残り</h1>
-                    <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
-                </div>
+            <div class="nokoritoptop">
+                <h1 class="nokoritop">残り</h1>
+                <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
+            </div>
             @endif
             
-            @if($tassei2 >=$goalnumber)
-                <div class='ome'>
-                    <h1 class='omecommnet'>目標を達成しました！おめ</h1>
-                </div>
+            @if($tassei2 > $goalnumber)
+            <div class='ome'>
+                <h1 class='omecommnet'>目標を達成しました！おめ</h1>
+            </div>
             @endif
 
 
@@ -170,22 +200,21 @@
                 <?php
                 $maxlen = 0;
                 $max = 0;
-                $data[0] = array("目標値", $group->amount);
-                
-                foreach ($users as $key => $user) {
-                    $id = $user->user_id;
-                    $name = App\User::find($id); 
-                    $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
-                    $tassei=0;
-                    
-                    foreach($records3 as $record) {
-                        $tassei = $tassei + $record->record;
+                    $data[0] = array("目標値", $group->amount);
+                    foreach ($users as $key => $user) {
+                        $id = $user->user_id;
+                        $name = App\User::find($id); 
+                        
+                        $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
+                        
+                        $tassei=0;
+                        foreach($records3 as $record) {
+                            $tassei = $tassei + $record->record;
+                        }
+                        
+                        $data[$key+1] = array($name->name, $tassei);
                     }
-
-                    $data[$key+1] = array($name->name, $tassei);
-                }
-                ?>
-                
+                    ?>
                 <div class = "gurafu">
                     <?php
                     if(!empty($name)){
@@ -199,20 +228,13 @@
                         }
                     
                         for($i = 0 ; $i < count($data) ; $i++) {    
-                            if($tassei > $group->amount){
-                                print("<tr>");
-                                printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", 100);
-                                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                                print("</tr>\n");    
-                            }else{
-                                print("<tr>");
-                                printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
-                                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                                print("</tr>\n");
-                            }
+                            print("<tr>");
+                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
+                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
+                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
+                            print("</tr>\n");
                         }
+        
                     }
                     ?>
                 </div>
@@ -226,32 +248,33 @@
                 @foreach($users as $user)
                     <?php 
                     $members= $members+1;
-                    $id = $user->user_id;
-                    $name = App\User::find($id); 
-                    ?>
-                    
-                    <div class = "sankashiteru col-xs-4">
-                        <a href="{{ route('users.show',['id'=>$name->id])}}">
-                            <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
-                        </a>
-                        <p>{{ $name->name }}</p>
-                    </div>
                 
-                    <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
-                    <?php $tassei=0 ?>
+                $id = $user->user_id;
+                $name = App\User::find($id); ?>
+                
+                <div class = "sankashiteru col-xs-4">
+                    <a href="{{ route('users.show',['id'=>$name->id])}}">
+                        <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
+                    </a>
+                    <p>{{ $name->name }}</p>
+                </div>
+                
+                <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
+                
+                <?php $tassei=0 ?>
                 @foreach($records3 as $record)
-                    <?php
-                        $tassei=$tassei + $record->record;
-                    ?>
+                <?php
+                    $tassei=$tassei + $record->record;
+                ?>
                 @endforeach
-                    <br>
+                <br>
                 @endforeach
             </div>
             
     <!--残り日数が終わったら-->
     @if(floor($nokori)<=-1)
     @elseif(Auth::User()->is_joining($group->id))
-        <div class="downest">
+      <div class="downest">
           <div align="center" class="btnwrapper">
               <div class="groupbtn">
                   <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
@@ -261,9 +284,11 @@
                   @include('buttons.join_button', ['group' => $group])
               </div>
           </div>
-        </div>
+      </div>
      @endif
+    
 </div>
+
 
 @endsection
 
