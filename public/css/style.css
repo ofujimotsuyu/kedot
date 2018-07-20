@@ -397,6 +397,7 @@ font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体
 
 .ramumoji h3{
   margin-top: 10px;
+  clear: both;
 }
 
 .ramuimg img{
@@ -867,9 +868,7 @@ a:hover{*/
 .groupbtn .btn{
   border: solid 1px black !important;
   background: transparent;
-  width: 33% !important;
   color: black;
-  float: left;
   margin-right: 0.5%;
 }
 
@@ -878,9 +877,6 @@ a:hover{*/
  color: white;
 }
 
-.groupbtn{
-  width: 100%;
-}
 
 .minamidesu{
   width: 33%;
@@ -1193,6 +1189,16 @@ input.form-control.tasseikaeru{
 .ozawa{
   width: 85%;
 }
+
+.sakujobtn .btn{
+  border: 1px solid red !important;
+  color: red !important;
+}
+
+.sakujobtn .btn:hover{
+  border: 1px solid red !important;
+  background-color: red !important;
+  color: white !important;
 
 .myrequest a:hover{
   color: blue;
