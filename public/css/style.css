@@ -783,6 +783,10 @@ a:hover{*/
   overflow: auto;
 }
 
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
+  width: 100%;
+}
+
 @media screen and (max-width: 700px){
   .box{
     width: 80%;
