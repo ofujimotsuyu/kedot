@@ -115,5 +115,5 @@ class User extends Authenticatable
     public function is_favoriting($groupId) {
         return $this->favorites()->where('favorite_id', $groupId)->exists();
     }
-   
+    
 }
