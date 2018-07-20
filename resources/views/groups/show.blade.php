@@ -41,9 +41,13 @@
                 // 日付を関数に渡す
                 $day = day_diff($group);
                 $nokori = $group->term - $day;
+                $nokori2 = floor ($nokori)
                 ?>
+                
                 <!--参加ユーザーにのみ見せる-->
-                @if(floor($nokori)<=-1)
+                
+                
+                @if(($nokori2)<=-1)
                 <div class="yunoki">
                     <div class="sakujoC henshuB">
                             <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
@@ -59,7 +63,7 @@
                 @endif
             </div>
             
-            @if(floor($nokori)<=-1)
+            @if(($nokori2)<=-1)
             @elseif($group->user_id==Auth::User()->id)
                 <div class="col-xs-4" style="float:center">
                     @include('buttons.join_button', ['group' => $group])
@@ -85,7 +89,7 @@
                 $unit=\DB::table('groups')->where('id', $group->id)->value('unit');
             ?>
             
-            @if(floor($nokori)<=-1)
+            @if(($nokori2)>=-1)
             @elseif(Auth::User()->is_joining($group->id))
             <div class='pau'>    
                 <div class = "tasseiform">
@@ -112,20 +116,25 @@
   
     <!--特定のuser_idとgroup_idを持つrecordの有無で、フォームを表示するかしないか分ける-->
   
-  <!--中間テーブルからグループに参加してるメンバーを取り出している-->
+      <!--中間テーブルからグループに参加してるメンバーを取り出している-->
         
         <?php $users = \DB::table('user_group')->where('group_id', $group->id)->where('status', '2')->get() ?>  
 
-      
-        
-        @if (floor($nokori)<=-1)
+        @if (($nokori2)<=-1)
         <div class="timeuptop">
             <h1 class="timeup">終了！お疲れさまでした！</h1>
-        @else
-        <div class="nokoritoptop">
+        
+        @elseif($day==0)
+            <?php $nokori3 = $nokori2 - 1; ?>
+            <div class="nokoritoptop">
             <h1 class="nokoritop">残り</h1>
-            <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
-        </div>
+            <h1 class="nokori2">{{  $nokori3 . '日' }}</h1>
+            </div>
+        @else
+            <div class="nokoritoptop">
+            <h1 class="nokoritop">残り</h1>
+            <h1 class="nokori2">{{  $nokori2 . '日' }}</h1>
+            </div>
         @endif
     <div class="tyonmage">
         <table width="80%" align="center" rules="none" cellspacing="0">
