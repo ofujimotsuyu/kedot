@@ -5,8 +5,6 @@
   <div class="row">
   @include('commons.error_messages')
     <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
-    @include('commons.error_messages')
-
 
       <div class="createpage">
         <h1>グループを作成しよう！</h1>
