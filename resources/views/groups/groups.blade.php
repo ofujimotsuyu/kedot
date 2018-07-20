@@ -5,6 +5,9 @@
     <div class="row">
         <div class="">
             <p class="groupitiran">グループ一覧</p>
+            <div class="box">
+            	<a class="Abutton" href="#popup1">How to use kedot</a>
+            </div>
             <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
             <div class = "groups">
                 @foreach($groups as $group)
@@ -18,5 +21,14 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<div class="content">
+    		<a class="close" href="#">CLOSE</a>
+			@include('commons.explanation')
+		</div>
+	</div>
 </div>
 @endsection

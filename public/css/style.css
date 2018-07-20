@@ -174,6 +174,7 @@ input[type= 'submit'] {
 
 .ramumoji input[type= 'submit'] {
   width:80%;
+  font-size: 15px;
 }
 
 
@@ -183,7 +184,7 @@ input[type= 'submit'] {
 }
 
 .tasseiform input[type= 'text'] {
-  width: 190px;
+  width: 125px;
 }
 
 .favoB input[type='submit']{
@@ -220,9 +221,10 @@ input[type= 'submit'] {
 }
 
 .tasseiform{
-  width: 50%;
+  width: 100%;
   text-align: center;
   margin: auto;
+  height: 100px;
 }
 
 .tasseiform .form-group{
@@ -340,7 +342,7 @@ input[type= 'submit'] {
 }
 
 .category-search{
-  width: 25% !important;
+  width: 13% !important;
 }
 
 .first-form{
@@ -375,14 +377,14 @@ input[type= 'submit'] {
   position: relative;
   text-align:center;
   display: inline-block;
-   padding: 8px 19px;
-    margin-top: 30px;
-    color: #2c2c2f;
-    border-top: solid 2px white;
-    border-bottom: solid 2px white;
-    width: 550px;
-    min-width: 320px;
-    margin-bottom: 30px;
+  padding: 8px 19px;
+  margin-top: 30px;
+  color: #2c2c2f;
+  border-top: solid 2px white;
+  border-bottom: solid 2px white;
+  width: 550px;
+  min-width: 320px;
+  margin-bottom: 30px;
 }
 .ramumoji h2{
 font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体", "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -515,36 +517,36 @@ footer address{
 
 }
 
-.taikai .btn{
-  border: solid 1px white;
-  background: transparent;
-  color: white;
-}
+/*.taikai .btn{*/
+/*  border: solid 1px white;*/
+/*  background: transparent;*/
+/*  color: white;*/
+/*}*/
 
-.taikai .btn:hover{
- background-color: white;
- color: green;
-}
+/*.taikai .btn:hover{*/
+/* background-color: white;*/
+/* color: green;*/
+/*}*/
 
-.henshuB .btn:hover{
- background-color: white;
- color: green;
-}
+/*.henshuB .btn:hover{*/
+/* background-color: white;*/
+/* color: green;*/
+/*}*/
 
-.henshuB .btn{
- color: white;
-}
+/*.henshuB .btn{*/
+/* color: white;*/
+/*}*/
 
-.sakujoB .btn{
-  border: solid 1px pink;
-  background: transparent;
-  color: pink;
-}
+/*.sakujoB .btn{*/
+/*  border: solid 1px pink;*/
+/*  background: transparent;*/
+/*  color: pink;*/
+/*}*/
 
-.sakujoB .btn:hover{
- background-color: white;
- color: pink;
-}
+/*.sakujoB .btn:hover{*/
+/* background-color: white;*/
+/* color: pink;*/
+/*}*/
 
 
 .panel {
@@ -698,6 +700,250 @@ a:hover{*/
   text-decoration: none;
 }
 
+
+.shadow {
+　position: absolute;
+　left: -9999em; 
+}
+
+.box {
+  float: right;
+  width: 20%;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.2);
+  padding: 5px;
+  border: 2px solid #fff;
+  border-radius: 20px/50px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.Abutton {
+  font-size: 1em;
+  padding: 10px;
+  color: #fff;
+  background-color: #5cb85c;
+  border: 2px solid #06D85F;
+  border-radius: 20px/50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+.Abutton:hover {
+  background: #06D85F;
+  color: white;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity:0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 75%;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  bottom: 1%;
+  right: 0%;
+  transition: all 200ms;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: green;
+  opacity: 2;
+  z-index: 1000;
+  background-color: white;
+  padding: 10px 30px;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  z-index: 1;
+  max-width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 80%;
+  }
+  .popup{
+    width: 80%;
+  }
+}
+
+.carousel-control{
+  opacity: .5;
+}
+
+.carousel-indicators .active{
+  border: 1px solid black;
+}
+
+.carousel-indicators li{
+  background-color: #5cb85c;
+  border: 1px solid white;
+}
+
+.carousel-indicators{
+  bottom: 0px;
+  z-index: 100000;
+}
+
+.pc { display: block !important; }
+.sp { display: none !important; }
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+@media only screen and (max-width: 750px) {
+.pc { display: none !important; }
+.sp { display: block !important; }
+}
+
+.groupbtn .btn{
+  border: solid 1px black !important;
+  background: transparent;
+  width: 33% !important;
+  color: black;
+  float: left;
+  margin-right: 0.5%;
+}
+
+.groupbtn .btn:hover{
+ background-color: #5cb85c;
+ color: white;
+}
+
+.groupbtn{
+  width: 100%;
+}
+
+.minamidesu{
+  width: 33%;
+  float: left;
+}
+
+.minamidesu .btn{
+  border: solid 1px black !important;
+  background: transparent;
+  width: 100% !important;
+  color: black;
+  float: left;
+}
+
+.minamidesu .btn:hover{
+ background-color: #5cb85c;
+ color: white;
+}
+
+.minamidayo{
+  width: 100%;
+  float: left;
+}
+
+.minamidayo .btn{
+  border: solid 1px white !important;
+  background: transparent;
+  width: 100% !important;
+  color: white;
+  float: left;
+}
+
+.minamidayo .btn:hover{
+ background-color: white;
+ color: green;
+}
+
+.downest{
+  background-color:	white;
+  background-size: 100%;
+  height: 100%;
+  min-height: 55px;
+  width:100%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.tasseinum{
+  float: left;
+  font-size: 16px;
+}
+
+.aori{
+  float: left;
+  font-size: 20px;
+  margin-top: 7px;
+  margin-right: 10px;
+  color:white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.tasseiform .form-group{
+  height: 40px;
+  margin: 0;  
+}
+
+.yourstatus h4{
+  font-size: 20px;
+  width:40%;
+  margin: 0;
+  float:left;
+  padding-top:25px;
+  color:white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.yourtotal h4{
+  font-size:50px;
+  width: 30%;
+  margin: 0;
+  float:left;
+  font-weight: bold;
+}
+
+.yoursamount h4{
+  font-size: 20px;
+  width: 20%;
+  margin: 0;
+  float:left;
+  padding-top:25px;
+  text-align:left;
+  color:white;
+  text-shadow: 3px 3px 3px black;
+}
+
+.yours{
+  width:100%;
+  display: inline-block;
+  height:55px;
+  margin-left:10%;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
 .timeup {
   text-align: center;
   font-weight: bold;
@@ -759,7 +1005,6 @@ a:hover{*/
     content: '';
     width: 0px;
     height: 0px;
-    z-index: 1;
 }
 
 .groupitiran:after {
@@ -775,4 +1020,35 @@ a:hover{*/
   /*margin: 5px 3px 5px 3px;*/
   color: black;
   font-size: 17px;
+}
+
+.fg{
+  color: white;
+}
+
+.ome{
+  color: orange;
+  text-align: center;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+  z-index: 0;
+}
+
+.carousel-control.right{
+  background-image: none;
+  color: green;
+}
+
+.carousel-control.left{
+  background-image: none;
+  color: green;
+}
+
+.idform{
+  width:10% !important;
+}
+
+.search_result{
+  margin-top: 20px;
 }

@@ -93,14 +93,13 @@ class GroupController extends Controller
         }
         
         $group->save();
-        
         $user->sankagroups()->attach($group->id);
 
         \DB::table('user_group')->where('group_id', $group->id)->where('user_id', $user->id)->update(['status'=>'2']);
         
-        
        //更新してcreateが増えないようにする
-       return redirect('/');
+    //   return redirect('/');
+       return view('groups.show', ['group' => $group]);
     }
 
     public function show($id){
@@ -119,7 +118,7 @@ class GroupController extends Controller
     public function store_activity(Request $request, $id){
         if(\Auth::User()->is_joining($id)){
             $this->validate($request, [
-                'record' => 'required|integer|min:1',
+                'score' => 'required|integer|min:1',
             ]);
 
             $group = Group::find($id);
@@ -137,6 +136,7 @@ class GroupController extends Controller
     public function search(Request $request){
         $goal = $request->search;
         $category = $request->category;
+        $groupid = $request->groupid;         
         
         $query = Group::query();
 
@@ -149,10 +149,14 @@ class GroupController extends Controller
         if(!empty($category)){
             $query->where('category','like','%'.$category.'%');
         }
-   
+        
+        if(!empty($groupid)){
+            $query->where('id',$groupid);
+        }
+
         $groups = $query->orderBy('created_at','DESC')->paginate(18);
 
-        return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category);
+        return view('groups.search')->with('groups',$groups)->with('goal',$goal)->with('category',$category)->with('groupid',$groupid);
     }
     
     public function update(Request $request, $id) {
@@ -217,11 +221,9 @@ class GroupController extends Controller
                 $group->group_filename = $sonota;
                 break;
         }
-        
-        $group->save();
-        return redirect('/');
-        
 
+        $group->save();
+        return view('groups.show', ['group'=>$group]);
     }
     
     public function edit($id) {

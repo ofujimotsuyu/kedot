@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
+        @include('commons.error_messages')
         <div class="col-lg-offset-3 col-lg-6">
             <div class="panel panel-success">
                 <div class="panel-heading">

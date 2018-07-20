@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
   <div class="row">
+  @include('commons.error_messages')
     <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
+    @include('commons.error_messages')
+
 
       <div class="createpage">
         <h1>グループを作成しよう！</h1>
@@ -21,7 +24,7 @@
       
               <tr class="create">
                 <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'>カテゴリー</th>
-                <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::select('category', [''=>'選択してください','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'],'選択してください', ['class' => 'form-control half-form', 'rows' => '1']) !!}</td>
+                <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::select('category', [''=>'選択してください','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'],'選択してください', ['class' => 'form-control half-form', 'rows' => '1']) !!}</td>
               </tr>
         
               <tr class="create">
