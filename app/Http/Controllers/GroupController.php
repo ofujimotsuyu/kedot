@@ -172,12 +172,12 @@ class GroupController extends Controller
 
         
         //画像のファイル名をいい感じにする
-        $daietto = 'images/daietto.jpg';
+        $daietto = 'images/daietto2.jpg';
         $training = 'images/training.jpg';
         $study = 'images/study.jpg';
         $life = 'images/life.jpg';
         $health = 'images/health.jpg';
-        $hobby = 'images/hobby.jpg';
+        $hobby = 'images/hobby2.jpg';
         $sonota = 'images/yunokis.jpg';
         
         $group = Group::find($id);
