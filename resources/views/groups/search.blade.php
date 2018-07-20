@@ -12,9 +12,9 @@
         
                 <form class='form-inline'method="get" action="./search" >
                     <!--name=でcontrollerに送る名前を決定-->
-                    <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="text" name="search" placeholder = "キーワードからグループを検索" >
-                    <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="integer" name="groupid" placeholder = "グループidからグループを検索" >
-                    {!! Form::select('category', [''=>'カテゴリー検索','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], '選択してください', ['class' => 'form-control first-form category-search', 'rows' => '1']) !!}
+                    <input class='form-control gigigi col-xs-8 col-md-8 col-lg-8 first-form' type="text" name="search" placeholder = "キーワード" >
+                    <input class='form-control idform col-xs-8 col-md-8 col-lg-8 first-form' type="number" min="1" name="groupid" placeholder = "ID" >
+                    {!! Form::select('category', [''=>'カテゴリー','ダイエット'=>'ダイエット','トレーニング'=>'トレーニング','学習'=>'学習','生活'=>'生活','健康・美容'=>'健康・美容','趣味'=>'趣味','その他'=>'その他'], '選択してください', ['class' => 'form-control first-form category-search', 'rows' => '1']) !!}
                     <button  class='form-control input_button' type="submit">
                         <span class="glyphicon glyphicon-search bobobo"></span>
                     </button>       
@@ -24,14 +24,14 @@
         
             <!--検索結果を表示-->
             <div class='search_result'>
-                <h2>
+                <h4>
                     @if($goal||$category||$groupid)「@endif
                     {{$goal}}
                     <!--フリーワードとカテゴリー両方で検索してれば、を表示-->
                     @if($goal&&$category), @endif
                     {{ $category }}
                     @if($category&&$groupid), @endif
-                    @if($groupid)グループid @endif{{ $groupid }}
+                    @if($groupid)グループID：@endif{{ $groupid }}
                     @if($goal||$category||$groupid)」の検索結果@endif
                     <!--何件が該当か表示-->
                     @if($goal||$category)
@@ -42,7 +42,7 @@
                             0件
                         @endif
                     @endif
-                </h2>
+                </h4>
                 <tr class="result">
                     <div class = "groups">
                         @foreach($groups as $group)
