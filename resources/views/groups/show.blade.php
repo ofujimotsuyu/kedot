@@ -240,7 +240,6 @@
                             printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
                             print("</tr>\n");
                         }
-        
                     }
                     ?>
                 </div>
@@ -263,6 +262,7 @@
                         <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
                     </a>
                     <p>{{ $name->name }}</p>
+                    @include('buttons.homeru_button',['user_id'=>$id])
                 </div>
                 
                 <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
