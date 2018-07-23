@@ -1095,6 +1095,25 @@ a:hover{*/
   margin-top: 20px;
 }
 
+ .jitsukanako{
+    text-align: center;
+ }
+.nav-pills.nav-justified>li.allgroup>a{
+   /*background-color:#5cb85c;*/
+   color:#5cb85c;
+   border: solid 1px #5cb85c;/*線色*/
+   padding: 0.5em;/*文字周りの余白*/
+   border-radius: 0.5em;/*角丸*/
+ }
+ .nav-pills.nav-justified>li.mygroup>a{
+     /*background-color:#5cb85c;*/
+     color:#5cb85c;
+     border: solid 1px #5cb85c;/*線色*/
+     padding: 0.5em;/*文字周りの余白*/
+     border-radius: 0.5em;/*角丸*/
+ }
+=======
+
 .tasseisuu{
   background-color:	skyblue;
   background-size: 100%;
@@ -1204,3 +1223,4 @@ input.form-control.tasseikaeru{
   color: blue;
   font-weight: bold;
 }
+

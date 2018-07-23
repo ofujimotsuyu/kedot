@@ -8,18 +8,28 @@
             <div class="papabox">
             	<a class="Abutton" href="#popup1">How to use kedot</a>
             </div>
-            <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
-            <div class = "groups">
-                @foreach($groups as $group)
-                <div class = "each_group">
-                    <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
+            
+       <div class="jitsukanako">
+           <ul class="jitsu nav nav-pills nav-justified">
+               <li class = "allgroup"><a href='#'>all group</a></li>
+               <li class ="mygroup"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+           </ul>
+       </div>
+           
+                <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
+                <div class = "groups">
+                    @foreach($groups as $group)
+                    <div class = "each_group">
+                        <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
-            </div>
+            
+            
+            
             <div align="center">
                 <br>{!! $groups->render() !!}
             </div>
-        </div>
     </div>
 </div>
 
