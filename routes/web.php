@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('favoritings', 'UserController@favoritings')->name('user.favoritings');
         Route::get('tassei', 'UserController@tasseis')->name('user.tassei');
         Route::get('requests','UserController@requests')->name('user.requests');
+        Route::get('select','GroupController@select')->name('groups.select');
+        Route::get('createdantai','GroupController@createdantai')->name('groups.createdantai');
     });
     Route::get('search','GroupController@search')->name('groups.search');
 

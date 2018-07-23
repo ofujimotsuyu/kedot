@@ -14,16 +14,16 @@ use App\Activity;
 
 class GroupController extends Controller
 {
-    public function index(){
+    public function index()
+    {
          return view('groups.groups');
     }
 
-    public function create(){
+    public function create()
+    {
         $user = \Auth::user();
         
-        return view('groups.create', [
-            'user' => $user,
-            ]);
+        return view('groups.create', [ 'user' => $user ]);
     }
     
     
@@ -263,5 +263,17 @@ class GroupController extends Controller
             $activity->record = $request->record;
             $activity->save();
             return redirect()->back();
+    }
+    
+     public function createdantai(){
+        $user = \Auth::user();
+        
+        return view('groups.createdantai', [
+            'user' => $user,
+            ]);
+    }
+    
+    public function select($id){
+        return view('groups.select',['id' => $id]);
     }
 }

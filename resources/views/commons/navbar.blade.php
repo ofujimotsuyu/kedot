@@ -309,7 +309,7 @@ ul {
     <div class="ahaha">
         <ul class = "head">
             <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
-            <li class = "nav jitsu1"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
+            <li class = "nav jitsu1"><a href="{{ route('groups.select' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
             <li class = "nav jitsu2"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
         </ul>
     </div>
@@ -320,8 +320,8 @@ ul {
     <nav class="drawer-menu">
         <ul>
             <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>
-            <li><a href="{{ route('groups.create' ,  ['id'=>Auth::user()->id]) }}">グループ作成</a></li>
-             <li><a href="{{ route('groups.search' ,  ['id'=>Auth::user()->id]) }}">検索</a></li>
+            <li><a href="{{ route('groups.select' ,  ['id'=>Auth::user()->id]) }}">グループ作成</a></li>
+            <li><a href="{{ route('groups.search' ,  ['id'=>Auth::user()->id]) }}">検索</a></li>
             <li><a href="{{ route('user.favoritings' ,  ['id'=>Auth::user()->id]) }}">気になる目標</a></li>
             <li><a href="{{ route('user.tassei' ,  ['id'=>Auth::user()->id]) }}">自分の達成度</a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
