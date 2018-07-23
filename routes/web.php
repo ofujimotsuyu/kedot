@@ -28,10 +28,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('create','GroupController@create')->name('groups.create');
         Route::post('groups','GroupController@store')->name('groups.store');
         Route::post('show','GroupController@store_activity')->name('groups.store_activity');
-        
         Route::post('favorite', 'GroupFavoriteController@store')->name('group.favorite');
         Route::delete('unfavorite', 'GroupFavoriteController@destroy')->name('group.unfavorite');
         Route::get('favoritings', 'UserController@favoritings')->name('user.favoritings');
+        Route::get('tassei', 'UserController@tasseis')->name('user.tassei');
         Route::get('requests','UserController@requests')->name('user.requests');
          Route::get('mygroup','GroupController@mygroups')->name('groups.mygroups');
          Route::get('allgroups','GroupController@allgroups')->name('groups.allgroups');
@@ -55,6 +55,10 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('cancel', 'JoinController@cancel')->name('join.cancel');
         Route::get('request', 'JoinController@request')->name('join.request');
     });
+    Route::put('{activity_id}/update','GroupController@update_activity')->name('update_activity');
     Route::resource('users','UserController');
+
   
 });
+
+

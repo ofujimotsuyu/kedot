@@ -2,40 +2,71 @@
 
 @section('content')
     <div class="ramunoue">
-            @include('commons.error_messages')
         <div class="ramu">
+            @include('commons.error_messages')
             <div class="ramuimg col-sm-4 col-sm-offset-1">    
                 <img src="{{url($group->group_filename)}}" alt="avatar"/><br>
             </div>
             <div class="ramumoji col-sm-7">
                 <div class="favoB">
-                    <h2>{{ $group->goal }}</h2>
+                    <h2 class = "ozawa col-xs-11">{{ $group->goal }}</h2>
                     <h3>@include('buttons.favorite_button', ['group' => $group])</h3>
                 </div>
-                    <h3>
-                        {{"カテゴリー　: " . $group->category}}<br>
-                        {{ "頑張ること : " . $group->to_do }}<br>
-                        {{ $group->term . "日間で" . $group->amount . $group->unit }}
-                    </h3>
+                <h3>
+                    {{"カテゴリー　: " . $group->category}}<br>
+                    {{ "頑張ること : " . $group->to_do }}<br>
+                    {{ $group->term . "日間で" . $group->amount . $group->unit }}
+                </h3>
 
-                    <!--参加ユーザーにのみ見せる-->
-                    @if(Auth::User()->is_joining($group->id))
-                    @elseif(Auth::check())
-                        <div class="minamidayo">
-                            @include('buttons.join_button', ['group' => $group])
-                        </div>
-                    @endif
+                <!--参加ユーザーにのみ見せる-->
+                @if(Auth::User()->is_joining($group->id))
+                @elseif(Auth::check())
+                    <div class="minamidayo">
+                        @include('buttons.join_button', ['group' => $group])
+                    </div>
+                @endif
 
                 @if(Auth::User()->is_joining($group->id))
-                <div class = "tasseiform">
-                    <!--formつくってるよ-->
-                    {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
-                        <div class="form-group  form-inline tasseiwrapper">
-                            <h4 class="aori">今日はどれぐらいやったの？</h4>
-                            {!! Form::text('score', null, ['class' => 'form-control tasseinum', 'rows' => '1','placeholder'=>'半角数字のみ']) !!}
-                            {!! Form::submit('入力', ['class' => 'btn btn-success btn-block btn-md']) !!}
+                <!--今日の達成度を入力してる場合-->
+                    <?php
+                    $today = date('Y-m-d');
+                    $maxid = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->max('id');
+                    $activity = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->get();
+                    $kaitayo = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('created_at');
+                    $kaitadate= date('Y-m-d', strtotime($kaitayo));
+                    $kaitarecord = \DB::table('activities')->where('group_id', $group->id)->where('user_id', Auth::User()->id)->where('id', $maxid)->value('record');
+                    ?>
+                    @if($today==$kaitadate)
+                    <div class="tasseihenkou">
+                        <div class="henkouhidari">
+                            <h4>YOUの今日やった数</h4>
+                            <h2>{{ $kaitarecord }}</h2>
                         </div>
-                    {!! Form::close() !!}
+                        <div class="henkoumannaka">
+                            <span class="glyphicon glyphicon-arrow-right"></span>
+                        </div>
+                        <div class="henkoumigi form-inline">
+                            <h4>YOUの今日のトータル</h4>
+                        {!! Form::open(['route' => ['update_activity', $maxid], 'method' => 'put']) !!}
+                                {!! Form::number('record', null, ['class' => 'form-control tasseikaeru first-form', 'placeholder'=>'半角数字', 'min'=>'0']) !!}
+                            {!! Form::submit('変更', ['class' => 'btn btn-success btn-block henkoubtn']) !!}
+                        {!! Form::close() !!}
+                        </div>
+                    </div>
+    
+                    <!--今日の達成度を入力していない場合-->
+                    @elseif(Auth::User()->is_joining($group->id))
+                    <div class = "tasseiform">
+                        <!--formつくってるよ-->
+                        {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
+                            <div class="form-group  form-inline tasseiwrapper">
+                                <h4 class="aori">今日はどれぐらいやったの？</h4>
+                                {!! Form::number('score', null, ['class' => 'form-control tasseinum', 'rows' => '1','placeholder'=>'半角数字のみ', 'min'=>'0']) !!}
+                                {!! Form::submit('入力', ['class' => 'btn btn-success btn-block btn-md']) !!}
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+                    @endif
                     <div class='yours' align="center">
                         <div class="yourstatus">
                             <h4>
@@ -75,12 +106,9 @@
                             </h4>
                         </div>
                         <div class="yoursamount">
-                            <h4>
-                                {{'/'. $group->amount }}
-                            </h4>
+                            <h4>{{'/'. $group->amount }}</h4>
                         </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>
@@ -127,6 +155,7 @@
             // 日付を関数に渡す
             $day = day_diff($group);
             $nokori = $group->term - $day;
+            $nokori2 = floor($nokori);
             ?>
             
             <?php
@@ -144,14 +173,22 @@
                     }
                 }
             ?>
-            @if (floor($nokori)<=-1)
-            <div class="timeuptop">
+            @if (($nokori2)<=-1)
+                <div class="timeuptop">
                 <h1 class="timeup">終了！お疲れさまでした！</h1>
+                </div>
+            
+            @elseif($day==0)
+                <?php $nokori3 = $nokori2 - 1; ?>
+                <div class="nokoritoptop">
+                    <h1 class="nokoritop">残り</h1>
+                    <h1 class="nokori2">{{  $nokori3 . '日' }}</h1>
+                </div>
             @else
-            <div class="nokoritoptop">
-                <h1 class="nokoritop">残り</h1>
-                <h1 class="nokori">{{  floor( $nokori ) . '日' }}</h1>
-            </div>
+                <div class="nokoritoptop">
+                    <h1 class="nokoritop">残り</h1>
+                    <h1 class="nokori2">{{  $nokori2 . '日' }}</h1>
+                </div>
             @endif
             
             @if($tassei2 > $goalnumber)
@@ -241,20 +278,48 @@
             </div>
             
     <!--残り日数が終わったら-->
-    @if(floor($nokori)<=-1)
-    @elseif(Auth::User()->is_joining($group->id))
-      <div class="downest">
-          <div align="center" class="btnwrapper">
-              <div class="groupbtn">
-                  <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
-                  <a href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+    
+    <?php
+    $members =\DB::table('user_group')->where('group_id', $group->id)->get();
+    $numofmembers = count($members);
+    ?>
+    
+    @if(Auth::User()->is_joining($group->id))
+        @if(floor($nokori)<=-1)
+            div class="downest">
+              <div align="center" class="btnwrapper col-xs-12">
+                  <div class="groupbtn">
+                      <a class="sakujobtn" href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                  </div>
               </div>
-              <div class="minamidesu">
-                  @include('buttons.join_button', ['group' => $group])
+            </div>
+        @elseif($numofmembers<=1)
+            <div class="downest">
+                <div align="center" class="btnwrapper">
+                    <div class="groupbtn col-xs-6">
+                        <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                    </div>
+                    <div class="groupbtn col-xs-6">
+                      <a class = "sakujobtn" href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                    </div>
+                </div>
+            </div>
+        @else
+          <div class="downest">
+              <div align="center" class="btnwrapper">
+                  <div class="groupbtn col-xs-4">
+                      <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
+                    </div>
+                    <div class="groupbtn col-xs-4">
+                      <a class = "sakujobtn" href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
+                  </div>
+                  <div class="minamidesu col-xs-4">
+                      @include('buttons.join_button', ['group' => $group])
+                  </div>
               </div>
           </div>
-      </div>
-     @endif
+         @endif
+    @endif
     
 </div>
 

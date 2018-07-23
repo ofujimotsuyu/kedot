@@ -164,9 +164,9 @@ body {
   text-align: center;
 }
 
-input[type = 'text'] {
-  width: 85%;
-}
+/*input[type = 'text'] {*/
+/*  width: 85%;*/
+/*}*/
 
 input[type= 'submit'] {
   width:10%;
@@ -188,9 +188,8 @@ input[type= 'submit'] {
 }
 
 .favoB input[type='submit']{
-  width: 50px;
-  font-size: 35px;
-  margin-bottom: 10px;
+  width: auto;
+  font-size: 30px;
   background: transparent;
   color: orange;
   border: none;
@@ -231,6 +230,7 @@ input[type= 'submit'] {
   display: inline-block;
   text-align: center;
   margin-top: 10px;
+  margin-left: 40px !important;
 }
 
 
@@ -260,7 +260,7 @@ input[type= 'submit'] {
 }
 
 .form-group .quarter-form{
-  width:25%;
+  width:20%;
 }
 
 .form-group .small-form{
@@ -268,13 +268,14 @@ input[type= 'submit'] {
 }
 
 .form-control{
-  margin-right: 5px ;
+  margin-right: 0px ;
   font-size: 14px ;
+  padding: 6px 6px;
 }
 
 .form-group p {
-    padding: 7px;
-    margin: 0;
+    padding: 2px;
+    margin-top: 4px;
     height: 34px;
     font-size: 15.6px;
     color:black;
@@ -396,6 +397,7 @@ font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体
 
 .ramumoji h3{
   margin-top: 10px;
+  clear: both;
 }
 
 .ramuimg img{
@@ -576,6 +578,7 @@ footer address{
 
 .favoB h2{
   display: inline-block;
+  margin-top: 10px;
 }
 
 .favoB h3{
@@ -705,7 +708,8 @@ a:hover{*/
 　left: -9999em; 
 }
 
-.box {
+.papabox {
+  display: flex;
   float: right;
   width: 20%;
   margin: 0 auto;
@@ -783,8 +787,12 @@ a:hover{*/
   overflow: auto;
 }
 
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
+  width: 100%;
+}
+
 @media screen and (max-width: 700px){
-  .box{
+  .papabox{
     width: 80%;
   }
   .popup{
@@ -810,9 +818,48 @@ a:hover{*/
   z-index: 100000;
 }
 
+/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
 .pc { display: block !important; }
 .sp { display: none !important; }
-/* スマートフォンで見たときは"sp"のclassがついた画像が表示される */
+
+.tasseinum{
+  width: 60%;
+}
+
+.tassei:after{
+  content: "."; 
+  display: block; 
+  height: 0; 
+  font-size:0;	
+  clear: both; 
+  visibility:hidden;
+}
+
+.nyuryokubutton{
+  float: left;
+}
+
+.yours{
+  margin-left: 5% !important;
+  clear: both;
+}
+
+.ramumoji{
+  height: 100%;
+}
+
+.yourtotal{
+  margin-top: 20px;
+}
+
+.yoursamount{
+  margin-top: 20px;
+}
+
+.tasseiform{
+  margin: 0 auto; 
+}
+
 @media only screen and (max-width: 750px) {
 .pc { display: none !important; }
 .sp { display: block !important; }
@@ -821,9 +868,7 @@ a:hover{*/
 .groupbtn .btn{
   border: solid 1px black !important;
   background: transparent;
-  width: 33% !important;
   color: black;
-  float: left;
   margin-right: 0.5%;
 }
 
@@ -832,9 +877,6 @@ a:hover{*/
  color: white;
 }
 
-.groupbtn{
-  width: 100%;
-}
 
 .minamidesu{
   width: 33%;
@@ -908,11 +950,11 @@ a:hover{*/
 .yourstatus h4{
   font-size: 20px;
   width:40%;
-  margin: 0;
   float:left;
   padding-top:25px;
   color:white;
   text-shadow: 3px 3px 3px black;
+  margin-right: 15px;
 }
 
 .yourtotal h4{
@@ -928,10 +970,11 @@ a:hover{*/
   width: 20%;
   margin: 0;
   float:left;
-  padding-top:25px;
+  padding-top:19px;
   text-align:left;
   color:white;
   text-shadow: 3px 3px 3px black;
+  margin-left: 15px;
 }
 
 .yours{
@@ -1014,6 +1057,13 @@ a:hover{*/
     border-style: solid;
 }
 
+
+.megumi {
+  /*margin: 5px 3px 5px 3px;*/
+  color: black;
+  font-size: 17px;
+}
+
 .fg{
   color: white;
 }
@@ -1044,6 +1094,7 @@ a:hover{*/
 .search_result{
   margin-top: 20px;
 }
+
  .jitsukanako{
     text-align: center;
  }
@@ -1061,3 +1112,115 @@ a:hover{*/
      padding: 0.5em;/*文字周りの余白*/
      border-radius: 0.5em;/*角丸*/
  }
+=======
+
+.tasseisuu{
+  background-color:	skyblue;
+  background-size: 100%;
+  min-height: 55px;
+  width:100%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-bottom: 20px;
+}
+
+.tasseigroups{
+  padding-left: 20%;
+  padding-right: 20%;
+  background-color:	skyblue;
+}
+
+.tasseisuu h1{
+  font-size:100px;
+  color: white;
+}
+
+@media (min-width:990px){
+.ramumoji{
+  height: 100% !important;
+}
+}
+
+.henkouhidari{
+  width:40%;
+  margin: 0;
+  padding: 0;
+  float: left
+}
+
+.henkoumannaka{
+  width:15%;
+  padding: 0;
+  float: left;
+  font-size: 50px;
+  margin-top: 20px;
+  color: #5cb85c;
+}
+
+.henkoumigi{
+  width: 45%;
+  height: 93px;
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.tasseihenkou{
+  width:100%;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  height: 100px;
+  border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+}
+
+input.form-control.tasseikaeru{
+  width:55%;
+  margin-left: 10px;
+  font-size: 20px;
+  height: 50px;
+}
+
+.tasseihenkou input[type= 'submit'] {
+  width:30%;
+  height: 50px;
+  font-size: 20px;
+}
+
+
+.henkouhidari h2{
+  font-size:50px;
+  color: black;
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.henkoumigi h4{
+  margin-right:10px;
+}
+
+.ozawa{
+  width: 85%;
+}
+
+.sakujobtn .btn{
+  border: 1px solid red !important;
+  color: red !important;
+}
+
+.sakujobtn .btn:hover{
+  border: 1px solid red !important;
+  background-color: red !important;
+  color: white !important;
+
+.myrequest a:hover{
+  color: blue;
+  font-weight: bold;
+}
+

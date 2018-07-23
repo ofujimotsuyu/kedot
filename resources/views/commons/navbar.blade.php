@@ -319,15 +319,13 @@ ul {
     <label class="close-menu" for="checked"></label>
     <nav class="drawer-menu">
         <ul>
-            <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>z
+            <li><a href="{{ route('users.show', ['id'=>Auth::user()->id]) }}">My page</a></li>
             <li><a href="{{ route('groups.create' ,  ['id'=>Auth::user()->id]) }}">グループ作成</a></li>
              <li><a href="{{ route('groups.search' ,  ['id'=>Auth::user()->id]) }}">検索</a></li>
             <li><a href="{{ route('user.favoritings' ,  ['id'=>Auth::user()->id]) }}">気になる目標</a></li>
-            <li><a href="#">自分の達成度</a></li>
+            <li><a href="{{ route('user.tassei' ,  ['id'=>Auth::user()->id]) }}">自分の達成度</a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
             <li><a href="{{ route('user.requests', ['id' => Auth::User()->id]) }}">申請確認</a></li>
-            <!--説明ページを作ったら、↓にリンクを貼る。-->
-            <li><a href="#">ヘルプ的な説明ページに戻れる</a></li>
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
         </ul>
     </nav>

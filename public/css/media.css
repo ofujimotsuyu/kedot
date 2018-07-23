@@ -53,16 +53,16 @@
     }
     
     .nomform .form-control{
-    margin-right: 5px ;
+    margin-right: 0px ;
     font-size: 10px ;
     }
     
     .form-group p {
     margin: 0;
     font-size: 10px;
-    width:100%;
+    
     height: 34px;
-    padding: 12px !important;
+    padding: 4px !important;
     }
     
     select{
@@ -158,8 +158,8 @@
     }
     
     .ramumoji h2{
-      font-size: 30px;
-      letter-spacing: 5px;
+      font-size: 27px;
+      letter-spacing: 1px;
       margin-top: 10px;
     }
     
@@ -323,6 +323,15 @@
     text-decoration: none;
   }
   
+  .megumi {
+    float: left !important;
+    margin-top: 10px;
+
+  }
+  
+  .hankaku {
+    float: right;
+  }
   .popup .close {
     position: absolute;
     bottom: 1%;
@@ -409,12 +418,98 @@
     padding-right: 5%;
   }
   
-  .box{
+  .papabox{
     width: 130px;
   }
   
   .carousel-control{
     opacity: 1;
   }
-}    
+   
 
+.henkouhidari{
+    width:40%;
+    margin: 0;
+    padding: 0;
+    float: left
+  }
+  
+  .henkoumannaka{
+    width:12%;
+    padding: 0;
+    float: left;
+    font-size: 40px;
+    margin-top: 30px;
+    color: #5cb85c;
+  }
+  
+  .henkoumigi{
+    width: 48%;
+    height: 93px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    padding-left: 10px;
+  }
+  
+  .tasseihenkou{
+    width:100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    height: 95px;
+    border-radius: 25px 25px 25px 25px / 25px 25px 25px 25px;
+  }
+  
+  input.form-control.tasseikaeru{
+    width:55%;
+    font-size: 14px;
+    height: 50px;
+    margin: 0;
+  }
+  
+  .tasseihenkou input[type= 'submit'] {
+    width:37%;
+    height: 50px;
+    font-size: 14px;
+  }
+  
+  
+  .henkouhidari h2{
+    font-size:50px;
+    color: black;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+    text-shadow: none;
+  }
+  
+  .henkoumigi h4{
+    font-size: 13px;
+    margin-right:10px;
+  }
+  .henkouhidari h4{
+    font-size: 13px;
+    margin-left: 5px;  
+    
+  }
+  
+  .favoB input[type='submit']{
+    top: -10px;
+  }
+  
+  .favoB{
+    height: 50px;
+  }
+  
+  .yourstatus h4{
+    margin-right: 0;
+    padding-top: 0;
+  }
+  
+  .yoursamount h4{
+    margin-left: 0;
+    padding-top: 0;
+    margin: 0;
+  }
+} 

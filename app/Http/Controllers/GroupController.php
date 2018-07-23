@@ -172,12 +172,12 @@ class GroupController extends Controller
 
         
         //画像のファイル名をいい感じにする
-        $daietto = 'images/daietto.jpg';
+        $daietto = 'images/daietto2.jpg';
         $training = 'images/training.jpg';
         $study = 'images/study.jpg';
         $life = 'images/life.jpg';
         $health = 'images/health.jpg';
-        $hobby = 'images/hobby.jpg';
+        $hobby = 'images/hobby2.jpg';
         $sonota = 'images/yunokis.jpg';
         
         $group = Group::find($id);
@@ -253,6 +253,7 @@ class GroupController extends Controller
         }else{
             return redirect('/');
         }
+
     }
     
     
@@ -268,4 +269,18 @@ class GroupController extends Controller
    
   
     }
+
+=======
+    }  
+    
+    public function update_activity(Request $request, $id){
+            $this->validate($request, [
+                'record' => 'required|integer|min:0',
+            ]);
+            $activity = Activity::find($id);
+            $activity->record = $request->record;
+            $activity->save();
+            return redirect()->back();
+    }
+}
 

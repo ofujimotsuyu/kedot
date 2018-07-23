@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
   <div class="row">
-    @include('commons.error_messages')
-    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8 col-lg-offset-1 col-lg-10">
+  @include('commons.error_messages')
+    <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
 
       <div class="createpage">
         <h1>グループを作成しよう！</h1>
@@ -31,13 +31,8 @@
               </tr>
       
               <tr class="create">
-                <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'>期間</th>
-                <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('term', old('term'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）20']) !!}<p>日間（半角数字）</p></td>
-              </tr>
-      
-              <tr class="create">
-                <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4 each'>目標数値・単位</th>
-                <td class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）500']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form first-form', 'rows' => '1','placeholder' => '回']) !!}<p>（半角数字）</p></td>
+                <th class='col-lg-2 col-md-4 col-sm-4 col-xs-4'>期間・目標値・単位</th>
+                <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-8 form-inline'>{!! Form::text('term', old('term'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）20']) !!}<p class="first-form megumi">日間で</p><p class="first-form megumi">合計</p>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）500']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form first-form', 'rows' => '1','placeholder' => '回']) !!}<p class="first-from hankaku">（半角数字）</p></td>
               </tr>
               
         </table>
