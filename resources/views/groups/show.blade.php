@@ -13,7 +13,8 @@
                     <h3>@include('buttons.favorite_button', ['group' => $group])</h3>
                 </div>
                 <h3>
-                    {{"カテゴリー　: " . $group->category}}<br>
+                    {{"ID ： " . $group->id}}
+                    {{"　　カテゴリー　: " . $group->category}}<br>
                     {{ "頑張ること : " . $group->to_do }}<br>
                     {{ $group->term . "日間で" . $group->amount . $group->unit }}
                 </h3>
@@ -119,7 +120,7 @@
         <?php $admitwaitings = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get(); ?>
         @if(count($admitwaitings)>0)
         <div>
-            <a href="{{ route('join.index', $group->id) }}"><p class="alert alert-success" role="alert">申請一覧</p></a>
+            <a href="{{ route('join.index', $group->id) }}"><p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">申請一覧</p></a>
         </div>
         @endif
     @endif
@@ -228,19 +229,26 @@
                             if(strlen($data[$i][0]) > $maxlen) {        
                                 $maxlen = strlen($data[$i][0]);
                             }
-                            if($data[$i][1] > $max) {           
-                                $max = $data[$i][1];
+                            if($data[$i][1] > $max) {  
+                                if($data[$i][1] > $group->amount){
+                                    $max = $group->amount;
+                                }else{
+                                    $max = $data[$i][1];
+                                }
                             }
                         }
-                    
+                        
                         for($i = 0 ; $i < count($data) ; $i++) {    
-                            print("<tr>");
-                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
-                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                            print("</tr>\n");
+                                print("<tr>");
+                                printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
+                            if($data[$i][1] > $max){
+                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", 100);
+                            }else{
+                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
+                            }
+                                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
+                                print("</tr>\n");
                         }
-        
                     }
                     ?>
                 </div>
@@ -263,6 +271,7 @@
                         <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
                     </a>
                     <p>{{ $name->name }}</p>
+                    @include('buttons.homeru_button',['user_id'=>$id])
                 </div>
                 
                 <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>
@@ -280,7 +289,7 @@
     <!--残り日数が終わったら-->
     
     <?php
-    $members =\DB::table('user_group')->where('group_id', $group->id)->get();
+    $members =\DB::table('user_group')->where('group_id', $group->id)->where('status', 2)->get();
     $numofmembers = count($members);
     ?>
     

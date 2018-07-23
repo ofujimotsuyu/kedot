@@ -258,15 +258,13 @@ class GroupController extends Controller
     
     
 //   mypageに所属しているグループだけ一覧で表示する
-  public function mygroups(){
+    public function mygroups(){
        
           
          $groups = \Auth::User()->sankagroups()->paginate(18);
         
         return view ('groups.mygroups', [ 'groups'=>$groups ]);
-    }
-    
-  
+
     public function update_activity(Request $request, $id){
             $this->validate($request, [
                 'record' => 'required|integer|min:0',
