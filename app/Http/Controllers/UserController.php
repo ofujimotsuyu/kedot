@@ -57,6 +57,8 @@ class UserController extends Controller
     }
 
     public function requests($id){
+        
+        if(\Auth::User()->id==$id){
         $user = User::find($id);
         $requests = \DB::table('user_group')->where('user_id', $id)->orderby('created_at','DESC')->paginate(10);
         
@@ -65,7 +67,10 @@ class UserController extends Controller
             'requests' => $requests,
         ];
         
-        return view('users.requests', $data);
+        return view('users.requests', $data);}
+        else{
+            return redirect('/');
+        }
     }
 
     public function tasseis($id)

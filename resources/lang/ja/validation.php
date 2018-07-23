@@ -121,6 +121,7 @@ return [
     'unit'=>'単位',
     'category'=>'カテゴリー',
     'record'=>'達成数',
+    'score'=>'達成数',
     ],
 
 ];
