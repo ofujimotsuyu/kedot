@@ -33,8 +33,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unfavorite', 'GroupFavoriteController@destroy')->name('group.unfavorite');
         Route::get('favoritings', 'UserController@favoritings')->name('user.favoritings');
         Route::get('requests','UserController@requests')->name('user.requests');
+         Route::get('mygroup','GroupController@mygroups')->name('groups.mygroups');
+         Route::get('allgroups','GroupController@allgroups')->name('groups.allgroups');
     });
     Route::get('search','GroupController@search')->name('groups.search');
+ 
+ 
+ 
 
     Route::group(['prefix' => 'groups/{id}'], function () {
         Route::get('show','GroupController@show')->name('groups.show');
@@ -51,4 +56,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('request', 'JoinController@request')->name('join.request');
     });
     Route::resource('users','UserController');
+  
 });

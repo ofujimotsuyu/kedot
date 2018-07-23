@@ -27,6 +27,15 @@
                     <div class="box">
                     	<a class="Abutton" href="#popup1">How to use kedot</a>
                     </div>
+                    
+                            
+                   <div class="jitsukanako">
+                       <ul class="jitsu nav nav-pills nav-justified">
+                           <li class = "allgroup"><a href='#'>all group</a></li>
+                           <li class ="mygroup"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+                       </ul>
+                   </div>
+           
                     <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
                     <div class = "groups">
                         @foreach($groups as $group)
