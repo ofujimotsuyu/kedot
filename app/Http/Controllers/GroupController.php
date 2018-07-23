@@ -264,6 +264,7 @@ class GroupController extends Controller
          $groups = \Auth::User()->sankagroups()->paginate(18);
         
         return view ('groups.mygroups', [ 'groups'=>$groups ]);
+    }
 
     public function update_activity(Request $request, $id){
             $this->validate($request, [
