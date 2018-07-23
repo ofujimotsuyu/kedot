@@ -613,6 +613,8 @@ a:hover{*/
   color: white;
 }
 
+
+
 .nav-pills>li>a{
   border-radius: 0;
 }
@@ -1099,20 +1101,37 @@ a:hover{*/
     text-align: center;
  }
 .nav-pills.nav-justified>li.allgroup>a{
-   /*background-color:#5cb85c;*/
+   background-color:#5cb85c;
+   color:white;
+   border: solid 1px #5cb85c;/*線色*/
+   padding: 0.5em;/*文字周りの余白*/
+   border-radius: 0.5em;/*角丸*/
+ }
+ 
+ .nav-pills.nav-justified>li.mygroups>a{
    color:#5cb85c;
    border: solid 1px #5cb85c;/*線色*/
    padding: 0.5em;/*文字周りの余白*/
    border-radius: 0.5em;/*角丸*/
  }
- .nav-pills.nav-justified>li.mygroup>a{
-     /*background-color:#5cb85c;*/
-     color:#5cb85c;
-     border: solid 1px #5cb85c;/*線色*/
-     padding: 0.5em;/*文字周りの余白*/
-     border-radius: 0.5em;/*角丸*/
+ 
+  .nav-pills.nav-justified>li.allgrouppp>a{
+   color:#5cb85c;
+   border: solid 1px #5cb85c;/*線色*/
+   padding: 0.5em;/*文字周りの余白*/
+   border-radius: 0.5em;/*角丸*/
  }
-=======
+ 
+ 
+ 
+ .nav-pills.nav-justified>li.mygroupsss>a{
+   background-color:#5cb85c;
+   color:white;
+   border: solid 1px #5cb85c;/*線色*/
+   padding: 0.5em;/*文字周りの余白*/
+   border-radius: 0.5em;/*角丸*/
+ }
+ 
 
 .tasseisuu{
   background-color:	skyblue;
@@ -1224,3 +1243,7 @@ input.form-control.tasseikaeru{
   font-weight: bold;
 }
 
+
+.groupscss{
+  text-align: center;
+}

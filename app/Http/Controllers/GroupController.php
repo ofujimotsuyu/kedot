@@ -266,13 +266,7 @@ class GroupController extends Controller
         return view ('groups.mygroups', [ 'groups'=>$groups ]);
     }
     
-   
   
-    }
-
-=======
-    }  
-    
     public function update_activity(Request $request, $id){
             $this->validate($request, [
                 'record' => 'required|integer|min:0',
