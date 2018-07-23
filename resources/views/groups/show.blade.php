@@ -281,7 +281,7 @@
     <!--残り日数が終わったら-->
     
     <?php
-    $members =\DB::table('user_group')->where('group_id', $group->id)->get();
+    $members =\DB::table('user_group')->where('group_id', $group->id)->where('status', 2)->get();
     $numofmembers = count($members);
     ?>
     

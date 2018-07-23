@@ -31,7 +31,7 @@ class User extends Authenticatable
 
         public function sankagroups()
     {
-        return $this->belongsToMany(Group::class, 'user_group', 'user_id', 'group_id')->withTimestamps();
+        return $this->belongsToMany(Group::class, 'user_group', 'user_id', 'group_id')->where('status', 2)->withTimestamps();
     }
     
     
