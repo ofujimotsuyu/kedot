@@ -1242,3 +1242,31 @@ input.form-control.tasseikaeru{
   color: blue;
   font-weight: bold;
 }
+.myiine{
+  width: 80%;
+}
+
+.each_iine th{
+  width: 40%;
+}
+
+.each_iine td{
+  width: 60%;
+  color: black;
+}
+
+.userhomeru{
+  width:50%;
+}
+
+.userhomeru p{
+  width:100%;
+}
+
+.userhomeru input[type= 'submit'] {
+  width:20%;
+}
+.userhomeru input[type = 'text'] {
+  width: 50%;
+  text-align: center;
+}

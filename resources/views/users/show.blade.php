@@ -25,11 +25,13 @@
     <div class="">
         <div class="">
             <!--きりんとかのプロフィール画像を画面の中央に表示-->
-            <div>
+            <div align="center">
             <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
             <div class="user_name"> 
                 <h1>{{ $user->name }}</h1>
+                <div class="userhomeru" align="center">
                 @include('buttons.homeru_button',['user_id'=>$user->id])
+                </div>
             </div>
             
             <div class = "baka">
