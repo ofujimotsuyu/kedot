@@ -55,8 +55,11 @@
                         <!--activitiesテーブルにアクセス、'user_id'の値に'\Auth::user()'のidを持つ行をすべて取り出す、さらに'group_id'の値に'$group'のidを持つ行を特定する-->
                         <!--<?php $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get() ?>        -->
                            
-                  
-                    
+                        <!--各グループにおいて、一つ一つのrecordカラムのvalueを取り出して表示する-->
+                        <!--    @foreach($records as $record)-->
+                        <!--        {{ $record->record }}       -->
+                        <!--    @endforeach-->
+                        
                     　　<?php $users = \DB::table('user_group')->where('group_id', $group->id)->get() ?>  
                         
                         <table class='ton' width="100%" align="center" rules="none" cellspacing="0">
