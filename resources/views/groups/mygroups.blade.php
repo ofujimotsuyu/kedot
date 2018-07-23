@@ -7,7 +7,7 @@
     <div class="row">
         <div class="">
             <p class="groupitiran">グループ一覧</p>
-                <div class="box">
+                <div class="papabox">
                 	<a class="Abutton" href="#popup1">How to use kedot</a>
                 </div>
             
@@ -16,7 +16,7 @@
                        <li class = "allgroup"><a href="{{ route('groups.index',['id' => \Auth::user()->id]) }}">all group</a></li>
                        <li class ="mygroup"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
                    </ul>
-               </div>
+               </div> 
            
           <!--指定したuser_id、かつstatusが２参加中のやつをもってくる-->
               <div class = "groups">

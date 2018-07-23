@@ -503,4 +503,9 @@
     padding-top: 0;
     margin: 0;
   }
+  
+  .jitsu{
+    float: none !important;
+    padding: 0 !important;
+  } 
 } 
