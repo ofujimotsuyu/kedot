@@ -13,7 +13,8 @@
                     <h3>@include('buttons.favorite_button', ['group' => $group])</h3>
                 </div>
                 <h3>
-                    {{"カテゴリー　: " . $group->category}}<br>
+                    {{"ID ： " . $group->id}}
+                    {{"　　カテゴリー　: " . $group->category}}<br>
                     {{ "頑張ること : " . $group->to_do }}<br>
                     {{ $group->term . "日間で" . $group->amount . $group->unit }}
                 </h3>
@@ -119,7 +120,7 @@
         <?php $admitwaitings = \DB::table('user_group')->where('group_id', $group->id)->where('status', '1')->get(); ?>
         @if(count($admitwaitings)>0)
         <div>
-            <a href="{{ route('join.index', $group->id) }}"><p class="alert alert-success" role="alert">申請一覧</p></a>
+            <a href="{{ route('join.index', $group->id) }}"><p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">申請一覧</p></a>
         </div>
         @endif
     @endif
