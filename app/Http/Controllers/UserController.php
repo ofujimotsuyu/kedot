@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Group;
 use App\Activity;
+use App\Homeru;
 
 class UserController extends Controller
 {
@@ -84,5 +85,21 @@ class UserController extends Controller
 
         return view('users.tassei', $data);
     }
+    
+    public function homeraretas($id)
+    {   
+        if(\Auth::User()->id==$id){
+        $homeraretas = \DB::table('homerus')->where('homerare_id', $id)->get();
 
+        return view('users.homeraretas')->with('homeraretas', $homeraretas);
+        }
+        else{
+            return redirect('/');
+        }
+            
+        }    
+
+
+    
+    
 }

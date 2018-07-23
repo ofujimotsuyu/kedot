@@ -33,14 +33,14 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('favoritings', 'UserController@favoritings')->name('user.favoritings');
         Route::get('tassei', 'UserController@tasseis')->name('user.tassei');
         Route::get('requests','UserController@requests')->name('user.requests');
-         Route::get('mygroup','GroupController@mygroups')->name('groups.mygroups');
-         Route::get('allgroups','GroupController@allgroups')->name('groups.allgroups');
+        Route::get('homerareta','UserController@homeraretas')->name('users.homeraretas');
+        Route::post('homeru','UserHomeruController@homeru')->name('user.homeru');
+        Route::delete('unhomeru','UserHomeruController@unhomeru')->name('user.unhomeru');
+        Route::get('mygroup','GroupController@mygroups')->name('groups.mygroups');
+        Route::get('allgroups','GroupController@allgroups')->name('groups.allgroups');
     });
     Route::get('search','GroupController@search')->name('groups.search');
  
- 
- 
-
     Route::group(['prefix' => 'groups/{id}'], function () {
         Route::get('show','GroupController@show')->name('groups.show');
         Route::delete('delete','GroupController@destroy')->name('group.delete');
@@ -57,7 +57,6 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::put('{activity_id}/update','GroupController@update_activity')->name('update_activity');
     Route::resource('users','UserController');
-
   
 });
 
