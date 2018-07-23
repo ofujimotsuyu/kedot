@@ -57,6 +57,7 @@ class GroupController extends Controller
         $group->unit = $request->unit;
         $group->category = $request->category;
         $group->user_id = $user->id;
+        $group->type = 0;
         
         switch($group->category){
             case 'ダイエット':
@@ -105,12 +106,21 @@ class GroupController extends Controller
     public function show($id){
         $group = Group::find($id);
         $status = DB::table('user_group')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->value('status');
+        $type = $group->type;
         
-        return view('groups.show', [
+        if($type==0){
+            return view('groups.show', [
+                'group' => $group,
+                'status' => $status,
+               
+            ]);
+        }else{
+            return view('groups.show2', [
             'group' => $group,
             'status' => $status,
            
         ]);
+        }
         
     }
     
@@ -275,5 +285,79 @@ class GroupController extends Controller
     
     public function select($id){
         return view('groups.select',['id' => $id]);
+    }
+    
+    public function store2(Request $request){
+        $user = \Auth::user();
+        $id = $user->id;
+        $this->validate($request, [
+            'goal' => 'required|max:191',
+            'to_do' => 'required|max:191',
+            'category' => 'required|max:191',
+            'term' => 'required|integer|min:1',
+            'amount' => 'required|integer|min:1',
+            'unit' => 'required|max:191',
+        ]);
+        //画像のファイル名をいい感じにする
+        $daietto = 'images/daietto.jpg';
+        $training = 'images/training.jpg';
+        $study = 'images/study.jpg';
+        $life = 'images/life.jpg';
+        $health = 'images/health.jpg';
+        $hobby = 'images/hobby.jpg';
+        $sonota = 'images/yunokis.jpg';
+        
+        $group = new Group;
+        $group->goal = $request->goal;
+        $group->to_do = $request->to_do;
+        $group->term = $request->term;
+        $group->amount = $request->amount;
+        $group->unit = $request->unit;
+        $group->category = $request->category;
+        $group->user_id = $user->id;
+        $group->type = 1;
+        
+        switch($group->category){
+            case 'ダイエット':
+                $group->group_filename = $daietto;
+                break;
+            
+            case 'トレーニング':
+                $group->group_filename = $training;
+                break;
+                
+            case '学習':
+                $group->group_filename = $study;
+                break;
+                
+            case '生活':
+                $group->group_filename = $life;
+                break;
+                
+            case '健康・美容':
+                $group->group_filename = $health;
+                break;
+                
+            case '趣味':
+                $group->group_filename = $hobby;
+                break;
+                
+            case 'その他':
+                $group->group_filename = $sonota;
+                break;
+                
+            default:
+                $group->group_filename = $sonota;
+                break;
+        }
+        
+        $group->save();
+        $user->sankagroups()->attach($group->id);
+
+        \DB::table('user_group')->where('group_id', $group->id)->where('user_id', $user->id)->update(['status'=>'2']);
+        
+       //更新してcreateが増えないようにする
+    //   return redirect('/');
+       return view('groups.show', ['group' => $group]);
     }
 }

@@ -1,4 +1,4 @@
-@extends(layouts.app)
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -12,7 +12,7 @@
       
       <div class="form-group nomform">
         <table class="table table-bordered">
-          {!! Form::open(['route' => ['groups.store', $user->id], 'files' => true]) !!}
+          {!! Form::open(['route' => ['groups.store2', $user->id], 'files' => true]) !!}
           <!--第三引数の中に'placeholder' => '○○○○'　を入れることでバックグラウンドにdescription-->
           <!--classにform-inlineをいれることで、２つのフォームを横並びにしている-->
               <tr class="create">

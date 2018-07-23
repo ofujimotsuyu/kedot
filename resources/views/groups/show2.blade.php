@@ -175,9 +175,8 @@
             ?>
             @if (($nokori2)<=-1)
                 <div class="timeuptop">
-                <h1 class="timeup">終了！お疲れさまでした！</h1>
+                    <h1 class="timeup">終了！お疲れさまでした！</h1>
                 </div>
-            
             @elseif($day==0)
                 <?php $nokori3 = $nokori2 - 1; ?>
                 <div class="nokoritoptop">
@@ -192,9 +191,9 @@
             @endif
             
             @if($tassei2 > $goalnumber)
-            <div class='ome'>
-                <h1 class='omecommnet'>目標を達成しました！おめ</h1>
-            </div>
+                <div class='ome'>
+                    <h1 class='omecommnet'>目標を達成しました！おめ</h1>
+                </div>
             @endif
 
 
@@ -202,48 +201,77 @@
         <table width="80%" align="center" rules="none" cellspacing="0">
             <h1>達成度</h1>
             <div class= "chonmagege">
+                
                 <!--グラフを作る-->
                 <?php
                 $maxlen = 0;
                 $max = 0;
-                    $data[0] = array("目標値", $group->amount);
-                    foreach ($users as $key => $user) {
-                        $id = $user->user_id;
-                        $name = App\User::find($id); 
-                        
-                        $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
-                        
-                        $tassei=0;
-                        foreach($records3 as $record) {
-                            $tassei = $tassei + $record->record;
-                        }
-                        
-                        $data[$key+1] = array($name->name, $tassei);
-                    }
-                    ?>
+                $data[0] = array("目標値", $group->amount);
+                foreach ($users as $key => $user) {
+                $id = $user->user_id;
+                $name = App\User::find($id); 
+                $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get();
+                $tassei=0;
+                
+                foreach($records3 as $record) {
+                    $tassei = $tassei + $record->record;
+                }
+                
+                $data[$key+1] = array($name->name, $tassei);
+                }
+                ?>
+                @if($group->amount)
                 <div class = "gurafu">
                     <?php
-                    if(!empty($name)){
-                        for($i = 0 ; $i < count($data) ; $i++) {
-                            if(strlen($data[$i][0]) > $maxlen) {        
-                                $maxlen = strlen($data[$i][0]);
-                            }
-                            if($data[$i][1] > $max) {           
-                                $max = $data[$i][1];
-                            }
-                        }
-                    
-                        for($i = 0 ; $i < count($data) ; $i++) {    
-                            print("<tr>");
-                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
-                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                            print("</tr>\n");
-                        }
-        
+                    //グラフに使う色
+                    $values = $data;
+                    $colorset = array('ff3b3b', 'bc3bff', '44aeff', 'aeff3b', 'ffa53b');
+                    $width   = 240;
+                    $height  = 240;
+                     
+                    $cx = round( $width / 2 );
+                    $cy = round( $height / 2 );
+                     
+                    $image = imagecreatetruecolor($width, $height);
+                     
+                    //背景
+                    $bg      = imagecolorallocate( $image, 255, 255, 255 );
+                    imagefill($image, 0, 0, $bg);
+                     
+                    list($red, $green, $blue) = parse_color($colorset[0]);
+                     
+                    rsort($values);
+                    $scale = 360 / array_sum($values);
+                    $count = count($values);
+                     
+                    $start = -90;
+                    $end = $start;
+                     
+                    foreach($values as $key => $value){
+                        list($red, $green, $blue) = parse_color( current($colorset) );
+                        $start = $end;
+                        $end = ($key === $count - 1) ? 270 : $end = $value * $scale + $start;
+                        $color = imagecolorallocate($image, $red, $green, $blue);
+                        imagefilledarc($image, $cx, $cy, $width, $height, $start, $end, $color, IMG_ARC_PIE);
+                        $res = next($colorset);
+                        if($res === false) reset($colorset);
+                    }
+                     
+                    // 画像を出力します
+                    header('Content-type: image/png');
+                    imagepng($image);
+                    imagedestroy($image);
+                     
+                    function parse_color($rgb){
+                        $res = str_split($rgb, 2);
+                        $red     = intval($res[0], 16);
+                        $green   = intval($res[1], 16);
+                        $blue    = intval($res[2], 16);
+                        return array( $red, $green, $blue );
                     }
                     ?>
                 </div>
+                @endif
             </div>
         </table>
     </div>

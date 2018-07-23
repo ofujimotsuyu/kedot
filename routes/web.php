@@ -35,11 +35,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('requests','UserController@requests')->name('user.requests');
         Route::get('select','GroupController@select')->name('groups.select');
         Route::get('createdantai','GroupController@createdantai')->name('groups.createdantai');
+        Route::post('createdantai', 'GroupController@store2')->name('groups.store2');
     });
     Route::get('search','GroupController@search')->name('groups.search');
 
     Route::group(['prefix' => 'groups/{id}'], function () {
-        Route::get('show','GroupController@show')->name('groups.show');
+        Route::get('show2','GroupController@show')->name('groups.show');
         Route::delete('delete','GroupController@destroy')->name('group.delete');
         Route::post('join', 'JoinController@store')->name('group.join');
         Route::delete('quit', 'JoinController@destroy')->name('group.quit');
