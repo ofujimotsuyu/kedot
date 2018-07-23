@@ -229,17 +229,25 @@
                             if(strlen($data[$i][0]) > $maxlen) {        
                                 $maxlen = strlen($data[$i][0]);
                             }
-                            if($data[$i][1] > $max) {           
-                                $max = $data[$i][1];
+                            if($data[$i][1] > $max) {  
+                                if($data[$i][1] > $group->amount){
+                                    $max = $group->amount;
+                                }else{
+                                    $max = $data[$i][1];
+                                }
                             }
                         }
-                    
+                        
                         for($i = 0 ; $i < count($data) ; $i++) {    
-                            print("<tr>");
-                            printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
-                            printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
-                            printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
-                            print("</tr>\n");
+                                print("<tr>");
+                                printf("<td class = \"bab\"  align=\"left\">%s</td>", $data[$i][0]);
+                            if($data[$i][1] > $max){
+                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", 100);
+                            }else{
+                                printf("<td><hr color=\"white\" align=\"left\" width=\"%d%%\"></td>", $data[$i][1] / $max * 100);
+                            }
+                                printf("<td width=\"%d\">%d</td>", strlen($max) * 10, $data[$i][1]);
+                                print("</tr>\n");
                         }
         
                     }
