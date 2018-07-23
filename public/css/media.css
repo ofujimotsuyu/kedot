@@ -45,7 +45,7 @@
     }
     
     .form-group .quarter-form{
-    width:32% ;
+    width:25% ;
     }
     
     .form-group .small-form{
@@ -60,8 +60,6 @@
     .form-group p {
     margin: 0;
     font-size: 10px;
-    
-    height: 34px;
     padding: 4px !important;
     }
     
@@ -353,19 +351,12 @@
   .groupbtn .btn{
     border: solid 1px black !important;
     background: transparent;
-    width: 32% !important;
     color: black;
-    float: left;
-    margin-right: 6px;
   }
   
   .groupbtn .btn:hover{
    background-color: #5cb85c;
    color: white;
-  }
-  
-  .groupbtn{
-    width: 100%;
   }
   
   .minamidesu{
