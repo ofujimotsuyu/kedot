@@ -11,10 +11,10 @@
                 	<a class="Abutton" href="#popup1">How to use kedot</a>
                 </div>
             
-               <div class="jitsukanako">
-                   <ul class="jitsu nav nav-pills nav-justified">
-                       <li class = "allgroup"><a href="{{ route('groups.index',['id' => \Auth::user()->id]) }}">all group</a></li>
-                       <li class ="mygroup"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+               <div class="groupscss">
+                   <ul class="groups nav nav-pills nav-justified">
+                       <li class = "allgrouppp"><a href="{{ route('groups.index',['id' => \Auth::user()->id]) }}">all group</a></li>
+                       <li class ="mygroupsss"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
                    </ul>
                </div> 
            
