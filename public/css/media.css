@@ -503,4 +503,67 @@
     padding-top: 0;
     margin: 0;
   }
+  
+  
+  .nav-pills.nav-justified>li.aaa>a{
+  background-color: orange;
+  color: white;
+  width: 104px;
+  padding: 0;
+}
+ .nav-pills.nav-justified>li.ccc>a{
+  background-color: #5cb85c !important;
+  color: white;
+  width: 104px;
+  padding: 0;
+}
+
+ .nav-pills.nav-justified>li.bbb>a{
+  background-color: skyblue;
+  color: white;
+  width: 104px;
+  padding: 0;
+}
+
+ .nav-pills>li>a{
+  border-radius: 0;
+}
+
+
+ .aho li{
+  padding: 0 !important; 
+}
+
+ .baka{
+  text-align:center;
+}
+
+ .nav-justified>li>a{
+  margin-bottom: 0;
+}
+  
+  .aho li{
+  margin: 0 !important;
+}
+
+.nav-justified>li{
+  float: left !important;
+  
+}
+
+.aho a{
+  font-size: 13px !important;
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+  margin: 0 !important;
+}
+
+.aho span{
+  font-size: 13px !important;
+}
+
+.ccc{
+  margin-left: .01px !important;
+}
+
 } 
