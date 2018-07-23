@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="ramunoue">
-            @include('commons.error_messages')
         <div class="ramu">
+            @include('commons.error_messages')
             <div class="ramuimg col-sm-4 col-sm-offset-1">    
                 <img src="{{url($group->group_filename)}}" alt="avatar"/><br>
             </div>
