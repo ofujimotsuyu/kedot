@@ -12,13 +12,28 @@
                     <h2 class = "ozawa col-xs-11">{{ $group->goal }}</h2>
                     <h3>@include('buttons.favorite_button', ['group' => $group])</h3>
                 </div>
-                <h3>
-                    {{"ID ： " . $group->id}}
-                    {{"　　カテゴリー　: " . $group->category}}<br>
-                    {{ "頑張ること : " . $group->to_do }}<br>
-                    {{ $group->term . "日間で" . $group->amount . $group->unit }}
-                </h3>
-
+        <table class="groupdetail table">
+            <tr class="">
+                <th class="">ID</th>
+                <td class="">{{ $group->id }}</td>
+            </tr>
+            <tr class="">
+                <th class="">カテゴリー</th>
+                <td class="">{{ $group->category }}</td>
+            </tr>
+            <tr class="">
+                <th class="">頑張ること</th>
+                <td class="">{{ $group->to_do }}</td>
+            </tr>
+            <tr class="">
+                <th class="">合計{{ $group->term }}日間で</th>
+                <td class="">{{$group->amount.$group->unit }}</td>
+            </tr>
+            <tr class="">
+                <th class=""></th>
+                <td class=""></td>
+            </tr>
+        </table>
                 <!--参加ユーザーにのみ見せる-->
                 @if(Auth::User()->is_joining($group->id))
                 @elseif(Auth::check())
@@ -60,7 +75,7 @@
                     <div class = "tasseiform">
                         <!--formつくってるよ-->
                         {!! Form::open(['route' => ['groups.store_activity', $group->id], 'files' => true]) !!}
-                            <div class="form-group  form-inline tasseiwrapper">
+                            <div class="form-group form-inline tasseiwrapper">
                                 <h4 class="aori">今日はどれぐらいやったの？</h4>
                                 {!! Form::number('score', null, ['class' => 'form-control tasseinum', 'rows' => '1','placeholder'=>'半角数字のみ', 'min'=>'0']) !!}
                                 {!! Form::submit('入力', ['class' => 'btn btn-success btn-block btn-md']) !!}

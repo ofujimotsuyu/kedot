@@ -837,9 +837,6 @@ a:hover{*/
 .pc { display: block !important; }
 .sp { display: none !important; }
 
-.tasseinum{
-  width: 60%;
-}
 
 .tassei:after{
   content: "."; 
@@ -942,8 +939,8 @@ a:hover{*/
   padding-left: 20%;
   padding-right: 20%;
 }
-
 .tasseinum{
+  width: 130px !important;
   float: left;
   font-size: 16px;
 }
@@ -1394,4 +1391,25 @@ input.form-control.tasseikaeru{
   
 .groups nav nav-pills nav-justified{
   width:100%;
+}
+
+.groupdetail{
+  width:100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.groupdetail th{
+  width:50%;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.groupdetail td{
+  width:50%;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
 }
