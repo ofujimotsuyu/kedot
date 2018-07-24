@@ -12,12 +12,10 @@
                 </div>
             
                <div class="groupscss">
-                   <div class="cssgroups">
-                       <ul class="groups nav nav-pills nav-justified">
-                           <li class = "col-xs-6 allgroup"><a href="{{ route('groups.index',['id' => \Auth::user()->id]) }}">all group</a></li>
-                           <li class ="col-xs-6 mygroups"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
-                       </ul>
-                   </div>
+                   <ul class="groups nav nav-pills nav-justified">
+                       <li class = "col-xs-6 allgrouppp"><a href="{{ route('groups.index',['id' => \Auth::user()->id]) }}">all group</a></li>
+                       <li class ="col-xs-6 mygroupsss"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+                   </ul>
                </div>
            
           <!--指定したuser_id、かつstatusが２参加中のやつをもってくる-->
