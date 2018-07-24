@@ -218,59 +218,19 @@
                 }
                 
                 $data[$key+1] = array($name->name, $tassei);
+                $data1[$key] = array('name' => $name->name, 'value' => $tassei, 'color' => 'white' );
+                    
+                print_r ($data1);
                 }
                 ?>
+                
+                <script type="text/javascript">var graphData = "<?= $data1 ?>";</script>
+                <script type="text/javascript" src="script.js"></script>
+                
                 @if($group->amount)
-                <div class = "gurafu">
-                    <?php
-                    //グラフに使う色
-                    $values = $data;
-                    $colorset = array('ff3b3b', 'bc3bff', '44aeff', 'aeff3b', 'ffa53b');
-                    $width   = 240;
-                    $height  = 240;
-                     
-                    $cx = round( $width / 2 );
-                    $cy = round( $height / 2 );
-                     
-                    $image = imagecreatetruecolor($width, $height);
-                     
-                    //背景
-                    $bg      = imagecolorallocate( $image, 255, 255, 255 );
-                    imagefill($image, 0, 0, $bg);
-                     
-                    list($red, $green, $blue) = parse_color($colorset[0]);
-                     
-                    rsort($values);
-                    $scale = 360 / array_sum($values);
-                    $count = count($values);
-                     
-                    $start = -90;
-                    $end = $start;
-                     
-                    foreach($values as $key => $value){
-                        list($red, $green, $blue) = parse_color( current($colorset) );
-                        $start = $end;
-                        $end = ($key === $count - 1) ? 270 : $end = $value * $scale + $start;
-                        $color = imagecolorallocate($image, $red, $green, $blue);
-                        imagefilledarc($image, $cx, $cy, $width, $height, $start, $end, $color, IMG_ARC_PIE);
-                        $res = next($colorset);
-                        if($res === false) reset($colorset);
-                    }
-                     
-                    // 画像を出力します
-                    header('Content-type: image/png');
-                    imagepng($image);
-                    imagedestroy($image);
-                     
-                    function parse_color($rgb){
-                        $res = str_split($rgb, 2);
-                        $red     = intval($res[0], 16);
-                        $green   = intval($res[1], 16);
-                        $blue    = intval($res[2], 16);
-                        return array( $red, $green, $blue );
-                    }
-                    ?>
-                </div>
+                    <div class = "gurafu">
+                        <canvas id="canvas" width="500" height="500"></canvas>
+                    </div>
                 @endif
             </div>
         </table>
