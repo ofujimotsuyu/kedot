@@ -660,6 +660,7 @@ a:hover{*/
   background-color: orange;
   margin-left: 30px;
   margin-right: 30px;
+  padding-bottom: 1px;
 }
 
 .favorian{
@@ -760,12 +761,17 @@ a:hover{*/
 
 .popup {
   margin: 70px auto;
-  padding: 20px;
+  padding: 10px;
   background: #fff;
   border-radius: 5px;
   width: 75%;
   position: relative;
   transition: all 1s ease-in-out;
+  z-index: 6000000000;
+}
+
+.popup1{
+  z-index: 8000000;
 }
 
 .popup .close {
@@ -801,7 +807,7 @@ a:hover{*/
     width: 80%;
   }
   .popup{
-    width: 80%;
+    width: 85%;
   }
 }
 
