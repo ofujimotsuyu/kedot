@@ -1115,14 +1115,19 @@ a:hover{*/
    border: solid 1px #5cb85c;/*線色*/
    padding: 0.5em;/*文字周りの余白*/
    border-radius: 0.5em;/*角丸*/
-   
- }
+}
 .nav-pills.nav-justified>li.allgroup>a{
    background-color:#5cb85c;
    color:white;
    border: solid 1px #5cb85c;/*線色*/
    padding: 0.5em;/*文字周りの余白*/
    border-radius: 0.5em;/*角丸*/
+ }
+ .allgroup{
+   padding: 0;
+ }
+ .mygroups{
+   padding: 0;
  }
  
  .nav-pills.nav-justified>li.mygroups>a{
