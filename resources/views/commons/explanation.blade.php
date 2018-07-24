@@ -20,11 +20,11 @@
             </div>
             <div class="item">
                 <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
-                <img class="sp" src="{{ secure_asset("images/phone1.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei1.jpg") }}" alt="">
             </div>
             <div class="item">
                 <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
-                <img class="sp" src="{{ secure_asset("images/phone1.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei2.jpg") }}" alt="">
             </div>
             <div class="item">
                 <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
