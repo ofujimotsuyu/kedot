@@ -1,31 +1,31 @@
 // グラフで使用するデータ
-var graphData = [
-    {
-        'name': 'IE',
-        'value': 44.79,
-        'color': '#00BCF2'
-    }, {
-        'name': 'chrome',
-        'value': 36.56,
-        'color': '#4BB847'
-    }, {
-        'name': 'Firefox',
-        'value': 11.68,
-        'color': '#EA6110'
-    }, {
-        'name': 'Safari',
-        'value': 4.88,
-        'color': '#1B85F3'
-    }, {
-        'name': 'Opera',
-        'value': 1.68,
-        'color': '#EF1E1E'
-    }, {
-        'name': 'other',
-        'value': 0.41,
-        'color': '#666666'
-    }
-]
+// var graphData = [
+//     {
+//         'name': 'IE',
+//         'value': 44.79,
+//         'color': '#00BCF2'
+//     }, {
+//         'name': 'chrome',
+//         'value': 36.56,
+//         'color': '#4BB847'
+//     }, {
+//         'name': 'Firefox',
+//         'value': 11.68,
+//         'color': '#EA6110'
+//     }, {
+//         'name': 'Safari',
+//         'value': 4.88,
+//         'color': '#1B85F3'
+//     }, {
+//         'name': 'Opera',
+//         'value': 1.68,
+//         'color': '#EF1E1E'
+//     }, {
+//         'name': 'other',
+//         'value': 0.41,
+//         'color': '#666666'
+//     }
+// ]
  
 // グラフで使用している値の合計
 var total = 0;

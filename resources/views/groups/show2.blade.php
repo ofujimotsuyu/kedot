@@ -218,19 +218,20 @@
                 }
                 
                 $data[$key+1] = array($name->name, $tassei);
-                $data1[$key] = array('name' => $name->name, 'value' => $tassei, 'color' => 'white' );
-                    
-                print_r ($data1);
+                $graphdata1 = (object)['name' => $name->name, 'value' => 100, 'color' => 'white'];
+                
+                $data1[$key] = array($graphdata1);
+                    $json = json_encode($data1);
+                print_r($json);
                 }
                 ?>
-                
-                <script type="text/javascript">var graphData = "<?= $data1 ?>";</script>
-                <script type="text/javascript" src="script.js"></script>
                 
                 @if($group->amount)
                     <div class = "gurafu">
                         <canvas id="canvas" width="500" height="500"></canvas>
                     </div>
+                    <script type="text/javascript">var tmp = JSON.parse('<?php echo $json; ?>'); var graphData = tmp[0];</script>
+                    <script type="text/javascript" src="{{ asset('graph.js')}} "></script>
                 @endif
             </div>
         </table>
