@@ -162,6 +162,8 @@ body {
 
 .user_name h1{
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 /*input[type = 'text'] {*/
@@ -1242,4 +1244,16 @@ input.form-control.tasseikaeru{
 .myrequest a:hover{
   color: blue;
   font-weight: bold;
+}
+
+.tasseiphoto img{
+  padding-bottom: 30px;
+}
+
+.tasseiphoto p{
+  top: 45%;
+}
+
+.doji p{
+  margin: 0 0 0 0px;
 }
