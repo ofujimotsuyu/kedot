@@ -15,12 +15,13 @@ class UserController extends Controller
         $user = User::find($id);
         // User.phpのsankagroups function()を使ってその人の参加してるグループの情報を持ってくる
         $sankagroups = $user->sankagroups()->paginate(5);
-      
+        $admitdatas = \DB::table('admitnotifications')->where('user_id', $id)->where('read','0')->get();
       
       //show.blade.phpの$userと$groupsに、$userと$sankagroupsをそれぞれ送る
           $data = [
             'user' => $user,
             'groups' => $sankagroups,
+            'admitdatas' => $admitdatas,
         ];
 
         return view('users.show', $data );
