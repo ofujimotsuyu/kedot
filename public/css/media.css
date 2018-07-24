@@ -255,7 +255,7 @@
   .favos{
     background-color: orange;
     margin: 0;
-    padding-bottom: 0px;
+    padding-bottom: 1px;
   }
   
   .each_request th{
@@ -512,21 +512,18 @@
   .nav-pills.nav-justified>li.aaa>a{
   background-color: orange;
   color: white;
-  width: 104px;
-  padding: 0;
+  padding: 5px 0;
 }
  .nav-pills.nav-justified>li.ccc>a{
   background-color: #5cb85c !important;
   color: white;
-  width: 104px;
-  padding: 0;
+  padding: 5px 0;
 }
 
  .nav-pills.nav-justified>li.bbb>a{
   background-color: skyblue;
   color: white;
-  width: 104px;
-  padding: 0;
+  padding: 5px 0;
 }
 
  .nav-pills>li>a{
