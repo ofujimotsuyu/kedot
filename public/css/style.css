@@ -103,7 +103,10 @@ body {
   width: 191px;
   filter:brightness(70%);
 }
-
+.groupscss{
+  width:100%;
+  text-align: center;
+}
 
 .each_group{
   display: inline-block;
@@ -276,6 +279,7 @@ input[type= 'submit'] {
 .form-group p {
     padding: 2px;
     margin-top: 4px;
+    height: 34px;
     font-size: 15.6px;
     color:black;
 }
@@ -1105,6 +1109,14 @@ a:hover{*/
  .jitsukanako{
     text-align: center;
  }
+ 
+ .nav-pills.nav-justified>li.welcomemygroup>a{
+     color:#5cb85c;
+   border: solid 1px #5cb85c;/*線色*/
+   padding: 0.5em;/*文字周りの余白*/
+   border-radius: 0.5em;/*角丸*/
+   
+ }
 .nav-pills.nav-justified>li.allgroup>a{
    background-color:#5cb85c;
    color:white;
@@ -1242,7 +1254,6 @@ input.form-control.tasseikaeru{
   border: 1px solid red !important;
   background-color: red !important;
   color: white !important;
-}
 
 .myrequest a:hover{
   color: blue;
@@ -1251,4 +1262,15 @@ input.form-control.tasseikaeru{
 
 .nokori2 {
     font-size: 80px;
+}
+
+.groupscss{
+  text-align: center;
+}
+
+.groupcss{
+  width:100%;
+}
+.groups nav nav-pills nav-justified{
+  width:100%;
 }
