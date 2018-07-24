@@ -73,7 +73,9 @@
                         ?>
                             @if( $tassei >= $goalnumber )
                                 <div class = "each_group">
-                                    <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
+                                    <div class="tasseiphoto">
+                                        <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
+                                    </div>
                                 </div>
                             @endif
                     @endforeach
