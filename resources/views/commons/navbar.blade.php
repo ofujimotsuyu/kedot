@@ -253,9 +253,7 @@ ul {
 }
 
 .jitsu{
-    float: right;
     padding-top: 15px;
-    padding-left: 27px
 }
 
 .head{

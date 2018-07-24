@@ -32,8 +32,8 @@
                    <div class="groupscss">
                        <div class="cssgroups">
                            <ul class="jitsu nav nav-pills nav-justified">
-                               <li class = "allgroup"><a href='#'>all group</a></li>
-                               <li class ="welcomemygroup"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+                               <li class = "col-xs-6 allgroup"><a href='#'>all group</a></li>
+                               <li class ="col-xs-6 mygroups"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
                            </ul>
                         </div>
                    </div>
