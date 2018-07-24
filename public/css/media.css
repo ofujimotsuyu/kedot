@@ -211,9 +211,9 @@
       width: 100px;
     }
     
-    .groups{
-      padding-left: 7px;
-    }
+    /*.groups{*/
+    /*  padding-left: 7px;*/
+    /*}*/
     
     .form-group{
       margin-left:5px;
@@ -573,6 +573,31 @@
 
 .du h4{
   font-size: 13px;
+}
+
+.tasseiphoto {
+  width: 110px;
+}
+
+.tasseiphoto p{ 
+  width: 100%;
+}
+
+.tasseiphoto img{
+  width: 94% !important;
+}
+
+.tasseigroups{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.tasseisuu h2{
+  font-size: 24px;
+}
+
+.tasseisuu h1{
+  font-size: 60px;
 }
 
 } 
