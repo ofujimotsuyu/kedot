@@ -122,6 +122,7 @@ return [
     'category'=>'カテゴリー',
     'record'=>'達成数',
     'score'=>'達成数',
+    'iine'=>'褒め言葉',
     ],
 
 ];

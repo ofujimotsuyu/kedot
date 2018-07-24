@@ -10,8 +10,8 @@
                       $name = App\User::find($hometa_id)->name; 
                       $photo = DB::table('users')->where('id', $hometa_id)->value('avatar_filename');?>
             <tr class="each_iine">
-                <th class="minami"><a href="{{ route('users.show', ['id' => $hometa_id] ) }}"><img src="{{ url($photo)}}" alt="avatar" /><p class='btn button-primary'>{{$name}}</p></a></th>
-                <td>{{ $homerareta->iine }}</td>
+                <th class="iiname"><a href="{{ route('users.show', ['id' => $hometa_id] ) }}"><img src="{{ url($photo)}}" alt="avatar" /><p class='btn button-primary'>{{$name}}</p></a></th>
+                <td class="homeword"><p>{{ $homerareta->iine }}</p></td>
             </tr>
             @endforeach
         </table>

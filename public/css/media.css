@@ -514,68 +514,109 @@
   color: white;
   width: 104px;
   padding: 0;
-}
+  }
  .nav-pills.nav-justified>li.ccc>a{
   background-color: #5cb85c !important;
   color: white;
   width: 104px;
   padding: 0;
-}
+  }
 
  .nav-pills.nav-justified>li.bbb>a{
   background-color: skyblue;
   color: white;
   width: 104px;
   padding: 0;
-}
+  }
 
  .nav-pills>li>a{
   border-radius: 0;
-}
+  }
 
 
  .aho li{
   padding: 0 !important; 
-}
+  }
 
- .baka{
+  .baka{
   text-align:center;
-}
+  }
 
  .nav-justified>li>a{
   margin-bottom: 0;
-}
+  }
   
   .aho li{
   margin: 0 !important;
-}
+  }
 
-.nav-justified>li{
+  .nav-justified>li{
   float: left !important;
   
-}
+  }
 
-.aho a{
+  .aho a{
   font-size: 13px !important;
   padding-top: 5px !important;
   padding-bottom: 5px !important;
   margin: 0 !important;
-}
+  }
 
-.aho span{
-  font-size: 13px !important;
-}
-
-.ccc{
-  margin-left: .01px !important;
-}
-
-.xxx h2{
-  font-size: 20px;
-}
-
-.du h4{
-  font-size: 13px;
-}
+  .aho span{
+    font-size: 13px !important;
+  }
+  
+  .ccc{
+    margin-left: .01px !important;
+  }
+  
+  .xxx h2{
+    font-size: 20px;
+  }
+  
+  .du h4{
+    font-size: 13px;
+  }
+  
+  .userhomeru{
+    width:100%;
+  }
+  
+  .userhomeru p{
+    width:100%;
+    font-size: 13px;
+  }
+  
+  .userhomeru input[type= 'submit'] {
+    width:30%;
+    font-size: 13px;
+  }
+  
+  .userhomeru input[type = 'text'] {
+    width: 50%;
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .sankashiteru input[type= 'submit'] {
+    width:100%;
+    font-size: 13px;
+  }
+  
+  .sankashiteru input[type = 'text'] {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .homeyou p{
+    width:100%;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .homeyou{
+    height: 100px;
+  }
 
 } 
