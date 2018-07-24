@@ -1,8 +1,9 @@
 @if (Auth::User()->id != $user_id)
     <?php $homering = \DB::table('homerus')->where('user_id', Auth::User()->id)->where('homerare_id',$user_id)->get(); ?>
     @if (count($homering)>0)
-        <?php $homekotoba = \DB::table('homerus')->where('user_id', Auth::User()->id)->where('homerare_id', $user_id)->value('iine'); ?>
-        <p>{{ $user->name.'さんに'.'「'.$homekotoba.'」と褒めました。' }}</p>
+        <?php $homekotoba = \DB::table('homerus')->where('user_id', Auth::User()->id)->where('homerare_id', $user_id)->value('iine'); 
+              $name = \DB::table('users')->where('id', $user_id)->value('name')?>
+        <p>{{ $name.'さんに'.'「'.$homekotoba.'」と褒めました。' }}</p>
         {!! Form::open(['route' => ['user.unhomeru', $user_id], 'method' => 'delete']) !!}
             {!! Form::submit('Unhomeru', ['class' => "btn btn-danger btn-block"]) !!}
         {!! Form::close() !!}

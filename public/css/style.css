@@ -1266,7 +1266,43 @@ input.form-control.tasseikaeru{
 .userhomeru input[type= 'submit'] {
   width:20%;
 }
+
 .userhomeru input[type = 'text'] {
   width: 50%;
   text-align: center;
+}
+
+.sankashiteru input[type= 'submit'] {
+  width:200px;
+}
+
+.sankashiteru input[type = 'text'] {
+  width: 200px;
+  text-align: center;
+}
+
+.sanakshiteru p{
+  width:100%;
+}
+
+.sankashiteru a{
+  color: black;
+}
+
+.sankashiteru a:hover{
+  color: #5cb85c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sankashiteru img:hover{
+  filter:brightness(120%);
+}
+
+.eachsanka{
+  height: 102px;
+}
+
+.homeyou{
+  height: 70px;
 }
