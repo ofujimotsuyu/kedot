@@ -25,17 +25,19 @@
     <div class="">
         <div class="">
             <!--きりんとかのプロフィール画像を画面の中央に表示-->
-            <div>
+            <div class="doji" align="center">
             <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>
             <div class="user_name"> 
                 <h1>{{ $user->name }}</h1>
+                <div class="userhomeru" align="center">
                 @include('buttons.homeru_button',['user_id'=>$user->id])
+                </div>
             </div>
             
             <div class = "baka">
                 <ul class="aho nav nav-pills nav-justified">
                     <li class = "col-xs-4 ccc {{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px"></span> 参加グループ</a></li>
-                    <li class = "col-xs-4 aaa mypage tab"><a href="{{ route('user.favoritings' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> お気に入り</a></li>
+                    <li class = "col-xs-4 aaa mypage tab"><a href="{{ route('user.favoritings' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> 気になる目標</a></li>
                     <li class = "col-xs-4 bbb mypage tab"><a href="{{ route('user.tassei', ['id'=> $user->id]) }}"><span class="glyphicon glyphicon-ok" style="font-size:20px"></span> 達成リスト</a></li>
                 </ul>
             </div>

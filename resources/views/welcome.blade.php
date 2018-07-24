@@ -29,12 +29,12 @@
                     </div>
                     
                             
-                   <div class="jitsukanako">
-                       <ul class="jitsu nav nav-pills nav-justified">
-                           <li class = "allgroup"><a href='#'>all group</a></li>
-                           <li class ="mygroup"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
-                       </ul>
-                   </div>
+                   <div class="groupscss">
+                        <ul class="groups nav nav-pills nav-justified">
+                            <li class ="col-xs-6 allgroup"><a href="{{ route('groups.index' , ['id' => \Auth::user()->id] ) }}">all group</a></li>
+                            <li class ="col-xs-6 mygroups"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+                        </ul>
+                    </div>
            
                     <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
                     <div class = "groups">
@@ -51,7 +51,7 @@
             </div>
         </div>
         
-        <div id="popup1" class="overlay">
+        <div id="popup1" class="overlay" style="z-index: 8000">
         	<div class="popup">
         		<div class="content">
             		<a class="close" href="#">CLOSE</a>

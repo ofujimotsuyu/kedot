@@ -103,7 +103,10 @@ body {
   width: 191px;
   filter:brightness(70%);
 }
-
+.groupscss{
+  width:100%;
+  text-align: center;
+}
 
 .each_group{
   display: inline-block;
@@ -162,6 +165,8 @@ body {
 
 .user_name h1{
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
 /*input[type = 'text'] {*/
@@ -223,7 +228,6 @@ input[type= 'submit'] {
   width: 100%;
   text-align: center;
   margin: auto;
-  height: 100px;
 }
 
 .tasseiform .form-group{
@@ -276,6 +280,7 @@ input[type= 'submit'] {
 .form-group p {
     padding: 2px;
     margin-top: 4px;
+    height: 34px;
     font-size: 15.6px;
     color:black;
 }
@@ -441,7 +446,7 @@ font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体
   background: linear-gradient(transparent 80%, white 80%);
   display: inline-block;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .chonmagege{
@@ -459,7 +464,7 @@ font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体
   display: inline-block;
   font-size: 40px;  
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 hr{
@@ -486,6 +491,7 @@ footer{
     padding-bottom: 20px;   /*文字下部の余白指定*/
     background-color: #5cb85c;  /*背景色の指定*/
 }
+
 footer address{
     color: #fff;    /*文字色の指定*/
     margin-bottom: 0;
@@ -592,6 +598,7 @@ footer address{
   height: 34px;
   padding: 5.5px 0;
 }
+
 /*.nav-pills>li.ccc>a, .nav-pills>li.ccc>a:focus, .nav-pills>li.ccc
 a:hover{*/
 /*  background-color: #5cb85c!important;*/
@@ -656,6 +663,7 @@ a:hover{*/
   background-color: orange;
   margin-left: 30px;
   margin-right: 30px;
+  padding-bottom: 1px;
 }
 
 .favorian{
@@ -756,12 +764,17 @@ a:hover{*/
 
 .popup {
   margin: 70px auto;
-  padding: 20px;
+  padding: 10px;
   background: #fff;
   border-radius: 5px;
   width: 75%;
   position: relative;
   transition: all 1s ease-in-out;
+  z-index: 6000000000;
+}
+
+.popup1{
+  z-index: 8000000;
 }
 
 .popup .close {
@@ -797,7 +810,7 @@ a:hover{*/
     width: 80%;
   }
   .popup{
-    width: 80%;
+    width: 85%;
   }
 }
 
@@ -823,9 +836,6 @@ a:hover{*/
 .pc { display: block !important; }
 .sp { display: none !important; }
 
-.tasseinum{
-  width: 60%;
-}
 
 .tassei:after{
   content: "."; 
@@ -928,8 +938,8 @@ a:hover{*/
   padding-left: 20%;
   padding-right: 20%;
 }
-
 .tasseinum{
+  width: 130px !important;
   float: left;
   font-size: 16px;
 }
@@ -991,6 +1001,8 @@ a:hover{*/
   text-align: center;
   font-weight: bold;
   color: orange;
+  margin-top: 50px;
+  font-size: 36px;
 }
 
 .sakujoC {
@@ -1099,6 +1111,14 @@ a:hover{*/
  .jitsukanako{
     text-align: center;
  }
+ 
+ .nav-pills.nav-justified>li.welcomemygroup>a{
+     color:#5cb85c;
+   border: solid 1px #5cb85c;/*線色*/
+   padding: 0.5em;/*文字周りの余白*/
+   border-radius: 0.5em;/*角丸*/
+   
+}
 .nav-pills.nav-justified>li.allgroup>a{
    background-color:#5cb85c;
    color:white;
@@ -1106,12 +1126,18 @@ a:hover{*/
    padding: 0.5em;/*文字周りの余白*/
    border-radius: 0.5em;/*角丸*/
  }
+ .allgroup{
+   padding: 0;
+ }
+ .mygroups{
+   padding: 0;
+ }
  
  .nav-pills.nav-justified>li.mygroups>a{
-   color:#5cb85c;
-   border: solid 1px #5cb85c;/*線色*/
-   padding: 0.5em;/*文字周りの余白*/
-   border-radius: 0.5em;/*角丸*/
+   color:#5cb85c !important;
+   border: solid 1px #5cb85c !important;/*線色*/
+   padding: 0.5em !important;/*文字周りの余白*/
+   border-radius: 0.5em !important;/*角丸*/
  }
  
   .nav-pills.nav-justified>li.allgrouppp>a{
@@ -1122,7 +1148,12 @@ a:hover{*/
  }
  
  
- 
+ .allgrouppp{
+   padding: 0;
+ }
+ .mygroupsss{
+   padding: 0;
+ }
  .nav-pills.nav-justified>li.mygroupsss>a{
    background-color:#5cb85c;
    color:white;
@@ -1243,6 +1274,145 @@ input.form-control.tasseikaeru{
   font-weight: bold;
 }
 
+.tasseiphoto img{
+  padding-bottom: 30px;
+}
+
+.tasseiphoto p{
+  top: 45%;
+}
+
+.doji p{
+  margin: 0 0 0 0px;
+}
+
+.doji img{
+  width: 150px;
+}
+
+.myiine{
+  width: 60%;
+}
+
+.each_iine th{
+  width: 20%;
+  text-align: center;
+}
+
+.iiname p{
+  font-size: 15px;
+  color: black;
+}
+
+.iiname img{
+  width: 50px;
+}
+
+.iiname p:hover{
+  color: #5cb85c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.each_iine td{
+  width: 60%;
+  color: black;
+  font-size: 15px;
+  padding: 8px !important;
+}
+
+.homeword p{
+  margin: 0;
+  height: 48.8px;
+  padding: 15px 10px;
+}
+
+.userhomeru{
+  width:50%;
+}
+
+.userhomeru p{
+  width:100%;
+}
+
+.userhomeru input[type= 'submit'] {
+  width:20%;
+}
+
+.userhomeru input[type = 'text'] {
+  width: 50%;
+  text-align: center;
+}
+
+.sankashiteru input[type= 'submit'] {
+  width:200px;
+}
+
+.sankashiteru input[type = 'text'] {
+  width: 200px;
+  text-align: center;
+}
+
+.sanakshiteru p{
+  width:100%;
+}
+
+.sankashiteru a{
+  color: black;
+}
+
+.sankashiteru a:hover{
+  color: #5cb85c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sankashiteru img:hover{
+  filter:brightness(120%);
+}
+
+.eachsanka{
+  height: 102px;
+  margin-bottom: 10px;
+}
+
+.homeyou{
+  height: 70px;
+}
+
 .nokori2 {
     font-size: 80px;
+}
+
+.groupscss{
+  text-align: center;
+}
+
+.groupcss{
+  width:100%;
+}
+  
+.groups nav nav-pills nav-justified{
+  width:100%;
+}
+
+.groupdetail{
+  width:100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.groupdetail th{
+  width:50%;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.groupdetail td{
+  width:50%;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
 }

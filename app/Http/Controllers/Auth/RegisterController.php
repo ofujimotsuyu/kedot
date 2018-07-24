@@ -75,7 +75,7 @@ class RegisterController extends Controller
         $usagi = 'images/usagi.png';
         $ushi = 'images/ushi.png';
         $zou = 'images/zou.png';
-        $yunokis = 'images/content3.jpg';
+        $yunokis = 'images/micchi.png';
 
         // Switch文で$numsの値によってavatar_filenameに格納される画像を変更
         switch($nums){

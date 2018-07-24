@@ -13,6 +13,10 @@ use App\Homeru;
 class UserHomeruController extends Controller
 {
     public function homeru(Request $request, $id){
+        $this->validate($request, [
+        'iine' => 'required|max:15',
+        ]);
+        
         $homeru = new Homeru;
         $homeru->user_id = \Auth::User()->id;
         $homeru->homerare_id = $id;
