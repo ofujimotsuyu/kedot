@@ -211,9 +211,9 @@
       width: 100px;
     }
     
-    .groups{
-      padding-left: 7px;
-    }
+    /*.groups{*/
+    /*  padding-left: 7px;*/
+    /*}*/
     
     .form-group{
       margin-left:5px;
@@ -255,7 +255,7 @@
   .favos{
     background-color: orange;
     margin: 0;
-    padding-bottom: 0px;
+    padding-bottom: 1px;
   }
   
   .each_request th{
@@ -343,6 +343,14 @@
     z-index: 1000;
     background-color: white;
     padding: 5px 10px;
+  }
+  
+  .popup{
+    margin: 30px auto;
+  }
+  
+  .popup1{
+    z-index: 8000000000;
   }
   
   .Abutton{
@@ -512,22 +520,19 @@
   .nav-pills.nav-justified>li.aaa>a{
   background-color: orange;
   color: white;
-  width: 104px;
-  padding: 0;
-  }
+  padding: 5px 0;
+}
  .nav-pills.nav-justified>li.ccc>a{
   background-color: #5cb85c !important;
   color: white;
-  width: 104px;
-  padding: 0;
-  }
+  padding: 5px 0;
+}
 
  .nav-pills.nav-justified>li.bbb>a{
   background-color: skyblue;
   color: white;
-  width: 104px;
-  padding: 0;
-  }
+  padding: 5px 0;
+}
 
  .nav-pills>li>a{
   border-radius: 0;
@@ -659,6 +664,60 @@
     margin: 0;
     height: 81.2px;
     padding: 30px 10px;  
+  }
+
+  .du h4{
+    font-size: 13px;
+  }
+  .groupscss{
+    width: 100%;
+  }
+
+  .cssgroups{
+   width: 80%;
+    margin: 0 auto;
+    max-width: 500px;
+  }
+  .groups nav nav-pills nav-justified{
+     margin-right: auto;
+    margin-left: auto;
+
+  }
+
+  .nokori2 {
+      font-size: 80px;
+  }
+  .onecomment {
+      font-size: 26px;
+  }
+
+  .tasseiphoto {
+    width: 110px;
+  }
+
+  .tasseiphoto p{ 
+    width: 100%;
+  }
+
+  .tasseiphoto img{
+    width: 94% !important;
+  }
+
+  .tasseigroups{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .tasseisuu h2{
+    font-size: 24px;
+  }
+
+  .tasseisuu h1{
+    font-size: 60px;
+  }
+
+  .drawer-menu{
+    padding: 80px 0 !important;
   }
 
 } 

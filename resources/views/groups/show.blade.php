@@ -194,7 +194,7 @@
             
             @if($tassei2 > $goalnumber)
             <div class='ome'>
-                <h1 class='omecommnet'>目標を達成しました！おめ</h1>
+                <h1 class='omecommnet'>目標達成！おめでとう</h1>
             </div>
             @endif
 
