@@ -1117,6 +1117,7 @@ a:hover{*/
    border: solid 1px #5cb85c;/*線色*/
    padding: 0.5em;/*文字周りの余白*/
    border-radius: 0.5em;/*角丸*/
+   
 }
 .nav-pills.nav-justified>li.allgroup>a{
    background-color:#5cb85c;
@@ -1133,10 +1134,10 @@ a:hover{*/
  }
  
  .nav-pills.nav-justified>li.mygroups>a{
-   color:#5cb85c;
-   border: solid 1px #5cb85c;/*線色*/
-   padding: 0.5em;/*文字周りの余白*/
-   border-radius: 0.5em;/*角丸*/
+   color:#5cb85c !important;
+   border: solid 1px #5cb85c !important;/*線色*/
+   padding: 0.5em !important;/*文字周りの余白*/
+   border-radius: 0.5em !important;/*角丸*/
  }
  
   .nav-pills.nav-justified>li.allgrouppp>a{
@@ -1147,7 +1148,12 @@ a:hover{*/
  }
  
  
- 
+ .allgrouppp{
+   padding: 0;
+ }
+ .mygroupsss{
+   padding: 0;
+ }
  .nav-pills.nav-justified>li.mygroupsss>a{
    background-color:#5cb85c;
    color:white;
