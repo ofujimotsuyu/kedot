@@ -14,7 +14,7 @@
                 </div>
         <table class="groupdetail table">
             <tr class="">
-                <th class="">ID</th>
+                <th class="">グループID</th>
                 <td class="">{{ $group->id }}</td>
             </tr>
             <tr class="">

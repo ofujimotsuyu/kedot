@@ -322,8 +322,8 @@ ul {
             <li><a href="{{ route('groups.create' ,['id'=>Auth::user()->id]) }}">グループ作成</a></li>
             <li><a href="{{ route('groups.search' ,['id'=>Auth::user()->id]) }}">検索</a></li>
             <li><a href="{{ route('user.favoritings' ,['id'=>Auth::user()->id]) }}">気になる目標</a></li>
-            <li><a href="{{ route('user.tassei' ,['id'=>Auth::user()->id]) }}">自分の達成度</a></li>
-            <li><a href="{{ route('users.homeraretas', ['id'=>Auth::user()->id]) }}">ほめてくれたひと<span class="badge" style="background:red">{{ $count_homerares }}</span></a></li>
+            <li><a href="{{ route('user.tassei' ,['id'=>Auth::user()->id]) }}">達成リスト</a></li>
+            <li><a href="{{ route('users.homeraretas', ['id'=>Auth::user()->id]) }}">お褒めの言葉<span class="badge" style="background:red">{{ $count_homerares }}</span></a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
             <li><a href="{{ route('user.requests', ['id' => Auth::User()->id]) }}">申請確認</a></li>
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>

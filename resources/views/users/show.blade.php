@@ -37,7 +37,7 @@
             <div class = "baka">
                 <ul class="aho nav nav-pills nav-justified">
                     <li class = "col-xs-4 ccc {{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-user" style="font-size:20px"></span> 参加グループ</a></li>
-                    <li class = "col-xs-4 aaa mypage tab"><a href="{{ route('user.favoritings' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> お気に入り</a></li>
+                    <li class = "col-xs-4 aaa mypage tab"><a href="{{ route('user.favoritings' , ['id' => $user->id]) }}"><span class="glyphicon glyphicon-star" style="font-size:20px"></span> 気になる目標</a></li>
                     <li class = "col-xs-4 bbb mypage tab"><a href="{{ route('user.tassei', ['id'=> $user->id]) }}"><span class="glyphicon glyphicon-ok" style="font-size:20px"></span> 達成リスト</a></li>
                 </ul>
             </div>

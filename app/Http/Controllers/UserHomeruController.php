@@ -14,7 +14,7 @@ class UserHomeruController extends Controller
 {
     public function homeru(Request $request, $id){
         $this->validate($request, [
-        'iine' => 'required',
+        'iine' => 'required|max:15',
         ]);
         
         $homeru = new Homeru;
