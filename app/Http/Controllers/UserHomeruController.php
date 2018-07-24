@@ -16,7 +16,7 @@ class UserHomeruController extends Controller
         $this->validate($request, [
         'iine' => 'required',
         ]);
-
+        
         $homeru = new Homeru;
         $homeru->user_id = \Auth::User()->id;
         $homeru->homerare_id = $id;
