@@ -194,7 +194,7 @@
             
             @if($tassei2 > $goalnumber)
             <div class='ome'>
-                <h1 class='omecommnet'>目標を達成しました！おめ</h1>
+                <h1 class='omecommnet'>目標達成！おめでとう</h1>
             </div>
             @endif
 
@@ -262,16 +262,16 @@
                 @foreach($users as $user)
                     <?php 
                     $members= $members+1;
-                
-                $id = $user->user_id;
-                $name = App\User::find($id); ?>
-                
-                <div class = "sankashiteru col-xs-4">
-                    <a href="{{ route('users.show',['id'=>$name->id])}}">
-                        <img src="{{ url($name->avatar_filename)}}" alt="avatar" />
-                    </a>
-                    <p>{{ $name->name }}</p>
+                    $id = $user->user_id;
+                    $name = App\User::find($id); ?>
+
+                <div class = "sankashiteru col-xs-4" align="center">
+                    <div class="eachsanka">
+                        <a href="{{ route('users.show',['id'=>$name->id])}}"><img src="{{ url($name->avatar_filename)}}" alt="avatar" /><p>{{ $name->name }}</p></a>
+                    </div>
+                    <div align='center' class='homeyou'>
                     @include('buttons.homeru_button',['user_id'=>$id])
+                    </div>
                 </div>
                 
                 <?php $records3 = \DB::table('activities')->where('user_id', $user->user_id)->where('group_id', $group->id)->get() ?>

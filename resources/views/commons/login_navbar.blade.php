@@ -200,7 +200,7 @@ header{
     }
 }
 
-.jitsu{
+.vvv{
     float:left;
     padding-top:13px;
     padding-left:10px;
@@ -217,9 +217,9 @@ header{
                 <li class = "nav"><h1 class="logo"><a href="/"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>            
             </div>
             <div class="navright">
-                <li class = "nav jitsu"><a href='{{ route('register') }}'>SignUp</a></li>
-                <li class = "nav jitsu"><a href='{{ route('login') }}'>Login</a></li>
-                <li class = "nav jitsu"><a href='/'>戻る</a></li>
+                <li class = "nav vvv"><a href='{{ route('register') }}'>SignUp</a></li>
+                <li class = "nav vvv"><a href='{{ route('login') }}'>Login</a></li>
+                <li class = "nav vvv"><a href='/'>戻る</a></li>
             </div>
         </ul>
     </div>

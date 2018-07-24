@@ -12,11 +12,13 @@
                 </div>
             
                <div class="groupscss">
-                   <ul class="groups nav nav-pills nav-justified">
-                       <li class = "allgrouppp"><a href="{{ route('groups.index',['id' => \Auth::user()->id]) }}">all group</a></li>
-                       <li class ="mygroupsss"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
-                   </ul>
-               </div> 
+                   <div class="cssgroups">
+                       <ul class="groups nav nav-pills nav-justified">
+                           <li class = "col-xs-6 allgroup"><a href="{{ route('groups.index',['id' => \Auth::user()->id]) }}">all group</a></li>
+                           <li class ="col-xs-6 mygroups"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+                       </ul>
+                   </div>
+               </div>
            
           <!--指定したuser_id、かつstatusが２参加中のやつをもってくる-->
               <div class = "groups">
@@ -30,7 +32,7 @@
     </div> 
 </div>
 
-<div id="popup1" class="overlay">
+<div id="popup1" class="overlay" style="z-index: 8000">
 	<div class="popup">
 		<div class="content">
     		<a class="close" href="#">CLOSE</a>

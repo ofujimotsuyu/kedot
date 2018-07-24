@@ -345,6 +345,14 @@
     padding: 5px 10px;
   }
   
+  .popup{
+    margin: 30px auto;
+  }
+  
+  .popup1{
+    z-index: 8000000000;
+  }
+  
   .Abutton{
     padding: 0 10px;
   }
@@ -528,77 +536,192 @@
 
  .nav-pills>li>a{
   border-radius: 0;
-}
+  }
 
 
  .aho li{
   padding: 0 !important; 
-}
+  }
 
- .baka{
+  .baka{
   text-align:center;
-}
+  }
 
  .nav-justified>li>a{
   margin-bottom: 0;
-}
+  }
   
   .aho li{
   margin: 0 !important;
-}
+  }
 
-.nav-justified>li{
+  .nav-justified>li{
   float: left !important;
   
-}
+  }
 
-.aho a{
+  .aho a{
   font-size: 13px !important;
   padding-top: 5px !important;
   padding-bottom: 5px !important;
   margin: 0 !important;
-}
+  }
 
-.aho span{
-  font-size: 13px !important;
-}
+  .aho span{
+    font-size: 13px !important;
+  }
+  
+  .ccc{
+    margin-left: .01px !important;
+  }
+  
+  .xxx h2{
+    font-size: 20px;
+  }
+  
+  .du h4{
+    font-size: 13px;
+  }
+  
+  .userhomeru{
+    width:100%;
+  }
+  
+  .userhomeru p{
+    width:100%;
+    font-size: 13px;
+  }
+  
+  .userhomeru input[type= 'submit'] {
+    width:30%;
+    font-size: 13px;
+  }
+  
+  .userhomeru input[type = 'text'] {
+    width: 50%;
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .sankashiteru input[type= 'submit'] {
+    width:100%;
+    font-size: 13px;
+  }
+  
+  .sankashiteru input[type = 'text'] {
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+  }
+  
+  .homeyou p{
+    width:100%;
+    font-size: 13px;
+    text-align: center;
+  }
+  
+  .homeyou{
+    height: 100px;
+  }
 
-.ccc{
-  margin-left: .01px !important;
-}
+  .homehome h2{
+    font-size: 20px;
+  }
+  
+  .myiine{
+    width: 95%;
+  }
+  
+  .each_iine th{
+    width: 10%;
+    text-align: center;
+  }
+  
+  .iiname p{
+    font-size: 13px;
+    color: black;
+  }
+  
+  .iiname img{
+    width: 50px;
+  }
+  
+  .iiname p:hover{
+    color: #5cb85c;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .each_iine td{
+    width: 60%;
+    color: black;
+    font-size: 13px;
+    padding: 8px !important;
+    height: 98px;
+  }
+  
+  .homeword p{
+    margin: 0;
+    height: 81.2px;
+    padding: 30px 10px;  
+  }
 
-.xxx h2{
-  font-size: 20px;
-}
+  .du h4{
+    font-size: 13px;
+  }
+  .groupscss{
+    width: 100%;
+  }
 
-.du h4{
-  font-size: 13px;
-}
+  .cssgroups{
+   width: 80%;
+    margin: 0 auto;
+    max-width: 500px;
+  }
+  .groups nav nav-pills nav-justified{
+     margin-right: auto;
+    margin-left: auto;
 
-.tasseiphoto {
-  width: 110px;
-}
+  }
 
 .tasseiphoto p{ 
   width: 100%;
   top: 40%;
 }
+  .nokori2 {
+      font-size: 80px;
+  }
+  .onecomment {
+      font-size: 26px;
+  }
 
-.tasseiphoto img{
-  width: 94% !important;
-}
+  .tasseiphoto {
+    width: 110px;
+  }
 
-.tasseigroups{
-  padding-left: 0px;
-  padding-right: 0px;
-}
+  .tasseiphoto p{ 
+    width: 100%;
+  }
 
-.tasseisuu h2{
-  font-size: 24px;
-}
+  .tasseiphoto img{
+    width: 94% !important;
+  }
 
-.tasseisuu h1{
-  font-size: 60px;
-}
+  .tasseigroups{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .tasseisuu h2{
+    font-size: 24px;
+  }
+
+  .tasseisuu h1{
+    font-size: 60px;
+  }
+
+  .drawer-menu{
+    padding: 80px 0 !important;
+  }
 
 } 
