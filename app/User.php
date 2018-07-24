@@ -70,7 +70,7 @@ class User extends Authenticatable
     }
     
     public function is_shinseing1($groupId){
-        return $this->sankagroups()->where('group_id', $groupId)->where('status', '1')->exists();
+        return \DB::table('user_group')->where('user_id', $this->id)->where('group_id', $groupId)->where('status', '1')->exists();
     }
     
     public function is_shinseing2($groupId){
