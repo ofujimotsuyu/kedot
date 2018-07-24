@@ -24,6 +24,20 @@
 <div class="" style="margin-top:100px">
     <div class="">
         <div class="">
+            @if(\Auth::User()->id == $user->id)
+                @if(count($admitdatas)>0)
+                @foreach($admitdatas as $admitdata)
+                    <?php
+                    $groupname = App\Group::find($admitdata->group_id)->goal; 
+                    $admitdata = \DB::table('admitnotifications')->where('id', $admitdata->id)->update(['read'=>'1']);
+                    ?>
+                    <div>
+                        <p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">{{ $groupname }}に参加承認されたよ</p>
+                    </div>
+                @endforeach
+                @endif
+            @endif
+
             <!--きりんとかのプロフィール画像を画面の中央に表示-->
             <div class="doji" align="center">
             <p style="text-align:center"><img src="{{url($user->avatar_filename)}}" alt="avatar" /></p>

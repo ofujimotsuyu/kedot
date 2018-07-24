@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Group;
 use App\User;
 use App\Activity;
+use App\Admitnotification;
 
 class JoinController extends Controller
 {
@@ -26,6 +27,15 @@ class JoinController extends Controller
     {   
         $group = Group::find($id);
         $admitwaiting = \DB::table('user_group')->where('id', $request_id)->update(['status'=>'2']);
+        $user_id = \DB::table('user_group')->where('id', $request_id)->value('user_id');
+
+        // ここで通知テーブルにいれてる
+        $admitnoti = new Admitnotification;
+        $admitnoti->user_id = $user_id;
+        $admitnoti->group_id = $id;
+        $admitnoti->read = '0';
+        $admitnoti->save();
+
         return redirect()->back();
     }
 
