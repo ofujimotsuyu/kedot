@@ -763,6 +763,11 @@ a:hover{*/
   width: 75%;
   position: relative;
   transition: all 1s ease-in-out;
+  z-index: 6000000000;
+}
+
+.popup1{
+  z-index: 8000000;
 }
 
 .popup .close {
