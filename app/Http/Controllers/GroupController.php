@@ -97,9 +97,10 @@ class GroupController extends Controller
 
         \DB::table('user_group')->where('group_id', $group->id)->where('user_id', $user->id)->update(['status'=>'2']);
         
-       //更新してcreateが増えないようにする
-    //   return redirect('/');
-       return view('groups.show', ['group' => $group]);
+       //更新してcreateが増えないようにする　リダイレクトにしないとfunction storeから販れないから何度もstoreされて更新するたびに増えてしまう（更新すると増える問題）
+       
+      return redirect()->route('groups.show', ['id' => $group->id]);
+   
     }
 
     public function show($id){
