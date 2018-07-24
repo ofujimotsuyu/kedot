@@ -176,7 +176,7 @@
             ?>
             @if (($nokori2)<=-1)
                 <div class="timeuptop">
-                <h1 class="timeup">終了！お疲れさまでした！</h1>
+                <h3 class="timeup">終了！お疲れさまでした！</h3>
                 </div>
             
             @elseif($day==0)
