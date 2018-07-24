@@ -33,7 +33,7 @@
     </div>
 </div>
 
-<div id="popup1" class="overlay">
+<div id="popup1" class="overlay" style="z-index: 8000">
 	<div class="popup">
 		<div class="content">
     		<a class="close" href="#">CLOSE</a>

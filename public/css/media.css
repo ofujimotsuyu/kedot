@@ -345,6 +345,14 @@
     padding: 5px 10px;
   }
   
+  .popup{
+    margin: 30px auto;
+  }
+  
+  .popup1{
+    z-index: 8000000000;
+  }
+  
   .Abutton{
     padding: 0 10px;
   }
