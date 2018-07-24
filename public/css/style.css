@@ -1286,6 +1286,10 @@ input.form-control.tasseikaeru{
   margin: 0 0 0 0px;
 }
 
+.doji img{
+  width: 150px;
+}
+
 .myiine{
   width: 60%;
 }
