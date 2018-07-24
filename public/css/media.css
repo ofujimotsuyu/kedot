@@ -582,6 +582,20 @@
 .du h4{
   font-size: 13px;
 }
+.groupscss{
+  width: 100%;
+}
+
+.cssgroups{
+ width: 80%;
+  margin: 0 auto;
+  max-width: 500px;
+}
+.groups nav nav-pills nav-justified{
+   margin-right: auto;
+  margin-left: auto;
+  
+}
 
 .tasseiphoto {
   width: 110px;
