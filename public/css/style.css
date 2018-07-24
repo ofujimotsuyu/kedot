@@ -490,6 +490,7 @@ footer{
     padding-bottom: 20px;   /*文字下部の余白指定*/
     background-color: #5cb85c;  /*背景色の指定*/
 }
+
 footer address{
     color: #fff;    /*文字色の指定*/
     margin-bottom: 0;
@@ -596,6 +597,7 @@ footer address{
   height: 34px;
   padding: 5.5px 0;
 }
+
 /*.nav-pills>li.ccc>a, .nav-pills>li.ccc>a:focus, .nav-pills>li.ccc
 a:hover{*/
 /*  background-color: #5cb85c!important;*/
@@ -1260,6 +1262,96 @@ input.form-control.tasseikaeru{
   font-weight: bold;
 }
 
+.myiine{
+  width: 60%;
+}
+
+.each_iine th{
+  width: 20%;
+  text-align: center;
+}
+
+.iiname p{
+  font-size: 15px;
+  color: black;
+}
+
+.iiname img{
+  width: 50px;
+}
+
+.iiname p:hover{
+  color: #5cb85c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.each_iine td{
+  width: 60%;
+  color: black;
+  font-size: 15px;
+  padding: 8px !important;
+}
+
+.homeword p{
+  margin: 0;
+  height: 48.8px;
+  padding: 15px 10px;
+}
+
+.userhomeru{
+  width:50%;
+}
+
+.userhomeru p{
+  width:100%;
+}
+
+.userhomeru input[type= 'submit'] {
+  width:20%;
+}
+
+.userhomeru input[type = 'text'] {
+  width: 50%;
+  text-align: center;
+}
+
+.sankashiteru input[type= 'submit'] {
+  width:200px;
+}
+
+.sankashiteru input[type = 'text'] {
+  width: 200px;
+  text-align: center;
+}
+
+.sanakshiteru p{
+  width:100%;
+}
+
+.sankashiteru a{
+  color: black;
+}
+
+.sankashiteru a:hover{
+  color: #5cb85c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sankashiteru img:hover{
+  filter:brightness(120%);
+}
+
+.eachsanka{
+  height: 102px;
+  margin-bottom: 10px;
+}
+
+.homeyou{
+  height: 70px;
+}
+
 .nokori2 {
     font-size: 80px;
 }
@@ -1271,6 +1363,7 @@ input.form-control.tasseikaeru{
 .groupcss{
   width:100%;
 }
+  
 .groups nav nav-pills nav-justified{
   width:100%;
 }
