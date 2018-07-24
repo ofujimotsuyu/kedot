@@ -447,7 +447,7 @@ font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体
   background: linear-gradient(transparent 80%, white 80%);
   display: inline-block;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .chonmagege{
@@ -465,7 +465,7 @@ font-family: Lato, "Noto Sans JP", "游ゴシック Medium", "游ゴシック体
   display: inline-block;
   font-size: 40px;  
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 hr{
@@ -1005,6 +1005,8 @@ a:hover{*/
   text-align: center;
   font-weight: bold;
   color: orange;
+  margin-top: 50px;
+  font-size: 36px;
 }
 
 .sakujoC {
