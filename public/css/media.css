@@ -619,4 +619,46 @@
     height: 100px;
   }
 
+  .homehome h2{
+    font-size: 20px;
+  }
+  
+  .myiine{
+    width: 95%;
+  }
+  
+  .each_iine th{
+    width: 10%;
+    text-align: center;
+  }
+  
+  .iiname p{
+    font-size: 13px;
+    color: black;
+  }
+  
+  .iiname img{
+    width: 50px;
+  }
+  
+  .iiname p:hover{
+    color: #5cb85c;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .each_iine td{
+    width: 60%;
+    color: black;
+    font-size: 13px;
+    padding: 8px !important;
+    height: 98px;
+  }
+  
+  .homeword p{
+    margin: 0;
+    height: 81.2px;
+    padding: 30px 10px;  
+  }
+
 } 

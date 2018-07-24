@@ -1249,14 +1249,22 @@ input.form-control.tasseikaeru{
 
 .each_iine th{
   width: 20%;
+  text-align: center;
 }
 
-.iiname a{
+.iiname p{
   font-size: 15px;
+  color: black;
 }
 
 .iiname img{
   width: 50px;
+}
+
+.iiname p:hover{
+  color: #5cb85c;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .each_iine td{
