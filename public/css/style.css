@@ -228,6 +228,7 @@ input[type= 'submit'] {
   width: 100%;
   text-align: center;
   margin: auto;
+  height: 100px;
 }
 
 .tasseiform .form-group{
@@ -1395,9 +1396,14 @@ input.form-control.tasseikaeru{
 .groups nav nav-pills nav-justified{
   width:100%;
 }
-
-.groupdetail{
+<<<<<<<<< saved version
+.groups nav nav-pills nav-justified{
   width:100%;
+=========
+.groups nav nav-pills nav-justified{
+  width:100%;
+}
+>>>>>>>>> local version
   margin-top: 10px;
   margin-bottom: 10px;
 }
