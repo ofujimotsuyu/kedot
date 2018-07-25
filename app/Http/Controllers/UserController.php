@@ -9,6 +9,7 @@ use App\Group;
 use App\Activity;
 use App\Homeru;
 use App\Homerunotification;
+use App\Requestnotification;
 
 class UserController extends Controller
 {
@@ -18,12 +19,14 @@ class UserController extends Controller
         $sankagroups = $user->sankagroups()->paginate(5);
         $admitdatas = \DB::table('admitnotifications')->where('user_id', $id)->where('read','0')->get();
         $homerudatas = \DB::table('homerunotifications')->where('user_id', $id)->where('read','0')->get();
+        $sankashiteru = $user->sankagroups()->get();
       //show.blade.phpの$userと$groupsに、$userと$sankagroupsをそれぞれ送る
           $data = [
             'user' => $user,
             'groups' => $sankagroups,
             'admitdatas' => $admitdatas,
             'homerudatas' => $homerudatas,
+            'sankagroups' => $sankashiteru,
         ];
 
         return view('users.show', $data );
@@ -101,5 +104,17 @@ class UserController extends Controller
         }
             
     }    
+
+    public function mygrouprequest($id)
+    {
+        $user = User::find($id);
+        $sankagroups = $user->sankagroups()->get();
+        $data = [
+            'user' => $user,
+            'groups' => $sankagroups,
+        ];
+
+        return view('users.mygrouprequest', $data);
+    }
 
 }

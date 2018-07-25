@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unhomeru','UserHomeruController@unhomeru')->name('user.unhomeru');
         Route::get('mygroup','GroupController@mygroups')->name('groups.mygroups');
         Route::get('allgroups','GroupController@allgroups')->name('groups.allgroups');
+        Route::get('mygrouprequest','UserController@mygrouprequest')->name('user.mygrouprequest');
     });
     Route::get('search','GroupController@search')->name('groups.search');
  

@@ -48,6 +48,18 @@
                 @endforeach
                 @endif
             @endif
+
+            <?php $allrequests=0; ?>            
+            @foreach($sankagroups as $group)
+                <?php 
+                $requests = \DB::table('requestnotifications')->where('group_id', $group->id)->where('read', '0')->get();
+                $allrequests = $allrequests + count($requests); ?>
+            @endforeach
+            @if($allrequests>0)
+                <div>
+                    <a href="{{ route('user.mygrouprequest', ['id'=>\Auth::User()->id]) }}"><p class="alert alert-info" role="alert" style="text-align: center; font-size: 18px; margin:0;">合計{{ $allrequests }}件のグループ申請があります</p></a>
+                </div>
+            @endif
             </div>
 
             <!--きりんとかのプロフィール画像を画面の中央に表示-->
