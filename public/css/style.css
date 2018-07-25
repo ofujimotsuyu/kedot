@@ -34,6 +34,18 @@ body {
       -webkit-background-size: cover;
       background-size: cover;
     }
+    
+    .block-one .ofuji img{
+      width: 100px;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .block-one .ofuji{
+      font-weight: bold;
+      top: 0 !important;
+      height: 50px !important;
+    }
 
 
 .toppage {

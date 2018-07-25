@@ -10,6 +10,7 @@
             <li data-target="#carousel-example-generic" data-slide-to="5"></li>
             <li data-target="#carousel-example-generic" data-slide-to="6"></li>
             <li data-target="#carousel-example-generic" data-slide-to="7"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="8"></li>
         </ol>
 
         <!-- Wrapper for slides -->
@@ -19,32 +20,36 @@
                 <img class="sp" src="{{ secure_asset("images/kedot_smaho.jpg") }}" alt="">    
             </div>
             <div class="item">
-                <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD1.jpg") }}" alt="">
                 <img class="sp" src="{{ secure_asset("images/setsumei1.jpg") }}" alt="">
             </div>
             <div class="item">
-                <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD2.jpg") }}" alt="">
                 <img class="sp" src="{{ secure_asset("images/setsumei2.jpg") }}" alt="">
             </div>
             <div class="item">
-                <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
-                <img class="sp" src="{{ secure_asset("images/phone1.jpg") }}" alt="">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD3.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei3.jpg") }}" alt="">
             </div>
             <div class="item">
-                <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
-                <img class="sp" src="{{ secure_asset("images/phone1.jpg") }}" alt="">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD4.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei4.jpg") }}" alt="">
             </div>
             <div class="item">
-                <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
-                <img class="sp" src="{{ secure_asset("images/phone1.jpg") }}" alt="">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD5.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei5.jpg") }}" alt="">
             </div>
             <div class="item">
-                <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
-                <img class="sp" src="{{ secure_asset("images/phone1.jpg") }}" alt="">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD6.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei6.jpg") }}" alt="">
             </div>
             <div class="item">
-                <img class="pc" src="{{ secure_asset("images/setsumei.png") }}" alt="">
-                <img class="sp" src="{{ secure_asset("images/phone1.jpg") }}" alt="">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD7.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei7.jpg") }}" alt="">
+            </div>
+            <div class="item">
+                <img class="pc" src="{{ secure_asset("images/setsumeiD8.jpg") }}" alt="">
+                <img class="sp" src="{{ secure_asset("images/setsumei8.jpg") }}" alt="">
             </div>
         </div>
 

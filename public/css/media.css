@@ -24,8 +24,25 @@
       height: 100%;
     }
     
-    .block-one img{
-      margin-top: 250px;
+    .block-one .kedotlogo img{
+      margin-top: 180px;
+      z-index: 1;
+    }
+    
+    .block-one .ofuji img{
+      width: 100px;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    .block-one .ofuji{
+      font-weight: bold;
+      top: 0 !important;
+      height: 50px !important;
+    }
+    
+    .login h3{
+      margin-top: 0;
     }
     
     .login{
