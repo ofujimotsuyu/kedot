@@ -29,10 +29,11 @@
                 @foreach($admitdatas as $admitdata)
                     <?php
                     $groupname = App\Group::find($admitdata->group_id)->goal; 
+                    $group_id = $admitdata->group_id;
                     $admitdata = \DB::table('admitnotifications')->where('id', $admitdata->id)->update(['read'=>'1']);
                     ?>
                     <div>
-                        <p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">{{ $groupname }}に参加承認されたよ</p>
+                        <a href="{{ route('groups.show', ['id' => $group_id]) }}"><p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">{{ $groupname }}に参加承認されたよ</p></a>
                     </div>
                 @endforeach
                 @endif
