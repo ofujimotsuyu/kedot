@@ -1131,7 +1131,7 @@ a:hover{*/
     text-align: center;
  }
  
- .nav-pills.nav-justified>li.welcomemygroup>a{
+ .nav-pills.nav-justified>li.welcomes>a{
      color:#5cb85c;
    border: solid 1px #5cb85c;/*線色*/
    padding: 0.5em;/*文字周りの余白*/
@@ -1154,6 +1154,28 @@ a:hover{*/
  
  .nav-pills.nav-justified>li.mygroups>a{
    color:#5cb85c !important;
+   background-color: white;
+   border: solid 1px #5cb85c !important;/*線色*/
+   padding: 0.5em !important;/*文字周りの余白*/
+   border-radius: 0.5em !important;/*角丸*/
+ }
+ 
+ .allgroup1{
+   padding:0;
+ }
+ .nav-pills.nav-justified>li.mygroups1>a{
+   color:white !important;
+   background-color: #5cb85c;
+   border: solid 1px #5cb85c !important;/*線色*/
+   padding: 0.5em !important;/*文字周りの余白*/
+   border-radius: 0.5em !important;/*角丸*/
+ }
+ 
+ 
+ 
+ .nav-pills.nav-justified>li.allgroup1>a{
+   color:#5cb85c !important;
+   background-color: white;
    border: solid 1px #5cb85c !important;/*線色*/
    padding: 0.5em !important;/*文字周りの余白*/
    border-radius: 0.5em !important;/*角丸*/
@@ -1165,8 +1187,13 @@ a:hover{*/
    padding: 0.5em;/*文字周りの余白*/
    border-radius: 0.5em;/*角丸*/
  }
- 
- 
+ .mygroups1{
+   padding: 0;
+   
+ }
+ .allgroups1{
+   
+ }
  .allgrouppp{
    padding: 0;
  }
@@ -1177,7 +1204,7 @@ a:hover{*/
    background-color:#5cb85c;
    color:white;
    border: solid 1px #5cb85c;/*線色*/
-   padding: 0.5em;/*文字周りの余白*/
+   padding: 0.5em;/*文周りの余白*/
    border-radius: 0.5em;/*角丸*/
  }
  

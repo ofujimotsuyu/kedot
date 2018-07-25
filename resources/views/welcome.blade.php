@@ -31,19 +31,26 @@
                             
                    <div class="groupscss">
                         <ul class="groups nav nav-pills nav-justified">
-                            <li class ="col-xs-6 allgroup"><a href="{{ route('groups.index' , ['id' => \Auth::user()->id] ) }}">all group</a></li>
-                            <li class ="col-xs-6 mygroups"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+                             <li class ="col-xs-6 mygroups1"><a href="{{ route('groups.mygroups', ['id' => \Auth::user()->id] ) }}">my group</a></li>
+                            <li class ="col-xs-6 allgroup1"><a href="{{ route('groups.index' , ['id' => \Auth::user()->id] ) }}">all group</a></li>
+                           
                         </ul>
                     </div>
-           
-                    <?php $groups =\DB::table('groups')->orderby('created_at','DESC')->paginate(18); ?>
+           <?php $groups = \Auth::User()->sankagroups()->paginate(18)?>
+                    
+                    
+                    
                     <div class = "groups">
-                        @foreach($groups as $group)
-                        <div class = "each_group">
-                            <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
-                        </div>
-                        @endforeach
-                    </div>
+              @foreach($groups as $group)
+                  <div class = "each_group">
+                  <a href="{{ route('groups.show', ['id' => $group->id]) }}"><img src="{{url($group->group_filename)}}" alt="avatar"/><p>{{ $group->goal }}</p></a>
+                  </div>
+              @endforeach
+              </div>
+                    
+                    
+                    
+                    
                     <div align="center">
                         <br>{!! $groups->render() !!}
                     </div>
