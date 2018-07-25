@@ -62,14 +62,14 @@ class JoinController extends Controller
     public function cancel($id)
     {
        $group = Group::find($id);
-       \DB::table('user_group')->where('group_id', $group->id)->where('user_id', \Auth::user()->id)->update(['status'=>'0']);
+       \DB::table('user_group')->where('group_id', $group->id)->where('user_id', \Auth::User()->id)->update(['status'=>'0']);
        return redirect()->back();
     }
     
     public function request($id)
     {
        $group = Group::find($id);
-       \DB::table('user_group')->where('group_id', $group->id)->where('user_id', \Auth::user()->id)->update(['status'=>'1']);
+       \DB::table('user_group')->where('group_id', $group->id)->where('user_id', \Auth::User()->id)->update(['status'=>'1']);
        return redirect()->back();
     }
 
