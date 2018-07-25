@@ -66,7 +66,8 @@
     @else
     <body class = 'toppage'>
         <div class = "block-one">
-            <img src="{{ secure_asset("images/kedot.png") }}">
+            <p class="kedotlogo"><img src="{{ secure_asset("images/kedot.png") }}"></p>
+            <p class="ofuji">Produced by <img src="{{ secure_asset("images/logo_ofuji.png") }}"></p>
         </div>
         
         <script>
