@@ -54,6 +54,7 @@ ul {
     color: #fff;
     -webkit-transition: all .8s;
     transition: all .8s;
+    text-decoration: none;
 }
 
 /*マウス乗せたとき*/
