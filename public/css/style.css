@@ -337,6 +337,9 @@ input[type= 'submit'] {
 
 .popopopo{
   background-color: #5cb85c;
+  background-size: 100%;
+  min-height: 100px;
+  width: 100%;
 }
 
 .ton{
@@ -660,9 +663,22 @@ a:hover{*/
 }
 
 .favos{
+  /*background-color: orange;*/
+  /*width: 100%;*/
+  /*min-height: 100px;*/
+  /*padding-left: 30px;*/
+  /*padding-right: 30px;*/
+  /*padding-bottom: 1px;*/
   background-color: orange;
-  margin-left: 30px;
-  margin-right: 30px;
+  background-size: 100%;
+  min-height: 100px;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-bottom: 1px;
 }
 
