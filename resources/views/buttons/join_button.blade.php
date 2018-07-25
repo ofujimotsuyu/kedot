@@ -13,7 +13,14 @@
         <a href="{{ route('join.request',['id' => $group->id])}}"><p class='btn btn-primary btn-ms'>参加申請</p></a>
     </div>
 @else
+    <?php $shinsei = \DB::table('user_group')->where('user_id', Auth::User()->id)->where('group_id', $group->id)->get(); ?>
+    @if($shinsei)
+    <div>
+        <a href="{{ route('join.request',['id' => $group->id])}}"><p class='btn btn-primary btn-ms'>参加申請</p></a>
+    </div>
+    @else
     {!! Form::open(['route' => ['group.join', $group->id]]) !!}
         {!! Form::submit('参加申請', ['class' => "btn btn-warning btn-ms"]) !!}
     {!! Form::close() !!}
+    @endif
 @endif
