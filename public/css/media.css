@@ -690,7 +690,7 @@
     top: 40%;
   }
   .nokori2 {
-      font-size: 80px;
+      font-size: 60px;
   }
   .onecomment {
       font-size: 26px;
@@ -725,9 +725,27 @@
     padding: 80px 0 !important;
   }
 
-  .timeup{
-    font-size: 25px !important;
-    margin-top: 15px;
+  .timeup {
+    font-size: 40px !important;
+    margin-top: 20px;
+    margin-bottom: 5px;
   }
 
+  .timedown {
+    font-size: 40px !important;
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .ome h1 {
+    font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .ome h2{
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
 } 
