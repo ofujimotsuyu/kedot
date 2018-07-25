@@ -1572,3 +1572,34 @@ input.form-control.tasseikaeru{
   margin-top: 0;
   margin-bottom: 30px;
 }
+
+.mygrouprequest{
+  width: 30% !important;
+}
+
+.mygrouprequest th{
+  width: 50% !important;
+  text-align: center;
+  font-size: 18px;
+}
+
+.mygrouprequest td{
+  width: 50% !important;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.requesttachi h2{
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.mygrouprequest a{
+  text-decoration: none;
+  color: navy;
+}
+
+.mygrouprequest a:hover{
+  color:#5cb85c;
+}

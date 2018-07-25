@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\DB;
 use App\Auth;
+use App\Requestnotification;
 
 class User extends Authenticatable
 {
@@ -46,6 +47,13 @@ class User extends Authenticatable
             // follow if not following
             $this->sankagroups()->attach($groupId);
             \DB::table('user_group')->where('group_id', $groupId)->where('user_id', \Auth::user()->id)->update(['status'=>'1']);
+            
+            $requestnoti = new Requestnotification;
+            $requestnoti->requestuser_id = \Auth::user()->id;
+            $requestnoti->group_id = $groupId;
+            $requestnoti->read = '0';
+            $requestnoti->save();
+
             return true;
         }
     }
@@ -57,7 +65,12 @@ class User extends Authenticatable
     
         if ($exist) {
             // stop following if following
-            $this->sankagroups()->detach($groupId);
+           $this->sankagroups()->detach($groupId);
+           
+           $requestnoti_id = \DB::table('requestnotifications')->where('group_id', $groupId)->where('requestuser_id', \Auth::User()->id)->value('id');
+           $requestnoti = Requestnotification::find($requestnoti_id);
+           $requestnoti->delete();
+            
             return true;
         } else {
             // do nothing if not following
