@@ -678,16 +678,17 @@
     margin: 0 auto;
     max-width: 500px;
   }
+  
   .groups nav nav-pills nav-justified{
      margin-right: auto;
     margin-left: auto;
 
   }
 
-.tasseiphoto p{ 
-  width: 100%;
-  top: 40%;
-}
+  .tasseiphoto p{ 
+    width: 100%;
+    top: 40%;
+  }
   .nokori2 {
       font-size: 80px;
   }
