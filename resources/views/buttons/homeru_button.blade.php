@@ -3,7 +3,8 @@
     @if (count($homering)>0)
         <?php $homekotoba = \DB::table('homerus')->where('user_id', Auth::User()->id)->where('homerare_id', $user_id)->value('iine'); 
               $name = \DB::table('users')->where('id', $user_id)->value('name')?>
-        <p>{{ $name.'さんに'.'「'.$homekotoba.'」と褒めました。' }}</p>
+        <p class="pc">{{ $name.'さんに'.'「'.$homekotoba.'」と褒めました。' }}</p>
+        <p class="sp">{{ $name.'さんを褒めました。'}}</p>
         {!! Form::open(['route' => ['user.unhomeru', $user_id], 'method' => 'delete']) !!}
             {!! Form::submit('取り下げ', ['class' => "btn btn-danger btn-block"]) !!}
         {!! Form::close() !!}
