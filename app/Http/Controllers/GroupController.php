@@ -15,7 +15,7 @@ use App\Activity;
 class GroupController extends Controller
 {
     public function index(){
-         return view('groups.mygroups');
+         return view('groups.groups');
     }
 
     public function create(){
