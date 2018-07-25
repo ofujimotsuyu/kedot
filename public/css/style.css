@@ -123,8 +123,8 @@ body {
 
 .each_group p{
   color: white;
-  width: 191px;
-  top: 50%;
+  width: 100%;
+  top: 45%;
   position: absolute;
   font-weight: bold;
   margin-bottom: 0px;
