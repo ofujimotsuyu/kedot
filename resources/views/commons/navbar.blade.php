@@ -301,9 +301,7 @@ ul {
 }
     
     </style>
-    <?php $homerares = \DB::table('homerus')->where('homerare_id', \Auth::User()->id)->get(); 
-          $count_homerares = count($homerares) ?>
-    
+
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
@@ -323,7 +321,7 @@ ul {
             <li><a href="{{ route('groups.search' ,['id'=>Auth::user()->id]) }}">検索</a></li>
             <li><a href="{{ route('user.favoritings' ,['id'=>Auth::user()->id]) }}">気になる目標</a></li>
             <li><a href="{{ route('user.tassei' ,['id'=>Auth::user()->id]) }}">達成リスト</a></li>
-            <li><a href="{{ route('users.homeraretas', ['id'=>Auth::user()->id]) }}">お褒めの言葉@if($count_homerares>0)<span class="badge" style="background:red">{{ $count_homerares }}</span>@endif</a></li>
+            <li><a href="{{ route('users.homeraretas', ['id'=>Auth::user()->id]) }}">お褒めの言葉</a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
             <li><a href="{{ route('user.requests', ['id' => Auth::User()->id]) }}">申請確認</a></li>
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>

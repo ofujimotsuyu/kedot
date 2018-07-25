@@ -9,6 +9,7 @@ use App\User;
 use App\Group;
 use App\Activity;
 use App\Homeru;
+use App\Homerunotification;
 
 class UserHomeruController extends Controller
 {
@@ -22,6 +23,13 @@ class UserHomeruController extends Controller
         $homeru->homerare_id = $id;
         $homeru->iine = $request->iine;
         $homeru->save();
+
+        $homenoti = new Homerunotification;
+        $homenoti->user_id = $id;
+        $homenoti->hometa_id = \Auth::User()->id;
+        $homenoti->read = '0';
+        $homenoti->save();
+        
         return redirect()->back();
     }
     
@@ -29,6 +37,11 @@ class UserHomeruController extends Controller
         $homeru_id = \DB::table('homerus')->where('user_id', \Auth::User()->id)->where('homerare_id', $id)->value('id');
         $homeru = Homeru::find($homeru_id); 
         $homeru->delete();
+        
+        $noti_id = \DB::table('homerunotifications')->where('hometa_id', \Auth::User()->id)->where('user_id', $id)->value('id');
+        $homenoti = Homerunotification::find($noti_id);
+        $homenoti->delete();
+        
         return redirect()->back();
     }
 
