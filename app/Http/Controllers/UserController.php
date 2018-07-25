@@ -8,6 +8,7 @@ use App\User;
 use App\Group;
 use App\Activity;
 use App\Homeru;
+use App\Homenotification;
 
 class UserController extends Controller
 {
@@ -16,12 +17,13 @@ class UserController extends Controller
         // User.phpのsankagroups function()を使ってその人の参加してるグループの情報を持ってくる
         $sankagroups = $user->sankagroups()->paginate(5);
         $admitdatas = \DB::table('admitnotifications')->where('user_id', $id)->where('read','0')->get();
-      
+        $homerudatas = \DB::table('homerunotifications')->where('user_id', $id)->where('read','0')->get();
       //show.blade.phpの$userと$groupsに、$userと$sankagroupsをそれぞれ送る
           $data = [
             'user' => $user,
             'groups' => $sankagroups,
             'admitdatas' => $admitdatas,
+            'homerudatas' => $homerudatas,
         ];
 
         return view('users.show', $data );
@@ -90,17 +92,14 @@ class UserController extends Controller
     public function homeraretas($id)
     {   
         if(\Auth::User()->id==$id){
-        $homeraretas = \DB::table('homerus')->where('homerare_id', $id)->get();
+            $homerudatas = \DB::table('homerunotifications')->where('user_id', $id)->where('read','0')->get();
 
-        return view('users.homeraretas')->with('homeraretas', $homeraretas);
+            return view('users.homeraretas', ['homerudatas' => $homerudatas]);
         }
         else{
             return redirect('/');
         }
             
-        }    
+    }    
 
-
-    
-    
 }

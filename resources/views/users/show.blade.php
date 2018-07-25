@@ -36,6 +36,15 @@
                     </div>
                 @endforeach
                 @endif
+
+                @if(count($homerudatas)>0)
+                @foreach($homerudatas as $homerudata)
+                    <?php $username = App\User::find($homerudata->hometa_id)->name; ?>
+                    <div>
+                        <a href="{{ route('users.homeraretas', ['id'=>Auth::User()->id]) }}"><p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">{{ $username }}に褒められたよ</p></a>
+                    </div>
+                @endforeach
+                @endif
             @endif
 
             <!--きりんとかのプロフィール画像を画面の中央に表示-->
