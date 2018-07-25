@@ -25,7 +25,7 @@
               <span>a</span>
               <span>t</span>
               <span>u</span>
-              <span>r</span>
+              <span>l</span>
               <span>a</span>
               <span>t</span>
               <span>i</span>

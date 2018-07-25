@@ -1560,7 +1560,7 @@ input.form-control.tasseikaeru{
   color:white;
   margin-top: 30px;
   margin-bottom: 5px;
-  font-family: 'segoe script';
+  font-family: 'segoe script' , 'Noteworthy';
   font-weight: bold;
   margin-bottom: 20px;
   text-shadow: 1px 1px 2px black;
