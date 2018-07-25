@@ -22,7 +22,7 @@
             <tr class='each_request'>
                 <th class="minami"><a href="{{ route('users.show', ['id' => $admitwaiting->user_id] ) }}"><img src="{{ url($photo)}}" alt="avatar" /><p class='btn button-primary'>{{$name}}</p></a></th>
                 <td><a href="{{ route('join.admit', ['id' => $group->id ,'request_id' => $admitwaiting->id ] ) }}"><p class='btn btn-success'>許可</p></a>
-                <a href="{{ route('join.cancel',['id' => $group->id ,'request_id' => $admitwaiting->id ])}}"><p class='btn btn-default'>削除</p></a></td>
+                <a href="{{ route('join.decline',['id' => $group->id ,'request_id' => $admitwaiting->id ])}}"><p class='btn btn-default'>拒否</p></a></td>
             </tr>  
             
             @endforeach
