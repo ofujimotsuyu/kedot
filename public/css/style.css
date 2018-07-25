@@ -1284,7 +1284,7 @@ input.form-control.tasseikaeru{
 }
 
 .doji p{
-  margin: 0 0 0 0px;
+  margin: 10 0 0 0px;
 }
 
 .doji img{
@@ -1396,7 +1396,7 @@ input.form-control.tasseikaeru{
 .groups nav nav-pills nav-justified{
   width:100%;
 }
-<<<<<<<<< saved version
+
 .groups nav nav-pills nav-justified{
   width:100%;
 =========
@@ -1420,5 +1420,14 @@ input.form-control.tasseikaeru{
   text-align: center;
   font-size: 18px;
   color: white;
+  font-weight: bold;
+}
+
+.notifications a{
+  text-decoration: none;
+}
+
+.notifications a:hover{
+  text-decoration: none;
   font-weight: bold;
 }

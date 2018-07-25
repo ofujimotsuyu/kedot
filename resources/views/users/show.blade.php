@@ -21,9 +21,10 @@
 </head>
 
 @section("content")
-<div class="" style="margin-top:100px">
+<div class="" style="margin-top:65px">
     <div class="">
         <div class="">
+            <div class="notifications">
             @if(\Auth::User()->id == $user->id)
                 @if(count($admitdatas)>0)
                 @foreach($admitdatas as $admitdata)
@@ -33,7 +34,7 @@
                     $admitdata = \DB::table('admitnotifications')->where('id', $admitdata->id)->update(['read'=>'1']);
                     ?>
                     <div>
-                        <a href="{{ route('groups.show', ['id' => $group_id]) }}"><p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">{{ $groupname }}に参加承認されたよ</p></a>
+                        <a href="{{ route('groups.show', ['id' => $group_id]) }}"><p class="alert alert-success" role="alert" style="text-align: center; font-size: 18px; margin:0;">{{ $groupname }}に参加承認されたよ</p></a>
                     </div>
                 @endforeach
                 @endif
@@ -42,11 +43,12 @@
                 @foreach($homerudatas as $homerudata)
                     <?php $username = App\User::find($homerudata->hometa_id)->name; ?>
                     <div>
-                        <a href="{{ route('users.homeraretas', ['id'=>Auth::User()->id]) }}"><p class="alert alert-danger" role="alert" style="text-align: center; font-size: 18px;">{{ $username }}に褒められたよ</p></a>
+                        <a href="{{ route('users.homeraretas', ['id'=>Auth::User()->id]) }}"><p class="alert alert-info" role="alert" style="text-align: center; font-size: 18px; margin:0;">{{ $username }}に褒められたよ</p></a>
                     </div>
                 @endforeach
                 @endif
             @endif
+            </div>
 
             <!--きりんとかのプロフィール画像を画面の中央に表示-->
             <div class="doji" align="center">
