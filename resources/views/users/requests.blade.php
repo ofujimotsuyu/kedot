@@ -24,10 +24,6 @@
                 <td>
                     @if($request->status == '1')
                     <p class="alert alert-success" role="alert">申請中</p>    
-                    @elseif($request->status == '2')
-                    <p class="alert alert-info" role="alert">参加中</p>
-                    @elseif($request->status == '0')
-                    <p class="alert alert-warning" role="alert">canceled</p>
                     @endif
                 </td>
             </tr>

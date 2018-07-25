@@ -63,15 +63,15 @@ class UserController extends Controller
         
         if(\Auth::User()->id==$id){
         $user = User::find($id);
-        $requests = \DB::table('user_group')->where('user_id', $id)->orderby('created_at','DESC')->paginate(10);
+        $requests = \DB::table('user_group')->where('user_id', $id)->where('status', '1')->orderby('created_at','DESC')->paginate(10);
         
         $data = [
             'user' => $user,
             'requests' => $requests,
         ];
         
-        return view('users.requests', $data);}
-        else{
+        return view('users.requests', $data);
+        }else{
             return redirect('/');
         }
     }

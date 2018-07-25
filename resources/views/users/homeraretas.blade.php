@@ -19,6 +19,8 @@
                             <td class="homeword"><p>{{ $homekotoba }}</p></td>
                         </tr>
                     @endforeach
+                @else
+                    <h3>新着のお褒めの言葉はありません。がんばったらもらえるよ。</h3>
                 @endif
         </table>
     </div>

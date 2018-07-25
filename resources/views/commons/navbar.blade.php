@@ -54,6 +54,7 @@ ul {
     color: #fff;
     -webkit-transition: all .8s;
     transition: all .8s;
+    text-decoration: none;
 }
 
 /*マウス乗せたとき*/
@@ -323,7 +324,7 @@ ul {
             <li><a href="{{ route('user.tassei' ,['id'=>Auth::user()->id]) }}">達成リスト</a></li>
             <li><a href="{{ route('users.homeraretas', ['id'=>Auth::user()->id]) }}">お褒めの言葉</a></li>
             <li><a href="{{ route('users.index') }}">USERS</a></li>
-            <li><a href="{{ route('user.requests', ['id' => Auth::User()->id]) }}">申請確認</a></li>
+            <li><a href="{{ route('user.requests', ['id' => Auth::User()->id]) }}">申請中一覧</a></li>
             <li><a href="{{ route('logout.get') }}">ログアウト</a></li>
         </ul>
     </nav>
