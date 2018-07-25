@@ -201,7 +201,7 @@
         <table width="80%" align="center" rules="none" cellspacing="0">
             <h1>達成度</h1>
             <div class= "chonmagege">
-
+                
                 <!--グラフを作る-->
                 <?php
                 $maxlen = 0;
@@ -216,19 +216,10 @@
                     
                     foreach($records3 as $record) {
                         $tassei = $tassei + $record->record;
-                    
-                    }
-                    $colors = array();
-                    for($i=0;$i>=0;$i++){
-                        $colors = 'blue';
-                        $colors = 'orange';
-                        $colors = 'green';
-                        $colors = 'gray';
-                        $colors = 'brown';
                     }
                     
                     $data[$key+1] = array($name->name, $tassei);
-                    $graphdata1 = (object)['value' => $tassei, 'color' => $colors[$key] , 'highlight' => $colors[$key], 'label' => $name->name];
+                    $graphdata1 = (object)['name' => $name->name, 'value' => $tassei, 'color' => 'white'];
                     
                     $data1[$key] = array($graphdata1);
                     $json = json_encode($data1);
@@ -238,21 +229,10 @@
                 
                 @if($group->amount)
                     <div class = "gurafu">
-                        <canvas id="graph-area"></canvas>
+                        <canvas id="canvas" width="500" height="500"></canvas>
                     </div>
-                    
-                    
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
-                    <script type="text/javascript">
-
-                    var tmp = JSON.parse('<?php echo $json; ?>'); var pieData = tmp[0]; 
-
-                    window.onload = function(){
-                    var ctx = document.getElementById("graph-area").getContext("2d");
-                    window.myPie = new Chart(ctx).Pie(pieData);
-                    }
-                
-                    </script>
+                    <script type="text/javascript">var tmp = JSON.parse('<?php echo $json; ?>'); var graphData = tmp[0];</script>
+                    <script type="text/javascript" src="{{ asset('graph.js')}} "></script>
                 @endif
             </div>
         </table>
@@ -319,8 +299,8 @@
               <div align="center" class="btnwrapper">
                   <div class="groupbtn col-xs-4">
                       <a href="{{ route('group.edit', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">編集</p></a>
-                  </div>
-                  <div class="groupbtn col-xs-4">
+                    </div>
+                    <div class="groupbtn col-xs-4">
                       <a class = "sakujobtn" href="{{ route('delete_confirm', $group->id) }}"><p class="btn" style="border:solid 1px white; width:100%">削除</p></a>
                   </div>
                   <div class="minamidesu col-xs-4">
@@ -331,8 +311,6 @@
          @endif
     @endif
     
-    
-
 </div>
 
 

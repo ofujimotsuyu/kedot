@@ -31,6 +31,7 @@
 var total = 0;
 for (var i = 0; i < graphData.length; i++) {
     total += graphData[i]['value'];
+    document.write(graphData[i]['name']);
 }
  
 window.onload = function() {
@@ -49,7 +50,7 @@ function draw() {
     var angle = -90; // 頂点から開始
  
     for (var i = 0; i < graphData.length; i++) {
-        endAngle = (360 / total) * graphData[i]['value']; // 円弧終了の角度
+        endAngle = (360 / total) * graphData[i]['value']; // 円弧終了の角度　
         ctx.fillStyle = graphData[i]['color'];
  
         var startX = Math.cos(Math.PI / 180 * (angle)) * r + centerX;
