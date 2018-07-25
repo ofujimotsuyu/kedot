@@ -57,7 +57,7 @@
             @endforeach
             @if($allrequests>0)
                 <div>
-                    <a href="{{ route('user.mygrouprequest', ['id'=>\Auth::User()->id]) }}"><p class="alert alert-info" role="alert" style="text-align: center; font-size: 18px; margin:0;">合計{{ $allrequests }}件のグループ申請があります</p></a>
+                    <a href="{{ route('user.mygrouprequest', ['id'=>\Auth::User()->id]) }}"><p class="alert alert-warning" role="alert" style="text-align: center; font-size: 18px; margin:0;">合計{{ $allrequests }}件のグループ申請があります</p></a>
                 </div>
             @endif
             </div>
