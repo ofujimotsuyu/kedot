@@ -306,7 +306,7 @@ ul {
     <input type="checkbox" class="check" id="checked">
     <div class="ahaha">
         <ul class = "head">
-            <li class = "nav"><h1 class="logo"><a href="{{ route('groups.index' , ['id' => Auth::user()->id]) }}"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
+            <li class = "nav"><h1 class="logo"><a href="{{ route('groups.mygroups' , ['id' => Auth::user()->id]) }}"><img src="{{ secure_asset("images/kedot.png") }}" style="width: 150px"></a></h1></li>
             <li class = "nav jitsu1"><a href="{{ route('groups.create' , ['id' => Auth::user()->id]) }}"><span class="glyphicon glyphicon-pencil" style="font-size:20px"></span></a></li>
             <li class = "nav jitsu2"><a href="{{ route('groups.search') }}"><span class="glyphicon glyphicon-search" style="font-size:20px"></span></a></li>
         </ul>
