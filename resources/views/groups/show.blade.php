@@ -16,10 +16,38 @@
                 }
             ?>
             @if($tassei2 >= $goalnumber)
-            <div class='ome'>
-                <h1>Congratulations!</h1>
-                <h2>あなたはこの目標を達成しました！</h2>
+            <div class="loading">
+              <span>C</span>
+              <span>o</span>
+              <span>n</span>
+              <span>g</span>
+              <span>r</span>
+              <span>a</span>
+              <span>t</span>
+              <span>u</span>
+              <span>r</span>
+              <span>a</span>
+              <span>t</span>
+              <span>i</span>
+              <span>o</span>
+              <span>n</span>
+              <span>s</span>
+              <span>!!</span><br>
+              
+              <h2>あなたはこの目標を達成しました!!</h2>
+
             </div>
+             
+            <!--<div class='ome'>-->
+            <!--    <span>Con</span>-->
+            <!--    <span>gra</span>-->
+            <!--    <span>tul</span>-->
+            <!--    <span>ati</span>-->
+            <!--    <span>ons</span>-->
+            <!--    <span>!!</span>-->
+                <!--<h1>Congratulations!</h1>-->
+            <!--    <span>あなたはこの目標を達成しました！</span>-->
+            <!--</div>-->
             @endif
             <div class="ramuimg col-sm-4 col-sm-offset-1">    
                 <img src="{{url($group->group_filename)}}" alt="avatar"/><br>
