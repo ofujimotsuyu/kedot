@@ -8,7 +8,7 @@ use App\User;
 use App\Group;
 use App\Activity;
 use App\Homeru;
-use App\Homenotification;
+use App\Homerunotification;
 
 class UserController extends Controller
 {

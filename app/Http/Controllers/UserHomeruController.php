@@ -39,7 +39,7 @@ class UserHomeruController extends Controller
         $homeru->delete();
         
         $noti_id = \DB::table('homerunotifications')->where('hometa_id', \Auth::User()->id)->where('user_id', $id)->value('id');
-        $homenoti = Homenotification::find($noti_id);
+        $homenoti = Homerunotification::find($noti_id);
         $homenoti->delete();
         
         return redirect()->back();
