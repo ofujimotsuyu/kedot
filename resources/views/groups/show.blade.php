@@ -4,6 +4,23 @@
     <div class="ramunoue">
         <div class="ramu">
             @include('commons.error_messages')
+            <?php
+                $maxlen = 0;
+                $max = 0;
+                $data[0] = array("目標値", $group->amount);
+                $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
+                $tassei2=0;
+                $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
+                foreach($records as $record) {
+                    $tassei2 = $tassei2 + $record->record;
+                }
+            ?>
+            @if($tassei2 >= $goalnumber)
+            <div class='ome'>
+                <h1>Congratulations!</h1>
+                <h2>あなたはこの目標を達成しました！</h2>
+            </div>
+            @endif
             <div class="ramuimg col-sm-4 col-sm-offset-1">    
                 <img src="{{url($group->group_filename)}}" alt="avatar"/><br>
             </div>
@@ -174,20 +191,10 @@
             $nokori2 = floor($nokori);
             ?>
 
-            <?php
-                $maxlen = 0;
-                $max = 0;
-                $data[0] = array("目標値", $group->amount);
-                $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
-                $tassei2=0;
-                $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
-                foreach($records as $record) {
-                    $tassei2 = $tassei2 + $record->record;
-                }
-            ?>
             @if (($nokori2)<=-1)
                 <div class="timeuptop">
-                <h3 class="timeup">終了！お疲れさまでした！</h3>
+                <h3 class="timeup">期間終了！</h3>
+                <h3 class="timedown">お疲れさまでした！</h3>
                 </div>
             
             @elseif($day==0)
@@ -203,14 +210,6 @@
                 </div>
             @endif
             
-            @if($tassei2 > $goalnumber)
-            <?php 
-            var_dump($tassei2);
-            exit; ?>
-            <div class='ome'>
-                <h1 class='omecommnet'>目標達成！おめでとう</h1>
-            </div>
-            @endif
 
 
 <div class="tyonmage">
