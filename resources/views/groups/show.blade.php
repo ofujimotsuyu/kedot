@@ -173,20 +173,16 @@
             $nokori = $group->term - $day;
             $nokori2 = floor($nokori);
             ?>
-            
+
             <?php
                 $maxlen = 0;
                 $max = 0;
                 $data[0] = array("目標値", $group->amount);
                 $goalnumber = \DB::table('groups')->where('id', $group->id)->value('amount');
                 $tassei2=0;
-                foreach ($users as $key => $user) {
-                   
-                    $records4 = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
-                    
-                    foreach($records4 as $record) {
-                        $tassei2 = $tassei2 + $record->record;
-                    }
+                $records = \DB::table('activities')->where('user_id', \Auth::user()->id)->where('group_id', $group->id)->get();
+                foreach($records as $record) {
+                    $tassei2 = $tassei2 + $record->record;
                 }
             ?>
             @if (($nokori2)<=-1)
@@ -208,6 +204,9 @@
             @endif
             
             @if($tassei2 > $goalnumber)
+            <?php 
+            var_dump($tassei2);
+            exit; ?>
             <div class='ome'>
                 <h1 class='omecommnet'>目標達成！おめでとう</h1>
             </div>
