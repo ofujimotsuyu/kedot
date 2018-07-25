@@ -42,11 +42,11 @@
             <div class="favos">
                 <div class="favorian">
                 <div class="groups">
-            @foreach($favorites as $favorite)
+                @foreach($favorites as $favorite)
                     <div class = "each_group">
                         <a href="{{ route('groups.show', ['id' => $favorite->id]) }}"><img src="{{url($favorite->group_filename)}}" alt="avatar"/><p>{{ $favorite->goal }}</p></a>
                     </div>
-            @endforeach
+                @endforeach
                 </div>
                 </div>
             </div>

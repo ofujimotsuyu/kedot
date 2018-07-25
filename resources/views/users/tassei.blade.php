@@ -56,7 +56,7 @@
                                 <?php $tasseisuu++ ?>
                             @endif
                     @endforeach
-                    <h2>今まで達成した数</h2>
+                    <h2>今まで達成した数</h2>   
                     <h1>{{ $tasseisuu }}</h1>
                 </div>
                 <div class="tasseigroups">
