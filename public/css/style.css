@@ -1603,3 +1603,7 @@ input.form-control.tasseikaeru{
 .mygrouprequest a:hover{
   color:#5cb85c;
 }
+.error{
+  font-weight:bold;
+  color:red;
+}

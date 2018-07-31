@@ -27,12 +27,17 @@
         
               <tr class="create">
                 <th class='col-lg-2 col-md-4 col-sm-4 col-xs-3'>やること</th>
-                <td class='col-lg-10 col-md-8 col-sm-8 col-xs-9'>{!! Form::text('to_do', old('to_do'), ['class' => 'form-control half-form', 'rows' => '1','placeholder' => '例）腹筋']) !!}</td>
+                <td class='col-lg-10 col-md-8 col-sm-8 col-xs-9'>{!! Form::text('to_do', old('to_do'), ['class' => 'form-control half-form', 'rows' => '1','placeholder' => '例）ジムに行く']) !!}</td>
               </tr>
       
               <tr class="create">
-                <th class='col-lg-2 col-md-4 col-sm-4 col-xs-3'>期間・目標値<br>・単位</th>
-                <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-9 form-inline'>{!! Form::text('term', old('term'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）20']) !!}<p class="first-form megumi">日間で</p><p class="first-form megumi">合計</p>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）500']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form first-form', 'rows' => '1','placeholder' => '回']) !!}<p class="first-from hankaku">（半角数字）</p></td>
+                <th class='col-lg-2 col-md-4 col-sm-4 col-xs-3'>期間<br><p>(半角数字)</p></th>
+                <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-9 form-inline'>{!! Form::text('term', old('term'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）20']) !!}<p class="first-form megumi">日間で</p></td>
+              </tr>
+              
+              <tr class="create">
+                <th class='col-lg-2 col-md-4 col-sm-4 col-xs-3'>目標値・単位</th>
+                <td  class='col-lg-10 col-md-8 col-sm-8 col-xs-9 form-inline'><p class="first-form megumi">合計</p>{!! Form::text('amount', old('amount'), ['class' => 'form-control quarter-form first-form', 'rows' => '1','placeholder' => '例）40']) !!}{!! Form::text('unit', old('unit'), ['class' => 'form-control small-form first-form', 'rows' => '1','placeholder' => '例) 時間']) !!}</td>
               </tr>
               
         </table>
